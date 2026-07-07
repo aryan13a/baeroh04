@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
       location: 'Northern Coast, Denmark',
       year: '2024',
       category: 'Residential / Creative Space',
-      image: 'assets/515682765_17873657493379780_5956521238110530393_n.jpg',
+      image: 'assets/unnamed (5).webp',
       description: 'In the windswept coastal landscape of Denmark, where meadow meets dune and pine bends in the coastal breeze, Shoreline Studio rests as a retreat for artistic immersion. Conceived as a space apart from yet connected to the rhythms of a family summerhouse, it balances Danish building tradition with the contemplative sensibility of Japanese architecture.',
       details: 'Designed to serve as a writing and painting studio, the space features natural oak paneling and minimal built-in furniture. A singular monumental window frames the view of the North Sea, creating a constantly shifting backdrop that reflects the seasons. Tactile materials like woven linen and textured plaster finish ensure a quiet, peaceful atmosphere that encourages concentration and creative reflection.',
       gallery: [
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
       location: 'Varberg, Sweden',
       year: '2024',
       category: 'Hospitality / Retail',
-      image: 'assets/515018580_17873657514379780_114806818264473941_n.jpg',
+      image: 'assets/unnamed (4).webp',
       description: 'Conceived as an open and atmospheric bakery in the coastal town of Varberg, Sweden, Dan Bakstudio reimagines the traditional bakery as a space where craftsmanship becomes part of the sensory experience. Rooted in the beauty of everyday rituals, it unfolds as a warm and immersive environment where materiality, movement, and atmosphere come together in harmony.',
       details: 'The interior balances raw structural concrete walls with soft sand-colored clay plaster finishes. Monolithic travertine counters host the display of artisanal baked goods, while open kitchen views invite guests to observe the baking process. Custom-curated lighting creates shadows and highlights, offering a space that feels deeply connected to the natural rhythms of day and night.',
       gallery: [
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
       location: 'Paris, France',
       year: '2025',
       category: 'Commercial / Retail',
-      image: 'assets/515375713_17873657511379780_1361309602168478996_n.jpg',
+      image: 'assets/unnamed.webp',
       description: 'Rather than a conventional retail interior, the Polène Flagship Store is conceived as an environment to be felt as much as seen – a place where material, light, and proportion come together to create a calm, tactile landscape that invites visitors to slow down, engage the senses, and experience the enduring relationship between form, hand, and material.',
       details: 'The store layout utilizes organic curves that guide visitors through a series of sculpted spaces. Local sand-colored limestone forms the monumental display tables, while high ceilings and concealed lighting mimic the softness of natural daylight. There is a deliberate emphasis on negative space, allowing the leather handbags to stand out as pieces of sculpture in a landscape of quiet luxury.',
       gallery: [
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
       location: 'Zealand, Denmark',
       year: '2023',
       category: 'Residential / Architecture',
-      image: 'assets/515903200_17873657496379780_2094141731495515911_n.jpg',
+      image: 'assets/unnamed (2).webp',
       description: 'Set in the rolling hills of Heatherhill, this private residence is designed to frame the wild seascape. Simple geometries, natural materials, and a muted color palette create a sense of quiet and security in a rugged environment.',
       details: 'The house follows the contours of the landscape, minimizing its footprint. Internally, a central fireplace divider anchors the living space. Large sliding glass doors slide completely into the walls, creating an uninterrupted transition to the outdoor terrace. The styling features warm tones, custom hemp rugs, and raw solid timber furniture, responding directly to the natural site conditions.',
       gallery: [
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
       location: 'Reykjavik, Iceland',
       year: '2024',
       category: 'Residential / Interior Styling',
-      image: 'assets/515963142_17873657523379780_8362843561450044996_n.jpg',
+      image: 'assets/unnamed (3).webp',
       description: 'A minimal, calm apartment in the center of Reykjavik. The renovation focused on clarifying the layout, bringing in light, and curating tactile materials that respond to the volcanic light of Iceland.',
       details: 'The design strategy stripped back modern additions to reveal the structural concrete columns, which are balanced with warm dark-stained oak cabinetry and soft linen textiles. Bathrooms are finished in a dark lava stone tiles, while the living areas remain bright and open. A curated selection of custom and vintage furniture gives the space a lived-in, warm, and highly personal character.',
       gallery: [
