@@ -21,10 +21,10 @@
 <body>
 
   <!-- Header -->
-  <header id="main-header">
+  <header id="main-header" class="header-transparent">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <img src="assets/logo.png" alt="Baeroh Logo">
+        <div class="logo-text">BAEROH</div>
       </a>
       <nav>
         <a href="index.html" class="active">Home</a>
@@ -33,11 +33,20 @@
         <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <button class="menu-toggle" aria-label="Toggle Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      
+      <div style="display: flex; align-items: center; gap: 30px;">
+        <button class="search-icon-btn" aria-label="Search" style="background: transparent; border: none; cursor: pointer; padding: 5px; display: flex; align-items: center; justify-content: center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -50,44 +59,47 @@
     <a href="contact.html">Contact</a>
   </div>
 
-  <!-- Hero Section with Slideshow -->
+  <!-- Hero Section with Slideshow (Norm Architects style) -->
   <div class="hero-slider">
+    <!-- Slide 1 -->
     <div class="slide active">
-      <div class="slide-bg" style="background-image: url('assets/515682765_17873657493379780_5956521238110530393_n.jpg');"></div>
+      <div class="slide-bg" style="background-image: url('assets/unnamed (1).webp');"></div>
       <div class="slide-content">
-        <span class="font-label">Interior Architecture & Design</span>
-        <h1 class="font-display-hero">We design environments for the people who inhabit them.</h1>
-        <p class="font-display-lead">Residential &bull; Workplace &bull; Hospitality &bull; Commercial</p>
-        <div class="btn-group">
-          <button class="btn btn-primary" onclick="location.href='work.html'">Explore Our Work</button>
-          <button class="btn" onclick="location.href='contact.html'">Start a Conversation</button>
-        </div>
+        <h2 class="slide-title">Dan Bakstudio</h2>
+        <p class="slide-desc">Conceived as an open and atmospheric bakery in the coastal town of Varberg, Sweden, Dan Bakstudio reimagines the traditional bakery as a space where craftsmanship becomes part of the sensory experience.</p>
       </div>
     </div>
     
+    <!-- Slide 2 -->
     <div class="slide">
-      <div class="slide-bg" style="background-image: url('assets/515018580_17873657514379780_114806818264473941_n.jpg');"></div>
+      <div class="slide-bg" style="background-image: url('assets/unnamed (4).webp');"></div>
       <div class="slide-content">
-        <span class="font-label">Our Philosophy</span>
-        <h1 class="font-display-hero">Every meaningful environment begins with understanding people.</h1>
-        <p class="font-display-lead">A lifelong study of how people live and interact with space.</p>
-        <div class="btn-group">
-          <button class="btn btn-primary" onclick="location.href='studio.html'">Our Philosophy</button>
-        </div>
+        <h2 class="slide-title">Polène Flagship Store</h2>
+        <p class="slide-desc">Rather than a conventional retail interior, the Polène Flagship Store is conceived as an environment to be felt as much as seen – a place where material, light, and proportion come together to create a calm, tactile landscape.</p>
       </div>
     </div>
     
+    <!-- Slide 3 -->
     <div class="slide">
-      <div class="slide-bg" style="background-image: url('assets/515375713_17873657511379780_1361309602168478996_n.jpg');"></div>
+      <div class="slide-bg" style="background-image: url('assets/unnamed (5).webp');"></div>
       <div class="slide-content">
-        <span class="font-label">Concept to Completion</span>
-        <h1 class="font-display-hero">Thoughtful design from concept to completion.</h1>
-        <p class="font-display-lead">Guiding every stage of your design journey with care.</p>
-        <div class="btn-group">
-          <button class="btn btn-primary" onclick="location.href='services.html'">Our Services</button>
-        </div>
+        <h2 class="slide-title">The Fjord House</h2>
+        <p class="slide-desc">Set on the shores of a quiet fjord, this residence balances simple geometries with raw, natural materials, establishing a deep connection between the indoor living space and the surrounding wild landscape.</p>
       </div>
     </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <div class="slide-bg" style="background-image: url('assets/unnamed.webp');"></div>
+      <div class="slide-content">
+        <h2 class="slide-title">Shoreline Studio</h2>
+        <p class="slide-desc">In the windswept coastal landscape of Denmark, where meadow meets dune and pine bends in the coastal breeze, Shoreline Studio rests as a retreat for artistic immersion.</p>
+      </div>
+    </div>
+    
+    <!-- Navigation Arrows -->
+    <button class="slider-arrow prev-arrow" aria-label="Previous Slide">&lt;</button>
+    <button class="slider-arrow next-arrow" aria-label="Next Slide">&gt;</button>
     
     <div class="slider-dots"></div>
   </div>

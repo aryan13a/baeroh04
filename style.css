@@ -200,20 +200,18 @@ header .header-inner {
   width: 100%;
 }
 
-header .logo {
-  display: flex;
-  align-items: center;
+.logo-text {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: var(--color-charcoal);
+  transition: color 0.4s ease;
 }
 
-header .logo img {
-  height: 24px;
-  width: auto;
-  object-fit: contain;
-  transition: transform 0.5s ease;
-}
-
-header .logo:hover img {
-  transform: scale(1.03);
+header.header-transparent .logo-text {
+  color: #ffffff;
 }
 
 header nav {
@@ -225,11 +223,16 @@ header nav a {
   position: relative;
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 10px;
+  font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.25em;
   padding: 8px 0;
   color: var(--color-charcoal);
+  transition: color 0.4s ease;
+}
+
+header.header-transparent nav a {
+  color: #ffffff;
 }
 
 header nav a::after {
@@ -251,13 +254,22 @@ header nav a.active::after {
   transform-origin: left;
 }
 
+.search-icon-btn {
+  color: var(--color-charcoal);
+  transition: color 0.4s ease;
+}
+
+header.header-transparent .search-icon-btn {
+  color: #ffffff;
+}
+
 /* Mobile Menu Toggle */
 .menu-toggle {
   display: none;
   flex-direction: column;
   justify-content: space-between;
   width: 24px;
-  height: 16px;
+  height: 14px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -269,6 +281,10 @@ header nav a.active::after {
   height: 1px;
   background-color: var(--color-charcoal);
   transition: all 0.3s ease;
+}
+
+header.header-transparent .menu-toggle span {
+  background-color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -319,7 +335,7 @@ header nav a.active::after {
 }
 
 .menu-toggle.active span:nth-child(1) {
-  transform: translateY(7.5px) rotate(45deg);
+  transform: translateY(6.5px) rotate(45deg);
 }
 
 .menu-toggle.active span:nth-child(2) {
@@ -327,16 +343,16 @@ header nav a.active::after {
 }
 
 .menu-toggle.active span:nth-child(3) {
-  transform: translateY(-7.5px) rotate(-45deg);
+  transform: translateY(-6.5px) rotate(-45deg);
 }
 
-/* Hero Section & Slider */
+/* Hero Section & Slider (Norm Architects style) */
 .hero-slider {
   position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: var(--color-charcoal);
+  background-color: #000000;
 }
 
 .slide {
@@ -346,10 +362,11 @@ header nav a.active::after {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
   z-index: 1;
 }
 
@@ -366,8 +383,8 @@ header nav a.active::after {
   height: 100%;
   background-size: cover;
   background-position: center;
-  transform: scale(1.05);
-  transition: transform 10s ease;
+  transform: scale(1.02);
+  transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   filter: brightness(0.7);
 }
 
@@ -378,13 +395,15 @@ header nav a.active::after {
 .slide-content {
   position: relative;
   z-index: 3;
-  color: var(--color-ivory);
+  color: #ffffff;
   text-align: center;
+  width: 100%;
   max-width: 800px;
   padding: 0 40px;
-  transform: translateY(30px);
+  margin-bottom: 80px; /* Position at the bottom */
+  transform: translateY(20px);
   opacity: 0;
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s, opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s, opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
 }
 
 .slide.active .slide-content {
@@ -392,24 +411,55 @@ header nav a.active::after {
   opacity: 1;
 }
 
-.slide-content .font-label {
-  color: var(--color-cinnamon-tint);
-  margin-bottom: 24px;
-}
-
-.slide-content .font-display-hero {
-  margin-bottom: 30px;
-}
-
-.slide-content p {
+.slide-title {
   font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  margin-bottom: 24px;
+  color: #ffffff;
+}
+
+.slide-desc {
+  font-family: var(--font-body);
   font-weight: 300;
-  font-size: 20px;
-  line-height: 1.5;
-  color: var(--color-sand);
+  font-size: clamp(12px, 1.8vw, 13px);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 /* Slider Controls */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 28px;
+  font-weight: 300;
+  cursor: pointer;
+  z-index: 10;
+  padding: 20px;
+  transition: color 0.3s ease;
+  outline: none;
+}
+
+.slider-arrow:hover {
+  color: #ffffff;
+}
+
+.prev-arrow {
+  left: 30px;
+}
+
+.next-arrow {
+  right: 30px;
+}
+
 .slider-dots {
   position: absolute;
   bottom: 40px;
@@ -417,21 +467,21 @@ header nav a.active::after {
   transform: translateX(-50%);
   z-index: 10;
   display: flex;
-  gap: 15px;
+  gap: 8px;
 }
 
 .slider-dot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background-color: rgba(243, 240, 234, 0.4);
+  background-color: rgba(255, 255, 255, 0.35);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .slider-dot.active {
-  background-color: var(--color-ivory);
-  transform: scale(1.5);
+  background-color: #ffffff;
+  transform: scale(1.3);
 }
 
 /* Buttons */

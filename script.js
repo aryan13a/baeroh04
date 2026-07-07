@@ -3,11 +3,16 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Navigation Scroll Handling
   const header = document.querySelector('header');
+  const isTransparentInit = header ? header.classList.contains('header-transparent') : false;
+
   const handleScroll = () => {
+    if (!header) return;
     if (window.scrollY > 50) {
       header.classList.add('scrolled');
+      if (isTransparentInit) header.classList.remove('header-transparent');
     } else {
       header.classList.remove('scrolled');
+      if (isTransparentInit) header.classList.add('header-transparent');
     }
   };
   window.addEventListener('scroll', handleScroll);
@@ -69,6 +74,18 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     resetInterval();
+
+    // Arrows navigation support
+    const prevBtn = document.querySelector('.prev-arrow');
+    const nextBtn = document.querySelector('.next-arrow');
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => {
+        goToSlide((currentSlide - 1 + slides.length) % slides.length);
+      });
+      nextBtn.addEventListener('click', () => {
+        goToSlide((currentSlide + 1) % slides.length);
+      });
+    }
   }
 
   // Intersection Observer for scroll animations
