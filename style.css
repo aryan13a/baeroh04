@@ -543,6 +543,42 @@ header.header-transparent .menu-toggle span {
   color: var(--color-ivory);
 }
 
+/* Hero Slider Responsiveness Optimization */
+@media (max-width: 768px) {
+  .hero-slider {
+    height: 80vh;
+    height: 80dvh;
+  }
+  .slide-content {
+    margin-bottom: 60px;
+    padding: 0 24px;
+  }
+  .prev-arrow {
+    left: 12px;
+  }
+  .next-arrow {
+    right: 12px;
+  }
+  .slider-arrow {
+    font-size: 20px;
+    padding: 10px;
+  }
+  
+  /* Optimize Background Position focal points for mobile view */
+  .slide:nth-of-type(1) .slide-bg {
+    background-position: 25% center;
+  }
+  .slide:nth-of-type(2) .slide-bg {
+    background-position: 75% center;
+  }
+  .slide:nth-of-type(3) .slide-bg {
+    background-position: 40% center;
+  }
+  .slide:nth-of-type(4) .slide-bg {
+    background-position: 35% center;
+  }
+}
+
 /* Text Section & Spacing */
 .text-lead-container {
   max-width: 800px;

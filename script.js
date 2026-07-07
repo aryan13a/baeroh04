@@ -97,6 +97,33 @@ document.addEventListener('DOMContentLoaded', () => {
         goToSlide((currentSlide + 1) % slides.length);
       });
     }
+
+    // Touch Swipe support
+    const sliderContainer = document.querySelector('.hero-slider');
+    if (sliderContainer) {
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      sliderContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      
+      sliderContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+      
+      const handleSwipe = () => {
+        const threshold = 50;
+        if (touchEndX < touchStartX - threshold) {
+          // Swiped left, go to next slide
+          goToSlide((currentSlide + 1) % slides.length);
+        } else if (touchEndX > touchStartX + threshold) {
+          // Swiped right, go to previous slide
+          goToSlide((currentSlide - 1 + slides.length) % slides.length);
+        }
+      };
+    }
   }
 
   // Intersection Observer for scroll animations
