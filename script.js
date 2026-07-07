@@ -375,8 +375,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       waMessage += `\n\n*Message:* ${messageText}`;
 
-      // WhatsApp URL (using phone number +91 98765 43210 -> 919876543210)
-      const waUrl = `https://wa.me/919876543210?text=${encodeURIComponent(waMessage)}`;
+      // WhatsApp URL (using phone number +91 95096 28808 -> 919509628808)
+      const waUrl = `https://wa.me/919509628808?text=${encodeURIComponent(waMessage)}`;
 
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerText;
