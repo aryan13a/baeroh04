@@ -311,24 +311,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Contact Form Submission (Mock)
+  // Contact Form Submission (WhatsApp Redirect)
   const contactForm = document.querySelector('.contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject') ? document.getElementById('subject').value : '';
+      const messageText = document.getElementById('message').value;
+
+      // Construct WhatsApp message
+      let waMessage = `Hello Baeroh,\n\n*Name:* ${name}\n*Email:* ${email}`;
+      if (subject) {
+        waMessage += `\n*Subject:* ${subject}`;
+      }
+      waMessage += `\n\n*Message:* ${messageText}`;
+
+      // WhatsApp URL (using phone number +91 98765 43210 -> 919876543210)
+      const waUrl = `https://wa.me/919876543210?text=${encodeURIComponent(waMessage)}`;
+
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerText;
-      submitBtn.innerText = 'Sending...';
+      submitBtn.innerText = 'Redirecting to WhatsApp...';
       submitBtn.disabled = true;
 
+      // Redirect in a new tab
       setTimeout(() => {
-        submitBtn.innerText = 'Thank You';
+        window.open(waUrl, '_blank');
+        submitBtn.innerText = 'Sent';
         contactForm.reset();
+        
         setTimeout(() => {
           submitBtn.innerText = originalText;
           submitBtn.disabled = false;
         }, 3000);
-      }, 1500);
+      }, 1000);
     });
   }
 });
