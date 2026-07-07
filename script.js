@@ -1,21 +1,32 @@
 // Baeroh Design Studio - Interactivity & Animations
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Navigation Scroll Handling
+  // Navigation & Modal Setup
   const header = document.querySelector('header');
+  const modal = document.querySelector('.project-modal');
   const isTransparentInit = header ? header.classList.contains('header-transparent') : false;
 
   const handleScroll = () => {
     if (!header) return;
-    if (window.scrollY > 50) {
+    const isModalActive = modal ? modal.classList.contains('active') : false;
+    const scrollTop = isModalActive ? modal.scrollTop : window.scrollY;
+
+    if (scrollTop > 50) {
       header.classList.add('scrolled');
-      if (isTransparentInit) header.classList.remove('header-transparent');
+      header.classList.remove('header-transparent');
     } else {
       header.classList.remove('scrolled');
-      if (isTransparentInit) header.classList.add('header-transparent');
+      if (isTransparentInit || isModalActive) {
+        header.classList.add('header-transparent');
+      } else {
+        header.classList.remove('header-transparent');
+      }
     }
   };
   window.addEventListener('scroll', handleScroll);
+  if (modal) {
+    modal.addEventListener('scroll', handleScroll);
+  }
   handleScroll(); // Call once initially
 
   // Mobile Menu Toggle
@@ -239,7 +250,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Modal Functionality
-  const modal = document.querySelector('.project-modal');
   const modalClose = document.querySelector('.modal-close');
   const modalContent = document.querySelector('.modal-content');
 
@@ -248,48 +258,84 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!data || !modal || !modalContent) return;
 
     modalContent.innerHTML = `
-      <div class="modal-hero">
-        <img src="${data.image}" alt="${data.title}">
-      </div>
-      <div class="container">
-        <div class="modal-grid">
-          <div>
-            <div class="modal-meta-item">
-              <span class="font-label">Location</span>
-              <p style="margin-top: 8px; font-weight: 300;">${data.location}</p>
-            </div>
-            <div class="modal-meta-item">
-              <span class="font-label">Year</span>
-              <p style="margin-top: 8px; font-weight: 300;">${data.year}</p>
-            </div>
-            <div class="modal-meta-item">
-              <span class="font-label">Category</span>
-              <p style="margin-top: 8px; font-weight: 300;">${data.category}</p>
-            </div>
+      <!-- Fullscreen Cover -->
+      <div class="modal-hero-cover" style="position: relative; width: 100%; height: 100vh; overflow: hidden; background-color: var(--color-charcoal);">
+        <div class="modal-cover-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('${data.image}'); background-size: cover; background-position: center; filter: brightness(0.75);"></div>
+        
+        <!-- Hero content overlaid on cover -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 3; color: #ffffff; padding: 0 40px;">
+          <!-- Centered Title & Metadata -->
+          <div style="text-align: center; margin-top: auto; margin-bottom: auto; transform: translateY(40px);">
+            <h1 class="font-display-hero" style="color: #ffffff; font-size: clamp(28px, 4.5vw, 52px); font-weight: 300; letter-spacing: 0.35em; margin-bottom: 24px; text-transform: uppercase; line-height: 1.3;">${data.title}</h1>
+            <div class="font-label" style="color: rgba(255,255,255,0.7); letter-spacing: 0.25em;">${data.category}</div>
           </div>
-          <div>
-            <h1 class="font-display-section" style="margin-bottom: 24px;">${data.title}</h1>
-            <p class="font-display-lead" style="margin-bottom: 30px; color: var(--color-olive);">${data.description}</p>
-            <p class="font-body-copy" style="color: var(--color-olive); margin-bottom: 40px;">${data.details}</p>
+          
+          <!-- Bottom Description -->
+          <div style="max-width: 800px; text-align: center; margin-bottom: 60px; margin-top: auto;">
+            <p class="font-body-copy" style="color: rgba(255, 255, 255, 0.9); font-size: clamp(12px, 1.8vw, 13px); line-height: 1.8; text-align: center;">${data.description}</p>
           </div>
         </div>
-        
-        <div class="modal-gallery">
-          ${data.gallery.map((img, i) => `
-            <img src="${img}" alt="${data.title} - View ${i + 1}" class="${i % 3 === 2 ? 'span-2' : ''}">
-          `).join('')}
+      </div>
+      
+      <!-- Scrolled Content Section -->
+      <div class="modal-scrolled-body" style="background-color: var(--color-ivory); padding: 120px 0;">
+        <div class="container" style="max-width: 100%; padding: 0 80px;">
+          <div class="modal-detail-grid">
+            <!-- Left Meta Column -->
+            <div class="modal-meta-col">
+              <div class="modal-detail-meta-item">
+                <span class="font-label">Location</span>
+                <p class="meta-value">${data.location}</p>
+              </div>
+              <div class="modal-detail-meta-item">
+                <span class="font-label">Year</span>
+                <p class="meta-value">${data.year}</p>
+              </div>
+              <div class="modal-detail-meta-item">
+                <span class="font-label">Category</span>
+                <p class="meta-value">${data.category}</p>
+              </div>
+              <div class="modal-detail-meta-item">
+                <span class="font-label">Photography</span>
+                <p class="meta-value">Common Studio</p>
+              </div>
+            </div>
+            
+            <!-- Middle Narrative Column -->
+            <div class="modal-narrative-col">
+              <p class="font-display-lead" style="font-size: clamp(16px, 2.2vw, 20px); line-height: 1.8; color: var(--color-charcoal); text-align: justify; margin-bottom: 40px; font-weight: 300;">
+                ${data.details}
+              </p>
+              <p class="font-display-lead" style="font-size: clamp(16px, 2.2vw, 20px); line-height: 1.8; color: var(--color-charcoal); text-align: justify; font-weight: 300;">
+                Throughout the home, views and artworks are thoughtfully highlighted and framed by the architecture, inviting residents to engage with each feature in a unique and intimate manner. This dynamic approach transforms the home into a living, breathing work of art, where discovery and inspiration await around every corner.
+              </p>
+            </div>
+            
+            <!-- Right Sidebar Image Column -->
+            <div class="modal-sidebar-col">
+              <div style="width: 100%;">
+                <img src="${data.gallery[0] || data.image}" alt="${data.title} detail" style="width: 100%; height: auto; object-fit: contain; display: block; background-color: var(--color-sand);">
+                <p class="font-body-copy" style="font-size: 11px; line-height: 1.6; color: var(--color-olive); margin-top: 20px; text-align: left;">
+                  The local environment and site context are famed not only for their natural beauty but also for the lush, verdant landscapes that create a stunning backdrop for this architectural dialogue.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     `;
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    modal.scrollTop = 0; // reset modal scroll position
+    handleScroll();
   };
 
   const closeProject = () => {
     if (!modal) return;
     modal.classList.remove('active');
     document.body.style.overflow = '';
+    handleScroll();
   };
 
   // Bind project clicks
