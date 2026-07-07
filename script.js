@@ -110,6 +110,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Project Database
   const projects = {
+    'harbour-swivel': {
+      title: 'Harbour Lounge Swivel',
+      subtitle: 'Design & Furniture',
+      location: 'Copenhagen, Denmark',
+      year: '2026',
+      category: 'Design / Furniture',
+      image: 'assets/unnamed (2).webp',
+      description: 'A luxurious bouclé swivel armchair designed for comfort and sensory touch, balancing soft organic shapes with a clean structural metal base.',
+      details: 'Crafted in partnership with MENU, the Harbour Lounge Chair features a molded foam shell covered in premium textured bouclé wool fabric. The sleek swivel base allows for effortless movement, making it a perfect fit for minimalist living spaces, library corners, and modern workplace environments.',
+      gallery: [
+        'assets/unnamed (2).webp',
+        'assets/unnamed (3).webp'
+      ]
+    },
+    'eave-chair': {
+      title: 'Eave Seamline Lounge Chair',
+      subtitle: 'Design & Furniture',
+      location: 'Copenhagen, Denmark',
+      year: '2026',
+      category: 'Design / Furniture',
+      image: 'assets/unnamed (3).webp',
+      description: 'Inspired by the eaves of a building, the Eave Seamline Lounge Chair is a study in organic geometry, textures, and structural support.',
+      details: 'With its curved, welcoming form, this lounge chair is upholstered in high-end neutral bouclé fabric. The name is derived from architecture, reflecting how the design integrates form and structure. The low profile and deep seat offer a relaxed posture, combining contemporary Danish aesthetic with timeless comfort.',
+      gallery: [
+        'assets/unnamed (3).webp',
+        'assets/unnamed (2).webp'
+      ]
+    },
+    'composed-matter': {
+      title: 'Composed Matter',
+      subtitle: 'Creative Exhibition',
+      location: 'Galleri Sonja, Denmark',
+      year: '2026',
+      category: 'Creative / Exhibitions',
+      image: 'assets/unnamed.webp',
+      description: 'Rooted in a shared appreciation for tactility, craftsmanship and sensory experience, Composed Matter unfolded as a series of installations where eelgrass, light and touch entered into dialogue.',
+      details: 'The installation explored natural ecological materials, including textured cork wall panels and compressed eelgrass screens. The curation prioritized silence, tactile exploration, and negative space. It acted as an experimental sanctuary during the 3daysofdesign exhibition, highlighting sustainable local design craft.',
+      gallery: [
+        'assets/unnamed.webp',
+        'assets/unnamed (1).webp'
+      ]
+    },
+    'connected-dialogue': {
+      title: 'Connected | A Dialogue Between Nature & Craft',
+      subtitle: 'Creative Exhibition',
+      location: 'Galleri Sonja, Denmark',
+      year: '2026',
+      category: 'Creative / Exhibitions',
+      image: 'assets/unnamed (1).webp',
+      description: 'Created for Galleri Sonja during 3daysofdesign 2026, the exhibition brought together works by artists and makers whose practices are deeply rooted in the landscapes around them. Through material, form and...',
+      details: 'This collection presented works that investigate the intersection between nature and handmade objects. Hand-cast stone pedestals, wild botanical arrangements, and raw ceramic vessels formed a landscape of quiet, organic balance, prompting viewers to engage with texture, raw materials, and silence.',
+      gallery: [
+        'assets/unnamed (1).webp',
+        'assets/unnamed.webp'
+      ]
+    },
     'shoreline-studio': {
       title: 'Shoreline Studio',
       subtitle: 'Residential Retreat',
