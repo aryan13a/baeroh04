@@ -148,19 +148,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Project Database
   const projects = {
-    'harbour-swivel': {
-      title: 'Harbour Lounge Swivel',
-      subtitle: 'Design & Furniture',
-      location: 'Copenhagen, Denmark',
+    'executive-studio': {
+      title: 'Contemporary Executive Studio',
+      subtitle: 'Executive Studio Design',
+      location: 'Jaipur, Rajasthan',
       year: '2026',
-      category: 'Design / Furniture',
+      category: 'Interior / Workspace',
       image: 'assets/unnamed (2).webp',
-      description: 'A luxurious bouclé swivel armchair designed for comfort and sensory touch, balancing soft organic shapes with a clean structural metal base.',
-      details: 'Crafted in partnership with MENU, the Harbour Lounge Chair features a molded foam shell covered in premium textured bouclé wool fabric. The sleek swivel base allows for effortless movement, making it a perfect fit for minimalist living spaces, library corners, and modern workplace environments.',
-      detailsSecondary: 'The design emphasizes tactile simplicity and structural integrity. By stripping away excess ornamentation, the chair highlights the conversation between the soft, organic textile and the dark, architectural frame.',
+      description: 'An upscale corporate setting that masterfully balances privacy and collaborative space. Featuring a striking, floor to ceiling glass enclosed office complete with a plush swivel armchair, dark herringbone flooring, and an elegant curved partition wall. Outside, the open plan workspace flows naturally with warm toned desks, ergonomic chairs, and fluid, recessed ceiling lighting that guides the eye through a cohesive, high end professional environment.',
+      details: 'Tailored for modern executive leaders, the Contemporary Executive Studio bridges privacy with openness. The central glass-enclosed space defines a premium office corner, complete with dark herringbone flooring and a luxurious neutral-toned lounge swivel chair.',
+      detailsSecondary: 'Outside the private enclosure, the open-plan office layout is finished with custom warm timber desks and ergonomic seating. The dynamic ceiling layout features fluid, recessed LED strip profiles that lead the eye through the interior, blending a sense of direction with quiet architectural sophistication.',
       photography: 'Common Studio',
       styling: 'Stacy Tsai / Wool Studio',
-      caption: 'The Harbour Lounge Swivel in a light neutral bouclé, captured against a minimalist plaster wall to highlight its organic form.',
+      caption: 'The floor-to-ceiling glass office, featuring dark herringbone floors, and the outer open-concept workplace.',
       gallery: [
         'assets/unnamed (2).webp',
         'assets/unnamed (3).webp'
