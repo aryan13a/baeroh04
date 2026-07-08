@@ -166,19 +166,19 @@ document.addEventListener('DOMContentLoaded', () => {
         'assets/unnamed (3).webp'
       ]
     },
-    'eave-chair': {
-      title: 'Eave Seamline Lounge Chair',
-      subtitle: 'Design & Furniture',
-      location: 'Copenhagen, Denmark',
+    'vanity-nook': {
+      title: 'Minimalist Vanity Nook',
+      subtitle: 'Vanity Nook Design',
+      location: 'Jaipur, Rajasthan',
       year: '2026',
-      category: 'Design / Furniture',
+      category: 'Residential / Interior Styling',
       image: 'assets/unnamed (3).webp',
-      description: 'Inspired by the eaves of a building, the Eave Seamline Lounge Chair is a study in organic geometry, textures, and structural support.',
-      details: 'With its curved, welcoming form, this lounge chair is upholstered in high-end neutral bouclé fabric. The name is derived from architecture, reflecting how the design integrates form and structure. The low profile and deep seat offer a relaxed posture, combining contemporary Danish aesthetic with timeless comfort.',
-      detailsSecondary: 'Designed to fit seamlessly into open-plan spaces, the Eave Lounge Chair encourages relaxation and connection. Its distinct seamline detailing outlines the organic curves, emphasizing the sculptural qualities of the piece.',
+      description: 'A chic dressing corner defined by geometric harmony and warm, earthy tones. The floating wooden vanity table features clean lines, complemented by a perfect circular mirror and an ultra modern, pill shaped vertical cabinet that cuts through the desk space. Set against a rich terracotta brown backdrop, the soft textures of the vanity chair, delicate green potted plant, and curated accessories create an intimate, stylish, and comfortable personal sanctuary.',
+      details: 'Focusing on the beauty of daily personal rituals, the Minimalist Vanity Nook balances geometric forms with warm, organic materials. A sleek, floating timber dressing table anchors the corner, designed to offer simple utility while maintaining an uncluttered visual footprint.',
+      detailsSecondary: 'The composition is completed by a large circular mirror and a vertical pill-shaped cabinet that extends through the desk, creating a dynamic play on proportions. Set against a rich, earthy terracotta accent wall, this vanity corner features soft fabric textures and minimal curation, forming an intimate personal sanctuary.',
       photography: 'Common Studio',
       styling: 'Stacy Tsai / Wool Studio',
-      caption: 'Detail of the Eave Seamline chair, showcasing the texture of the bouclé fabric and the soft curves of the low-slung frame.',
+      caption: 'The vanity nook detail, showing the circular mirror, terracotta backdrop, and the floating wood table.',
       gallery: [
         'assets/unnamed (3).webp',
         'assets/unnamed (2).webp'
