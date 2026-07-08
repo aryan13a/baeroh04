@@ -1341,3 +1341,12 @@ header.header-transparent ~ .project-modal .modal-close span::after {
     aspect-ratio: 4 / 3 !important;
   }
 }
+
+.footer-logo {
+  height: 60px;
+  width: auto;
+  margin-bottom: 20px;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
