@@ -220,19 +220,19 @@ document.addEventListener('DOMContentLoaded', () => {
         'assets/unnamed.webp'
       ]
     },
-    'shoreline-studio': {
-      title: 'Shoreline Studio',
-      subtitle: 'Residential Retreat',
-      location: 'Northern Coast, Denmark',
-      year: '2024',
-      category: 'Residential / Creative Space',
+    'timeless-design-details': {
+      title: 'Timeless Design Details',
+      subtitle: 'Interior Detail & Curation',
+      location: 'Jaipur, Rajasthan',
+      year: '2026',
+      category: 'Residential / Interior Styling',
       image: 'assets/unnamed (5).webp',
-      description: 'In the windswept coastal landscape of Denmark, where meadow meets dune and pine bends in the coastal breeze, Shoreline Studio rests as a retreat for artistic immersion. Conceived as a space apart from yet connected to the rhythms of a summerhouse, it balances Danish building tradition with the contemplative sensibility of Japanese architecture.',
-      details: 'Designed to serve as a writing and painting studio, the space features natural oak paneling and minimal built-in furniture. A singular monumental window frames the view of the North Sea, creating a constantly shifting backdrop that reflects the seasons. Tactile materials like woven linen and textured plaster finish ensure a quiet, peaceful atmosphere that encourages concentration and creative reflection.',
-      detailsSecondary: 'The interior design focuses on local oak craftsmanship and warm, earthly tones. Sliding screens allow for control of natural light, mimicking shoji screens, while the exterior charred timber cladding blends the structure into the coastal tree line.',
+      description: 'A beautifully composed space where clean lines, warm lighting, and refined finishes come together effortlessly. Thoughtfully selected furnishings and elegant décor create an inviting atmosphere that reflects sophistication, functionality, and attention to every detail.',
+      details: 'Dedicated to the subtle art of space curation, Timeless Design Details represents a synthesis of architectural symmetry, texture, and materiality. Every piece of custom-built shelving and freestanding furniture is arranged to invite interactions, balancing spatial utility with cozy, quiet corners.',
+      detailsSecondary: 'Delicate linen drapes diffuse natural sunlight during the day, while strategically placed warm lights illuminate natural stone and oak accents at dusk. This project showcases how minimal styling and high-quality craftsmanship create a home environment that is both modern and welcoming.',
       photography: 'Common Studio',
       styling: 'Stacy Tsai / Wool Studio',
-      caption: 'The studio workspace, showing the custom oak desk and the window looking out to the wild Danish coastal dunes.',
+      caption: 'Curated corner showing a custom lounge chair positioned by a window where light highlights the organic details.',
       gallery: [
         'assets/unnamed (5).webp',
         'assets/unnamed (2).webp'
