@@ -202,19 +202,19 @@ document.addEventListener('DOMContentLoaded', () => {
         'assets/unnamed (1).webp'
       ]
     },
-    'connected-dialogue': {
-      title: 'Connected | A Dialogue Between Nature & Craft',
-      subtitle: 'Creative Exhibition',
-      location: 'Galleri Sonja, Denmark',
+    'elegant-workspace': {
+      title: 'Elegant Workspace Design',
+      subtitle: 'Workspace Design',
+      location: 'Jaipur, Rajasthan',
       year: '2026',
-      category: 'Creative / Exhibitions',
+      category: 'Interior / Workspace',
       image: 'assets/unnamed (1).webp',
-      description: 'Created for Galleri Sonja during 3daysofdesign 2026, the exhibition brought together works by artists and makers whose practices are deeply rooted in the landscapes around them. Through material, form and...',
-      details: 'This collection presented works that investigate the intersection between nature and handmade objects. Hand-cast stone pedestals, wild botanical arrangements, and raw ceramic vessels formed a landscape of quiet, organic balance, prompting viewers to engage with texture, raw materials, and silence.',
-      detailsSecondary: 'The dialogue between the raw, irregular forms of nature and the refined hand of the maker highlights a shared commitment to authenticity. The curated pieces establish a landscape where form, function, and nature coexist.',
+      description: 'A refined office space that blends warmth, functionality, and modern sophistication. The natural wood desk, soft upholstered chairs, and ambient lighting create a welcoming environment for focused work and meaningful conversations. Clean lines, neutral tones, and thoughtful detailing give the space a timeless aesthetic that feels both professional and comfortable.',
+      details: 'Designed for productivity and quiet contemplation, the Elegant Workspace balances architectural structure with tactile comfort. A custom-crafted natural solid wood desk acts as the anchor of the room, surrounded by ergonomic, softly upholstered lounge chairs that invite relaxed but focused conversations.',
+      detailsSecondary: 'Concealed ambient lighting highlights the warm neutral plaster walls, while built-in oak storage keeps the environment minimal and free of clutter. The project reflects a thoughtful approach to corporate and home workspaces, proving that professional settings can feel warm, inviting, and deeply personal.',
       photography: 'Common Studio',
       styling: 'Stacy Tsai / Wool Studio',
-      caption: 'Hand-carved stone vessels and natural elements curated in perfect equilibrium at the Galleri Sonja exhibition.',
+      caption: 'The central desk area, showing the soft contrast between the textured wood grain and the architectural metallic finishes.',
       gallery: [
         'assets/unnamed (1).webp',
         'assets/unnamed.webp'
