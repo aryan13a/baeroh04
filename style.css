@@ -556,6 +556,9 @@ header.header-transparent .menu-toggle span {
     margin-bottom: 60px;
     padding: 0 24px;
   }
+  .slide-desc {
+    display: none;
+  }
   .prev-arrow {
     left: 12px;
   }
