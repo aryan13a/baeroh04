@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
       location: 'Jaipur, Rajasthan',
       year: '2026',
       category: 'Interior / Residential',
-      image: 'assets/bedroom-one-1.jpeg',
+      image: 'assets/bedroom-two.jpeg',
       description: 'As daylight gently filters through the room, every detail comes to life with quiet elegance. The artistic mural tells a story of nature, while the soft textures, layered cushions, and warm neutral tones create a space that invites you to slow down and unwind. More than just a bedroom, it\'s a peaceful retreat where every morning begins with serenity and every evening ends in comfort.',
       details: 'Designed as a sanctuary from the outside world, this bedroom balances elegant form with soothing comfort. A large artistic nature-inspired mural commands the feature wall, setting a peaceful, organic tone for the entire space.',
       detailsSecondary: 'Layered fabrics, rich textured cushions, and warm neutral tones harmonize to create a deeply relaxing environment. Every corner is carefully composed to encourage rest, reflection, and a slower pace of daily life.',
@@ -324,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
       styling: 'Stacy Tsai / Wool Studio',
       caption: 'The serene bedroom space, highlighting the artistic mural, layered textiles, and soft ambient lighting.',
       gallery: [
-        'assets/bedroom-one-1.jpeg',
+        'assets/bedroom-two.jpeg',
         'assets/unnamed (5).webp'
       ]
     }
