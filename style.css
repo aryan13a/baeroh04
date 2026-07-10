@@ -1570,6 +1570,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   color: var(--color-olive);
   margin-bottom: 16px;
   text-align: center;
+  flex-grow: 1;
 }
 
 .recent-project-meta {
