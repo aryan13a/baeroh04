@@ -1615,10 +1615,10 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   opacity: 0.95;
 }
 
-/* Philosophy Page Staggered Gallery */
+/* Philosophy Page Gallery (Perfectly Aligned Grid) */
 .philosophy-gallery {
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   align-items: start;
   margin-top: 60px;
@@ -1629,21 +1629,9 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   flex-direction: column;
 }
 
-.gallery-col.col-left {
-  transform: translateY(40px);
-}
-
-.gallery-col.col-mid {
-  transform: translateY(0);
-}
-
-.gallery-col.col-right {
-  transform: translateY(-20px);
-}
-
 .gallery-img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1668,12 +1656,6 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   .philosophy-gallery {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
-  
-  .gallery-col.col-left,
-  .gallery-col.col-mid,
-  .gallery-col.col-right {
-    transform: translateY(0);
   }
   
   .gallery-caption {
