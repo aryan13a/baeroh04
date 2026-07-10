@@ -1614,3 +1614,81 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   display: block;
   opacity: 0.95;
 }
+
+/* Category Filter Bar (Norm Architects Style) */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 40px;
+  margin-bottom: 70px;
+}
+
+.filter-btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--color-olive);
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.filter-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-cinnamon);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.filter-btn:hover {
+  color: var(--color-charcoal);
+}
+
+.filter-btn.active {
+  color: var(--color-cinnamon);
+}
+
+.filter-btn.active::after {
+  width: 24px;
+}
+
+/* Project Grid Flow Container */
+.recent-grid-all {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 100px 3%;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.recent-grid-all .recent-col {
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .filter-bar {
+    gap: 16px;
+    margin-bottom: 45px;
+  }
+  
+  .filter-btn {
+    font-size: 9px;
+    padding: 6px 12px;
+  }
+
+  .recent-grid-all {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}

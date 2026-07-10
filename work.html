@@ -62,108 +62,102 @@
   <section class="fade-in-up" style="padding-top: 20px; padding-bottom: 80px;">
     <div class="container" style="max-width: 100%; padding: 0 40px;">
       
-      <!-- Row 1 -->
-      <div class="recent-row">
-        <div class="recent-grid-row">
-          <!-- Column 1 -->
-          <div class="recent-col" data-project="executive-studio">
-            <div class="recent-img-wrapper">
-              <img src="assets/unnamed (2).webp" alt="Contemporary Executive Studio">
-            </div>
-            <h3 class="recent-project-title">Contemporary Executive Studio</h3>
-            <p class="recent-project-desc">An upscale corporate setting that masterfully balances privacy and collaborative space. Featuring a striking, floor to ceiling glass enclosed office complete with a plush swivel armchair, dark herringbone flooring, and...</p>
-            <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; WORKSPACE &nbsp;|&nbsp; 2026</div>
-          </div>
-          
-          <!-- Column 2 -->
-          <div class="recent-col" data-project="vanity-nook">
-            <div class="recent-img-wrapper">
-              <img src="assets/unnamed (3).webp" alt="Minimalist Vanity Nook">
-            </div>
-            <h3 class="recent-project-title">Minimalist Vanity Nook</h3>
-            <p class="recent-project-desc">A chic dressing corner defined by geometric harmony and warm, earthy tones. The floating wooden vanity table features clean lines, complemented by a perfect circular mirror and an ultra modern, pill shaped...</p>
-            <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; RESIDENTIAL &nbsp;|&nbsp; 2026</div>
-          </div>
-          
-          <!-- Column 3 -->
-          <div class="recent-col" data-project="open-office">
-            <div class="recent-img-wrapper">
-              <img src="assets/unnamed.webp" alt="Sleek and Sophisticated Open Office">
-            </div>
-            <h3 class="recent-project-title">Sleek and Sophisticated Open Office</h3>
-            <p class="recent-project-desc">A modern workspace that seamlessly blends sleek minimalism with warm, organic elements. The crisp light wood workstations, ergonomic mesh chairs with subtle warm accents, and clean neutral tones create...</p>
-            <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; WORKSPACE &nbsp;|&nbsp; 2026</div>
-          </div>
-        </div>
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="commercial">Commercial</button>
+        <button class="filter-btn" data-filter="residential">Residential</button>
       </div>
 
-      <!-- Row 2 -->
-      <div class="recent-row" style="margin-top: 100px;">
-        <div class="recent-grid-row">
-          <!-- Column 1 -->
-          <div class="recent-col" data-project="elegant-workspace">
-            <div class="recent-img-wrapper">
-              <img src="assets/unnamed (1).webp" alt="Elegant Workspace Design">
-            </div>
-            <h3 class="recent-project-title">Elegant Workspace Design</h3>
-            <p class="recent-project-desc">Every morning begins with quiet ambition. As sunlight slips through the curtains, the room awakens with warmth and purpose. The wooden desk patiently waits for the next idea, while the comfortable chairs invite...</p>
-            <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; WORKSPACE &nbsp;|&nbsp; 2026</div>
+      <div class="recent-grid-all">
+        <!-- Column 1 (Commercial) -->
+        <div class="recent-col" data-project="executive-studio" data-category="commercial">
+          <div class="recent-img-wrapper">
+            <img src="assets/unnamed (2).webp" alt="Contemporary Executive Studio">
           </div>
-          
-          <!-- Column 2 -->
-          <div class="recent-col" data-project="sophisticated-meeting-space">
-            <div class="recent-img-wrapper">
-              <img src="assets/unnamed (4).webp" alt="Sophisticated Meeting Space">
-            </div>
-            <h3 class="recent-project-title">Sophisticated Meeting Space</h3>
-            <p class="recent-project-desc">Behind these walls, every conversation has the power to shape what comes next. The warm lighting, refined textures, and elegant finishes create an atmosphere where ideas flow naturally and...</p>
-            <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; MEETING SPACE &nbsp;|&nbsp; 2026</div>
-          </div>
-          
-          <!-- Column 3 -->
-          <div class="recent-col" data-project="timeless-design-details">
-            <div class="recent-img-wrapper">
-              <img src="assets/unnamed (5).webp" alt="Timeless Design Details">
-            </div>
-            <h3 class="recent-project-title">Timeless Design Details</h3>
-            <p class="recent-project-desc">Long before a handshake or a greeting, this space begins telling your story. The warm glow of ambient lighting, elegant finishes, and thoughtfully placed décor quietly assure every visitor they've arrived somewhere special. It's a reception that doesn't just welcome guests—it introduces the character, care, and craftsmanship behind everything that follows.</p>
-            <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; RESIDENTIAL &nbsp;|&nbsp; 2026</div>
-          </div>
+          <h3 class="recent-project-title">Contemporary Executive Studio</h3>
+          <p class="recent-project-desc">An upscale corporate setting that masterfully balances privacy and collaborative space. Featuring a striking, floor to ceiling glass enclosed office complete with a plush swivel armchair, dark herringbone flooring, and...</p>
+          <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; WORKSPACE &nbsp;|&nbsp; 2026</div>
         </div>
-      </div>
+        
+        <!-- Column 2 (Residential) -->
+        <div class="recent-col" data-project="vanity-nook" data-category="residential">
+          <div class="recent-img-wrapper">
+            <img src="assets/unnamed (3).webp" alt="Minimalist Vanity Nook">
+          </div>
+          <h3 class="recent-project-title">Minimalist Vanity Nook</h3>
+          <p class="recent-project-desc">A chic dressing corner defined by geometric harmony and warm, earthy tones. The floating wooden vanity table features clean lines, complemented by a perfect circular mirror and an ultra modern, pill shaped...</p>
+          <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; RESIDENTIAL &nbsp;|&nbsp; 2026</div>
+        </div>
+        
+        <!-- Column 3 (Commercial) -->
+        <div class="recent-col" data-project="open-office" data-category="commercial">
+          <div class="recent-img-wrapper">
+            <img src="assets/unnamed.webp" alt="Sleek and Sophisticated Open Office">
+          </div>
+          <h3 class="recent-project-title">Sleek and Sophisticated Open Office</h3>
+          <p class="recent-project-desc">A modern workspace that seamlessly blends sleek minimalism with warm, organic elements. The crisp light wood workstations, ergonomic mesh chairs with subtle warm accents, and clean neutral tones create...</p>
+          <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; WORKSPACE &nbsp;|&nbsp; 2026</div>
+        </div>
 
-      <!-- Row 3 -->
-      <div class="recent-row" style="margin-top: 100px;">
-        <div class="recent-grid-row">
-          <!-- Column 1 -->
-          <div class="recent-col" data-project="bedroom-calm">
-            <div class="recent-img-wrapper">
-              <img src="assets/bedroom-two.jpeg" alt="A Bedroom That Whispers Calm">
-            </div>
-            <h3 class="recent-project-title">A Bedroom That Whispers Calm</h3>
-            <p class="recent-project-desc">As daylight gently filters through the room, every detail comes to life with quiet elegance. The artistic mural tells a story of nature, while the soft textures, layered cushions, and warm neutral tones create...</p>
-            <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; RESIDENTIAL &nbsp;|&nbsp; 2026</div>
+        <!-- Column 4 (Commercial) -->
+        <div class="recent-col" data-project="elegant-workspace" data-category="commercial">
+          <div class="recent-img-wrapper">
+            <img src="assets/unnamed (1).webp" alt="Elegant Workspace Design">
           </div>
-          
-          <!-- Column 2 -->
-          <div class="recent-col" data-project="bedroom-sanctuary">
-            <div class="recent-img-wrapper">
-              <img src="assets/bedroom-one-2.jpeg" alt="A Sanctuary for Whispered Thoughts">
-            </div>
-            <h3 class="recent-project-title">A Sanctuary for Whispered Thoughts</h3>
-            <p class="recent-project-desc">The day demands our energy, but the evening asks for our stories. In this quiet corner, the textured canopy of the wallpaper mimics a moonlit forest, while the soft, warm glow from the built-in shelving casts...</p>
-            <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; RESIDENTIAL &nbsp;|&nbsp; 2026</div>
+          <h3 class="recent-project-title">Elegant Workspace Design</h3>
+          <p class="recent-project-desc">Every morning begins with quiet ambition. As sunlight slips through the curtains, the room awakens with warmth and purpose. The wooden desk patiently waits for the next idea, while the comfortable chairs invite...</p>
+          <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; WORKSPACE &nbsp;|&nbsp; 2026</div>
+        </div>
+        
+        <!-- Column 5 (Commercial) -->
+        <div class="recent-col" data-project="sophisticated-meeting-space" data-category="commercial">
+          <div class="recent-img-wrapper">
+            <img src="assets/unnamed (4).webp" alt="Sophisticated Meeting Space">
           </div>
-          
-          <!-- Column 3 -->
-          <div class="recent-col" data-project="bedroom-flight">
-            <div class="recent-img-wrapper">
-              <img src="assets/bedroom-one-1.jpeg" alt="Where Dreams Take Flight">
-            </div>
-            <h3 class="recent-project-title">Where Dreams Take Flight</h3>
-            <p class="recent-project-desc">True comfort isn't just about a soft place to rest; it’s about where your mind goes when you finally close your eyes. In this space, the delicate sketch of birds soaring past ancient trees transforms...</p>
-            <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; RESIDENTIAL &nbsp;|&nbsp; 2026</div>
+          <h3 class="recent-project-title">Sophisticated Meeting Space</h3>
+          <p class="recent-project-desc">Behind these walls, every conversation has the power to shape what comes next. The warm lighting, refined textures, and elegant finishes create an atmosphere where ideas flow naturally and...</p>
+          <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; MEETING SPACE &nbsp;|&nbsp; 2026</div>
+        </div>
+        
+        <!-- Column 6 (Residential) -->
+        <div class="recent-col" data-project="timeless-design-details" data-category="residential">
+          <div class="recent-img-wrapper">
+            <img src="assets/unnamed (5).webp" alt="Timeless Design Details">
           </div>
+          <h3 class="recent-project-title">Timeless Design Details</h3>
+          <p class="recent-project-desc">Long before a handshake or a greeting, this space begins telling your story. The warm glow of ambient lighting, elegant finishes, and thoughtfully placed décor quietly assure every visitor they've arrived somewhere special. It's a reception that doesn't just welcome guests—it introduces the character, care, and craftsmanship behind everything that follows.</p>
+          <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; RESIDENTIAL &nbsp;|&nbsp; 2026</div>
+        </div>
+
+        <!-- Column 7 (Residential) -->
+        <div class="recent-col" data-project="bedroom-calm" data-category="residential">
+          <div class="recent-img-wrapper">
+            <img src="assets/bedroom-two.jpeg" alt="A Bedroom That Whispers Calm">
+          </div>
+          <h3 class="recent-project-title">A Bedroom That Whispers Calm</h3>
+          <p class="recent-project-desc">As daylight gently filters through the room, every detail comes to life with quiet elegance. The artistic mural tells a story of nature, while the soft textures, layered cushions, and warm neutral tones create...</p>
+          <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; RESIDENTIAL &nbsp;|&nbsp; 2026</div>
+        </div>
+        
+        <!-- Column 8 (Residential) -->
+        <div class="recent-col" data-project="bedroom-sanctuary" data-category="residential">
+          <div class="recent-img-wrapper">
+            <img src="assets/bedroom-one-2.jpeg" alt="A Sanctuary for Whispered Thoughts">
+          </div>
+          <h3 class="recent-project-title">A Sanctuary for Whispered Thoughts</h3>
+          <p class="recent-project-desc">The day demands our energy, but the evening asks for our stories. In this quiet corner, the textured canopy of the wallpaper mimics a moonlit forest, while the soft, warm glow from the built-in shelving casts...</p>
+          <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; RESIDENTIAL &nbsp;|&nbsp; 2026</div>
+        </div>
+        
+        <!-- Column 9 (Residential) -->
+        <div class="recent-col" data-project="bedroom-flight" data-category="residential">
+          <div class="recent-img-wrapper">
+            <img src="assets/bedroom-one-1.jpeg" alt="Where Dreams Take Flight">
+          </div>
+          <h3 class="recent-project-title">Where Dreams Take Flight</h3>
+          <p class="recent-project-desc">True comfort isn't just about a soft place to rest; it’s about where your mind goes when you finally close your eyes. In this space, the delicate sketch of birds soaring past ancient trees transforms...</p>
+          <div class="recent-project-meta" style="margin-top: 12px;">INTERIOR &nbsp;|&nbsp; RESIDENTIAL &nbsp;|&nbsp; 2026</div>
         </div>
       </div>
 

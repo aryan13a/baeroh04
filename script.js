@@ -546,4 +546,34 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1000);
     });
   }
+
+  // Project Filtering (Work Page)
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCols = document.querySelectorAll('.recent-grid-all .recent-col');
+
+  if (filterBtns.length > 0 && projectCols.length > 0) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Toggle active class on buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        projectCols.forEach(col => {
+          const category = col.getAttribute('data-category');
+          if (filterValue === 'all' || category === filterValue) {
+            col.style.display = 'flex';
+            col.style.opacity = '0';
+            setTimeout(() => {
+              col.style.transition = 'opacity 0.4s ease';
+              col.style.opacity = '1';
+            }, 50);
+          } else {
+            col.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
 });
