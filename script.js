@@ -327,6 +327,24 @@ document.addEventListener('DOMContentLoaded', () => {
         'assets/bedroom-two.jpeg',
         'assets/unnamed (5).webp'
       ]
+    },
+    'bedroom-sanctuary': {
+      title: 'A Sanctuary for Whispered Thoughts',
+      subtitle: 'Bedroom Design',
+      location: 'Jaipur, Rajasthan',
+      year: '2026',
+      category: 'Interior / Residential',
+      image: 'assets/bedroom-one-2.jpeg',
+      description: 'The day demands our energy, but the evening asks for our stories. In this quiet corner, the textured canopy of the wallpaper mimics a moonlit forest, while the soft, warm glow from the built-in shelving casts a gentle light on the objects we gather through life. Here, surrounded by favorite books, mindful details, and the plush comfort of the bed, the rush of the world fades into the background. It is a space designed not just for sleeping, but for resetting where the final chapter of today softly transitions into the quiet promise of tomorrow.',
+      details: 'Designed as a sanctuary from the outside world, this bedroom balances structural precision with tactile warmth. The custom built-in shelving unit with integrated LED profile lighting serves as both a soft ambient light source and a curated display for books and personal treasures.',
+      detailsSecondary: 'The textured forest-patterned wallpaper provides a rich, natural canopy backdrop, complementing the dark-toned linen bedding. Every element, from the warm wood veneers to the subtle ambient lighting, is thoughtfully composed to create a quiet, restful retreat.',
+      photography: 'Common Studio',
+      styling: 'Stacy Tsai / Wool Studio',
+      caption: 'Close-up of the bed and custom built-in shelving, showcasing the warm ambient lighting profile and forest-patterned wallpaper.',
+      gallery: [
+        'assets/bedroom-one-2.jpeg',
+        'assets/unnamed (5).webp'
+      ]
     }
   };
 
