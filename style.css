@@ -218,7 +218,7 @@ header .header-inner {
 }
 
 .logo-img {
-  height: 32px;
+  height: 28px;
   width: auto;
   object-fit: contain;
   transition: filter 0.4s ease;
