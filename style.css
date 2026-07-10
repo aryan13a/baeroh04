@@ -211,6 +211,23 @@ header .header-inner {
   width: 100%;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+  transition: filter 0.4s ease;
+}
+
+header.header-transparent .logo-img {
+  filter: brightness(0) invert(1);
+}
+
 .logo-text {
   font-family: var(--font-body);
   font-weight: 600;
