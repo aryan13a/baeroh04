@@ -1179,6 +1179,12 @@ header.header-transparent .menu-toggle span {
   color: var(--color-ivory);
 }
 
+.bg-sand .form-group input,
+.bg-sand .form-group textarea {
+  border-bottom-color: rgba(62, 49, 43, 0.25);
+  color: var(--color-charcoal);
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
   border-bottom-color: var(--color-cinnamon);
