@@ -1637,6 +1637,10 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.philosophy-gallery .gallery-col:nth-child(2) .gallery-img {
+  object-position: 28% center;
+}
+
 .gallery-img:hover {
   transform: scale(1.02);
 }
