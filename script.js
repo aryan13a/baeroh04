@@ -345,6 +345,24 @@ document.addEventListener('DOMContentLoaded', () => {
         'assets/bedroom-one-2.jpeg',
         'assets/unnamed (5).webp'
       ]
+    },
+    'bedroom-flight': {
+      title: 'Where Dreams Take Flight',
+      subtitle: 'Bedroom Design',
+      location: 'Jaipur, Rajasthan',
+      year: '2026',
+      category: 'Interior / Residential',
+      image: 'assets/bedroom-one-1.jpeg',
+      description: 'True comfort isn\'t just about a soft place to rest; it’s about where your mind goes when you finally close your eyes. In this space, the delicate sketch of birds soaring past ancient trees transforms a simple wall into a canvas of endless horizons. The thoughtful contrast of neutral textures and deep, grounding tones creates a safe harbor from the daily rush. Here, as the evening settles, the boundaries of the room seem to expand, inviting you to leave the weight of the day behind and drift into a landscape of quiet wonder.',
+      details: 'Designed as a sanctuary from the outside world, this bedroom balances structural precision with tactile warmth. The custom wallpaper mural with birds in flight introduces a sense of organic movement and open sky, while the neutral textiles keep the atmosphere grounded.',
+      detailsSecondary: 'Concealed warm lighting highlights the natural textures of the plaster walls and wood surfaces, while built-in oak storage keeps the space minimal and free of clutter. The project reflects a thoughtful approach to bedroom sanctuaries, proving that rest spaces can feel open, cozy, and deeply personal.',
+      photography: 'Common Studio',
+      styling: 'Stacy Tsai / Wool Studio',
+      caption: 'Close-up of the bed area, showing the birds-in-flight wallpaper backdrop, layered pillows, and textured sheets.',
+      gallery: [
+        'assets/bedroom-one-1.jpeg',
+        'assets/unnamed (5).webp'
+      ]
     }
   };
 
