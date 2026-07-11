@@ -148,6 +148,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Project Database
   const projects = {
+    'gentle-awakening': {
+      title: 'The Art of a Gentle Awakening',
+      subtitle: 'Bedroom Interior Design',
+      location: 'Jaipur, Rajasthan',
+      year: '2026',
+      category: 'Interior / Residential',
+      image: 'assets/gentle-awakening.png',
+      description: 'True luxury lies in the details that greet you before the world demands your attention. Anchored by the grounded depth of a sleek, dark wainscot, this bedside corner brings the romance of the outdoors inside. A beautifully curated bouquet of soft creams and textured pampas grass catches the light, while above, a solitary bird glides effortlessly across a backdrop of etched rolling hills and delicate branches. It is a vignette designed to inspire pause—a thoughtful composition where nature’s stillness and modern elegance meet to ground your mornings and bring peace to your nights.',
+      details: 'True luxury lies in the details that greet you before the world demands your attention. Anchored by the grounded depth of a sleek, dark wainscot, this bedside corner brings the romance of the outdoors inside. A beautifully curated bouquet of soft creams and textured pampas grass catches the light, while above, a solitary bird glides effortlessly across a backdrop of etched rolling hills and delicate branches.',
+      detailsSecondary: 'It is a vignette designed to inspire pause—a thoughtful composition where nature’s stillness and modern elegance meet to ground your mornings and bring peace to your nights.',
+      photography: 'Common Studio',
+      styling: 'Stacy Tsai / Wool Studio',
+      caption: 'Bedside detail featuring a soft cream floral bouquet, textured wallpaper design, and elegant wainscoting.',
+      gallery: [
+        'assets/gentle-awakening.png'
+      ]
+    },
     'canvas-ambition': {
       title: 'A Canvas for Ambition',
       subtitle: 'Executive Workspace Design',
