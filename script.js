@@ -148,6 +148,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Project Database
   const projects = {
+    'canvas-ambition': {
+      title: 'A Canvas for Ambition',
+      subtitle: 'Executive Workspace Design',
+      location: 'Jaipur, Rajasthan',
+      year: '2026',
+      category: 'Interior / Workspace',
+      image: 'assets/canvas-ambition.jpeg',
+      description: 'Great milestones are rarely achieved by chance; they are sculpted in the quiet hours of focused dedication. In this workspace, the clean lines of modern technology meet the grounding warmth of tailored, sophisticated tones. The commanding high-back chair stands ready for the visionary, while a golden bull sits quietly on the desk, a silent testament to strength, market conviction, and resilience. Wrapped in soft, ambient light that removes the harshness of the corporate world, this desk is more than a place to work—it is the launchpad where raw ambition is refined into legacy.',
+      details: 'Great milestones are rarely achieved by chance; they are sculpted in the quiet hours of focused dedication. In this workspace, the clean lines of modern technology meet the grounding warmth of tailored, sophisticated tones. The commanding high-back chair stands ready for the visionary, while a golden bull sits quietly on the desk, a silent testament to strength, market conviction, and resilience.',
+      detailsSecondary: 'Wrapped in soft, ambient light that removes the harshness of the corporate world, this desk is more than a place to work—it is the launchpad where raw ambition is refined into legacy.',
+      photography: 'Common Studio',
+      styling: 'Stacy Tsai / Wool Studio',
+      caption: 'The commanding high-back chair and workspace detail featuring modern technology and warm, sophisticated tones.',
+      gallery: [
+        'assets/canvas-ambition.jpeg'
+      ]
+    },
     'executive-studio': {
       title: 'Contemporary Executive Studio',
       subtitle: 'Executive Studio Design',
