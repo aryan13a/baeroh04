@@ -421,9 +421,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalClose = document.querySelector('.modal-close');
   const modalContent = document.querySelector('.modal-content');
 
+  // Get list of projects on the active page
+  const getPageProjects = () => {
+    return Array.from(document.querySelectorAll('[data-project]')).map(el => el.getAttribute('data-project'));
+  };
+
+  let activeProjectId = null;
+
   const openProject = (id) => {
     const data = projects[id];
     if (!data || !modal || !modalContent) return;
+
+    activeProjectId = id;
 
     // Hide original close button and make modal background dark
     if (modalClose) modalClose.style.display = 'none';
@@ -432,18 +441,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     modalContent.innerHTML = `
       <div class="modal-image-only-wrapper" style="display: flex; justify-content: center; align-items: center; width: 100vw; height: 100vh; background-color: rgba(15, 12, 10, 0.98); position: relative; cursor: zoom-out; box-sizing: border-box; padding: 20px;">
-        <div class="modal-image-container" style="position: relative; max-width: 90%; max-height: 90vh; display: inline-block; cursor: default;">
+        
+        <!-- Left Arrow Button -->
+        <button class="image-modal-prev" aria-label="Previous" style="position: absolute; left: 30px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.45); border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; font-size: 22px; z-index: 10001; transition: background 0.2s, transform 0.2s; font-family: sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+          &#10094;
+        </button>
+
+        <div class="modal-image-container" style="position: relative; max-width: 80%; max-height: 90vh; display: inline-block; cursor: default;">
           <img src="${data.image}" alt="${data.title}" style="max-width: 100%; max-height: 90vh; display: block; object-fit: contain; box-shadow: 0 20px 50px rgba(0,0,0,0.6); border-radius: 4px;">
-          <button class="image-modal-close" aria-label="Close" style="position: absolute; top: 15px; right: 15px; background: rgba(0, 0, 0, 0.6); border: none; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10000; color: #ffffff; font-size: 24px; line-height: 1; transition: background 0.2s, transform 0.2s; font-family: sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+          <button class="image-modal-close" aria-label="Close" style="position: absolute; top: 15px; right: 15px; background: rgba(0, 0, 0, 0.6); border: none; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10002; color: #ffffff; font-size: 24px; line-height: 1; transition: background 0.2s, transform 0.2s; font-family: sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
             &times;
           </button>
         </div>
+
+        <!-- Right Arrow Button -->
+        <button class="image-modal-next" aria-label="Next" style="position: absolute; right: 30px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.45); border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; font-size: 22px; z-index: 10001; transition: background 0.2s, transform 0.2s; font-family: sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+          &#10095;
+        </button>
       </div>
     `;
 
     // Bind close events
     const closeBtn = modalContent.querySelector('.image-modal-close');
+    const container = modalContent.querySelector('.modal-image-container');
     const wrapper = modalContent.querySelector('.modal-image-only-wrapper');
+    const prevBtn = modalContent.querySelector('.image-modal-prev');
+    const nextBtn = modalContent.querySelector('.image-modal-next');
 
     if (closeBtn) {
       closeBtn.addEventListener('click', (e) => {
@@ -461,9 +484,57 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    if (container) {
+      container.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
     if (wrapper) {
       wrapper.addEventListener('click', () => {
         closeProject();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const pageProjects = getPageProjects();
+        const currentIndex = pageProjects.indexOf(id);
+        if (currentIndex !== -1) {
+          const prevIndex = (currentIndex - 1 + pageProjects.length) % pageProjects.length;
+          openProject(pageProjects[prevIndex]);
+        }
+      });
+      // Hover effects
+      prevBtn.addEventListener('mouseenter', () => {
+        prevBtn.style.background = 'rgba(0, 0, 0, 0.75)';
+        prevBtn.style.transform = 'translateY(-50%) scale(1.05)';
+      });
+      prevBtn.addEventListener('mouseleave', () => {
+        prevBtn.style.background = 'rgba(0, 0, 0, 0.45)';
+        prevBtn.style.transform = 'translateY(-50%) scale(1)';
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const pageProjects = getPageProjects();
+        const currentIndex = pageProjects.indexOf(id);
+        if (currentIndex !== -1) {
+          const nextIndex = (currentIndex + 1) % pageProjects.length;
+          openProject(pageProjects[nextIndex]);
+        }
+      });
+      // Hover effects
+      nextBtn.addEventListener('mouseenter', () => {
+        nextBtn.style.background = 'rgba(0, 0, 0, 0.75)';
+        nextBtn.style.transform = 'translateY(-50%) scale(1.05)';
+      });
+      nextBtn.addEventListener('mouseleave', () => {
+        nextBtn.style.background = 'rgba(0, 0, 0, 0.45)';
+        nextBtn.style.transform = 'translateY(-50%) scale(1)';
       });
     }
 
@@ -476,6 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const closeProject = () => {
     if (!modal) return;
+    activeProjectId = null;
     modal.classList.remove('active');
     document.body.classList.remove('modal-active');
     document.body.style.overflow = '';
@@ -522,10 +594,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Close modal with ESC key
+  // Close modal with ESC key & support left/right arrow keys
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeProject();
+    } else if (activeProjectId) {
+      if (e.key === 'ArrowRight' || e.key === 'Right') {
+        const pageProjects = getPageProjects();
+        const currentIndex = pageProjects.indexOf(activeProjectId);
+        if (currentIndex !== -1) {
+          const nextIndex = (currentIndex + 1) % pageProjects.length;
+          openProject(pageProjects[nextIndex]);
+        }
+      } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
+        const pageProjects = getPageProjects();
+        const currentIndex = pageProjects.indexOf(activeProjectId);
+        if (currentIndex !== -1) {
+          const prevIndex = (currentIndex - 1 + pageProjects.length) % pageProjects.length;
+          openProject(pageProjects[prevIndex]);
+        }
+      }
     }
   });
 
