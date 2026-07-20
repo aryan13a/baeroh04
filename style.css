@@ -2539,17 +2539,40 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   display: flex;
   flex-direction: column;
   gap: 22px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .process-step-item {
-  border-bottom: 1px solid rgba(62, 49, 43, 0.1);
+  position: relative;
+  border-bottom: 1px solid rgba(62, 49, 43, 0.12);
   padding-bottom: 18px;
+  padding-left: 14px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.process-step-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 18px;
+  width: 2px;
+  background-color: var(--color-cinnamon);
+  opacity: 0;
+  transform: scaleY(0.4);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
 }
 
 .process-step-item:last-child {
   border-bottom: none;
   padding-bottom: 0;
+}
+
+.process-step-item:last-child::before {
+  bottom: 0;
 }
 
 .process-step-num {
@@ -2560,6 +2583,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   display: block;
   margin-bottom: 6px;
   letter-spacing: 0.05em;
+  transition: color 0.35s ease, transform 0.35s ease;
 }
 
 .process-step-desc {
@@ -2569,4 +2593,45 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   line-height: 1.7;
   color: var(--color-olive);
   margin: 0;
+  opacity: 0.55;
+  transition: opacity 0.35s ease, color 0.35s ease;
+}
+
+/* Hover & Focus Active State (Desktop) */
+@media (hover: hover) and (pointer: fine) {
+  .process-step-item:hover,
+  .process-step-item:focus,
+  .process-step-item:focus-visible {
+    padding-left: 22px;
+  }
+
+  .process-step-item:hover::before,
+  .process-step-item:focus::before,
+  .process-step-item:focus-visible::before {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  .process-step-item:hover .process-step-num,
+  .process-step-item:focus .process-step-num,
+  .process-step-item:focus-visible .process-step-num {
+    color: var(--color-cinnamon);
+  }
+
+  .process-step-item:hover .process-step-desc,
+  .process-step-item:focus .process-step-desc,
+  .process-step-item:focus-visible .process-step-desc {
+    opacity: 1;
+    color: var(--color-charcoal);
+  }
+}
+
+/* Touch / Mobile Override: Keep all items at full opacity without requiring hover */
+@media (hover: none), (pointer: coarse) {
+  .process-step-item {
+    padding-left: 0;
+  }
+  .process-step-desc {
+    opacity: 1;
+  }
 }
