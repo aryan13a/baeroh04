@@ -1348,127 +1348,102 @@ header.header-transparent .menu-toggle span {
   margin-bottom: 8px;
 }
 
-.services-list {
+/* Card-Based 6-Service Grid */
+.services-cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
-  align-items: stretch;
-  border-top: 1px solid rgba(62, 49, 43, 0.14);
-  border-left: 1px solid rgba(62, 49, 43, 0.14);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
 }
 
-@media (max-width: 1000px) {
-  .services-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+@media (max-width: 992px) {
+  .services-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
-@media (max-width: 600px) {
-  .services-list {
+@media (max-width: 640px) {
+  .services-cards-grid {
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 18px;
   }
 }
 
-.service-item {
-  min-height: 310px;
-  border-right: 1px solid rgba(62, 49, 43, 0.14);
-  border-bottom: 1px solid rgba(62, 49, 43, 0.14);
-  padding: 32px 36px;
+.service-card {
+  background-color: var(--color-sand);
+  border: 1px solid rgba(62, 49, 43, 0.08);
+  border-radius: 12px;
+  padding: 36px 32px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  position: relative;
-  overflow: hidden;
-  background-color: transparent;
+  box-shadow: 0 8px 24px rgba(62, 49, 43, 0.04);
+  cursor: pointer;
+  outline: none;
   transform: translateY(0);
-  transition: border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background-color 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
-.service-item::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(270deg, rgba(62, 49, 43, 0.38) 0%, rgba(62, 49, 43, 0.2) 22%, rgba(155, 106, 78, 0.08) 48%, rgba(62, 49, 43, 0) 76%);
-  opacity: 0;
-  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.service-item:hover {
-  border-color: rgba(155, 106, 78, 0.42);
-  transform: translateY(-2px);
-}
-
-.service-item:hover::before {
-  opacity: 1;
-}
-
-.service-number {
+.service-card-num {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.25em;
+  text-transform: uppercase;
   color: var(--color-cinnamon-deep);
-  margin-bottom: 54px;
+  margin-bottom: 24px;
   display: block;
-  transform-origin: left center;
-  transition: color 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  z-index: 1;
+  transition: color 0.35s ease;
 }
 
-.service-title {
+.service-card-title {
   font-family: var(--font-display);
-  font-size: clamp(22px, 2.2vw, 28px);
+  font-size: clamp(20px, 1.8vw, 24px);
   font-weight: 400;
-  line-height: 1.18;
-  margin: 0 0 18px;
+  line-height: 1.25;
   color: var(--color-charcoal);
-  overflow-wrap: anywhere;
-  transform-origin: left center;
-  transition: color 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  z-index: 1;
+  margin: 0 0 14px;
+  letter-spacing: 0.015em;
+  transition: color 0.35s ease;
 }
 
-.service-title::after {
-  display: none;
-}
-
-.service-desc {
+.service-card-desc {
   font-family: var(--font-body);
   font-weight: 300;
   font-size: 14px;
-  color: var(--color-olive);
   line-height: 1.7;
-  max-width: 94%;
-  transform-origin: left center;
-  transition: color 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  z-index: 1;
+  color: var(--color-olive);
+  margin: 0;
+  transition: color 0.35s ease;
 }
 
-.service-arrow {
-  display: none;
+/* Terracotta Hover & Focus Interaction */
+.service-card:hover,
+.service-card:focus,
+.service-card:focus-visible {
+  background-color: #C16B4A; /* Warm Terracotta Accent */
+  border-color: transparent;
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(193, 107, 74, 0.28);
 }
 
-.service-item:hover .service-number,
-.service-item:hover .service-title,
-.service-item:hover .service-desc {
-  color: var(--color-charcoal);
+.service-card:hover .service-card-num,
+.service-card:focus .service-card-num,
+.service-card:focus-visible .service-card-num {
+  color: #FFFFFF;
 }
 
-.service-item:hover .service-number {
-  transform: scale(1.06);
+.service-card:hover .service-card-title,
+.service-card:focus .service-card-title,
+.service-card:focus-visible .service-card-title {
+  color: #F5EFE6;
 }
 
-.service-item:hover .service-title {
-  transform: scale(1.045);
-}
-
-.service-item:hover .service-desc {
-  transform: scale(1.025);
+.service-card:hover .service-card-desc,
+.service-card:focus .service-card-desc,
+.service-card:focus-visible .service-card-desc {
+  color: rgba(245, 239, 230, 0.92);
 }
 
 
