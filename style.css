@@ -2301,3 +2301,84 @@ header.header-transparent ~ .project-modal .modal-close span::after {
     margin-bottom: 20px;
   }
 }
+
+/* Home Page Seamless 6-Image Project Collage Grid (Zero Whitespace) */
+.home-collage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.home-collage-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  cursor: pointer;
+  background-color: var(--color-sand);
+  margin: 0;
+  padding: 0;
+}
+
+.home-collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-collage-item:hover img {
+  transform: scale(1.05);
+}
+
+.collage-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(30, 24, 21, 0.85) 0%, rgba(30, 24, 21, 0.15) 65%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.home-collage-item:hover .collage-overlay {
+  opacity: 1;
+}
+
+.collage-overlay .recent-project-title {
+  color: var(--color-ivory);
+  margin-top: 0;
+  margin-bottom: 8px;
+  text-align: left;
+  font-size: clamp(14px, 1.2vw, 18px);
+}
+
+.collage-overlay .recent-project-meta {
+  color: var(--color-taupe);
+  text-align: left;
+  font-size: 9px;
+}
+
+@media (max-width: 900px) {
+  .home-collage-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .home-collage-grid {
+    grid-template-columns: 1fr;
+  }
+  .collage-overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(30, 24, 21, 0.85) 0%, transparent 80%);
+    padding: 20px;
+  }
+}
