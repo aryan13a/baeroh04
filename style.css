@@ -2486,3 +2486,38 @@ header.header-transparent ~ .project-modal .modal-close span::after {
     aspect-ratio: 4 / 3;
   }
 }
+
+/* Studio Belief Showcase Gallery (Between Beliefs and The Name) */
+.studio-belief-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: center;
+}
+
+.studio-belief-item {
+  overflow: hidden;
+  border-radius: 2px;
+  aspect-ratio: 4 / 5;
+  background-color: var(--color-sand);
+  box-shadow: 0 16px 45px rgba(62, 49, 43, 0.08);
+}
+
+.studio-belief-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.studio-belief-item:hover img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+  .studio-belief-gallery {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
