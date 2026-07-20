@@ -478,14 +478,36 @@ header.header-transparent .menu-toggle span {
   color: #ffffff;
 }
 
-.slide-desc {
+.slide-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 2px;
   font-family: var(--font-body);
-  font-weight: 300;
-  font-size: clamp(12px, 1.8vw, 13px);
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 680px;
-  margin: 0 auto;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-cta-btn:hover {
+  background-color: #ffffff;
+  color: var(--color-charcoal);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.slide-desc {
+  display: none;
 }
 
 /* Slider Controls */
@@ -617,7 +639,7 @@ header.header-transparent .menu-toggle span {
 
   /* Optimize Background Position focal points for mobile view */
   .slide:nth-of-type(1) .slide-bg {
-    background-position: 25% center;
+    background-position: 35% center;
   }
   .slide:nth-of-type(2) .slide-bg {
     background-position: 75% center;
@@ -626,14 +648,11 @@ header.header-transparent .menu-toggle span {
     background-position: 40% center;
   }
   .slide:nth-of-type(4) .slide-bg {
-    background-position: 35% center;
+    background-position: 25% center;
   }
 }
 
 @media (max-width: 500px) {
-  .slide-desc {
-    display: none;
-  }
   .slide-content {
     margin-bottom: 80px;
   }
