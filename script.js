@@ -656,4 +656,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1000);
     });
   }
+
+  // Process Step Item Active Toggle
+  const processSteps = document.querySelectorAll('.process-step-item');
+  if (processSteps.length > 0) {
+    processSteps.forEach(step => {
+      step.addEventListener('click', () => {
+        processSteps.forEach(s => s.classList.remove('active'));
+        step.classList.add('active');
+      });
+    });
+  }
 });

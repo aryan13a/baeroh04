@@ -2519,26 +2519,27 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 .process-step-item {
   position: relative;
-  border-bottom: 1px solid rgba(62, 49, 43, 0.12);
+  border-bottom: 1px solid rgba(62, 49, 43, 0.1);
   padding-bottom: 18px;
-  padding-left: 14px;
+  padding-left: 18px;
   outline: none;
   cursor: pointer;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
 }
 
 .process-step-item::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 4px;
+  top: 2px;
   bottom: 18px;
   width: 2px;
   background-color: var(--color-cinnamon);
   opacity: 0;
-  transform: scaleY(0.4);
+  transform: scaleY(0);
+  transform-origin: top;
   transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  transform-origin: center;
 }
 
 .process-step-item:last-child {
@@ -2554,11 +2555,12 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   font-family: var(--font-display);
   font-weight: 500;
   font-size: clamp(18px, 1.6vw, 22px);
-  color: var(--color-charcoal);
+  color: var(--color-olive);
   display: block;
   margin-bottom: 6px;
   letter-spacing: 0.05em;
-  transition: color 0.35s ease, transform 0.35s ease;
+  opacity: 0.65;
+  transition: color 0.35s ease, opacity 0.35s ease;
 }
 
 .process-step-desc {
@@ -2569,42 +2571,68 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   color: var(--color-olive);
   margin: 0;
   opacity: 0.55;
-  transition: opacity 0.35s ease, color 0.35s ease;
+  transition: color 0.35s ease, opacity 0.35s ease;
 }
 
-/* Hover & Focus Active State (Desktop) */
+/* Active State (True Active Step) */
+.process-step-item.active {
+  transform: translateX(0);
+}
+
+.process-step-item.active::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.process-step-item.active .process-step-num {
+  color: var(--color-cinnamon);
+  opacity: 1;
+}
+
+.process-step-item.active .process-step-desc {
+  color: var(--color-charcoal);
+  opacity: 1;
+}
+
+/* Premium Hover & Focus Active State for Inactive Steps (Desktop) */
 @media (hover: hover) and (pointer: fine) {
-  .process-step-item:hover,
-  .process-step-item:focus,
-  .process-step-item:focus-visible {
-    padding-left: 22px;
+  .process-step-item:not(.active):hover,
+  .process-step-item:not(.active):focus,
+  .process-step-item:not(.active):focus-visible {
+    transform: translateX(6px);
   }
 
-  .process-step-item:hover::before,
-  .process-step-item:focus::before,
-  .process-step-item:focus-visible::before {
+  .process-step-item:not(.active):hover::before,
+  .process-step-item:not(.active):focus::before,
+  .process-step-item:not(.active):focus-visible::before {
     opacity: 1;
     transform: scaleY(1);
   }
 
-  .process-step-item:hover .process-step-num,
-  .process-step-item:focus .process-step-num,
-  .process-step-item:focus-visible .process-step-num {
+  .process-step-item:not(.active):hover .process-step-num,
+  .process-step-item:not(.active):focus .process-step-num,
+  .process-step-item:not(.active):focus-visible .process-step-num {
     color: var(--color-cinnamon);
+    opacity: 1;
   }
 
-  .process-step-item:hover .process-step-desc,
-  .process-step-item:focus .process-step-desc,
-  .process-step-item:focus-visible .process-step-desc {
-    opacity: 1;
+  .process-step-item:not(.active):hover .process-step-desc,
+  .process-step-item:not(.active):focus .process-step-desc,
+  .process-step-item:not(.active):focus-visible .process-step-desc {
     color: var(--color-charcoal);
+    opacity: 0.95;
   }
 }
 
-/* Touch / Mobile Override: Keep all items at full opacity without requiring hover */
+/* Touch / Mobile Override */
 @media (hover: none), (pointer: coarse) {
   .process-step-item {
-    padding-left: 0;
+    padding-left: 14px;
+    transform: none !important;
+  }
+  .process-step-num {
+    opacity: 1;
+    color: var(--color-charcoal);
   }
   .process-step-desc {
     opacity: 1;
