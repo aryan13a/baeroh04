@@ -2370,25 +2370,31 @@ footer {
   background: radial-gradient(ellipse at center, rgba(30, 23, 20, 0.22) 0%, transparent 80%);
 }
 
-/* Readability Colors & Line Heights */
-.beliefs-section .font-label {
-  color: #D2C4B2 !important;
+/* Readability Colors, Line Heights & Fonts (Serif for Headings, Sans-serif for Body) */
+.beliefs-section h1,
+.beliefs-section h2,
+.beliefs-section h3,
+.beliefs-section .font-display-section {
+  font-family: var(--font-display) !important; /* Serif */
+  color: #F3F0EA !important;
 }
 
-.beliefs-section h2,
-.beliefs-section .font-display-section {
-  color: #F3F0EA !important;
+.beliefs-section .font-label {
+  font-family: var(--font-body) !important; /* Sans-serif */
+  color: #D2C4B2 !important;
 }
 
 .beliefs-section p,
 .beliefs-section .font-body-copy,
+.beliefs-section .font-quote,
 .beliefs-section li {
+  font-family: var(--font-body) !important; /* Sans-serif */
   color: rgba(243, 240, 234, 0.88) !important;
   line-height: 1.75;
 }
 
-.beliefs-section .em-serif,
-.beliefs-section .font-quote {
+.beliefs-section .em-serif {
+  font-family: var(--font-display) !important; /* Serif */
   color: #C49F8A !important;
 }
 
