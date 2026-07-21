@@ -1957,11 +1957,16 @@ header.header-transparent .menu-toggle span {
 
 .process-active-content {
   max-width: 920px;
-  margin-top: clamp(24px, 3vw, 38px);
+  margin: clamp(24px, 3vw, 38px) auto 0 auto;
+  text-align: center;
 }
 
 .process-panel {
   margin-bottom: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .js .process-active-content {
@@ -1996,6 +2001,7 @@ header.header-transparent .menu-toggle span {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--color-cinnamon-deep);
+  text-align: center;
 }
 
 .process-active-hairline {
@@ -2003,18 +2009,20 @@ header.header-transparent .menu-toggle span {
   width: 138px;
   height: 1px;
   margin-top: 14px;
+  margin-inline: auto;
   background: var(--color-cinnamon);
 }
 
 .process-panel p {
   max-width: 900px;
-  margin: 16px 0 0;
+  margin: 16px auto 0 auto;
   font-family: var(--font-display);
   font-weight: 300;
   font-size: clamp(26px, 2.55vw, 36px);
   line-height: 1.28;
   letter-spacing: 0.015em;
   color: var(--color-charcoal);
+  text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -2304,7 +2312,7 @@ footer {
   transform: translateY(0);
 }
 
-/* Studio Page - Beliefs Section Background & Masking */
+/* Studio Page - Beliefs Section Background & Text Readability */
 .beliefs-section {
   position: relative;
   isolation: isolate;
@@ -2338,7 +2346,7 @@ footer {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(0.85);
+  filter: none;
   transform: scale(1.02);
   transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1;
@@ -2352,6 +2360,36 @@ footer {
 .beliefs-content {
   position: relative;
   z-index: 3;
+  opacity: 1;
+}
+
+/* Subtle local gradient behind each column for contrast without visible cards or heavy blur */
+.beliefs-column {
+  max-width: 550px;
+  position: relative;
+  background: radial-gradient(ellipse at center, rgba(30, 23, 20, 0.22) 0%, transparent 80%);
+}
+
+/* Readability Colors & Line Heights */
+.beliefs-section .font-label {
+  color: #D2C4B2 !important;
+}
+
+.beliefs-section h2,
+.beliefs-section .font-display-section {
+  color: #F3F0EA !important;
+}
+
+.beliefs-section p,
+.beliefs-section .font-body-copy,
+.beliefs-section li {
+  color: rgba(243, 240, 234, 0.88) !important;
+  line-height: 1.75;
+}
+
+.beliefs-section .em-serif,
+.beliefs-section .font-quote {
+  color: #C49F8A !important;
 }
 
 .beliefs-column {
