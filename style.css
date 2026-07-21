@@ -1542,7 +1542,7 @@ header.header-transparent .menu-toggle span {
     grid-column: 1;
     align-self: center;
     max-width: none;
-    padding: clamp(92px, 13vh, 142px) clamp(74px, 7vw, 116px) 96px 5.5vw;
+    padding: clamp(80px, 10vh, 120px) clamp(74px, 7vw, 116px) clamp(130px, 16vh, 160px) 5.5vw;
     opacity: 0;
     transform: translateY(22px);
     transition: opacity 420ms ease, transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -1662,12 +1662,12 @@ header.header-transparent .menu-toggle span {
   .js .services-scroll-cue {
     position: absolute;
     z-index: 9;
-    bottom: 74px;
+    bottom: 24px;
     left: 5.5vw;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 14px;
+    align-items: flex-start;
+    gap: 8px;
     font-family: var(--font-body);
     font-weight: 500;
     font-size: 9px;
