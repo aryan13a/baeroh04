@@ -2315,6 +2315,7 @@ footer {
 /* Studio Page - Beliefs Section Background & Text Readability */
 .beliefs-section {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   padding: 130px 0;
   background-color: var(--color-charcoal);
@@ -2323,30 +2324,20 @@ footer {
   border-bottom: 1px solid rgba(243, 240, 234, 0.12);
 }
 
-/* Directional charcoal overlay using ::before pseudo-element */
 .beliefs-section::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 2;
+  pointer-events: none;
   background: linear-gradient(
     90deg,
     rgba(30, 23, 20, 0.72) 0%,
+    rgba(30, 23, 20, 0.66) 32%,
     rgba(30, 23, 20, 0.52) 50%,
+    rgba(30, 23, 20, 0.66) 70%,
     rgba(30, 23, 20, 0.76) 100%
   );
-  pointer-events: none;
-}
-
-@media (max-width: 900px) {
-  .beliefs-section::before {
-    background: linear-gradient(
-      180deg,
-      rgba(30, 23, 20, 0.75) 0%,
-      rgba(30, 23, 20, 0.55) 50%,
-      rgba(30, 23, 20, 0.78) 100%
-    );
-  }
 }
 
 .beliefs-bg-layer {
@@ -2359,17 +2350,13 @@ footer {
   transform: scale(1.02);
   transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1;
+  pointer-events: none;
 }
 
 .beliefs-section:hover .beliefs-bg-layer {
   transform: scale(1.04);
 }
 
-.beliefs-mask-layer {
-  display: none;
-}
-
-/* Higher stacking level for text content above overlay */
 .beliefs-content {
   position: relative;
   z-index: 3;
@@ -2403,6 +2390,75 @@ footer {
 .beliefs-section .em-serif,
 .beliefs-section .font-quote {
   color: #C49F8A !important;
+}
+
+.beliefs-column {
+  position: relative;
+  z-index: 1;
+}
+
+.beliefs-column::before {
+  content: '';
+  position: absolute;
+  inset: -36px -44px;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(30, 23, 20, 0.16) 0%, rgba(30, 23, 20, 0) 72%);
+}
+
+.beliefs-content .font-label {
+  color: #D2C4B2;
+}
+
+.beliefs-content .font-display-section {
+  color: #F3F0EA;
+}
+
+.beliefs-content .font-body-copy,
+.beliefs-content li {
+  max-width: 560px;
+  color: rgba(243, 240, 234, 0.88);
+  line-height: 1.75;
+}
+
+.beliefs-content .em-serif,
+.beliefs-content .font-quote {
+  color: #C49F8A;
+}
+
+.beliefs-content .font-quote {
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .beliefs-section {
+    padding: 100px 0;
+  }
+
+  .beliefs-section::before {
+    background: linear-gradient(
+      180deg,
+      rgba(30, 23, 20, 0.74) 0%,
+      rgba(30, 23, 20, 0.62) 50%,
+      rgba(30, 23, 20, 0.78) 100%
+    );
+  }
+
+  .beliefs-content {
+    gap: 64px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .beliefs-section {
+    padding: 76px 0;
+  }
+
+  .beliefs-column::before {
+    inset: -28px -22px;
+    background: radial-gradient(ellipse at center, rgba(30, 23, 20, 0.2) 0%, rgba(30, 23, 20, 0) 74%);
+  }
 }
 
 /* Modal or Project Detail lightbox */
