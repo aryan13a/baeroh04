@@ -1700,29 +1700,8 @@ header.header-transparent .menu-toggle span {
     opacity: 0;
   }
 
-  .js .services-next-preview {
-    position: absolute;
-    z-index: 8;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    width: 48%;
-    min-height: 46px;
-    padding: 0 5.5vw;
-    background: rgba(210, 196, 178, 0.36);
-    border-top: 1px solid rgba(62, 49, 43, 0.1);
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 9px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--color-charcoal);
-  }
-
-  .js .services-next-number {
-    color: var(--color-cinnamon-deep);
+  .services-next-preview {
+    display: none !important;
   }
 
   .js .services-scroll-triggers {
@@ -1745,10 +1724,6 @@ header.header-transparent .menu-toggle span {
 
   .js .services-progress {
     left: calc(50% - 54px);
-  }
-
-  .js .services-next-preview {
-    width: 50%;
   }
 
   .js .services-chapter-copy {

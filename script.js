@@ -208,8 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       servicesScroll.classList.toggle('is-exploring', activeServiceIndex > 0);
       const upcoming = serviceChapters[activeServiceIndex + 1];
-      nextNumber.textContent = upcoming ? upcoming.number : '02';
-      nextTitle.textContent = upcoming ? upcoming.title : 'Our Process';
+      if (nextNumber) nextNumber.textContent = upcoming ? upcoming.number : '02';
+      if (nextTitle) nextTitle.textContent = upcoming ? upcoming.title : 'Our Process';
 
       // Load only the next image ahead of the current chapter.
       warmServiceImage(activeServiceIndex + 1);
