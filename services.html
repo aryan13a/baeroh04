@@ -7,6 +7,7 @@
   <meta name="description" content="Explore design services offered by Baeroh: space planning, interior styling, turnkey execution, design consultation, and full interior architecture.">
   <link rel="stylesheet" href="style.css?v=6.5">
   <link rel="icon" type="image/png" href="assets/favicon.png?v=6.0">
+  <link rel="preload" as="image" href="assets/unnamed.webp">
 </head>
 <body>
 
@@ -54,65 +55,112 @@
     </div>
   </section>
 
-  <!-- Services Detailed List -->
-  <section class="services-editorial services-page-section services-chapter fade-in-up">
-    <div class="container">
-      <div class="services-section-head">
-        <div>
-          <span class="font-label">01 / Design Support</span>
-          <h2 class="font-display-section">Spaces designed around you.</h2>
-        </div>
-        <p class="font-body-copy">From concept to completion, we create thoughtful environments that inspire, function beautifully and stand the test of time.</p>
+  <!-- Services: Scroll-led Design Support Chapters -->
+  <section class="services-scroll" data-service-chapters aria-labelledby="services-scroll-label">
+    <div class="services-scroll-sticky">
+      <span class="font-label services-scroll-label" id="services-scroll-label">01 / Design Support</span>
+
+      <div class="services-chapter-stage">
+        <article class="services-scroll-chapter is-active" data-service-index="0" aria-current="step">
+          <div class="services-chapter-copy">
+            <span class="services-chapter-number">01</span>
+            <h2 class="services-chapter-title">Building Something New</h2>
+            <p class="services-chapter-description">Complete interior architecture and design for residential, workplace, hospitality and commercial environments.</p>
+            <a class="services-chapter-cta" href="contact.html">Discover the service <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <figure class="services-chapter-media">
+            <img src="assets/unnamed.webp" alt="Open-plan workplace interior with custom desks and architectural lighting" width="1360" height="907" fetchpriority="high">
+          </figure>
+        </article>
+
+        <article class="services-scroll-chapter is-after" data-service-index="1">
+          <div class="services-chapter-copy">
+            <span class="services-chapter-number">02</span>
+            <h2 class="services-chapter-title">Renovating an Existing Space</h2>
+            <p class="services-chapter-description">Reimagining environments to better reflect the people who inhabit them today.</p>
+            <a class="services-chapter-cta" href="contact.html">Discover the service <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <figure class="services-chapter-media">
+            <img src="assets/bedroom-two.jpeg" alt="Renovated bedroom with layered timber, textiles and warm ambient lighting" width="1280" height="854" loading="lazy" decoding="async">
+          </figure>
+        </article>
+
+        <article class="services-scroll-chapter is-after" data-service-index="2">
+          <div class="services-chapter-copy">
+            <span class="services-chapter-number">03</span>
+            <h2 class="services-chapter-title">Space Planning</h2>
+            <p class="services-chapter-description">Creating layouts that improve the way people live, work and move.</p>
+            <a class="services-chapter-cta" href="contact.html">Discover the service <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <figure class="services-chapter-media">
+            <img src="assets/unnamed (2).webp" alt="Workplace layout connecting a private meeting room and open studio" width="784" height="1020" loading="lazy" decoding="async">
+          </figure>
+        </article>
+
+        <article class="services-scroll-chapter is-after" data-service-index="3">
+          <div class="services-chapter-copy">
+            <span class="services-chapter-number">04</span>
+            <h2 class="services-chapter-title">Interior Styling &amp; Material Curation</h2>
+            <p class="services-chapter-description">Selecting furniture, lighting, finishes and materials with purpose.</p>
+            <a class="services-chapter-cta" href="contact.html">Discover the service <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <figure class="services-chapter-media">
+            <img src="assets/service-styling.webp" alt="Curated floral arrangement against a richly textured charcoal wall" width="886" height="1200" loading="lazy" decoding="async">
+          </figure>
+        </article>
+
+        <article class="services-scroll-chapter is-after" data-service-index="4">
+          <div class="services-chapter-copy">
+            <span class="services-chapter-number">05</span>
+            <h2 class="services-chapter-title">Turnkey Execution</h2>
+            <p class="services-chapter-description">Coordinating consultants, contractors and execution from concept to completion.</p>
+            <a class="services-chapter-cta" href="contact.html">Discover the service <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <figure class="services-chapter-media">
+            <img src="assets/narrative-image.jpg" alt="Design team reviewing materials and drawings during project execution" width="1080" height="1346" loading="lazy" decoding="async">
+          </figure>
+        </article>
+
+        <article class="services-scroll-chapter is-after" data-service-index="5">
+          <div class="services-chapter-copy">
+            <span class="services-chapter-number">06</span>
+            <h2 class="services-chapter-title">Design Consultation</h2>
+            <p class="services-chapter-description">Helping clients make informed decisions before they begin.</p>
+            <a class="services-chapter-cta" href="contact.html">Discover the service <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <figure class="services-chapter-media">
+            <img src="assets/service-consultation.webp" alt="Executive consultation workspace with warm timber and considered detailing" width="1600" height="975" loading="lazy" decoding="async">
+          </figure>
+        </article>
       </div>
 
-      <div class="services-cards-grid">
-        <!-- Service 1 -->
-        <div class="service-card" tabindex="0">
-          <span class="service-card-num">01</span>
-          <h3 class="service-card-title">Building Something New</h3>
-          <p class="service-card-desc">Complete interior architecture and design for residential, workplace, hospitality and commercial environments.</p>
-        </div>
+      <nav class="services-progress" aria-label="Design support chapters">
+        <a class="services-progress-item is-active" href="#service-trigger-01" data-service-progress="0" aria-label="View Building Something New" aria-current="step"><span>01</span><i aria-hidden="true"></i></a>
+        <a class="services-progress-item" href="#service-trigger-02" data-service-progress="1" aria-label="View Renovating an Existing Space"><span>02</span><i aria-hidden="true"></i></a>
+        <a class="services-progress-item" href="#service-trigger-03" data-service-progress="2" aria-label="View Space Planning"><span>03</span><i aria-hidden="true"></i></a>
+        <a class="services-progress-item" href="#service-trigger-04" data-service-progress="3" aria-label="View Interior Styling and Material Curation"><span>04</span><i aria-hidden="true"></i></a>
+        <a class="services-progress-item" href="#service-trigger-05" data-service-progress="4" aria-label="View Turnkey Execution"><span>05</span><i aria-hidden="true"></i></a>
+        <a class="services-progress-item" href="#service-trigger-06" data-service-progress="5" aria-label="View Design Consultation"><span>06</span><i aria-hidden="true"></i></a>
+      </nav>
 
-        <!-- Service 2 -->
-        <div class="service-card" tabindex="0">
-          <span class="service-card-num">02</span>
-          <h3 class="service-card-title">Renovating an Existing Space</h3>
-          <p class="service-card-desc">Reimagining environments to better reflect the people who inhabit them today.</p>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="service-card" tabindex="0">
-          <span class="service-card-num">03</span>
-          <h3 class="service-card-title">Space Planning</h3>
-          <p class="service-card-desc">Creating layouts that improve the way people live, work and move.</p>
-        </div>
-
-        <!-- Service 4 -->
-        <div class="service-card" tabindex="0">
-          <span class="service-card-num">04</span>
-          <h3 class="service-card-title">Interior Styling &amp; Material Curation</h3>
-          <p class="service-card-desc">Selecting furniture, lighting, finishes and materials with purpose.</p>
-        </div>
-
-        <!-- Service 5 -->
-        <div class="service-card" tabindex="0">
-          <span class="service-card-num">05</span>
-          <h3 class="service-card-title">Turnkey Execution</h3>
-          <p class="service-card-desc">Coordinating consultants, contractors and execution from concept to completion.</p>
-        </div>
-
-        <!-- Service 6 -->
-        <div class="service-card" tabindex="0">
-          <span class="service-card-num">06</span>
-          <h3 class="service-card-title">Design Consultation</h3>
-          <p class="service-card-desc">Helping clients make informed decisions before they begin.</p>
-        </div>
+      <div class="services-scroll-cue" aria-hidden="true">
+        <span>Scroll to explore</span>
+        <i></i>
       </div>
 
-      <div class="services-conversation">
-        <p>Every thoughtful space starts with understanding</p>
-        <a href="https://wa.me/919509628808" target="_blank" rel="noopener">Let's Talk <span aria-hidden="true">&rarr;</span></a>
+      <div class="services-next-preview" aria-hidden="true">
+        <span class="services-next-number">02</span>
+        <span class="services-next-title">Renovating an Existing Space</span>
       </div>
+    </div>
+
+    <div class="services-scroll-triggers" aria-hidden="true">
+      <span id="service-trigger-01"></span>
+      <span id="service-trigger-02"></span>
+      <span id="service-trigger-03"></span>
+      <span id="service-trigger-04"></span>
+      <span id="service-trigger-05"></span>
+      <span id="service-trigger-06"></span>
     </div>
   </section>
 

@@ -1,10 +1,12 @@
 // Baeroh Design Studio - Interactivity & Animations
+document.documentElement.classList.add('js');
 
 document.addEventListener('DOMContentLoaded', () => {
   // Navigation & Modal Setup
   const header = document.querySelector('header');
   const modal = document.querySelector('.project-modal');
   const isTransparentInit = header ? header.classList.contains('header-transparent') : false;
+  let headerScrollTicking = false;
 
   const handleScroll = () => {
     if (!header) return;
@@ -23,9 +25,18 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   };
-  window.addEventListener('scroll', handleScroll);
+  const requestHeaderUpdate = () => {
+    if (headerScrollTicking) return;
+    headerScrollTicking = true;
+    window.requestAnimationFrame(() => {
+      handleScroll();
+      headerScrollTicking = false;
+    });
+  };
+
+  window.addEventListener('scroll', requestHeaderUpdate, { passive: true });
   if (modal) {
-    modal.addEventListener('scroll', handleScroll);
+    modal.addEventListener('scroll', requestHeaderUpdate, { passive: true });
   }
   handleScroll(); // Call once initially
 
@@ -145,6 +156,118 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.fade-in-up').forEach(el => {
     animationObserver.observe(el);
   });
+
+  // Scroll-led Design Support chapters (desktop only; mobile remains stacked).
+  const servicesScroll = document.querySelector('[data-service-chapters]');
+  if (servicesScroll) {
+    document.documentElement.classList.add('services-scroll-page');
+    const chapterElements = Array.from(servicesScroll.querySelectorAll('.services-scroll-chapter'));
+    const progressItems = Array.from(servicesScroll.querySelectorAll('[data-service-progress]'));
+    const triggerElements = Array.from(servicesScroll.querySelectorAll('.services-scroll-triggers span'));
+    const nextNumber = servicesScroll.querySelector('.services-next-number');
+    const nextTitle = servicesScroll.querySelector('.services-next-title');
+    const pinnedQuery = window.matchMedia('(min-width: 769px) and (min-height: 680px)');
+    let activeServiceIndex = 0;
+    let serviceChapterObserver = null;
+
+    const serviceChapters = chapterElements.map(chapter => ({
+      number: chapter.querySelector('.services-chapter-number').textContent.trim(),
+      title: chapter.querySelector('.services-chapter-title').textContent.trim(),
+      description: chapter.querySelector('.services-chapter-description').textContent.trim(),
+      image: chapter.querySelector('img').getAttribute('src')
+    }));
+
+    const warmServiceImage = (index) => {
+      if (!serviceChapters[index]) return;
+      const image = new Image();
+      image.decoding = 'async';
+      image.src = serviceChapters[index].image;
+    };
+
+    const setActiveService = (index) => {
+      const nextIndex = Math.max(0, Math.min(index, chapterElements.length - 1));
+      if (nextIndex === activeServiceIndex && chapterElements[nextIndex].classList.contains('is-active')) return;
+
+      activeServiceIndex = nextIndex;
+      chapterElements.forEach((chapter, chapterIndex) => {
+        const isActive = chapterIndex === activeServiceIndex;
+        chapter.classList.toggle('is-active', isActive);
+        chapter.classList.toggle('is-before', chapterIndex < activeServiceIndex);
+        chapter.classList.toggle('is-after', chapterIndex > activeServiceIndex);
+        if (isActive) chapter.setAttribute('aria-current', 'step');
+        else chapter.removeAttribute('aria-current');
+      });
+
+      progressItems.forEach((item, itemIndex) => {
+        const isActive = itemIndex === activeServiceIndex;
+        item.classList.toggle('is-active', isActive);
+        item.classList.toggle('is-complete', itemIndex < activeServiceIndex);
+        if (isActive) item.setAttribute('aria-current', 'step');
+        else item.removeAttribute('aria-current');
+      });
+
+      servicesScroll.classList.toggle('is-exploring', activeServiceIndex > 0);
+      const upcoming = serviceChapters[activeServiceIndex + 1];
+      nextNumber.textContent = upcoming ? upcoming.number : '02';
+      nextTitle.textContent = upcoming ? upcoming.title : 'Our Process';
+
+      // Load only the next image ahead of the current chapter.
+      warmServiceImage(activeServiceIndex + 1);
+    };
+
+    const observeServiceChapters = () => {
+      if (serviceChapterObserver) serviceChapterObserver.disconnect();
+      if (!pinnedQuery.matches) return;
+
+      serviceChapterObserver = new IntersectionObserver(entries => {
+        const visibleTrigger = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => {
+            const viewportCenter = window.innerHeight / 2;
+            const aCenter = a.boundingClientRect.top + (a.boundingClientRect.height / 2);
+            const bCenter = b.boundingClientRect.top + (b.boundingClientRect.height / 2);
+            return Math.abs(aCenter - viewportCenter) - Math.abs(bCenter - viewportCenter);
+          })[0];
+
+        if (!visibleTrigger) return;
+        const index = triggerElements.indexOf(visibleTrigger.target);
+        if (index >= 0) setActiveService(index);
+      }, {
+        root: null,
+        rootMargin: '-45% 0px -45% 0px',
+        threshold: 0.01
+      });
+
+      triggerElements.forEach(trigger => serviceChapterObserver.observe(trigger));
+    };
+
+    const syncServicesMode = () => {
+      if (pinnedQuery.matches) {
+        observeServiceChapters();
+      } else {
+        activeServiceIndex = 0;
+        chapterElements.forEach((chapter, index) => {
+          chapter.classList.toggle('is-active', index === 0);
+          chapter.classList.remove('is-before');
+          chapter.classList.toggle('is-after', index > 0);
+          chapter.removeAttribute('aria-current');
+        });
+        progressItems.forEach(item => {
+          item.classList.remove('is-active', 'is-complete');
+          item.removeAttribute('aria-current');
+        });
+        servicesScroll.classList.remove('is-exploring');
+        if (serviceChapterObserver) serviceChapterObserver.disconnect();
+      }
+    };
+
+    progressItems.forEach((item, index) => {
+      item.addEventListener('click', () => setActiveService(index));
+    });
+    pinnedQuery.addEventListener('change', syncServicesMode);
+    warmServiceImage(1);
+    syncServicesMode();
+  }
 
   // On touch devices, the process timeline behaves as a single-open accordion.
   const processAccordion = document.querySelector('[data-process-accordion]');
