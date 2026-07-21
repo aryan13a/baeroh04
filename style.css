@@ -2250,6 +2250,46 @@ footer {
   transform: translateY(0);
 }
 
+/* Studio Page - Beliefs Section Background & Masking */
+.beliefs-section {
+  position: relative;
+  overflow: hidden;
+  padding: 130px 0;
+  background-color: var(--color-charcoal);
+  color: var(--color-ivory);
+  border-top: 1px solid rgba(243, 240, 234, 0.12);
+  border-bottom: 1px solid rgba(243, 240, 234, 0.12);
+}
+
+.beliefs-bg-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.85);
+  transform: scale(1.02);
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.beliefs-section:hover .beliefs-bg-layer {
+  transform: scale(1.04);
+}
+
+.beliefs-mask-layer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(25, 20, 17, 0.85) 0%, rgba(45, 35, 30, 0.75) 50%, rgba(20, 16, 14, 0.88) 100%);
+  backdrop-filter: blur(1.5px);
+  z-index: 2;
+}
+
+.beliefs-content {
+  position: relative;
+  z-index: 3;
+}
+
 /* Modal or Project Detail lightbox */
 .project-modal {
   position: fixed;
