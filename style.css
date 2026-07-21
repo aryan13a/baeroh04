@@ -830,13 +830,42 @@ header.header-transparent .menu-toggle span {
 }
 
 .approach-editorial {
-  background-color: var(--color-sand);
-  padding: 104px 0 62px;
-  border-top: 1px solid rgba(62, 49, 43, 0.12);
-  border-bottom: 1px solid rgba(62, 49, 43, 0.12);
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-charcoal);
+  padding: 120px 0 80px;
+  border-top: 1px solid rgba(243, 240, 234, 0.15);
+  border-bottom: 1px solid rgba(243, 240, 234, 0.15);
+  color: var(--color-ivory);
+}
+
+.approach-editorial-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.85);
+  transform: scale(1.02);
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.approach-editorial:hover .approach-editorial-bg {
+  transform: scale(1.04);
+}
+
+.approach-editorial-mask {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(25, 20, 17, 0.82) 0%, rgba(45, 35, 30, 0.72) 50%, rgba(20, 16, 14, 0.85) 100%);
+  backdrop-filter: blur(1px);
+  z-index: 2;
 }
 
 .approach-editorial-shell {
+  position: relative;
+  z-index: 3;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
@@ -851,13 +880,13 @@ header.header-transparent .menu-toggle span {
 }
 
 .approach-editorial-heading {
-  border-left: 1px solid var(--color-cinnamon);
+  border-left: 1px solid var(--color-cinnamon-tint);
   padding-left: clamp(34px, 3.4vw, 46px);
   animation: narrativeFadeUp 820ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .approach-editorial-heading .font-label {
-  color: var(--color-olive);
+  color: var(--color-cinnamon-tint);
   letter-spacing: 0.32em;
 }
 
@@ -869,7 +898,7 @@ header.header-transparent .menu-toggle span {
   line-height: 1.16;
   letter-spacing: 0.015em;
   text-transform: uppercase;
-  color: var(--color-charcoal);
+  color: var(--color-ivory);
 }
 
 .approach-editorial-body {
@@ -879,7 +908,7 @@ header.header-transparent .menu-toggle span {
   font-weight: 300;
   font-size: clamp(16px, 1.35vw, 19px);
   line-height: 1.85;
-  color: var(--color-olive);
+  color: var(--color-taupe);
 }
 
 .approach-editorial-copy {
@@ -891,64 +920,18 @@ header.header-transparent .menu-toggle span {
   width: 100%;
   height: 1px;
   margin: 0 0 50px;
-  background-color: rgba(62, 49, 43, 0.15);
-}
-
-.approach-statement-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-  padding: clamp(36px, 4.2vw, 54px);
-  box-shadow: 0 24px 60px rgba(62, 49, 43, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.approach-statement-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.02);
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 1;
-}
-
-.approach-statement-card:hover .approach-statement-bg {
-  transform: scale(1.06);
-}
-
-.approach-statement-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(30, 24, 21, 0.72) 0%, rgba(62, 49, 43, 0.6) 100%);
-  backdrop-filter: blur(1.5px);
-  z-index: 2;
-}
-
-.approach-statement-card .approach-editorial-statement {
-  position: relative;
-  z-index: 3;
-  color: var(--color-ivory);
-  margin: 0;
-  font-family: var(--font-display);
-  font-weight: 300;
-  font-size: clamp(24px, 2.3vw, 36px);
-  line-height: 1.38;
-  letter-spacing: 0.02em;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  background-color: rgba(243, 240, 234, 0.2);
 }
 
 .approach-editorial-statement {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(34px, 3.05vw, 46px);
+  font-size: clamp(32px, 2.9vw, 44px);
   line-height: 1.34;
   letter-spacing: 0.01em;
-  color: var(--color-charcoal);
+  color: var(--color-ivory);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
 }
 
 .approach-editorial-detail {
@@ -960,11 +943,11 @@ header.header-transparent .menu-toggle span {
   line-height: 1.5;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-charcoal);
+  color: var(--color-ivory);
 }
 
 .approach-editorial-detail span {
-  color: var(--color-cinnamon);
+  color: var(--color-cinnamon-tint);
   margin: 0 24px;
 }
 
