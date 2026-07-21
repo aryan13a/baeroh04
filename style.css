@@ -1450,7 +1450,7 @@ header.header-transparent .menu-toggle span {
 /* Pin only on viewports with enough room for the complete editorial composition. */
 @media (min-width: 769px) and (min-height: 680px) {
   .js .services-scroll {
-    height: 500vh;
+    height: 420vh;
   }
 
   .js .services-scroll-sticky {
@@ -1486,17 +1486,15 @@ header.header-transparent .menu-toggle span {
     padding: 0;
     border: 0;
     visibility: hidden;
-    opacity: 0;
     pointer-events: none;
-    transition: opacity 480ms ease, visibility 480ms step-end;
+    transition: visibility 360ms step-end;
   }
 
   .js .services-scroll-chapter.is-active {
     z-index: 3;
     visibility: visible;
-    opacity: 1;
     pointer-events: auto;
-    transition: opacity 480ms ease, visibility 0ms step-start;
+    transition: visibility 0ms step-start;
   }
 
   .js .services-chapter-copy {
@@ -1506,7 +1504,7 @@ header.header-transparent .menu-toggle span {
     padding: clamp(92px, 13vh, 142px) clamp(74px, 7vw, 116px) 96px 5.5vw;
     opacity: 0;
     transform: translateY(22px);
-    transition: opacity 420ms ease, transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 300ms ease, transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .js .services-scroll-chapter.is-before .services-chapter-copy {
@@ -1550,7 +1548,7 @@ header.header-transparent .menu-toggle span {
     opacity: 0;
     transform: scale(1.015);
     contain: paint;
-    transition: opacity 520ms ease, transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 340ms ease, transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .js .services-scroll-chapter.is-active .services-chapter-media {
@@ -1580,7 +1578,7 @@ header.header-transparent .menu-toggle span {
     font-size: 10px;
     letter-spacing: 0.14em;
     color: var(--color-olive);
-    transition: color 600ms ease;
+    transition: color 360ms ease;
   }
 
   .js .services-progress-item i {
@@ -1599,7 +1597,7 @@ header.header-transparent .menu-toggle span {
     background: var(--color-cinnamon);
     transform: scaleY(0);
     transform-origin: top;
-    transition: transform 760ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .js .services-progress-item.is-active,
@@ -1635,7 +1633,7 @@ header.header-transparent .menu-toggle span {
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--color-charcoal);
-    transition: opacity 600ms ease;
+    transition: opacity 300ms ease;
   }
 
   .js .services-scroll-cue i {
@@ -1696,6 +1694,13 @@ header.header-transparent .menu-toggle span {
 
   .js .services-scroll-triggers span {
     scroll-margin-top: var(--header-height);
+  }
+}
+
+/* The CTA occupies the cue's vertical space on short pinned viewports. */
+@media (min-width: 769px) and (min-height: 680px) and (max-height: 820px) {
+  .js .services-scroll-cue {
+    display: none;
   }
 }
 
