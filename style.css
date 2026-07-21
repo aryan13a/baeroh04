@@ -1951,11 +1951,16 @@ header.header-transparent .menu-toggle span {
 
 .process-active-content {
   max-width: 920px;
-  margin-top: clamp(24px, 3vw, 38px);
+  margin: clamp(24px, 3vw, 38px) auto 0 auto;
+  text-align: center;
 }
 
 .process-panel {
   margin-bottom: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .js .process-active-content {
@@ -1990,6 +1995,7 @@ header.header-transparent .menu-toggle span {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--color-cinnamon-deep);
+  text-align: center;
 }
 
 .process-active-hairline {
@@ -1997,18 +2003,20 @@ header.header-transparent .menu-toggle span {
   width: 138px;
   height: 1px;
   margin-top: 14px;
+  margin-inline: auto;
   background: var(--color-cinnamon);
 }
 
 .process-panel p {
   max-width: 900px;
-  margin: 16px 0 0;
+  margin: 16px auto 0 auto;
   font-family: var(--font-display);
   font-weight: 300;
   font-size: clamp(26px, 2.55vw, 36px);
   line-height: 1.28;
   letter-spacing: 0.015em;
   color: var(--color-charcoal);
+  text-align: center;
 }
 
 @media (max-width: 768px) {
