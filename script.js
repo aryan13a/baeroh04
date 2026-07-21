@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (index >= 0) setActiveService(index);
       }, {
         root: null,
-        rootMargin: '-45% 0px -45% 0px',
+        rootMargin: '-42% 0px -42% 0px',
         threshold: 0.01
       });
 
