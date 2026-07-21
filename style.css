@@ -1335,50 +1335,49 @@ header.header-transparent .menu-toggle span {
   color: var(--color-taupe);
 }
 
-/* Services Page: interactive architectural blueprint */
-.service-blueprint-section {
+/* Services Page: premium Design Support cards */
+.design-services-section {
   position: relative;
   overflow: hidden;
-  padding: clamp(66px, 6vw, 96px) 0 clamp(60px, 5.5vw, 88px);
+  padding: clamp(64px, 6vw, 96px) 0 0;
   background: var(--color-ivory);
   border-top: 1px solid rgba(62, 49, 43, 0.14);
-  border-bottom: 1px solid rgba(62, 49, 43, 0.14);
 }
 
-.service-blueprint-inner {
+.design-services-inner {
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
-  padding: 0 clamp(22px, 5.5vw, 88px);
+  padding: 0 clamp(22px, 4.5vw, 72px);
 }
 
-.service-blueprint-intro {
+.design-services-intro {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.62fr);
-  gap: clamp(46px, 9vw, 150px);
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.65fr);
+  gap: clamp(48px, 9vw, 150px);
   align-items: start;
 }
 
-.service-blueprint-label {
+.design-services-label {
   display: block;
   margin-bottom: clamp(18px, 2vw, 28px);
   color: var(--color-cinnamon-deep);
 }
 
-.service-blueprint-heading {
+.design-services-heading {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(54px, 5.2vw, 84px);
+  font-size: clamp(54px, 5.1vw, 82px);
   line-height: 0.95;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--color-charcoal);
 }
 
-.service-blueprint-intro > p {
+.design-services-intro > p {
   max-width: 430px;
-  margin: clamp(32px, 4.2vw, 64px) 0 0;
+  margin: clamp(34px, 4.4vw, 66px) 0 0;
   font-family: var(--font-body);
   font-weight: 300;
   font-size: clamp(14px, 1.05vw, 16px);
@@ -1386,474 +1385,418 @@ header.header-transparent .menu-toggle span {
   color: var(--color-olive);
 }
 
-.service-blueprint-stage {
-  position: relative;
-  margin-top: clamp(42px, 5vw, 72px);
-}
-
-.service-blueprint {
+.design-services-rule {
   display: block;
   width: 100%;
+  height: 1px;
+  margin: clamp(34px, 3.5vw, 52px) 0 22px;
+  background: rgba(141, 128, 111, 0.42);
+}
+
+.design-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: clamp(16px, 1.4vw, 22px);
+}
+
+.design-service-card {
+  --design-card-active-ink: #FFFDF9;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-width: 0;
+  min-height: 322px;
+  flex-direction: column;
+  padding: clamp(22px, 2vw, 30px);
+  overflow: hidden;
+  background: rgba(255, 253, 249, 0.28);
+  border: 1px solid rgba(141, 128, 111, 0.38);
+  border-radius: 20px;
+  color: var(--color-charcoal);
+  box-shadow: 0 1px 2px rgba(62, 49, 43, 0.025);
+  transition:
+    transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 400ms ease,
+    border-color 400ms ease,
+    box-shadow 400ms ease,
+    color 400ms ease;
+}
+
+.design-service-card::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 253, 249, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 253, 249, 0.09) 1px, transparent 1px);
+  background-position: 18px 18px;
+  background-size: 58px 58px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms ease;
+}
+
+.design-service-number {
+  display: block;
+  margin-bottom: 14px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  color: var(--color-cinnamon-deep);
+  transition: color 400ms ease;
+}
+
+.design-service-content {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.82fr) minmax(0, 1.35fr);
+  gap: clamp(18px, 2vw, 30px);
+  align-items: center;
+  flex: 1;
+}
+
+.design-service-icon {
+  width: 100%;
+  color: var(--color-cinnamon);
+  transition: color 400ms ease, transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.design-service-icon svg {
+  display: block;
+  width: 100%;
+  max-width: 158px;
   height: auto;
   overflow: visible;
 }
 
-.blueprint-grid-line,
-.blueprint-base line,
-.blueprint-base path,
-.blueprint-base rect,
-.blueprint-base circle,
-.blueprint-base use {
-  vector-effect: non-scaling-stroke;
+.design-service-copy {
+  min-width: 0;
 }
 
-.blueprint-grid-line {
-  stroke: rgba(141, 128, 111, 0.1);
-  stroke-width: 0.75;
-}
-
-.blueprint-base > rect {
-  fill-opacity: 1;
-}
-
-.blueprint-walls {
-  fill: none;
-  stroke: rgba(141, 128, 111, 0.48);
-  stroke-width: 1.05;
-}
-
-.blueprint-doors {
-  fill: none;
-  stroke: rgba(141, 128, 111, 0.4);
-  stroke-width: 0.9;
-}
-
-.blueprint-furniture {
-  fill: none;
-  stroke: rgba(184, 170, 157, 0.58);
-  stroke-width: 0.9;
-}
-
-.blueprint-dimensions,
-.blueprint-annotations {
-  fill: none;
-  stroke: rgba(141, 128, 111, 0.48);
-  stroke-width: 0.7;
-}
-
-.blueprint-dimensions text,
-.blueprint-annotations text {
-  fill: rgba(107, 104, 87, 0.72);
-  stroke: none;
-  font-family: var(--font-body);
-  font-size: 8px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-anchor: middle;
-}
-
-.blueprint-annotations text {
-  font-size: 7px;
-  text-anchor: start;
-}
-
-.service-zone {
-  cursor: pointer;
-  opacity: 0.74;
-  outline: none;
-  transform-box: fill-box;
-  transform-origin: center;
-  transition: opacity 380ms ease;
-}
-
-.service-zone-shape,
-.service-leader-line,
-.service-zone-number,
-.service-zone-title {
-  vector-effect: non-scaling-stroke;
-  transition: opacity 380ms ease, stroke 380ms ease, fill 380ms ease, transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.service-zone-shape {
-  fill: transparent;
-  stroke: transparent;
-  stroke-width: 1.3;
-  pointer-events: all;
-}
-
-.service-leader-line {
-  fill: none;
-  stroke: rgba(62, 49, 43, 0.72);
-  stroke-width: 0.9;
-}
-
-.service-zone-number {
-  fill: var(--color-charcoal);
-  font-family: var(--font-display);
-  font-size: 44px;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-.service-zone-title {
-  fill: rgba(62, 49, 43, 0.82);
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-}
-
-.service-blueprint-section.has-selection .service-zone:not(.is-active) {
-  opacity: 0.5;
-}
-
-.service-zone.is-active {
-  opacity: 1;
-}
-
-.service-zone.is-active .service-zone-shape {
-  fill: rgba(155, 106, 78, 0.07);
-  stroke: var(--color-cinnamon);
-}
-
-.service-zone.is-active .service-leader-line {
-  stroke: var(--color-cinnamon);
-  stroke-width: 1.2;
-}
-
-.service-zone.is-active .service-zone-number {
-  fill: var(--color-cinnamon-deep);
-  transform: scale(1.08);
-}
-
-.service-zone.is-active .service-zone-title {
-  fill: var(--color-charcoal);
-}
-
-.service-zone:focus-visible .service-zone-shape {
-  stroke: var(--color-charcoal);
-  stroke-width: 2.2;
-  stroke-dasharray: 5 4;
-}
-
-.service-blueprint-active {
-  display: none;
-}
-
-.js .service-blueprint-active {
-  position: absolute;
-  z-index: 3;
-  top: 56%;
-  left: 50.5%;
-  display: block;
-  width: min(370px, 28%);
-  padding: 18px 22px 20px;
-  background: rgba(243, 240, 234, 0.96);
-  border-left: 1px solid rgba(155, 106, 78, 0.68);
-  pointer-events: none;
-}
-
-.service-blueprint-active.is-refreshing {
-  animation: serviceBlueprintContentIn 380ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes serviceBlueprintContentIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.service-blueprint-active-label {
+.design-service-copy h3 {
   margin: 0;
-  font-family: var(--font-body);
-  font-size: 9px;
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: 0.19em;
+  font-family: var(--font-display);
+  font-size: clamp(24px, 1.8vw, 30px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.015em;
   text-transform: uppercase;
-  color: var(--color-cinnamon-deep);
+  color: var(--color-charcoal);
+  transition: color 400ms ease;
 }
 
-.service-blueprint-active-line {
+.design-service-divider {
   display: block;
-  width: 86px;
+  width: 100%;
   height: 1px;
-  margin: 14px 0 16px;
-  background: var(--color-cinnamon);
+  margin: 13px 0 11px;
+  background: rgba(141, 128, 111, 0.58);
+  transition: background-color 400ms ease;
 }
 
-.service-blueprint-active-description {
+.design-service-copy p {
   margin: 0;
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 300;
-  line-height: 1.72;
+  line-height: 1.62;
   color: var(--color-olive);
+  transition: color 400ms ease;
 }
 
-.service-blueprint-cta {
+.design-service-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 18px;
+  margin-top: 16px;
+  padding: 4px 0 5px;
+  border-bottom: 1px solid transparent;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-cinnamon-deep);
+  transition: color 400ms ease, border-color 400ms ease;
+}
+
+.design-service-link span {
+  display: inline-block;
+  font-size: 17px;
+  line-height: 1;
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.design-service-link:hover {
+  border-color: currentColor;
+}
+
+.design-service-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-color: currentColor;
+}
+
+.design-service-card:focus-within {
+  background-color: var(--color-cinnamon);
+  border-color: var(--color-cinnamon);
+  color: var(--design-card-active-ink);
+  box-shadow: 0 12px 30px rgba(62, 49, 43, 0.12);
+  transform: translateY(-4px);
+}
+
+.design-service-card:focus-within::before {
+  opacity: 0.72;
+}
+
+.design-service-card:focus-within .design-service-number,
+.design-service-card:focus-within .design-service-icon,
+.design-service-card:focus-within .design-service-copy h3,
+.design-service-card:focus-within .design-service-copy p,
+.design-service-card:focus-within .design-service-link {
+  color: var(--design-card-active-ink);
+}
+
+.design-service-card:focus-within .design-service-divider {
+  background-color: rgba(255, 253, 249, 0.68);
+}
+
+.design-service-card:focus-within .design-service-icon {
+  transform: translateY(-2px);
+}
+
+.design-service-card:focus-within .design-service-link span {
+  transform: translateX(5px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .design-service-card:hover {
+    background-color: var(--color-cinnamon);
+    border-color: var(--color-cinnamon);
+    color: var(--design-card-active-ink);
+    box-shadow: 0 12px 30px rgba(62, 49, 43, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .design-service-card:hover::before {
+    opacity: 0.72;
+  }
+
+  .design-service-card:hover .design-service-number,
+  .design-service-card:hover .design-service-icon,
+  .design-service-card:hover .design-service-copy h3,
+  .design-service-card:hover .design-service-copy p,
+  .design-service-card:hover .design-service-link {
+    color: var(--design-card-active-ink);
+  }
+
+  .design-service-card:hover .design-service-divider {
+    background-color: rgba(255, 253, 249, 0.68);
+  }
+
+  .design-service-card:hover .design-service-icon {
+    transform: translateY(-2px);
+  }
+
+  .design-service-card:hover .design-service-link span {
+    transform: translateX(5px);
+  }
+}
+
+@media (hover: none) {
+  .design-service-card:active {
+    border-color: rgba(155, 106, 78, 0.68);
+    transform: scale(0.995);
+  }
+}
+
+.design-services-closing {
+  margin: clamp(46px, 5vw, 74px) calc(-1 * clamp(22px, 4.5vw, 72px)) 0;
+  padding: clamp(28px, 3vw, 44px) clamp(22px, 4.5vw, 72px) clamp(34px, 3.5vw, 52px);
+  border-top: 1px solid rgba(141, 128, 111, 0.22);
+  background: rgba(210, 196, 178, 0.13);
+  text-align: center;
+}
+
+.design-services-closing p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.2vw, 48px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: 0.035em;
+  color: var(--color-charcoal);
+}
+
+.design-services-closing a {
   display: inline-flex;
   align-items: center;
   gap: 18px;
-  margin-top: 17px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid rgba(155, 106, 78, 0.6);
+  margin-top: 13px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(155, 106, 78, 0.66);
   font-family: var(--font-body);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-cinnamon-deep);
-  pointer-events: auto;
 }
 
-.service-blueprint-cta span {
-  font-size: 15px;
-  line-height: 1;
-  transition: transform 380ms ease;
+.design-services-closing a span {
+  display: inline-block;
+  font-size: 18px;
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.service-blueprint-cta:hover span,
-.service-blueprint-cta:focus-visible span {
+.design-services-closing a:hover span,
+.design-services-closing a:focus-visible span {
   transform: translateX(5px);
 }
 
-.service-blueprint-cta:focus-visible,
-.service-blueprint-mobile-tabs button:focus-visible {
-  outline: 1px solid var(--color-charcoal);
+.design-services-closing a:focus-visible {
+  outline: 2px solid var(--color-cinnamon-deep);
   outline-offset: 5px;
 }
 
-.service-blueprint-mobile-tabs {
-  display: none;
-}
-
-.service-blueprint-fallback {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 34px clamp(36px, 7vw, 96px);
-  margin: 48px 0 0;
-  list-style: none;
-}
-
-.js .service-blueprint-fallback {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
-
-.service-blueprint-fallback li {
-  padding-top: 20px;
-  border-top: 1px solid rgba(141, 128, 111, 0.42);
-}
-
-.service-blueprint-fallback h3 {
-  margin: 0 0 12px;
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: 0.16em;
-  color: var(--color-charcoal);
-}
-
-.service-blueprint-fallback p {
-  max-width: 500px;
-  margin: 0;
-  color: var(--color-olive);
-}
-
-@media (max-width: 900px) {
-  .service-blueprint-intro {
-    grid-template-columns: minmax(0, 1fr) minmax(250px, 0.72fr);
-    gap: 42px;
+@media (max-width: 1100px) {
+  .design-services-intro {
+    grid-template-columns: minmax(0, 1fr) minmax(270px, 0.7fr);
+    gap: 46px;
   }
 
-  .service-blueprint-heading {
-    font-size: clamp(48px, 6.7vw, 62px);
+  .design-services-heading {
+    font-size: clamp(48px, 6.5vw, 64px);
   }
 
-  .js .service-blueprint-active {
-    top: 55%;
-    width: 31%;
-    padding: 15px 17px 17px;
+  .design-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .service-blueprint-active-description {
-    font-size: 11px;
+  .design-service-card {
+    min-height: 314px;
+  }
+
+  .design-service-copy h3 {
+    font-size: clamp(25px, 2.8vw, 30px);
   }
 }
 
-@media (max-width: 768px) {
-  .service-blueprint-section {
-    padding: 56px 0 62px;
+@media (max-width: 720px) {
+  .design-services-section {
+    padding-top: 56px;
   }
 
-  .service-blueprint-inner {
+  .design-services-inner {
     padding: 0 clamp(18px, 5vw, 28px);
   }
 
-  .service-blueprint-intro {
+  .design-services-intro {
     display: block;
   }
 
-  .service-blueprint-label {
+  .design-services-label {
     margin-bottom: 17px;
   }
 
-  .service-blueprint-heading {
+  .design-services-heading {
     font-size: clamp(40px, 13vw, 60px);
     line-height: 0.98;
     letter-spacing: 0.075em;
   }
 
-  .service-blueprint-intro > p {
+  .design-services-intro > p {
     max-width: 520px;
     margin-top: 25px;
     font-size: 14px;
   }
 
-  .service-blueprint-stage {
-    margin-top: 32px;
+  .design-services-rule {
+    margin: 30px 0 18px;
   }
 
-  .service-blueprint {
-    min-width: 0;
-  }
-
-  .blueprint-dimensions text,
-  .blueprint-annotations,
-  .service-zone-number,
-  .service-zone-title,
-  .service-leader-line {
-    display: none;
-  }
-
-  .service-zone {
-    cursor: default;
-    pointer-events: none;
-  }
-
-  .service-zone-shape {
-    pointer-events: none;
-  }
-
-  .js .service-blueprint-mobile-tabs {
-    display: flex;
-    gap: 0;
-    width: calc(100% + (2 * clamp(18px, 5vw, 28px)));
-    margin: 18px calc(-1 * clamp(18px, 5vw, 28px)) 0;
-    padding: 0 clamp(18px, 5vw, 28px) 12px;
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-sand) transparent;
-  }
-
-  .service-blueprint-mobile-tabs button {
-    flex: 0 0 150px;
-    min-height: 82px;
-    padding: 14px 16px 14px 0;
-    border: 0;
-    border-top: 1px solid rgba(141, 128, 111, 0.42);
-    border-bottom: 1px solid rgba(141, 128, 111, 0.42);
-    border-radius: 0;
-    background: transparent;
-    color: var(--color-charcoal);
-    font-family: var(--font-display);
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 1.15;
-    letter-spacing: 0.04em;
-    text-align: left;
-    text-transform: uppercase;
-    scroll-snap-align: start;
-    transition: color 380ms ease, border-color 380ms ease, opacity 380ms ease;
-  }
-
-  .service-blueprint-mobile-tabs button + button {
-    padding-left: 16px;
-  }
-
-  .service-blueprint-mobile-tabs button span {
-    display: block;
-    margin-bottom: 7px;
-    font-family: var(--font-body);
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    color: var(--color-olive);
-  }
-
-  .service-blueprint-mobile-tabs button.is-active {
-    border-color: var(--color-cinnamon);
-    color: var(--color-cinnamon-deep);
-  }
-
-  .service-blueprint-mobile-tabs button.is-active span {
-    color: var(--color-cinnamon-deep);
-  }
-
-  .js .service-blueprint-active {
-    position: relative;
-    top: auto;
-    left: auto;
-    width: 100%;
-    margin-top: 22px;
-    padding: 24px 0 0;
-    background: transparent;
-    border-top: 1px solid rgba(155, 106, 78, 0.46);
-    border-left: 0;
-  }
-
-  .service-blueprint-active-description {
-    max-width: 540px;
-    font-size: 14px;
-  }
-
-  .service-blueprint-active-line {
-    width: 74px;
-  }
-
-  .service-blueprint-fallback {
+  .design-services-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
-    margin-top: 34px;
+    gap: 14px;
+  }
+
+  .design-service-card {
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .design-service-content {
+    grid-template-columns: minmax(100px, 0.72fr) minmax(0, 1.28fr);
+    gap: 18px;
+  }
+
+  .design-service-icon svg {
+    max-width: 132px;
+  }
+
+  .design-service-copy h3 {
+    font-size: clamp(24px, 7.2vw, 29px);
+  }
+
+  .design-service-copy p {
+    font-size: 13px;
+  }
+
+  .design-services-closing {
+    margin-right: calc(-1 * clamp(18px, 5vw, 28px));
+    margin-left: calc(-1 * clamp(18px, 5vw, 28px));
   }
 }
 
 @media (max-width: 360px) {
-  .service-blueprint-heading {
+  .design-services-heading {
     font-size: 38px;
   }
 
-  .service-blueprint-mobile-tabs button {
-    flex-basis: 138px;
-    font-size: 16px;
+  .design-service-card {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .design-service-content {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .design-service-icon {
+    width: 118px;
+  }
+
+  .design-service-copy h3 {
+    font-size: 25px;
+  }
+
+  .design-service-divider {
+    margin: 11px 0 10px;
+  }
+
+  .design-services-closing p {
+    font-size: 29px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .service-zone,
-  .service-zone-shape,
-  .service-leader-line,
-  .service-zone-number,
-  .service-zone-title,
-  .service-blueprint-mobile-tabs button,
-  .service-blueprint-cta span {
+  .design-service-card,
+  .design-service-card::before,
+  .design-service-number,
+  .design-service-icon,
+  .design-service-copy h3,
+  .design-service-divider,
+  .design-service-copy p,
+  .design-service-link,
+  .design-service-link span,
+  .design-services-closing a span {
     transition-duration: 0.01ms !important;
-  }
-
-  .service-blueprint-active.is-refreshing {
-    animation: none;
   }
 }
 
