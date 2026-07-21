@@ -269,39 +269,86 @@ document.addEventListener('DOMContentLoaded', () => {
     syncServicesMode();
   }
 
-  // On touch devices, the process timeline behaves as a single-open accordion.
-  const processAccordion = document.querySelector('[data-process-accordion]');
-  if (processAccordion) {
-    const processSteps = Array.from(processAccordion.querySelectorAll('.process-step-item'));
-    const touchQuery = window.matchMedia('(max-width: 768px), (hover: none) and (max-width: 1024px), (pointer: coarse) and (max-width: 1024px)');
+  // Accessible horizontal process tabs with persistent selection.
+  const processTabsRoot = document.querySelector('[data-process-tabs]');
+  if (processTabsRoot) {
+    const processTabs = Array.from(processTabsRoot.querySelectorAll('[role="tab"]'));
+    const processPanels = Array.from(processTabsRoot.querySelectorAll('[role="tabpanel"]'));
+    const processTimeline = processTabsRoot.querySelector('.process-timeline');
+    const processScroller = processTabsRoot.querySelector('[data-process-scroller]');
+    const finePointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let activeProcessIndex = Math.max(0, processTabs.findIndex(tab => tab.getAttribute('aria-selected') === 'true'));
+    let processResizeTicking = false;
 
-    const setActiveProcessStep = (activeStep) => {
-      processSteps.forEach(step => {
-        const isActive = step === activeStep;
-        step.classList.toggle('is-active', isActive);
-        step.querySelector('.process-step-toggle').setAttribute('aria-expanded', String(isActive));
+    const scrollProcessTabIntoView = (tab, smooth = true) => {
+      if (!processScroller || processScroller.scrollWidth <= processScroller.clientWidth + 1) return;
+      const tabBounds = tab.getBoundingClientRect();
+      const scrollerBounds = processScroller.getBoundingClientRect();
+      const centeredLeft = processScroller.scrollLeft + tabBounds.left - scrollerBounds.left
+        - ((scrollerBounds.width - tabBounds.width) / 2);
+
+      processScroller.scrollTo({
+        left: Math.max(0, centeredLeft),
+        behavior: smooth && !reducedMotionQuery.matches ? 'smooth' : 'auto'
       });
     };
 
-    processSteps.forEach(step => {
-      step.querySelector('.process-step-toggle').addEventListener('click', () => {
-        if (touchQuery.matches) setActiveProcessStep(step);
+    const setActiveProcessTab = (index, { moveFocus = false, scroll = true } = {}) => {
+      const nextIndex = Math.max(0, Math.min(index, processTabs.length - 1));
+      activeProcessIndex = nextIndex;
+
+      processTabs.forEach((tab, tabIndex) => {
+        const isActive = tabIndex === nextIndex;
+        tab.classList.toggle('is-active', isActive);
+        tab.setAttribute('aria-selected', String(isActive));
+        tab.setAttribute('tabindex', isActive ? '0' : '-1');
+      });
+
+      processPanels.forEach((panel, panelIndex) => {
+        const isActive = panelIndex === nextIndex;
+        panel.classList.toggle('is-active', isActive);
+        panel.setAttribute('aria-hidden', String(!isActive));
+      });
+
+      const progress = processTabs.length > 1 ? (nextIndex / (processTabs.length - 1)) * 100 : 0;
+      processTimeline.style.setProperty('--process-progress', `${progress}%`);
+
+      const activeTab = processTabs[nextIndex];
+      if (moveFocus) activeTab.focus({ preventScroll: true });
+      if (scroll) window.requestAnimationFrame(() => scrollProcessTabIntoView(activeTab));
+    };
+
+    processTabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => setActiveProcessTab(index));
+      tab.addEventListener('focus', () => setActiveProcessTab(index));
+      tab.addEventListener('pointerenter', () => {
+        if (finePointerQuery.matches) setActiveProcessTab(index, { scroll: false });
+      });
+
+      tab.addEventListener('keydown', event => {
+        let nextIndex = null;
+        if (event.key === 'ArrowRight') nextIndex = (index + 1) % processTabs.length;
+        if (event.key === 'ArrowLeft') nextIndex = (index - 1 + processTabs.length) % processTabs.length;
+        if (event.key === 'Home') nextIndex = 0;
+        if (event.key === 'End') nextIndex = processTabs.length - 1;
+        if (nextIndex === null) return;
+
+        event.preventDefault();
+        setActiveProcessTab(nextIndex, { moveFocus: true });
       });
     });
 
-    const syncProcessMode = () => {
-      if (touchQuery.matches) {
-        setActiveProcessStep(processSteps.find(step => step.classList.contains('is-active')) || processSteps[0]);
-      } else {
-        processSteps.forEach(step => {
-          step.classList.remove('is-active');
-          step.querySelector('.process-step-toggle').setAttribute('aria-expanded', 'false');
-        });
-      }
-    };
+    window.addEventListener('resize', () => {
+      if (processResizeTicking) return;
+      processResizeTicking = true;
+      window.requestAnimationFrame(() => {
+        scrollProcessTabIntoView(processTabs[activeProcessIndex], false);
+        processResizeTicking = false;
+      });
+    }, { passive: true });
 
-    touchQuery.addEventListener('change', syncProcessMode);
-    syncProcessMode();
+    setActiveProcessTab(activeProcessIndex, { scroll: false });
   }
 
   // Project Database

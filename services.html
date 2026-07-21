@@ -166,97 +166,82 @@
 
   <!-- Process: From Concept to Completion -->
   <section class="process-chapter fade-in-up">
-    <div class="process-editorial-inner">
-      <div class="process-copy">
-        <div>
-          <span class="font-label process-label">02 / Our Process</span>
-          <h2 class="process-title">From Concept to Completion</h2>
-          <p class="process-body">
-            From first conversation to final walkthrough, we guide every decision with clarity and confidence.
-          </p>
-          
-          <div class="process-steps-list" data-process-accordion>
-            <div class="process-step-item is-active">
-              <button class="process-step-toggle" type="button" aria-expanded="true" aria-controls="process-step-01">
-                <span class="process-step-number">01</span>
-                <span class="process-step-heading">Understand</span>
-              </button>
-              <div class="process-step-panel" id="process-step-01">
-                <div class="process-step-panel-inner">
-                  <p class="process-step-desc">Your story, your routines, and your aspirations become the foundation of every decision.</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="process-step-item">
-              <button class="process-step-toggle" type="button" aria-expanded="false" aria-controls="process-step-02">
-                <span class="process-step-number">02</span>
-                <span class="process-step-heading">Plan</span>
-              </button>
-              <div class="process-step-panel" id="process-step-02">
-                <div class="process-step-panel-inner">
-                  <p class="process-step-desc">Clarity early on creates confidence, helping every decision feel intentional from start to finish.</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="process-step-item">
-              <button class="process-step-toggle" type="button" aria-expanded="false" aria-controls="process-step-03">
-                <span class="process-step-number">03</span>
-                <span class="process-step-heading">Design</span>
-              </button>
-              <div class="process-step-panel" id="process-step-03">
-                <div class="process-step-panel-inner">
-                  <p class="process-step-desc">Ideas begin to take shape in ways that reflect how you’ll live, work, gather, and grow.</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="process-step-item">
-              <button class="process-step-toggle" type="button" aria-expanded="false" aria-controls="process-step-04">
-                <span class="process-step-number">04</span>
-                <span class="process-step-heading">Refine</span>
-              </button>
-              <div class="process-step-panel" id="process-step-04">
-                <div class="process-step-panel-inner">
-                  <p class="process-step-desc">Every detail is thoughtfully resolved, ensuring the design is both beautiful and ready to be brought to life.</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="process-step-item">
-              <button class="process-step-toggle" type="button" aria-expanded="false" aria-controls="process-step-05">
-                <span class="process-step-number">05</span>
-                <span class="process-step-heading">Deliver</span>
-              </button>
-              <div class="process-step-panel" id="process-step-05">
-                <div class="process-step-panel-inner">
-                  <p class="process-step-desc">Your vision takes shape through careful coordination and attention to detail, resulting in a space that’s ready to be lived in.</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="process-step-item">
-              <button class="process-step-toggle" type="button" aria-expanded="false" aria-controls="process-step-06">
-                <span class="process-step-number">06</span>
-                <span class="process-step-heading">Support</span>
-              </button>
-              <div class="process-step-panel" id="process-step-06">
-                <div class="process-step-panel-inner">
-                  <p class="process-step-desc">Even after you’ve settled in, we’re here to answer questions, offer guidance, and ensure your space continues to serve you well.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="process-horizontal-inner" data-process-tabs>
+      <div class="process-intro">
+        <span class="font-label process-label">02 / Our Process</span>
+        <h2 class="process-title">From Concept<br>to Completion</h2>
+        <p class="process-body">From first conversation to final walkthrough, we guide every decision with clarity and confidence.</p>
+      </div>
+
+      <div class="process-timeline-scroller" data-process-scroller>
+        <div class="process-timeline" role="tablist" aria-label="Our process steps">
+          <span class="process-timeline-line" aria-hidden="true"><i></i></span>
+
+          <button class="process-tab is-active" id="process-tab-01" type="button" role="tab" aria-selected="true" aria-controls="process-panel-01" tabindex="0" data-process-index="0">
+            <span class="process-marker" aria-hidden="true"></span>
+            <span class="process-tab-number">01</span>
+            <span class="process-tab-heading">Understand</span>
+          </button>
+          <button class="process-tab" id="process-tab-02" type="button" role="tab" aria-selected="false" aria-controls="process-panel-02" tabindex="-1" data-process-index="1">
+            <span class="process-marker" aria-hidden="true"></span>
+            <span class="process-tab-number">02</span>
+            <span class="process-tab-heading">Plan</span>
+          </button>
+          <button class="process-tab" id="process-tab-03" type="button" role="tab" aria-selected="false" aria-controls="process-panel-03" tabindex="-1" data-process-index="2">
+            <span class="process-marker" aria-hidden="true"></span>
+            <span class="process-tab-number">03</span>
+            <span class="process-tab-heading">Design</span>
+          </button>
+          <button class="process-tab" id="process-tab-04" type="button" role="tab" aria-selected="false" aria-controls="process-panel-04" tabindex="-1" data-process-index="3">
+            <span class="process-marker" aria-hidden="true"></span>
+            <span class="process-tab-number">04</span>
+            <span class="process-tab-heading">Refine</span>
+          </button>
+          <button class="process-tab" id="process-tab-05" type="button" role="tab" aria-selected="false" aria-controls="process-panel-05" tabindex="-1" data-process-index="4">
+            <span class="process-marker" aria-hidden="true"></span>
+            <span class="process-tab-number">05</span>
+            <span class="process-tab-heading">Deliver</span>
+          </button>
+          <button class="process-tab" id="process-tab-06" type="button" role="tab" aria-selected="false" aria-controls="process-panel-06" tabindex="-1" data-process-index="5">
+            <span class="process-marker" aria-hidden="true"></span>
+            <span class="process-tab-number">06</span>
+            <span class="process-tab-heading">Support</span>
+          </button>
         </div>
       </div>
 
-      <figure class="process-visual">
-        <div class="process-image-wrap">
-          <img src="assets/narrative-image.jpg" alt="Baeroh Process Interior Design Vignette">
+      <div class="process-active-content">
+        <div class="process-panel is-active" id="process-panel-01" role="tabpanel" aria-labelledby="process-tab-01" aria-hidden="false">
+          <span class="process-active-label">01 / Understand</span>
+          <span class="process-active-hairline" aria-hidden="true"></span>
+          <p>Your story, your routines, and your aspirations become the foundation of every decision.</p>
         </div>
-        <figcaption>Thoughtful planning. Careful execution.</figcaption>
-      </figure>
+        <div class="process-panel" id="process-panel-02" role="tabpanel" aria-labelledby="process-tab-02" aria-hidden="true">
+          <span class="process-active-label">02 / Plan</span>
+          <span class="process-active-hairline" aria-hidden="true"></span>
+          <p>Clarity early on creates confidence, helping every decision feel intentional from start to finish.</p>
+        </div>
+        <div class="process-panel" id="process-panel-03" role="tabpanel" aria-labelledby="process-tab-03" aria-hidden="true">
+          <span class="process-active-label">03 / Design</span>
+          <span class="process-active-hairline" aria-hidden="true"></span>
+          <p>Ideas begin to take shape in ways that reflect how you’ll live, work, gather, and grow.</p>
+        </div>
+        <div class="process-panel" id="process-panel-04" role="tabpanel" aria-labelledby="process-tab-04" aria-hidden="true">
+          <span class="process-active-label">04 / Refine</span>
+          <span class="process-active-hairline" aria-hidden="true"></span>
+          <p>Every detail is thoughtfully resolved, ensuring the design is both beautiful and ready to be brought to life.</p>
+        </div>
+        <div class="process-panel" id="process-panel-05" role="tabpanel" aria-labelledby="process-tab-05" aria-hidden="true">
+          <span class="process-active-label">05 / Deliver</span>
+          <span class="process-active-hairline" aria-hidden="true"></span>
+          <p>Your vision takes shape through careful coordination and attention to detail, resulting in a space that’s ready to be lived in.</p>
+        </div>
+        <div class="process-panel" id="process-panel-06" role="tabpanel" aria-labelledby="process-tab-06" aria-hidden="true">
+          <span class="process-active-label">06 / Support</span>
+          <span class="process-active-hairline" aria-hidden="true"></span>
+          <p>Even after you’ve settled in, we’re here to answer questions, offer guidance, and ensure your space continues to serve you well.</p>
+        </div>
+      </div>
     </div>
   </section>
 
