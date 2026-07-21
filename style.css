@@ -53,12 +53,6 @@ body {
   font-size: 15px;
 }
 
-/* Preserve horizontal clipping without creating a sticky-breaking scroll root. */
-.services-scroll-page,
-.services-scroll-page body {
-  overflow-x: clip;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 400;
@@ -1341,414 +1335,525 @@ header.header-transparent .menu-toggle span {
   color: var(--color-taupe);
 }
 
-/* Services Page: scroll-led design support chapters */
-.services-scroll {
+/* Services Page: interactive architectural blueprint */
+.service-blueprint-section {
   position: relative;
-  padding: 0;
+  overflow: hidden;
+  padding: clamp(66px, 6vw, 96px) 0 clamp(60px, 5.5vw, 88px);
   background: var(--color-ivory);
   border-top: 1px solid rgba(62, 49, 43, 0.14);
   border-bottom: 1px solid rgba(62, 49, 43, 0.14);
 }
 
-.services-scroll-sticky {
-  position: relative;
+.service-blueprint-inner {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 clamp(22px, 5.5vw, 88px);
 }
 
-.services-scroll-label {
+.service-blueprint-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.62fr);
+  gap: clamp(46px, 9vw, 150px);
+  align-items: start;
+}
+
+.service-blueprint-label {
   display: block;
-  padding: 62px 7vw 18px;
+  margin-bottom: clamp(18px, 2vw, 28px);
   color: var(--color-cinnamon-deep);
 }
 
-.services-scroll-chapter {
-  padding: 24px 7vw 74px;
-  border-bottom: 1px solid rgba(62, 49, 43, 0.12);
-}
-
-.services-scroll-chapter:last-child {
-  border-bottom: 0;
-}
-
-.services-chapter-copy {
-  max-width: 680px;
-}
-
-.services-chapter-number {
-  display: block;
-  margin-bottom: 18px;
-  font-family: var(--font-display);
-  font-weight: 300;
-  font-size: clamp(54px, 12vw, 78px);
-  line-height: 1;
-  color: var(--color-cinnamon);
-}
-
-.services-chapter-title {
-  max-width: 680px;
+.service-blueprint-heading {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(34px, 9vw, 54px);
-  line-height: 1.06;
-  letter-spacing: 0.055em;
+  font-size: clamp(54px, 5.2vw, 84px);
+  line-height: 0.95;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-charcoal);
 }
 
-.services-chapter-description {
-  max-width: 510px;
-  margin: 26px 0 0;
+.service-blueprint-intro > p {
+  max-width: 430px;
+  margin: clamp(32px, 4.2vw, 64px) 0 0;
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 15px;
+  font-size: clamp(14px, 1.05vw, 16px);
   line-height: 1.8;
   color: var(--color-olive);
 }
 
-.services-chapter-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 22px;
-  margin-top: 26px;
-  padding-bottom: 7px;
-  border-bottom: 1px solid rgba(144, 99, 72, 0.55);
+.service-blueprint-stage {
+  position: relative;
+  margin-top: clamp(42px, 5vw, 72px);
+}
+
+.service-blueprint {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.blueprint-grid-line,
+.blueprint-base line,
+.blueprint-base path,
+.blueprint-base rect,
+.blueprint-base circle,
+.blueprint-base use {
+  vector-effect: non-scaling-stroke;
+}
+
+.blueprint-grid-line {
+  stroke: rgba(141, 128, 111, 0.1);
+  stroke-width: 0.75;
+}
+
+.blueprint-base > rect {
+  fill-opacity: 1;
+}
+
+.blueprint-walls {
+  fill: none;
+  stroke: rgba(141, 128, 111, 0.48);
+  stroke-width: 1.05;
+}
+
+.blueprint-doors {
+  fill: none;
+  stroke: rgba(141, 128, 111, 0.4);
+  stroke-width: 0.9;
+}
+
+.blueprint-furniture {
+  fill: none;
+  stroke: rgba(184, 170, 157, 0.58);
+  stroke-width: 0.9;
+}
+
+.blueprint-dimensions,
+.blueprint-annotations {
+  fill: none;
+  stroke: rgba(141, 128, 111, 0.48);
+  stroke-width: 0.7;
+}
+
+.blueprint-dimensions text,
+.blueprint-annotations text {
+  fill: rgba(107, 104, 87, 0.72);
+  stroke: none;
   font-family: var(--font-body);
-  font-weight: 600;
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-anchor: middle;
+}
+
+.blueprint-annotations text {
+  font-size: 7px;
+  text-anchor: start;
+}
+
+.service-zone {
+  cursor: pointer;
+  opacity: 0.74;
+  outline: none;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 380ms ease;
+}
+
+.service-zone-shape,
+.service-leader-line,
+.service-zone-number,
+.service-zone-title {
+  vector-effect: non-scaling-stroke;
+  transition: opacity 380ms ease, stroke 380ms ease, fill 380ms ease, transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-zone-shape {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 1.3;
+  pointer-events: all;
+}
+
+.service-leader-line {
+  fill: none;
+  stroke: rgba(62, 49, 43, 0.72);
+  stroke-width: 0.9;
+}
+
+.service-zone-number {
+  fill: var(--color-charcoal);
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.service-zone-title {
+  fill: rgba(62, 49, 43, 0.82);
+  font-family: var(--font-body);
   font-size: 10px;
-  letter-spacing: 0.22em;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
+.service-blueprint-section.has-selection .service-zone:not(.is-active) {
+  opacity: 0.5;
+}
+
+.service-zone.is-active {
+  opacity: 1;
+}
+
+.service-zone.is-active .service-zone-shape {
+  fill: rgba(155, 106, 78, 0.07);
+  stroke: var(--color-cinnamon);
+}
+
+.service-zone.is-active .service-leader-line {
+  stroke: var(--color-cinnamon);
+  stroke-width: 1.2;
+}
+
+.service-zone.is-active .service-zone-number {
+  fill: var(--color-cinnamon-deep);
+  transform: scale(1.08);
+}
+
+.service-zone.is-active .service-zone-title {
+  fill: var(--color-charcoal);
+}
+
+.service-zone:focus-visible .service-zone-shape {
+  stroke: var(--color-charcoal);
+  stroke-width: 2.2;
+  stroke-dasharray: 5 4;
+}
+
+.service-blueprint-active {
+  display: none;
+}
+
+.js .service-blueprint-active {
+  position: absolute;
+  z-index: 3;
+  top: 56%;
+  left: 50.5%;
+  display: block;
+  width: min(370px, 28%);
+  padding: 18px 22px 20px;
+  background: rgba(243, 240, 234, 0.96);
+  border-left: 1px solid rgba(155, 106, 78, 0.68);
+  pointer-events: none;
+}
+
+.service-blueprint-active.is-refreshing {
+  animation: serviceBlueprintContentIn 380ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes serviceBlueprintContentIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.service-blueprint-active-label {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.19em;
   text-transform: uppercase;
   color: var(--color-cinnamon-deep);
 }
 
-.services-chapter-cta span {
-  font-size: 17px;
+.service-blueprint-active-line {
+  display: block;
+  width: 86px;
+  height: 1px;
+  margin: 14px 0 16px;
+  background: var(--color-cinnamon);
+}
+
+.service-blueprint-active-description {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.72;
+  color: var(--color-olive);
+}
+
+.service-blueprint-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 17px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(155, 106, 78, 0.6);
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-cinnamon-deep);
+  pointer-events: auto;
+}
+
+.service-blueprint-cta span {
+  font-size: 15px;
   line-height: 1;
   transition: transform 380ms ease;
 }
 
-.services-chapter-cta:hover span,
-.services-chapter-cta:focus-visible span {
+.service-blueprint-cta:hover span,
+.service-blueprint-cta:focus-visible span {
   transform: translateX(5px);
 }
 
-.services-chapter-cta:focus-visible,
-.services-progress-item:focus-visible {
-  outline: 1px solid var(--color-cinnamon-deep);
+.service-blueprint-cta:focus-visible,
+.service-blueprint-mobile-tabs button:focus-visible {
+  outline: 1px solid var(--color-charcoal);
   outline-offset: 5px;
 }
 
-.services-chapter-media {
-  position: relative;
-  aspect-ratio: 5 / 4;
-  margin: 38px 0 0;
-  overflow: hidden;
-  background: var(--color-sand);
-}
-
-.services-chapter-media img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.services-progress,
-.services-scroll-cue,
-.services-next-preview,
-.services-scroll-triggers {
+.service-blueprint-mobile-tabs {
   display: none;
 }
 
-@media (max-width: 480px) {
-  .services-scroll-label,
-  .services-scroll-chapter {
-    padding-left: 18px;
-    padding-right: 18px;
+.service-blueprint-fallback {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px clamp(36px, 7vw, 96px);
+  margin: 48px 0 0;
+  list-style: none;
+}
+
+.js .service-blueprint-fallback {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.service-blueprint-fallback li {
+  padding-top: 20px;
+  border-top: 1px solid rgba(141, 128, 111, 0.42);
+}
+
+.service-blueprint-fallback h3 {
+  margin: 0 0 12px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.16em;
+  color: var(--color-charcoal);
+}
+
+.service-blueprint-fallback p {
+  max-width: 500px;
+  margin: 0;
+  color: var(--color-olive);
+}
+
+@media (max-width: 900px) {
+  .service-blueprint-intro {
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 0.72fr);
+    gap: 42px;
   }
 
-  .services-scroll-label {
-    padding-top: 52px;
+  .service-blueprint-heading {
+    font-size: clamp(48px, 6.7vw, 62px);
   }
 
-  .services-scroll-chapter {
-    padding-bottom: 62px;
+  .js .service-blueprint-active {
+    top: 55%;
+    width: 31%;
+    padding: 15px 17px 17px;
   }
 
-  .services-chapter-title {
-    font-size: clamp(31px, 10.5vw, 43px);
-    letter-spacing: 0.04em;
-  }
-
-  .services-chapter-media {
-    aspect-ratio: 4 / 3;
-    margin-top: 30px;
+  .service-blueprint-active-description {
+    font-size: 11px;
   }
 }
 
-/* Pin only on viewports with enough room for the complete editorial composition. */
-@media (min-width: 769px) and (min-height: 680px) {
-  .js .services-scroll {
-    height: 420vh;
+@media (max-width: 768px) {
+  .service-blueprint-section {
+    padding: 56px 0 62px;
   }
 
-  .js .services-scroll-sticky {
-    position: sticky;
-    z-index: 2;
-    top: var(--header-height);
-    height: calc(100vh - var(--header-height));
-    overflow: hidden;
-    background: var(--color-ivory);
+  .service-blueprint-inner {
+    padding: 0 clamp(18px, 5vw, 28px);
   }
 
-  .js .services-scroll-label {
-    position: absolute;
-    z-index: 8;
-    top: clamp(36px, 6vh, 70px);
-    left: 5.5vw;
-    padding: 0;
+  .service-blueprint-intro {
+    display: block;
   }
 
-  .js .services-chapter-stage,
-  .js .services-scroll-chapter {
-    position: absolute;
-    inset: 0;
+  .service-blueprint-label {
+    margin-bottom: 17px;
   }
 
-  .js .services-chapter-stage {
-    contain: layout paint;
+  .service-blueprint-heading {
+    font-size: clamp(40px, 13vw, 60px);
+    line-height: 0.98;
+    letter-spacing: 0.075em;
   }
 
-  .js .services-scroll-chapter {
-    display: grid;
-    grid-template-columns: minmax(0, 48%) minmax(0, 52%);
-    padding: 0;
-    border: 0;
-    visibility: hidden;
+  .service-blueprint-intro > p {
+    max-width: 520px;
+    margin-top: 25px;
+    font-size: 14px;
+  }
+
+  .service-blueprint-stage {
+    margin-top: 32px;
+  }
+
+  .service-blueprint {
+    min-width: 0;
+  }
+
+  .blueprint-dimensions text,
+  .blueprint-annotations,
+  .service-zone-number,
+  .service-zone-title,
+  .service-leader-line {
+    display: none;
+  }
+
+  .service-zone {
+    cursor: default;
     pointer-events: none;
-    transition: visibility 360ms step-end;
   }
 
-  .js .services-scroll-chapter.is-active {
-    z-index: 3;
-    visibility: visible;
-    pointer-events: auto;
-    transition: visibility 0ms step-start;
+  .service-zone-shape {
+    pointer-events: none;
   }
 
-  .js .services-chapter-copy {
-    grid-column: 1;
-    align-self: center;
-    max-width: none;
-    padding: clamp(80px, 10vh, 120px) clamp(74px, 7vw, 116px) clamp(130px, 16vh, 160px) 5.5vw;
-    opacity: 0;
-    transform: translateY(22px);
-    transition: opacity 300ms ease, transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .js .services-scroll-chapter.is-before .services-chapter-copy {
-    transform: translateY(-20px);
-  }
-
-  .js .services-scroll-chapter.is-active .services-chapter-copy {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .js .services-chapter-number {
-    margin-bottom: 24px;
-    font-size: clamp(64px, 6vw, 92px);
-  }
-
-  .js .services-chapter-title {
-    font-size: clamp(40px, 4vw, 66px);
-    line-height: 1.08;
-  }
-
-  .js .services-chapter-description {
-    margin-top: 28px;
-    font-size: clamp(14px, 1.15vw, 17px);
-    line-height: 1.75;
-  }
-
-  .js .services-chapter-cta {
-    margin-top: 30px;
-  }
-
-  .js .services-chapter-media {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: stretch;
-    justify-self: stretch;
-    width: 100%;
-    height: 100%;
-    aspect-ratio: auto;
-    margin: 0;
-    opacity: 0;
-    transform: scale(1.015);
-    contain: paint;
-    transition: opacity 340ms ease, transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .js .services-scroll-chapter.is-active .services-chapter-media {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .js .services-progress {
-    position: absolute;
-    z-index: 10;
-    top: 50%;
-    left: calc(48% - 64px);
+  .js .service-blueprint-mobile-tabs {
     display: flex;
-    flex-direction: column;
-    transform: translateY(-50%);
+    gap: 0;
+    width: calc(100% + (2 * clamp(18px, 5vw, 28px)));
+    margin: 18px calc(-1 * clamp(18px, 5vw, 28px)) 0;
+    padding: 0 clamp(18px, 5vw, 28px) 12px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-sand) transparent;
   }
 
-  .js .services-progress-item {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 42px;
-    min-height: 62px;
-    font-family: var(--font-body);
+  .service-blueprint-mobile-tabs button {
+    flex: 0 0 150px;
+    min-height: 82px;
+    padding: 14px 16px 14px 0;
+    border: 0;
+    border-top: 1px solid rgba(141, 128, 111, 0.42);
+    border-bottom: 1px solid rgba(141, 128, 111, 0.42);
+    border-radius: 0;
+    background: transparent;
+    color: var(--color-charcoal);
+    font-family: var(--font-display);
+    font-size: 17px;
     font-weight: 400;
-    font-size: 10px;
-    letter-spacing: 0.14em;
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+    text-align: left;
+    text-transform: uppercase;
+    scroll-snap-align: start;
+    transition: color 380ms ease, border-color 380ms ease, opacity 380ms ease;
+  }
+
+  .service-blueprint-mobile-tabs button + button {
+    padding-left: 16px;
+  }
+
+  .service-blueprint-mobile-tabs button span {
+    display: block;
+    margin-bottom: 7px;
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     color: var(--color-olive);
-    transition: color 360ms ease;
   }
 
-  .js .services-progress-item i {
-    position: relative;
-    width: 1px;
-    flex: 1;
-    margin-top: 10px;
-    overflow: hidden;
-    background: rgba(62, 49, 43, 0.18);
-  }
-
-  .js .services-progress-item i::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--color-cinnamon);
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .js .services-progress-item.is-active,
-  .js .services-progress-item.is-complete {
+  .service-blueprint-mobile-tabs button.is-active {
+    border-color: var(--color-cinnamon);
     color: var(--color-cinnamon-deep);
   }
 
-  .js .services-progress-item.is-active i::after,
-  .js .services-progress-item.is-complete i::after {
-    transform: scaleY(1);
+  .service-blueprint-mobile-tabs button.is-active span {
+    color: var(--color-cinnamon-deep);
   }
 
-  .js .services-progress-item:last-child {
-    min-height: 18px;
-  }
-
-  .js .services-progress-item:last-child i {
-    display: none;
-  }
-
-  .js .services-scroll-cue {
-    position: absolute;
-    z-index: 9;
-    bottom: 24px;
-    left: 5.5vw;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    font-family: var(--font-body);
-    font-weight: 500;
-    font-size: 9px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--color-charcoal);
-    transition: opacity 300ms ease;
-  }
-
-  .js .services-scroll-cue i {
+  .js .service-blueprint-active {
     position: relative;
-    width: 1px;
-    height: 36px;
-    background: var(--color-charcoal);
+    top: auto;
+    left: auto;
+    width: 100%;
+    margin-top: 22px;
+    padding: 24px 0 0;
+    background: transparent;
+    border-top: 1px solid rgba(155, 106, 78, 0.46);
+    border-left: 0;
   }
 
-  .js .services-scroll-cue i::after {
-    content: '';
-    position: absolute;
-    left: -3px;
-    bottom: 0;
-    width: 7px;
-    height: 7px;
-    border-right: 1px solid var(--color-charcoal);
-    border-bottom: 1px solid var(--color-charcoal);
-    transform: rotate(45deg);
+  .service-blueprint-active-description {
+    max-width: 540px;
+    font-size: 14px;
   }
 
-  .js .services-scroll.is-exploring .services-scroll-cue {
-    opacity: 0;
+  .service-blueprint-active-line {
+    width: 74px;
   }
 
-  .services-next-preview {
-    display: none !important;
-  }
-
-  .js .services-scroll-triggers {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    grid-template-rows: repeat(6, 1fr);
-    pointer-events: none;
-  }
-
-  .js .services-scroll-triggers span {
-    scroll-margin-top: var(--header-height);
+  .service-blueprint-fallback {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 34px;
   }
 }
 
-/* The CTA occupies the cue's vertical space on short pinned viewports. */
-@media (min-width: 769px) and (min-height: 680px) and (max-height: 820px) {
-  .js .services-scroll-cue {
-    display: none;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1100px) and (min-height: 680px) {
-  .js .services-scroll-chapter {
-    grid-template-columns: minmax(0, 50%) minmax(0, 50%);
+@media (max-width: 360px) {
+  .service-blueprint-heading {
+    font-size: 38px;
   }
 
-  .js .services-progress {
-    left: calc(50% - 54px);
-  }
-
-  .js .services-chapter-copy {
-    padding-right: 68px;
-  }
-
-  .js .services-chapter-title {
-    font-size: clamp(38px, 4.8vw, 54px);
+  .service-blueprint-mobile-tabs button {
+    flex-basis: 138px;
+    font-size: 16px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .services-scroll-chapter,
-  .services-chapter-copy,
-  .services-chapter-media,
-  .services-progress-item,
-  .services-progress-item i::after,
-  .services-scroll-cue,
-  .services-chapter-cta span {
+  .service-zone,
+  .service-zone-shape,
+  .service-leader-line,
+  .service-zone-number,
+  .service-zone-title,
+  .service-blueprint-mobile-tabs button,
+  .service-blueprint-cta span {
     transition-duration: 0.01ms !important;
+  }
+
+  .service-blueprint-active.is-refreshing {
+    animation: none;
   }
 }
 

@@ -157,116 +157,164 @@ document.addEventListener('DOMContentLoaded', () => {
     animationObserver.observe(el);
   });
 
-  // Scroll-led Design Support chapters (desktop only; mobile remains stacked).
-  const servicesScroll = document.querySelector('[data-service-chapters]');
-  if (servicesScroll) {
-    document.documentElement.classList.add('services-scroll-page');
-    const chapterElements = Array.from(servicesScroll.querySelectorAll('.services-scroll-chapter'));
-    const progressItems = Array.from(servicesScroll.querySelectorAll('[data-service-progress]'));
-    const triggerElements = Array.from(servicesScroll.querySelectorAll('.services-scroll-triggers span'));
-    const nextNumber = servicesScroll.querySelector('.services-next-number');
-    const nextTitle = servicesScroll.querySelector('.services-next-title');
-    const pinnedQuery = window.matchMedia('(min-width: 769px) and (min-height: 680px)');
+  // Interactive architectural blueprint for the Design Support section.
+  const serviceBlueprint = document.querySelector('[data-service-blueprint]');
+  if (serviceBlueprint) {
+    const services = [
+      {
+        number: '01',
+        title: 'Building Something New',
+        description: 'Complete interior architecture and design for residential, workplace, hospitality and commercial environments.',
+        slug: 'building-something-new'
+      },
+      {
+        number: '02',
+        title: 'Renovating an Existing Space',
+        description: 'Reimagining environments to better reflect the people who inhabit them today.',
+        slug: 'renovating-an-existing-space'
+      },
+      {
+        number: '03',
+        title: 'Space Planning',
+        description: 'Creating layouts that improve the way people live, work and move.',
+        slug: 'space-planning'
+      },
+      {
+        number: '04',
+        title: 'Interior Styling & Material Curation',
+        description: 'Selecting furniture, lighting, finishes and materials with purpose.',
+        slug: 'interior-styling-material-curation'
+      },
+      {
+        number: '05',
+        title: 'Turnkey Execution',
+        description: 'Coordinating consultants, contractors and execution from concept to completion.',
+        slug: 'turnkey-execution'
+      },
+      {
+        number: '06',
+        title: 'Design Consultation',
+        description: 'Helping clients make informed decisions before they begin.',
+        slug: 'design-consultation'
+      }
+    ];
+    const serviceBlueprintSvg = serviceBlueprint.querySelector('.service-blueprint');
+    const serviceZones = Array.from(serviceBlueprint.querySelectorAll('.service-zone'));
+    const serviceSelectors = Array.from(serviceBlueprint.querySelectorAll('[data-blueprint-selector]'));
+    const serviceSelectorScroller = serviceBlueprint.querySelector('.service-blueprint-mobile-tabs');
+    const activePanel = serviceBlueprint.querySelector('.service-blueprint-active');
+    const activeNumber = serviceBlueprint.querySelector('[data-blueprint-number]');
+    const activeTitle = serviceBlueprint.querySelector('[data-blueprint-title]');
+    const activeDescription = serviceBlueprint.querySelector('[data-blueprint-description]');
+    const activeCta = serviceBlueprint.querySelector('[data-blueprint-cta]');
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mobileServiceQuery = window.matchMedia('(max-width: 768px)');
     let activeServiceIndex = 0;
-    let serviceChapterObserver = null;
 
-    const serviceChapters = chapterElements.map(chapter => ({
-      number: chapter.querySelector('.services-chapter-number').textContent.trim(),
-      title: chapter.querySelector('.services-chapter-title').textContent.trim(),
-      description: chapter.querySelector('.services-chapter-description').textContent.trim(),
-      image: chapter.querySelector('img').getAttribute('src')
-    }));
+    serviceZones.forEach(zone => {
+      zone.setAttribute('role', 'tab');
+      zone.setAttribute('aria-controls', 'service-blueprint-panel');
+    });
 
-    const warmServiceImage = (index) => {
-      if (!serviceChapters[index]) return;
-      const image = new Image();
-      image.decoding = 'async';
-      image.src = serviceChapters[index].image;
+    const syncServiceInputMode = () => {
+      const isMobile = mobileServiceQuery.matches;
+      serviceBlueprintSvg.setAttribute('role', isMobile ? 'presentation' : 'tablist');
+      if (isMobile) serviceBlueprintSvg.setAttribute('aria-hidden', 'true');
+      else serviceBlueprintSvg.removeAttribute('aria-hidden');
+      serviceZones.forEach(zone => zone.setAttribute('tabindex', isMobile ? '-1' : '0'));
     };
 
-    const setActiveService = (index) => {
-      const nextIndex = Math.max(0, Math.min(index, chapterElements.length - 1));
-      if (nextIndex === activeServiceIndex && chapterElements[nextIndex].classList.contains('is-active')) return;
+    const scrollServiceSelectorIntoView = (selector) => {
+      if (!serviceSelectorScroller || !selector
+        || serviceSelectorScroller.scrollWidth <= serviceSelectorScroller.clientWidth + 1) return;
 
+      const selectorBounds = selector.getBoundingClientRect();
+      const scrollerBounds = serviceSelectorScroller.getBoundingClientRect();
+      const centeredLeft = serviceSelectorScroller.scrollLeft + selectorBounds.left - scrollerBounds.left
+        - ((scrollerBounds.width - selectorBounds.width) / 2);
+
+      serviceSelectorScroller.scrollTo({
+        left: Math.max(0, centeredLeft),
+        behavior: reducedMotionQuery.matches ? 'auto' : 'smooth'
+      });
+    };
+
+    const animateActivePanel = () => {
+      if (!activePanel || reducedMotionQuery.matches) return;
+      activePanel.classList.remove('is-refreshing');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => activePanel.classList.add('is-refreshing'));
+      });
+    };
+
+    const setActiveService = (index, { moveFocus = false, scrollSelector = false } = {}) => {
+      const nextIndex = Math.max(0, Math.min(index, services.length - 1));
+      const service = services[nextIndex];
       activeServiceIndex = nextIndex;
-      chapterElements.forEach((chapter, chapterIndex) => {
-        const isActive = chapterIndex === activeServiceIndex;
-        chapter.classList.toggle('is-active', isActive);
-        chapter.classList.toggle('is-before', chapterIndex < activeServiceIndex);
-        chapter.classList.toggle('is-after', chapterIndex > activeServiceIndex);
-        if (isActive) chapter.setAttribute('aria-current', 'step');
-        else chapter.removeAttribute('aria-current');
+      serviceBlueprint.classList.add('has-selection');
+
+      serviceZones.forEach((zone, zoneIndex) => {
+        const isActive = zoneIndex === nextIndex;
+        zone.classList.toggle('is-active', isActive);
+        zone.setAttribute('aria-selected', String(isActive));
       });
 
-      progressItems.forEach((item, itemIndex) => {
-        const isActive = itemIndex === activeServiceIndex;
-        item.classList.toggle('is-active', isActive);
-        item.classList.toggle('is-complete', itemIndex < activeServiceIndex);
-        if (isActive) item.setAttribute('aria-current', 'step');
-        else item.removeAttribute('aria-current');
+      serviceSelectors.forEach((selector, selectorIndex) => {
+        const isActive = selectorIndex === nextIndex;
+        selector.classList.toggle('is-active', isActive);
+        selector.setAttribute('aria-selected', String(isActive));
       });
 
-      servicesScroll.classList.toggle('is-exploring', activeServiceIndex > 0);
-      const upcoming = serviceChapters[activeServiceIndex + 1];
-      if (nextNumber) nextNumber.textContent = upcoming ? upcoming.number : '02';
-      if (nextTitle) nextTitle.textContent = upcoming ? upcoming.title : 'Our Process';
+      activeNumber.textContent = service.number;
+      activeTitle.textContent = service.title;
+      activeDescription.textContent = service.description;
+      activeCta.href = `contact.html?service=${service.slug}`;
+      activeCta.setAttribute('aria-label', `Explore ${service.title}`);
+      animateActivePanel();
 
-      // Load only the next image ahead of the current chapter.
-      warmServiceImage(activeServiceIndex + 1);
-    };
-
-    const observeServiceChapters = () => {
-      if (serviceChapterObserver) serviceChapterObserver.disconnect();
-      if (!pinnedQuery.matches) return;
-
-      serviceChapterObserver = new IntersectionObserver(entries => {
-        const visibleTrigger = entries
-          .filter(entry => entry.isIntersecting)
-          .sort((a, b) => {
-            const viewportCenter = window.innerHeight / 2;
-            const aCenter = a.boundingClientRect.top + (a.boundingClientRect.height / 2);
-            const bCenter = b.boundingClientRect.top + (b.boundingClientRect.height / 2);
-            return Math.abs(aCenter - viewportCenter) - Math.abs(bCenter - viewportCenter);
-          })[0];
-
-        if (!visibleTrigger) return;
-        const index = triggerElements.indexOf(visibleTrigger.target);
-        if (index >= 0) setActiveService(index);
-      }, {
-        root: null,
-        rootMargin: '-42% 0px -42% 0px',
-        threshold: 0.01
-      });
-
-      triggerElements.forEach(trigger => serviceChapterObserver.observe(trigger));
-    };
-
-    const syncServicesMode = () => {
-      if (pinnedQuery.matches) {
-        observeServiceChapters();
-      } else {
-        activeServiceIndex = 0;
-        chapterElements.forEach((chapter, index) => {
-          chapter.classList.toggle('is-active', index === 0);
-          chapter.classList.remove('is-before');
-          chapter.classList.toggle('is-after', index > 0);
-          chapter.removeAttribute('aria-current');
-        });
-        progressItems.forEach(item => {
-          item.classList.remove('is-active', 'is-complete');
-          item.removeAttribute('aria-current');
-        });
-        servicesScroll.classList.remove('is-exploring');
-        if (serviceChapterObserver) serviceChapterObserver.disconnect();
+      if (scrollSelector) scrollServiceSelectorIntoView(serviceSelectors[nextIndex]);
+      if (moveFocus) {
+        const focusTarget = mobileServiceQuery.matches
+          ? serviceSelectors[nextIndex]
+          : serviceZones[nextIndex];
+        if (focusTarget) focusTarget.focus();
       }
     };
 
-    progressItems.forEach((item, index) => {
-      item.addEventListener('click', () => setActiveService(index));
+    const handleServiceKeydown = (event, index, items) => {
+      let nextIndex = index;
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        setActiveService(index, { scrollSelector: items === serviceSelectors });
+        return;
+      }
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % services.length;
+      else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + services.length) % services.length;
+      else if (event.key === 'Home') nextIndex = 0;
+      else if (event.key === 'End') nextIndex = services.length - 1;
+      else return;
+
+      event.preventDefault();
+      setActiveService(nextIndex, { moveFocus: true, scrollSelector: items === serviceSelectors });
+    };
+
+    serviceZones.forEach((zone, index) => {
+      zone.addEventListener('pointerenter', () => setActiveService(index));
+      zone.addEventListener('focus', () => setActiveService(index));
+      zone.addEventListener('click', () => setActiveService(index));
+      zone.addEventListener('keydown', event => handleServiceKeydown(event, index, serviceZones));
     });
-    pinnedQuery.addEventListener('change', syncServicesMode);
-    warmServiceImage(1);
-    syncServicesMode();
+
+    serviceSelectors.forEach((selector, index) => {
+      selector.addEventListener('click', () => setActiveService(index, { scrollSelector: true }));
+      selector.addEventListener('focus', () => setActiveService(index, { scrollSelector: true }));
+      selector.addEventListener('keydown', event => handleServiceKeydown(event, index, serviceSelectors));
+    });
+
+    activePanel.addEventListener('animationend', () => activePanel.classList.remove('is-refreshing'));
+    mobileServiceQuery.addEventListener('change', syncServiceInputMode);
+    syncServiceInputMode();
+    setActiveService(activeServiceIndex);
   }
 
   // Accessible horizontal process tabs with persistent selection.
