@@ -146,6 +146,41 @@ document.addEventListener('DOMContentLoaded', () => {
     animationObserver.observe(el);
   });
 
+  // On touch devices, the process timeline behaves as a single-open accordion.
+  const processAccordion = document.querySelector('[data-process-accordion]');
+  if (processAccordion) {
+    const processSteps = Array.from(processAccordion.querySelectorAll('.process-step-item'));
+    const touchQuery = window.matchMedia('(max-width: 768px), (hover: none) and (max-width: 1024px), (pointer: coarse) and (max-width: 1024px)');
+
+    const setActiveProcessStep = (activeStep) => {
+      processSteps.forEach(step => {
+        const isActive = step === activeStep;
+        step.classList.toggle('is-active', isActive);
+        step.querySelector('.process-step-toggle').setAttribute('aria-expanded', String(isActive));
+      });
+    };
+
+    processSteps.forEach(step => {
+      step.querySelector('.process-step-toggle').addEventListener('click', () => {
+        if (touchQuery.matches) setActiveProcessStep(step);
+      });
+    });
+
+    const syncProcessMode = () => {
+      if (touchQuery.matches) {
+        setActiveProcessStep(processSteps.find(step => step.classList.contains('is-active')) || processSteps[0]);
+      } else {
+        processSteps.forEach(step => {
+          step.classList.remove('is-active');
+          step.querySelector('.process-step-toggle').setAttribute('aria-expanded', 'false');
+        });
+      }
+    };
+
+    touchQuery.addEventListener('change', syncProcessMode);
+    syncProcessMode();
+  }
+
   // Project Database
   const projects = {
     'view-from-the-top': {
