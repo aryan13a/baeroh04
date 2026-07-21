@@ -2249,13 +2249,14 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 }
 
-/* Home Page Seamless 6-Image Project Collage Grid (Zero Whitespace) */
+/* Home Page 6-Image Project Grid (With Space Between Projects) */
 .home-collage-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  margin: 0;
-  padding: 0;
+  gap: 24px;
+  margin: 0 auto;
+  padding: 0 40px;
+  max-width: 1400px;
   width: 100%;
 }
 
@@ -2266,6 +2267,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   width: 100%;
   cursor: pointer;
   background-color: var(--color-sand);
+  border-radius: 4px;
   margin: 0;
   padding: 0;
 }
@@ -2313,15 +2315,25 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   font-size: 9px;
 }
 
+@media (max-width: 1024px) {
+  .home-collage-grid {
+    gap: 20px;
+    padding: 0 30px;
+  }
+}
+
 @media (max-width: 900px) {
   .home-collage-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
 @media (max-width: 550px) {
   .home-collage-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 20px;
   }
   .collage-overlay {
     opacity: 1;
