@@ -1618,8 +1618,8 @@ header.header-transparent .menu-toggle span {
 .design-services-closing {
   margin: clamp(46px, 5vw, 74px) calc(-1 * clamp(22px, 4.5vw, 72px)) 0;
   padding: clamp(28px, 3vw, 44px) clamp(22px, 4.5vw, 72px) clamp(34px, 3.5vw, 52px);
-  border-top: 1px solid rgba(141, 128, 111, 0.22);
-  background: rgba(210, 196, 178, 0.13);
+  border-top: 1px solid rgba(243, 240, 234, 0.1);
+  background: var(--color-charcoal);
   text-align: center;
 }
 
@@ -1630,7 +1630,7 @@ header.header-transparent .menu-toggle span {
   font-weight: 400;
   line-height: 1.12;
   letter-spacing: 0.035em;
-  color: var(--color-charcoal);
+  color: var(--color-ivory);
 }
 
 .design-services-closing a {
@@ -1639,13 +1639,19 @@ header.header-transparent .menu-toggle span {
   gap: 18px;
   margin-top: 13px;
   padding-bottom: 6px;
-  border-bottom: 1px solid rgba(155, 106, 78, 0.66);
+  border-bottom: 1px solid rgba(243, 240, 234, 0.24);
   font-family: var(--font-body);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-cinnamon-deep);
+  color: var(--color-taupe);
+}
+
+.design-services-closing a:hover,
+.design-services-closing a:focus-visible {
+  color: var(--color-ivory);
+  border-bottom-color: rgba(243, 240, 234, 0.62);
 }
 
 .design-services-closing a span {
@@ -1660,7 +1666,7 @@ header.header-transparent .menu-toggle span {
 }
 
 .design-services-closing a:focus-visible {
-  outline: 2px solid var(--color-cinnamon-deep);
+  outline: 2px solid var(--color-ivory);
   outline-offset: 5px;
 }
 
