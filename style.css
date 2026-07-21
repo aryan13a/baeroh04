@@ -53,6 +53,12 @@ body {
   font-size: 15px;
 }
 
+/* Preserve horizontal clipping without creating a sticky-breaking scroll root. */
+.services-scroll-page,
+.services-scroll-page body {
+  overflow-x: clip;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 400;
@@ -1298,226 +1304,434 @@ header.header-transparent .menu-toggle span {
   color: var(--color-taupe);
 }
 
-/* Services Page Styles */
-.services-editorial {
-  overflow: hidden;
-  background-color: var(--color-sand);
+/* Services Page: scroll-led design support chapters */
+.services-scroll {
+  position: relative;
+  padding: 0;
+  background: var(--color-ivory);
+  border-top: 1px solid rgba(62, 49, 43, 0.14);
+  border-bottom: 1px solid rgba(62, 49, 43, 0.14);
 }
 
-.services-page-section {
-  padding-top: 64px;
-  padding-bottom: 46px;
-  border-top: 1px solid rgba(62, 49, 43, 0.12);
+.services-scroll-sticky {
+  position: relative;
+}
+
+.services-scroll-label {
+  display: block;
+  padding: 62px 7vw 18px;
+  color: var(--color-cinnamon-deep);
+}
+
+.services-scroll-chapter {
+  padding: 24px 7vw 74px;
   border-bottom: 1px solid rgba(62, 49, 43, 0.12);
 }
 
-.services-page-section > .container {
-  max-width: none;
-  margin-left: 0;
-  margin-right: 0;
+.services-scroll-chapter:last-child {
+  border-bottom: 0;
 }
 
-.services-intro {
-  max-width: 800px;
-  margin: 0 auto 80px auto;
-  text-align: center;
+.services-chapter-copy {
+  max-width: 680px;
 }
 
-.services-section-head {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
-  gap: 80px;
-  align-items: end;
-  max-width: 1080px;
-  margin-bottom: 46px;
-}
-
-.services-section-head .font-label {
-  color: var(--color-olive);
-}
-
-.services-section-head .font-display-section {
-  color: var(--color-charcoal);
-  margin-top: 20px;
-  max-width: 720px;
-}
-
-.services-section-head p {
-  color: var(--color-olive);
-  max-width: 420px;
-  margin-bottom: 8px;
-}
-
-/* Card-Based 6-Service Grid */
-.services-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 40px;
-}
-
-@media (max-width: 992px) {
-  .services-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-}
-
-@media (max-width: 640px) {
-  .services-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-}
-
-.service-card {
-  background-color: var(--color-sand);
-  border: 1px solid rgba(62, 49, 43, 0.08);
-  border-radius: 28px;
-  padding: 36px 32px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  box-shadow: 0 8px 24px rgba(62, 49, 43, 0.04);
-  cursor: pointer;
-  outline: none;
-  transform: translateY(0);
-  transition: background-color 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
-}
-
-.service-card-num {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--color-cinnamon-deep);
-  margin-bottom: 24px;
+.services-chapter-number {
   display: block;
-  transition: color 0.35s ease;
-}
-
-.service-card-title {
+  margin-bottom: 18px;
   font-family: var(--font-display);
-  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 300;
+  font-size: clamp(54px, 12vw, 78px);
+  line-height: 1;
+  color: var(--color-cinnamon);
+}
+
+.services-chapter-title {
+  max-width: 680px;
+  margin: 0;
+  font-family: var(--font-display);
   font-weight: 400;
-  line-height: 1.25;
+  font-size: clamp(34px, 9vw, 54px);
+  line-height: 1.06;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
   color: var(--color-charcoal);
-  margin: 0 0 14px;
-  letter-spacing: 0.015em;
-  transition: color 0.35s ease;
 }
 
-.service-card-desc {
+.services-chapter-description {
+  max-width: 510px;
+  margin: 26px 0 0;
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--color-olive);
-  margin: 0;
-  transition: color 0.35s ease;
-}
-
-/* Terracotta Hover & Focus Interaction */
-.service-card:hover,
-.service-card:focus,
-.service-card:focus-visible {
-  background-color: #C16B4A; /* Warm Terracotta Accent */
-  border-color: transparent;
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(193, 107, 74, 0.28);
-}
-
-.service-card:hover .service-card-num,
-.service-card:focus .service-card-num,
-.service-card:focus-visible .service-card-num {
-  color: #FFFFFF;
-}
-
-.service-card:hover .service-card-title,
-.service-card:focus .service-card-title,
-.service-card:focus-visible .service-card-title {
-  color: #F5EFE6;
-}
-
-.service-card:hover .service-card-desc,
-.service-card:focus .service-card-desc,
-.service-card:focus-visible .service-card-desc {
-  color: rgba(245, 239, 230, 0.92);
-}
-
-
-.services-conversation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
-  margin-top: 34px;
+  font-size: 15px;
+  line-height: 1.8;
   color: var(--color-olive);
 }
 
-.services-conversation p {
-  font-family: var(--font-body);
-  font-weight: 300;
-  font-size: 14px;
-  margin: 0;
-}
-
-.services-conversation a {
+.services-chapter-cta {
   display: inline-flex;
   align-items: center;
-  gap: 24px;
-  border-bottom: 1px solid rgba(155, 106, 78, 0.5);
-  padding-bottom: 6px;
+  gap: 22px;
+  margin-top: 26px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgba(144, 99, 72, 0.55);
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 10px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-cinnamon-deep);
 }
 
-.services-conversation a span {
-  font-size: 18px;
+.services-chapter-cta span {
+  font-size: 17px;
   line-height: 1;
-  transition: transform 0.35s ease;
+  transition: transform 380ms ease;
 }
 
-.services-conversation a:hover span {
-  transform: translateX(6px);
+.services-chapter-cta:hover span,
+.services-chapter-cta:focus-visible span {
+  transform: translateX(5px);
 }
 
-@media (max-width: 768px) {
-  .services-page-section {
+.services-chapter-cta:focus-visible,
+.services-progress-item:focus-visible {
+  outline: 1px solid var(--color-cinnamon-deep);
+  outline-offset: 5px;
+}
+
+.services-chapter-media {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  margin: 38px 0 0;
+  overflow: hidden;
+  background: var(--color-sand);
+}
+
+.services-chapter-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.services-progress,
+.services-scroll-cue,
+.services-next-preview,
+.services-scroll-triggers {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .services-scroll-label,
+  .services-scroll-chapter {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .services-scroll-label {
     padding-top: 52px;
-    padding-bottom: 44px;
   }
 
-  .services-section-head {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-bottom: 38px;
+  .services-scroll-chapter {
+    padding-bottom: 62px;
   }
 
-  .services-section-head p {
-    margin-bottom: 0;
+  .services-chapter-title {
+    font-size: clamp(31px, 10.5vw, 43px);
+    letter-spacing: 0.04em;
   }
 
-  .service-item {
-    min-height: auto;
-    border-right: 1px solid rgba(62, 49, 43, 0.14);
-    padding: 28px 24px 72px;
+  .services-chapter-media {
+    aspect-ratio: 4 / 3;
+    margin-top: 30px;
+  }
+}
+
+/* Pin only on viewports with enough room for the complete editorial composition. */
+@media (min-width: 769px) and (min-height: 680px) {
+  .js .services-scroll {
+    height: 500vh;
   }
 
-  .service-number {
-    margin-bottom: 36px;
+  .js .services-scroll-sticky {
+    position: sticky;
+    z-index: 2;
+    top: var(--header-height);
+    height: calc(100vh - var(--header-height));
+    overflow: hidden;
+    background: var(--color-ivory);
   }
 
-  .services-conversation {
-    align-items: flex-start;
+  .js .services-scroll-label {
+    position: absolute;
+    z-index: 8;
+    top: clamp(36px, 6vh, 70px);
+    left: 5.5vw;
+    padding: 0;
+  }
+
+  .js .services-chapter-stage,
+  .js .services-scroll-chapter {
+    position: absolute;
+    inset: 0;
+  }
+
+  .js .services-chapter-stage {
+    contain: layout paint;
+  }
+
+  .js .services-scroll-chapter {
+    display: grid;
+    grid-template-columns: minmax(0, 48%) minmax(0, 52%);
+    padding: 0;
+    border: 0;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 480ms ease, visibility 480ms step-end;
+  }
+
+  .js .services-scroll-chapter.is-active {
+    z-index: 3;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 480ms ease, visibility 0ms step-start;
+  }
+
+  .js .services-chapter-copy {
+    grid-column: 1;
+    align-self: center;
+    max-width: none;
+    padding: clamp(92px, 13vh, 142px) clamp(74px, 7vw, 116px) 96px 5.5vw;
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 420ms ease, transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .js .services-scroll-chapter.is-before .services-chapter-copy {
+    transform: translateY(-20px);
+  }
+
+  .js .services-scroll-chapter.is-active .services-chapter-copy {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .js .services-chapter-number {
+    margin-bottom: 24px;
+    font-size: clamp(64px, 6vw, 92px);
+  }
+
+  .js .services-chapter-title {
+    font-size: clamp(40px, 4vw, 66px);
+    line-height: 1.08;
+  }
+
+  .js .services-chapter-description {
+    margin-top: 28px;
+    font-size: clamp(14px, 1.15vw, 17px);
+    line-height: 1.75;
+  }
+
+  .js .services-chapter-cta {
+    margin-top: 30px;
+  }
+
+  .js .services-chapter-media {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    justify-self: start;
+    width: calc(100% - clamp(26px, 3vw, 50px));
+    height: calc(100% - clamp(72px, 10vh, 108px));
+    aspect-ratio: auto;
+    margin: 0;
+    opacity: 0;
+    transform: scale(1.015);
+    contain: paint;
+    transition: opacity 520ms ease, transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .js .services-scroll-chapter.is-active .services-chapter-media {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .js .services-progress {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: calc(48% - 64px);
+    display: flex;
     flex-direction: column;
+    transform: translateY(-50%);
+  }
+
+  .js .services-progress-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 42px;
+    min-height: 62px;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--color-olive);
+    transition: color 600ms ease;
+  }
+
+  .js .services-progress-item i {
+    position: relative;
+    width: 1px;
+    flex: 1;
+    margin-top: 10px;
+    overflow: hidden;
+    background: rgba(62, 49, 43, 0.18);
+  }
+
+  .js .services-progress-item i::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-cinnamon);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 760ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .js .services-progress-item.is-active,
+  .js .services-progress-item.is-complete {
+    color: var(--color-cinnamon-deep);
+  }
+
+  .js .services-progress-item.is-active i::after,
+  .js .services-progress-item.is-complete i::after {
+    transform: scaleY(1);
+  }
+
+  .js .services-progress-item:last-child {
+    min-height: 18px;
+  }
+
+  .js .services-progress-item:last-child i {
+    display: none;
+  }
+
+  .js .services-scroll-cue {
+    position: absolute;
+    z-index: 9;
+    bottom: 74px;
+    left: 5.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 14px;
-    margin-top: 38px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-charcoal);
+    transition: opacity 600ms ease;
+  }
+
+  .js .services-scroll-cue i {
+    position: relative;
+    width: 1px;
+    height: 36px;
+    background: var(--color-charcoal);
+  }
+
+  .js .services-scroll-cue i::after {
+    content: '';
+    position: absolute;
+    left: -3px;
+    bottom: 0;
+    width: 7px;
+    height: 7px;
+    border-right: 1px solid var(--color-charcoal);
+    border-bottom: 1px solid var(--color-charcoal);
+    transform: rotate(45deg);
+  }
+
+  .js .services-scroll.is-exploring .services-scroll-cue {
+    opacity: 0;
+  }
+
+  .js .services-next-preview {
+    position: absolute;
+    z-index: 8;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 48%;
+    min-height: 46px;
+    padding: 0 5.5vw;
+    background: rgba(210, 196, 178, 0.36);
+    border-top: 1px solid rgba(62, 49, 43, 0.1);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-charcoal);
+  }
+
+  .js .services-next-number {
+    color: var(--color-cinnamon-deep);
+  }
+
+  .js .services-scroll-triggers {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    pointer-events: none;
+  }
+
+  .js .services-scroll-triggers span {
+    scroll-margin-top: var(--header-height);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1100px) and (min-height: 680px) {
+  .js .services-scroll-chapter {
+    grid-template-columns: minmax(0, 50%) minmax(0, 50%);
+  }
+
+  .js .services-progress {
+    left: calc(50% - 54px);
+  }
+
+  .js .services-next-preview {
+    width: 50%;
+  }
+
+  .js .services-chapter-copy {
+    padding-right: 68px;
+  }
+
+  .js .services-chapter-title {
+    font-size: clamp(38px, 4.8vw, 54px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-scroll-chapter,
+  .services-chapter-copy,
+  .services-chapter-media,
+  .services-progress-item,
+  .services-progress-item i::after,
+  .services-scroll-cue,
+  .services-chapter-cta span {
+    transition-duration: 0.01ms !important;
   }
 }
 
