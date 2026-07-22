@@ -3517,10 +3517,10 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 }
 
-/* Home Page Gallery Section (Expanding Accordion matching Reference Video) */
+/* Home Page Gallery Section (White Background Theme) */
 .home-gallery-section {
-  background-color: var(--color-charcoal) !important;
-  color: var(--color-ivory) !important;
+  background-color: #ffffff !important;
+  color: var(--color-charcoal) !important;
   padding: 40px 0 !important;
 }
 
