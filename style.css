@@ -3106,7 +3106,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 .home-gallery-img-wrap {
   width: 100%;
-  aspect-ratio: 3 / 2.7;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   position: relative;
   background-color: rgba(0, 0, 0, 0.15);
