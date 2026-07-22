@@ -3529,9 +3529,9 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 }
 
-/* Home Page Gallery Section (White Background Theme) */
+/* Home Page Gallery Section (Off-White Ivory Background Theme) */
 .home-gallery-section {
-  background-color: #ffffff !important;
+  background-color: var(--color-ivory) !important;
   color: var(--color-charcoal) !important;
   padding: 40px 0 !important;
 }
