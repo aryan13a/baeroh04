@@ -2379,7 +2379,7 @@ footer {
 }
 
 .story-split__image--name {
-  object-position: center;
+  object-position: 68% center;
 }
 
 .story-panel::before {
@@ -2397,7 +2397,12 @@ footer {
 }
 
 .story-panel--name::before {
-  background: linear-gradient(100deg, rgba(188, 164, 62, 0.95) 0%, rgba(178, 155, 53, 0.93) 58%, rgba(151, 132, 49, 0.9) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(190, 164, 62, 0.96) 0%,
+    rgba(181, 151, 53, 0.78) 55%,
+    rgba(155, 120, 43, 0.34) 100%
+  );
 }
 
 .story-split[data-active="origin"] .story-panel--origin::before,
