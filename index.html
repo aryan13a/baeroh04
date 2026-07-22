@@ -16,7 +16,7 @@
   <meta property="og:image" content="https://aryan13a.github.io/baeroh03/assets/logo.png">
   
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="style.css?v=7.4">
+  <link rel="stylesheet" href="style.css?v=7.6">
   <link rel="icon" type="image/png" href="assets/favicon.png?v=6.0">
 </head>
 <body>
@@ -101,7 +101,7 @@
 
   <!-- The Story Behind Baeroh -->
   <section class="story-split" id="story-behind-baeroh" data-story-split aria-label="The Story Behind Baeroh">
-    <article class="story-panel story-panel--origin" data-story-panel="origin" aria-labelledby="story-origin-title" tabindex="0">
+    <article class="story-panel story-panel--origin" id="story-panel-origin" data-story-panel="origin" aria-labelledby="story-origin-title" tabindex="0">
       <img class="story-split__image story-split__image--origin" src="assets/services-process-editorial.jpg" alt="" aria-hidden="true">
       <div class="story-split__inner story-split__inner--origin">
         <div class="story-split__column">
@@ -125,7 +125,7 @@
       </div>
     </article>
 
-    <article class="story-panel story-panel--name" data-story-panel="name" aria-labelledby="story-name-title" tabindex="0">
+    <article class="story-panel story-panel--name" id="story-panel-name" data-story-panel="name" aria-labelledby="story-name-title" tabindex="0">
       <img class="story-split__image story-split__image--name" src="assets/baeroh-jalmahal.png" alt="" aria-hidden="true">
       <div class="story-split__inner story-split__inner--name">
         <span class="story-split__label">02 / THE NAME</span>
@@ -149,10 +149,10 @@
       </div>
     </article>
 
-    <p class="story-split__hint" aria-hidden="true">
-      <span>MOVE TO EXPLORE</span>
-      <span class="story-split__hint-arrow">&harr;</span>
-    </p>
+    <button class="story-split__hint" type="button" data-story-switch aria-label="Explore the story panels">
+      <span data-story-switch-label>MOVE TO EXPLORE</span>
+      <span class="story-split__hint-arrow" data-story-switch-arrow aria-hidden="true">&harr;</span>
+    </button>
   </section>
 
   <section class="philosophy-strip" aria-label="Baeroh philosophy">
@@ -357,6 +357,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="script.js?v=6.3"></script>
+  <script src="script.js?v=6.5"></script>
 </body>
 </html>
