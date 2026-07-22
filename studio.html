@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studio | Baeroh Interior Architecture & Design</title>
   <meta name="description" content="Discover Baeroh, an interior design studio built on the simple belief that every meaningful environment begins with understanding people.">
-  <link rel="stylesheet" href="style.css?v=7.0">
+  <link rel="stylesheet" href="style.css?v=7.1">
   <link rel="icon" type="image/png" href="assets/favicon.png?v=6.0">
 </head>
 <body class="page-studio">
 
   <!-- Header -->
-  <header id="main-header" class="header-transparent">
+  <header id="main-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
         <img src="assets/logo-header.png" alt="Baeroh Logo" class="logo-img">
@@ -44,106 +44,108 @@
   </div>
 
   <main class="studio-main">
-    <!-- Studio Hero -->
-    <section class="studio-hero" aria-labelledby="studio-hero-title">
-      <picture class="studio-hero__media">
-        <source media="(max-width: 640px)" srcset="assets/studio/studio-hero-temporary-768.webp" type="image/webp">
-        <source media="(max-width: 1440px)" srcset="assets/studio/studio-hero-temporary-1280.webp" type="image/webp">
-        <source srcset="assets/studio/studio-hero-temporary-2560.webp" type="image/webp">
-        <img src="assets/studio/studio-hero-temporary.jpg" width="2560" height="1440" alt="" fetchpriority="high">
-      </picture>
-      <div class="studio-hero__overlay" aria-hidden="true"></div>
-      <div class="container studio-hero__content">
-        <p class="studio-kicker">About the Studio</p>
-        <h1 class="studio-hero__title" id="studio-hero-title">
-          <span>It Begins</span>
-          <span>With</span>
-          <span>People.</span>
-        </h1>
+    <!-- Inside the Practice: editorial introduction -->
+    <section class="studio-inside-intro" aria-labelledby="studio-inside-title">
+      <div class="studio-inside-intro__copy">
+        <div class="studio-inside-intro__copy-inner">
+          <p class="studio-inside-label">About the Studio</p>
+          <h1 id="studio-inside-title"><span>It Begins</span><span>With</span><span>People.</span></h1>
+          <p class="studio-inside-intro__body">Baeroh begins with understanding the stories, routines and aspirations that give a space meaning.</p>
+          <p class="studio-inside-intro__location">Baeroh <span>/</span> Jaipur, Rajasthan</p>
+        </div>
       </div>
-      <a class="studio-hero__scroll" href="#studio-manifesto">
-        <span>Scroll to Discover</span>
-        <span aria-hidden="true">&darr;</span>
-      </a>
+      <figure class="studio-inside-intro__media">
+        <img src="assets/studio/studio-intro-materials.webp" width="1800" height="2700" alt="A designer comparing material samples at a studio worktable" fetchpriority="high">
+      </figure>
     </section>
 
-    <!-- Studio Manifesto -->
-    <section class="studio-manifesto" id="studio-manifesto" aria-labelledby="studio-manifesto-title">
-      <div class="container studio-manifesto__inner">
-        <h2 id="studio-manifesto-title">We design by understanding the people, stories and everyday rituals that give a space meaning.</h2>
-        <p>Baeroh / Jaipur, Rajasthan</p>
-        <span class="studio-manifesto__rule" aria-hidden="true"></span>
+    <!-- Concise studio philosophy -->
+    <section class="studio-inside-philosophy" aria-label="Studio philosophy">
+      <div class="container">
+        <p>We design from the inside out&mdash;beginning with people, then shaping space, material and detail around the way they live.</p>
+        <span aria-hidden="true"></span>
       </div>
     </section>
 
-    <!-- Studio Principles -->
-    <section class="studio-accordion" aria-label="About the Baeroh studio">
-      <div class="studio-accordion__items" data-studio-accordion>
-        <article class="studio-accordion__item">
-          <h2>
-            <button class="studio-accordion__trigger" type="button" aria-expanded="false" aria-controls="studio-panel-philosophy" id="studio-trigger-philosophy">
-              <span class="studio-accordion__number">01</span>
-              <span class="studio-accordion__label">Philosophy</span>
-              <span class="studio-accordion__icon" aria-hidden="true"></span>
-            </button>
-          </h2>
-          <div class="studio-accordion__panel" id="studio-panel-philosophy" role="region" aria-labelledby="studio-trigger-philosophy" aria-hidden="true">
-            <div class="studio-accordion__panel-inner">
-              <div class="studio-accordion__copy">
-                <h3>Design Begins With Understanding.</h3>
-                <p>We look closely at how people live, move, gather and feel before a line is drawn.</p>
-                <p class="studio-accordion__values">People <span>&mdash;</span> Place <span>&mdash;</span> Purpose</p>
-              </div>
-            </div>
-          </div>
-        </article>
+    <!-- Signature interactive Studio Table -->
+    <section class="studio-table" aria-labelledby="studio-table-title" data-studio-table>
+      <div class="container">
+        <header class="studio-table__header">
+          <p class="studio-inside-label">The Studio Table</p>
+          <h2 id="studio-table-title">How an Idea Takes Shape.</h2>
+        </header>
 
-        <article class="studio-accordion__item">
-          <h2>
-            <button class="studio-accordion__trigger" type="button" aria-expanded="true" aria-controls="studio-panel-practice" id="studio-trigger-practice">
-              <span class="studio-accordion__number">02</span>
-              <span class="studio-accordion__label">Our Practice</span>
-              <span class="studio-accordion__icon" aria-hidden="true"></span>
-            </button>
-          </h2>
-          <div class="studio-accordion__panel" id="studio-panel-practice" role="region" aria-labelledby="studio-trigger-practice" aria-hidden="false">
-            <div class="studio-accordion__panel-inner">
-              <div class="studio-accordion__copy">
-                <h3>Listen. Question. Guide. Deliver.</h3>
-                <p>Every project begins with a conversation and moves forward with clarity, intention and care.</p>
-                <p class="studio-accordion__values">Clarity <span>&mdash;</span> Intention <span>&mdash;</span> Craft</p>
-              </div>
-            </div>
-          </div>
-        </article>
+        <div class="studio-table__image-wrap">
+          <img src="assets/studio/studio-table-materials.webp" width="2200" height="1467" alt="An overhead studio table arranged with material samples, colour palettes and design tools" loading="lazy">
 
-        <article class="studio-accordion__item">
-          <h2>
-            <button class="studio-accordion__trigger" type="button" aria-expanded="false" aria-controls="studio-panel-beliefs" id="studio-trigger-beliefs">
-              <span class="studio-accordion__number">03</span>
-              <span class="studio-accordion__label">What We Believe</span>
-              <span class="studio-accordion__icon" aria-hidden="true"></span>
-            </button>
-          </h2>
-          <div class="studio-accordion__panel" id="studio-panel-beliefs" role="region" aria-labelledby="studio-trigger-beliefs" aria-hidden="true">
-            <div class="studio-accordion__panel-inner">
-              <div class="studio-accordion__copy">
-                <h3>People First. Trust Always.</h3>
-                <p>Our signature is not a fixed style. It is a thoughtful process shaped by the people who will inhabit each space.</p>
-                <p class="studio-accordion__values">People <span>&mdash;</span> Process <span>&mdash;</span> Trust</p>
-              </div>
-            </div>
-          </div>
-        </article>
+          <button class="studio-table-marker is-active" type="button" data-studio-stage="0" style="--marker-x: 13%; --marker-y: 29%;" aria-pressed="true" aria-controls="studio-stage-description">
+            <span>01 / Listen</span><i aria-hidden="true"></i>
+          </button>
+          <button class="studio-table-marker" type="button" data-studio-stage="1" style="--marker-x: 42%; --marker-y: 18%;" aria-pressed="false" aria-controls="studio-stage-description">
+            <span>02 / Understand</span><i aria-hidden="true"></i>
+          </button>
+          <button class="studio-table-marker studio-table-marker--right" type="button" data-studio-stage="2" style="--marker-x: 78%; --marker-y: 25%;" aria-pressed="false" aria-controls="studio-stage-description">
+            <span>03 / Shape</span><i aria-hidden="true"></i>
+          </button>
+          <button class="studio-table-marker studio-table-marker--right" type="button" data-studio-stage="3" style="--marker-x: 83%; --marker-y: 75%;" aria-pressed="false" aria-controls="studio-stage-description">
+            <span>04 / Deliver</span><i aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="studio-table__tabs" role="tablist" aria-label="Studio process stages">
+          <button class="studio-table-tab is-active" id="studio-stage-tab-1" type="button" role="tab" data-studio-stage="0" aria-selected="true" aria-controls="studio-stage-description">
+            <span>01</span><strong>Listen</strong>
+          </button>
+          <button class="studio-table-tab" id="studio-stage-tab-2" type="button" role="tab" data-studio-stage="1" aria-selected="false" aria-controls="studio-stage-description">
+            <span>02</span><strong>Understand</strong>
+          </button>
+          <button class="studio-table-tab" id="studio-stage-tab-3" type="button" role="tab" data-studio-stage="2" aria-selected="false" aria-controls="studio-stage-description">
+            <span>03</span><strong>Shape</strong>
+          </button>
+          <button class="studio-table-tab" id="studio-stage-tab-4" type="button" role="tab" data-studio-stage="3" aria-selected="false" aria-controls="studio-stage-description">
+            <span>04</span><strong>Deliver</strong>
+          </button>
+        </div>
+        <p class="studio-table__description" id="studio-stage-description" role="tabpanel" aria-labelledby="studio-stage-tab-1" aria-live="polite">Conversation and context.</p>
       </div>
     </section>
 
-    <!-- Founder Quote -->
-    <section class="studio-founder-manifesto" aria-label="Founder statement">
-      <div class="container studio-founder-manifesto__inner">
-        <blockquote>&ldquo;Design, for me, is love&mdash;a relationship you build with your surroundings.&rdquo;</blockquote>
-        <p>Founder &amp; Principal Designer</p>
-        <a href="contact.html" class="studio-founder-manifesto__cta">Start a Conversation <span aria-hidden="true">&rarr;</span></a>
+    <!-- From intent to lived experience -->
+    <section class="studio-thought" aria-labelledby="studio-thought-title">
+      <div class="container">
+        <p class="studio-inside-label" id="studio-thought-title">From Thought to Space</p>
+        <div class="studio-thought__grid">
+          <figure>
+            <div class="studio-thought__image">
+              <img src="assets/studio/studio-intention-blueprints.webp" width="1400" height="1866" alt="Layered architectural drawings showing a project in development" loading="lazy">
+            </div>
+            <figcaption>Intention</figcaption>
+          </figure>
+          <span class="studio-thought__arrow" aria-hidden="true">&rarr;</span>
+          <figure>
+            <div class="studio-thought__image">
+              <img src="assets/studio/studio-hero-temporary-1280.webp" width="1280" height="720" alt="A completed warm, natural interior shaped around everyday living" loading="lazy">
+            </div>
+            <figcaption>Experience</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Studio principles -->
+    <section class="studio-principles" aria-label="Studio principles">
+      <div class="container studio-principles__grid">
+        <p><span>01</span><strong>People First</strong></p>
+        <p><span>02</span><strong>Process Over Style</strong></p>
+        <p><span>03</span><strong>Trust Always</strong></p>
+      </div>
+    </section>
+
+    <!-- Contact invitation -->
+    <section class="studio-conversation" aria-labelledby="studio-conversation-title">
+      <div class="container">
+        <h2 id="studio-conversation-title">Thoughtful spaces begin with<br>thoughtful conversations.</h2>
+        <a href="contact.html">Start a Conversation <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
   </main>
@@ -186,6 +188,6 @@
 
   <!-- Scripts -->
   <script src="script.js?v=6.2"></script>
-  <script src="studio.js?v=1.0"></script>
+  <script src="studio.js?v=2.0"></script>
 </body>
 </html>

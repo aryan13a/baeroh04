@@ -4665,3 +4665,600 @@ header.header-transparent ~ .project-modal .modal-close span::after {
     transform: translateY(0);
   }
 }
+
+/* --------------------------------------------------------------------------
+   Studio / Inside the Practice
+   All selectors are page-scoped so the redesign cannot affect other pages.
+   -------------------------------------------------------------------------- */
+.page-studio {
+  background: var(--color-ivory);
+}
+
+.page-studio #main-header {
+  background: rgba(243, 240, 234, 0.97);
+  border-bottom: 1px solid rgba(141, 128, 111, 0.28);
+}
+
+.page-studio .studio-main {
+  overflow: clip;
+  padding-top: var(--header-height);
+}
+
+.page-studio .studio-inside-label {
+  color: var(--color-cinnamon-deep);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.page-studio .studio-inside-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 44fr) minmax(0, 56fr);
+  min-height: clamp(620px, 48vw, 740px);
+  padding: 0;
+}
+
+.page-studio .studio-inside-intro__copy {
+  display: flex;
+  align-items: center;
+  padding: clamp(58px, 6vw, 92px) clamp(42px, 7vw, 116px);
+}
+
+.page-studio .studio-inside-intro__copy-inner {
+  border-left: 1px solid var(--color-cinnamon-tint);
+  max-width: 520px;
+  padding: 2px 0 2px clamp(24px, 3.2vw, 52px);
+}
+
+.page-studio .studio-inside-intro h1 {
+  color: var(--color-charcoal);
+  font-size: clamp(50px, 5.1vw, 82px);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  line-height: 0.98;
+  margin-top: clamp(24px, 3vw, 44px);
+}
+
+.page-studio .studio-inside-intro h1 span {
+  display: block;
+}
+
+.page-studio .studio-inside-intro h1 span + span {
+  margin-top: 0.14em;
+}
+
+.page-studio .studio-inside-intro__body {
+  color: var(--color-charcoal);
+  font-family: var(--font-display);
+  font-size: clamp(17px, 1.45vw, 22px);
+  line-height: 1.55;
+  margin-top: clamp(28px, 3.5vw, 48px);
+  max-width: 390px;
+}
+
+.page-studio .studio-inside-intro__location {
+  color: var(--color-cinnamon-deep);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  margin-top: clamp(30px, 4vw, 58px);
+  text-transform: uppercase;
+}
+
+.page-studio .studio-inside-intro__location span {
+  margin: 0 0.65em;
+}
+
+.page-studio .studio-inside-intro__media {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.page-studio .studio-inside-intro__media img {
+  display: block;
+  filter: saturate(0.72) sepia(0.12) contrast(0.96);
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 61%;
+  width: 100%;
+}
+
+.page-studio .studio-inside-philosophy {
+  background: rgba(210, 196, 178, 0.42);
+  padding: clamp(72px, 8vw, 112px) 0;
+  text-align: center;
+}
+
+.page-studio .studio-inside-philosophy p {
+  color: var(--color-charcoal);
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.2vw, 46px);
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 1.28;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.page-studio .studio-inside-philosophy span {
+  background: var(--color-cinnamon-tint);
+  display: block;
+  height: 1px;
+  margin: clamp(28px, 3.2vw, 42px) auto 0;
+  width: min(360px, 46vw);
+}
+
+.page-studio .studio-table {
+  background: var(--color-ivory);
+  padding: clamp(72px, 8vw, 112px) 0 clamp(68px, 7vw, 100px);
+}
+
+.page-studio .studio-table__header {
+  background: transparent;
+  border: 0;
+  display: block;
+  height: auto;
+  margin-bottom: clamp(28px, 3.4vw, 44px);
+  position: static;
+  width: auto;
+}
+
+.page-studio .studio-table__header h2 {
+  color: var(--color-charcoal);
+  font-size: clamp(34px, 4vw, 58px);
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  line-height: 1.05;
+  margin-top: 12px;
+}
+
+.page-studio .studio-table__image-wrap {
+  aspect-ratio: 2.18 / 1;
+  background: var(--color-sand);
+  overflow: hidden;
+  position: relative;
+}
+
+.page-studio .studio-table__image-wrap::after {
+  background: linear-gradient(90deg, rgba(30, 23, 20, 0.08), transparent 36%, transparent 64%, rgba(30, 23, 20, 0.08));
+  content: '';
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.page-studio .studio-table__image-wrap > img {
+  display: block;
+  filter: sepia(0.2) saturate(0.7) contrast(0.9) brightness(0.82);
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%;
+  width: 100%;
+}
+
+.page-studio .studio-table-marker {
+  align-items: center;
+  background: none;
+  border: 0;
+  color: rgba(243, 240, 234, 0.68);
+  cursor: pointer;
+  display: flex;
+  font-family: var(--font-body);
+  font-size: clamp(8px, 0.72vw, 11px);
+  font-weight: 600;
+  gap: 10px;
+  left: var(--marker-x);
+  letter-spacing: 0.08em;
+  padding: 8px;
+  position: absolute;
+  text-transform: uppercase;
+  top: var(--marker-y);
+  transform: translate(-8px, -50%);
+  transition: color 350ms ease, opacity 350ms ease;
+  z-index: 2;
+}
+
+.page-studio .studio-table-marker i {
+  background: currentColor;
+  display: block;
+  height: 1px;
+  opacity: 0.82;
+  position: relative;
+  transition: width 350ms ease;
+  width: clamp(38px, 5vw, 78px);
+}
+
+.page-studio .studio-table-marker i::after {
+  background: rgba(62, 49, 43, 0.7);
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  content: '';
+  height: 6px;
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  width: 6px;
+}
+
+.page-studio .studio-table-marker--right {
+  flex-direction: row-reverse;
+  transform: translate(calc(-100% + 8px), -50%);
+}
+
+.page-studio .studio-table-marker--right i::after {
+  left: -3px;
+  right: auto;
+}
+
+.page-studio .studio-table-marker.is-active {
+  color: #e4ad88;
+}
+
+.page-studio .studio-table-marker:not(.is-active) {
+  opacity: 0.7;
+}
+
+.page-studio .studio-table-marker:focus-visible,
+.page-studio .studio-table-tab:focus-visible,
+.page-studio .studio-conversation a:focus-visible {
+  outline: 2px solid var(--color-cinnamon);
+  outline-offset: 4px;
+}
+
+.page-studio .studio-table__tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 28px;
+}
+
+.page-studio .studio-table-tab {
+  background: transparent;
+  border: 0;
+  border-right: 1px solid rgba(141, 128, 111, 0.38);
+  color: var(--color-charcoal);
+  cursor: pointer;
+  padding: 2px 20px 12px;
+  text-align: center;
+  transition: color 350ms ease, opacity 350ms ease;
+}
+
+.page-studio .studio-table-tab:last-child {
+  border-right: 0;
+}
+
+.page-studio .studio-table-tab span,
+.page-studio .studio-table-tab strong {
+  display: block;
+}
+
+.page-studio .studio-table-tab span {
+  color: var(--color-cinnamon-deep);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  margin-bottom: 8px;
+}
+
+.page-studio .studio-table-tab strong {
+  font-family: var(--font-display);
+  font-size: clamp(17px, 1.65vw, 24px);
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.page-studio .studio-table-tab:not(.is-active) {
+  opacity: 0.62;
+}
+
+.page-studio .studio-table-tab.is-active {
+  color: var(--color-cinnamon-deep);
+}
+
+.page-studio .studio-table__description {
+  color: var(--color-olive);
+  font-family: var(--font-display);
+  font-size: clamp(17px, 1.55vw, 23px);
+  line-height: 1.45;
+  min-height: 1.45em;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.page-studio .studio-thought {
+  background: rgba(210, 196, 178, 0.22);
+  padding: clamp(62px, 7vw, 96px) 0;
+}
+
+.page-studio .studio-thought__grid {
+  align-items: center;
+  display: grid;
+  gap: clamp(24px, 4vw, 70px);
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  margin-top: 24px;
+}
+
+.page-studio .studio-thought figure {
+  min-width: 0;
+}
+
+.page-studio .studio-thought__image {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.page-studio .studio-thought__image img {
+  display: block;
+  filter: sepia(0.14) saturate(0.76) contrast(0.94);
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.page-studio .studio-thought figure:first-child img {
+  object-position: center 58%;
+}
+
+.page-studio .studio-thought figure:last-child img {
+  object-position: center 54%;
+}
+
+.page-studio .studio-thought figcaption {
+  color: var(--color-charcoal);
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 0.28em;
+  margin-top: 14px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.page-studio .studio-thought__arrow {
+  color: var(--color-cinnamon-deep);
+  font-family: var(--font-display);
+  font-size: clamp(38px, 4vw, 58px);
+  font-weight: 300;
+}
+
+.page-studio .studio-principles {
+  background: var(--color-charcoal);
+  color: var(--color-ivory);
+  padding: 38px 0;
+}
+
+.page-studio .studio-principles__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.page-studio .studio-principles p {
+  border-right: 1px solid rgba(210, 196, 178, 0.35);
+  padding: 0 28px;
+  text-align: center;
+}
+
+.page-studio .studio-principles p:last-child {
+  border-right: 0;
+}
+
+.page-studio .studio-principles span,
+.page-studio .studio-principles strong {
+  display: block;
+}
+
+.page-studio .studio-principles span {
+  color: var(--color-cinnamon-tint);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.page-studio .studio-principles strong {
+  font-family: var(--font-display);
+  font-size: clamp(19px, 2vw, 28px);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.page-studio .studio-conversation {
+  background: var(--color-ivory);
+  padding: clamp(68px, 7.5vw, 108px) 0;
+  text-align: center;
+}
+
+.page-studio .studio-conversation h2 {
+  color: var(--color-charcoal);
+  font-size: clamp(34px, 4.3vw, 62px);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.05;
+  text-transform: none;
+}
+
+.page-studio .studio-conversation a {
+  border-bottom: 1px solid var(--color-cinnamon);
+  color: var(--color-cinnamon-deep);
+  display: inline-flex;
+  font-size: 10px;
+  font-weight: 600;
+  gap: 16px;
+  letter-spacing: 0.24em;
+  margin-top: 30px;
+  padding: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.page-studio .studio-conversation a span {
+  transition: transform 300ms ease;
+}
+
+.page-studio .studio-conversation a:is(:hover, :focus-visible) span {
+  transform: translateX(5px);
+}
+
+@media (max-width: 1024px) {
+  .page-studio .studio-inside-intro {
+    grid-template-columns: minmax(0, 46fr) minmax(0, 54fr);
+    min-height: 620px;
+  }
+
+  .page-studio .studio-inside-intro__copy {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .page-studio .studio-inside-intro h1 {
+    font-size: clamp(46px, 6.6vw, 66px);
+  }
+
+  .page-studio .studio-table-marker i {
+    width: 38px;
+  }
+}
+
+@media (max-width: 760px) {
+  .page-studio #main-header {
+    height: var(--header-height-fixed);
+  }
+
+  .page-studio .studio-main {
+    padding-top: var(--header-height-fixed);
+  }
+
+  .page-studio .studio-inside-intro {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .page-studio .studio-inside-intro__copy {
+    min-height: 520px;
+    padding: 64px 24px 58px;
+  }
+
+  .page-studio .studio-inside-intro__copy-inner {
+    max-width: 560px;
+    padding-left: 24px;
+  }
+
+  .page-studio .studio-inside-intro h1 {
+    font-size: clamp(48px, 13vw, 70px);
+    letter-spacing: 0.09em;
+  }
+
+  .page-studio .studio-inside-intro__body {
+    font-size: 18px;
+    margin-top: 30px;
+  }
+
+  .page-studio .studio-inside-intro__media {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+  }
+
+  .page-studio .studio-inside-intro__media img {
+    object-position: 50% 63%;
+  }
+
+  .page-studio .studio-inside-philosophy p {
+    font-size: clamp(26px, 7.4vw, 36px);
+  }
+
+  .page-studio .studio-table__image-wrap {
+    aspect-ratio: 4 / 3;
+  }
+
+  .page-studio .studio-table-marker {
+    display: none;
+  }
+
+  .page-studio .studio-table__tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 18px;
+  }
+
+  .page-studio .studio-table-tab {
+    border-bottom: 1px solid rgba(141, 128, 111, 0.38);
+    padding: 18px 10px;
+  }
+
+  .page-studio .studio-table-tab:nth-child(2) {
+    border-right: 0;
+  }
+
+  .page-studio .studio-table-tab:nth-child(n + 3) {
+    border-bottom: 0;
+  }
+
+  .page-studio .studio-table__description {
+    border-top: 1px solid rgba(141, 128, 111, 0.28);
+    margin-top: 8px;
+    padding: 20px 10px 0;
+  }
+
+  .page-studio .studio-thought__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-studio .studio-thought__arrow {
+    justify-self: center;
+    line-height: 1;
+    transform: rotate(90deg);
+  }
+
+  .page-studio .studio-principles {
+    padding: 18px 0;
+  }
+
+  .page-studio .studio-principles__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-studio .studio-principles p {
+    border-bottom: 1px solid rgba(210, 196, 178, 0.3);
+    border-right: 0;
+    padding: 24px 0;
+  }
+
+  .page-studio .studio-principles p:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .page-studio .studio-inside-intro__copy {
+    min-height: 490px;
+  }
+
+  .page-studio .studio-inside-intro h1 {
+    font-size: clamp(43px, 13.5vw, 58px);
+  }
+
+  .page-studio .studio-table__header h2 {
+    letter-spacing: 0.04em;
+  }
+
+  .page-studio .studio-table-tab strong {
+    font-size: 16px;
+    letter-spacing: 0.04em;
+  }
+
+  .page-studio .studio-conversation h2 br {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-studio .studio-table-marker,
+  .page-studio .studio-table-marker i,
+  .page-studio .studio-table-tab,
+  .page-studio .studio-conversation a span {
+    transition: none;
+  }
+}
