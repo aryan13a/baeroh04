@@ -243,6 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const processTimeline = processTabsRoot.querySelector('.process-timeline');
     const processScroller = processTabsRoot.querySelector('[data-process-scroller]');
     const finePointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const desktopProcessQuery = window.matchMedia('(min-width: 768px)');
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     let activeProcessIndex = Math.max(0, processTabs.findIndex(tab => tab.getAttribute('aria-selected') === 'true'));
     let processResizeTicking = false;
@@ -289,7 +290,9 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.addEventListener('click', () => setActiveProcessTab(index));
       tab.addEventListener('focus', () => setActiveProcessTab(index));
       tab.addEventListener('pointerenter', () => {
-        if (finePointerQuery.matches) setActiveProcessTab(index, { scroll: false });
+        if (finePointerQuery.matches && desktopProcessQuery.matches) {
+          setActiveProcessTab(index, { scroll: false });
+        }
       });
 
       tab.addEventListener('keydown', event => {
@@ -665,6 +668,29 @@ document.addEventListener('DOMContentLoaded', () => {
       wrapper.addEventListener('click', () => {
         closeProject();
       });
+
+      // Mobile gallery navigation: a clear horizontal swipe mirrors the arrows.
+      if (window.matchMedia('(max-width: 767px)').matches) {
+        let swipeStartX = 0;
+        let swipeStartY = 0;
+
+        wrapper.addEventListener('touchstart', (event) => {
+          const touch = event.changedTouches[0];
+          swipeStartX = touch.clientX;
+          swipeStartY = touch.clientY;
+        }, { passive: true });
+
+        wrapper.addEventListener('touchend', (event) => {
+          const touch = event.changedTouches[0];
+          const deltaX = touch.clientX - swipeStartX;
+          const deltaY = touch.clientY - swipeStartY;
+
+          if (Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+
+          const targetButton = deltaX < 0 ? nextBtn : prevBtn;
+          targetButton?.click();
+        }, { passive: true });
+      }
     }
 
     if (prevBtn) {

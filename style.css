@@ -1940,6 +1940,10 @@ header.header-transparent .menu-toggle span {
   transition: color 380ms ease;
 }
 
+.process-tab-description {
+  display: none;
+}
+
 .process-tab.is-active {
   color: var(--color-cinnamon);
 }
@@ -2101,6 +2105,97 @@ header.header-transparent .menu-toggle span {
 
   .process-active-hairline {
     width: 108px;
+  }
+}
+
+/* Mobile-only editorial process stepper. Desktop and tablet retain the timeline. */
+@media (max-width: 767px) {
+  .process-timeline-scroller {
+    margin: 30px 0 0;
+    padding: 0;
+    overflow: visible;
+    overscroll-behavior-inline: auto;
+    scroll-snap-type: none;
+  }
+
+  .process-timeline {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .process-timeline-line {
+    top: 13px;
+    bottom: 13px;
+    left: 51px;
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+
+  .process-timeline-line i {
+    display: none;
+  }
+
+  .process-tab {
+    width: 100%;
+    min-width: 0;
+    min-height: 70px;
+    padding: 0 0 30px;
+    display: grid;
+    grid-template-columns: 30px 18px minmax(0, 1fr);
+    column-gap: 12px;
+    align-items: start;
+    text-align: left;
+    scroll-snap-align: none;
+  }
+
+  .process-tab:last-child {
+    min-height: 18px;
+    padding-bottom: 0;
+  }
+
+  .process-marker {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .process-tab-number {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 3px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+
+  .process-tab-heading {
+    grid-column: 3;
+    grid-row: 1;
+    margin-top: -2px;
+    font-size: 21px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: 0.055em;
+  }
+
+  .process-tab-description {
+    grid-column: 3;
+    grid-row: 2;
+    max-width: 480px;
+    margin-top: 10px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.55;
+    color: var(--color-olive);
+  }
+
+  .process-tab.is-active .process-tab-description {
+    display: block;
+  }
+
+  .process-active-content {
+    display: none;
   }
 }
 
