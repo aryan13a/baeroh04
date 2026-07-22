@@ -140,8 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Intersection Observer for scroll animations
   const observerOptions = {
     root: null,
-    rootMargin: '0px',
-    threshold: 0.1
+    rootMargin: '200px 0px',
+    threshold: 0.01
   };
 
   const animationObserver = new IntersectionObserver((entries, observer) => {
@@ -154,7 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }, observerOptions);
 
   document.querySelectorAll('.fade-in-up').forEach(el => {
-    animationObserver.observe(el);
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 300) {
+      el.classList.add('appeared');
+    } else {
+      animationObserver.observe(el);
+    }
   });
 
   // Homepage story split: activate imagery and supporting copy on hover or focus.
