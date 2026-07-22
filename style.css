@@ -3078,3 +3078,86 @@ header.header-transparent ~ .project-modal .modal-close span::after {
     gap: 24px;
   }
 }
+
+/* Home Page Gallery Section (Rust Orange Theme & 3 Portrait Cards) */
+.home-gallery-section {
+  background-color: #9E4626 !important;
+  color: var(--color-ivory) !important;
+}
+
+.home-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  margin: 0 auto;
+  padding: 0 50px;
+  max-width: 1400px;
+  width: 100%;
+}
+
+.home-gallery-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.home-gallery-img-wrap {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.home-gallery-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-gallery-card:hover .home-gallery-img-wrap img {
+  transform: scale(1.04);
+}
+
+.home-gallery-title {
+  font-family: var(--font-display) !important;
+  font-weight: 600 !important;
+  font-size: clamp(17px, 1.4vw, 21px) !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase;
+  color: var(--color-ivory) !important;
+  margin-top: 16px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.btn-outline-light {
+  background: transparent;
+  color: var(--color-ivory);
+  border: 1px solid var(--color-ivory);
+}
+
+.btn-outline-light:hover {
+  background-color: var(--color-ivory);
+  color: #9E4626;
+  border-color: var(--color-ivory);
+}
+
+@media (max-width: 900px) {
+  .home-gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 650px) {
+  .home-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
