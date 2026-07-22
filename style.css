@@ -672,7 +672,7 @@ header.header-transparent .menu-toggle span {
 .narrative-editorial {
   background-color: var(--color-ivory);
   overflow: hidden;
-  padding: 130px 0 110px;
+  padding: 60px 0 50px;
 }
 
 .narrative-editorial-inner {
@@ -698,7 +698,7 @@ header.header-transparent .menu-toggle span {
 .narrative-rule {
   width: 1px;
   height: 100%;
-  min-height: 360px;
+  min-height: 220px;
   background: linear-gradient(180deg, var(--color-cinnamon), rgba(155, 106, 78, 0.08));
 }
 
@@ -708,11 +708,11 @@ header.header-transparent .menu-toggle span {
 }
 
 .narrative-editorial-title {
-  margin-top: 22px;
+  margin-top: 14px;
   max-width: 560px;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(40px, 4.7vw, 64px);
+  font-size: clamp(36px, 4vw, 54px);
   line-height: 1.08;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -720,41 +720,41 @@ header.header-transparent .menu-toggle span {
 }
 
 .narrative-kicker {
-  margin-top: 30px;
+  margin-top: 16px;
   max-width: 520px;
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(20px, 2vw, 27px);
+  font-size: clamp(18px, 1.8vw, 24px);
   line-height: 1.35;
   color: var(--color-sandstone);
 }
 
 .narrative-body {
-  margin-top: 26px;
+  margin-top: 14px;
   max-width: 520px;
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: clamp(17px, 1.35vw, 19px);
-  line-height: 1.9;
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.7;
   color: var(--color-olive);
 }
 
 .narrative-italic {
-  margin-top: 28px;
+  margin-top: 16px;
   max-width: 520px;
   font-family: var(--font-display);
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(26px, 3vw, 40px);
+  font-size: clamp(22px, 2.5vw, 32px);
   line-height: 1.28;
   color: var(--color-charcoal);
 }
 
 .narrative-statement {
-  margin-top: 32px;
+  margin-top: 18px;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(34px, 3.6vw, 52px);
+  font-size: clamp(28px, 3vw, 42px);
   line-height: 1.05;
   color: var(--color-cinnamon);
 }
@@ -769,7 +769,7 @@ header.header-transparent .menu-toggle span {
 .narrative-image-wrap {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3.8;
   background-color: var(--color-sand);
   border-radius: 2px;
   box-shadow: 0 26px 60px rgba(62, 49, 43, 0.08);
@@ -3083,7 +3083,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 .home-gallery-section {
   background-color: #9E4626 !important;
   color: var(--color-ivory) !important;
-  padding: 55px 0 !important;
+  padding: 40px 0 !important;
 }
 
 .home-gallery-grid {
@@ -3106,7 +3106,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 .home-gallery-img-wrap {
   width: 100%;
-  aspect-ratio: 3 / 3.3;
+  aspect-ratio: 3 / 2.7;
   overflow: hidden;
   position: relative;
   background-color: rgba(0, 0, 0, 0.15);
