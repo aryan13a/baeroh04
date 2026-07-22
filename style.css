@@ -5024,22 +5024,28 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 .page-studio .studio-thought__image {
   aspect-ratio: 16 / 10;
   overflow: hidden;
+  border-radius: 2px;
 }
 
 .page-studio .studio-thought__image img {
   display: block;
-  filter: sepia(0.14) saturate(0.76) contrast(0.94);
   height: 100%;
-  object-fit: cover;
   width: 100%;
 }
 
-.page-studio .studio-thought figure:first-child img {
-  object-position: center 58%;
+.page-studio .studio-thought__image--intention {
+  background: #ffffff;
 }
 
-.page-studio .studio-thought figure:last-child img {
-  object-position: center 54%;
+.page-studio .studio-thought__image--intention img {
+  object-fit: contain;
+  padding: 6px;
+}
+
+.page-studio .studio-thought__image--experience img {
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.92) contrast(0.98);
 }
 
 .page-studio .studio-thought figcaption {
