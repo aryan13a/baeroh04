@@ -801,4 +801,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1000);
     });
   }
+
+  // Signature typing-in animation for Contact page ellipsis
+  const animatedEllipsis = document.querySelector('.animated-ellipsis');
+  const contactFormSection = document.querySelector('.contact-form-section');
+  if (animatedEllipsis) {
+    animatedEllipsis.textContent = '';
+    let dotStep = 0;
+    const dotInterval = setInterval(() => {
+      dotStep++;
+      if (dotStep === 1) animatedEllipsis.textContent = '.';
+      else if (dotStep === 2) animatedEllipsis.textContent = '..';
+      else if (dotStep === 3) {
+        animatedEllipsis.textContent = '…';
+        clearInterval(dotInterval);
+        if (contactFormSection) {
+          contactFormSection.classList.add('form-fade-in');
+        }
+      }
+    }, 350);
+  }
 });
