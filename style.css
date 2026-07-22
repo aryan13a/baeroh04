@@ -3079,49 +3079,51 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 }
 
-/* Home Page Gallery Section (Charcoal Theme matching Footer & 3 Portrait Overlay Cards) */
+/* Home Page Gallery Section (Expanding Accordion matching Reference Video) */
 .home-gallery-section {
   background-color: var(--color-charcoal) !important;
   color: var(--color-ivory) !important;
   padding: 40px 0 !important;
 }
 
-.home-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+.home-accordion-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 24px;
-  max-width: 1400px;
-  width: 100%;
+  height: 520px;
+  gap: 12px;
 }
 
-.home-gallery-card {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  width: 100%;
-  text-align: left;
-}
-
-.home-gallery-img-wrap {
-  width: 100%;
-  aspect-ratio: 3 / 4.2;
-  overflow: hidden;
+.home-accordion-card {
+  flex: 1;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  cursor: pointer;
+  height: 100%;
+  border-radius: 2px;
+  transition: flex 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.home-gallery-img-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.15) 35%, transparent 100%);
-  pointer-events: none;
-  z-index: 1;
+.home-accordion-container:hover .home-accordion-card {
+  flex: 0.8;
 }
 
-.home-gallery-img-wrap img {
+.home-accordion-container .home-accordion-card:hover {
+  flex: 2.2;
+}
+
+.home-accordion-img-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.home-accordion-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -3129,25 +3131,62 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.home-gallery-card:hover .home-gallery-img-wrap img {
-  transform: scale(1.04);
+.home-accordion-card:hover .home-accordion-img-wrap img {
+  transform: scale(1.05);
 }
 
-.home-gallery-title-overlay {
+.home-accordion-img-wrap::after {
+  content: '';
   position: absolute;
-  bottom: 24px;
-  left: 24px;
-  right: 24px;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.25) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.home-accordion-overlay {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  right: 28px;
   z-index: 2;
+  color: var(--color-ivory);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.home-accordion-title {
   font-family: var(--font-body) !important;
   font-weight: 700 !important;
-  font-size: clamp(12px, 1vw, 15px) !important;
-  letter-spacing: 0.12em !important;
+  font-size: clamp(14px, 1.2vw, 18px) !important;
+  letter-spacing: 0.1em !important;
   text-transform: uppercase;
   color: #F3F0EA !important;
   margin: 0;
-  text-align: left;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease;
+}
+
+.home-accordion-desc {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(243, 240, 234, 0.88);
+  margin-top: 10px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(12px);
+  transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+}
+
+.home-accordion-card:hover .home-accordion-desc {
+  max-height: 120px;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .btn-outline-light {
@@ -3163,23 +3202,28 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 }
 
 @media (max-width: 900px) {
-  .home-gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    padding: 0 20px;
-  }
-
-  .home-gallery-title-overlay {
-    bottom: 16px;
-    left: 16px;
-    right: 16px;
-    font-size: clamp(10px, 1.2vw, 13px) !important;
+  .home-accordion-container {
+    height: 440px;
+    gap: 8px;
+    padding: 0 16px;
   }
 }
 
 @media (max-width: 650px) {
-  .home-gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .home-accordion-container {
+    flex-direction: column;
+    height: auto;
+    gap: 16px;
+  }
+
+  .home-accordion-card {
+    height: 260px;
+    flex: 1 !important;
+  }
+
+  .home-accordion-desc {
+    max-height: 120px;
+    opacity: 1;
+    transform: translateY(0);
   }
 }

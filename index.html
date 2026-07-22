@@ -153,40 +153,49 @@
     </div>
   </section>
 
-  <!-- Selected Work / Recent Projects Section (Home Gallery) -->
+  <!-- Selected Work / Recent Projects Section (Home Gallery Accordion) -->
   <section class="fade-in-up home-gallery-section" style="padding-top: 40px; padding-bottom: 40px;">
     <div>
       <div style="margin-bottom: 24px; text-align: center;">
         <h2 class="font-display-section" style="margin: 0; color: var(--color-ivory);">Gallery</h2>
       </div>
 
-      <div class="home-gallery-grid">
-        <!-- Project 1: 1st Row 2nd (A Canvas for Ambition) -->
-        <div class="home-gallery-card recent-col" data-project="canvas-ambition">
-          <div class="home-gallery-img-wrap">
+      <div class="home-accordion-container">
+        <!-- Project 1: A Canvas for Ambition -->
+        <div class="home-accordion-card recent-col" data-project="canvas-ambition">
+          <div class="home-accordion-img-wrap">
             <img src="assets/canvas-ambition.jpeg" alt="A Canvas for Ambition">
-            <h3 class="home-gallery-title-overlay">A Canvas for Ambition</h3>
+            <div class="home-accordion-overlay">
+              <h3 class="home-accordion-title">A Canvas for Ambition</h3>
+              <p class="home-accordion-desc">A high-fidelity executive environment designed around focus, ambition, and quiet confidence.</p>
+            </div>
           </div>
         </div>
 
-        <!-- Project 2: 2nd Row 2nd (Elegant Workspace Design) -->
-        <div class="home-gallery-card recent-col" data-project="elegant-workspace">
-          <div class="home-gallery-img-wrap">
+        <!-- Project 2: Elegant Workspace Design -->
+        <div class="home-accordion-card recent-col" data-project="elegant-workspace">
+          <div class="home-accordion-img-wrap">
             <img src="assets/unnamed (1).webp" alt="Elegant Workspace Design">
-            <h3 class="home-gallery-title-overlay">Elegant Workspace Design</h3>
+            <div class="home-accordion-overlay">
+              <h3 class="home-accordion-title">Elegant Workspace Design</h3>
+              <p class="home-accordion-desc">A tailored corporate studio blending tactile timber, warm tones, and functional elegance.</p>
+            </div>
           </div>
         </div>
 
-        <!-- Project 3: 1st Row 3rd (Contemporary Executive Studio) -->
-        <div class="home-gallery-card recent-col" data-project="executive-studio">
-          <div class="home-gallery-img-wrap">
+        <!-- Project 3: Contemporary Executive Studio -->
+        <div class="home-accordion-card recent-col" data-project="executive-studio">
+          <div class="home-accordion-img-wrap">
             <img src="assets/unnamed (2).webp" alt="Contemporary Executive Studio">
-            <h3 class="home-gallery-title-overlay">Contemporary Executive Studio</h3>
+            <div class="home-accordion-overlay">
+              <h3 class="home-accordion-title">Contemporary Executive Studio</h3>
+              <p class="home-accordion-desc">Refined workplace architecture crafting an atmosphere of calm authority.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div style="text-align: center; margin-top: 24px;">
+      <div style="text-align: center; margin-top: 32px;">
         <button class="btn btn-outline-light" onclick="location.href='work.html'">Explore More</button>
       </div>
     </div>
