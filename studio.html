@@ -11,7 +11,7 @@
 <body class="page-studio">
 
   <!-- Header -->
-  <header id="main-header">
+  <header id="main-header" class="header-transparent">
     <div class="container header-inner">
       <a href="index.html" class="logo">
         <img src="assets/logo-header.png" alt="Baeroh Logo" class="logo-img">
@@ -44,91 +44,106 @@
   </div>
 
   <main class="studio-main">
-    <!-- About the Studio -->
-    <section class="studio-intro fade-in-up" aria-labelledby="studio-intro-title">
-      <div class="container">
-        <span class="font-label studio-intro__label">About the Studio</span>
-        <div class="studio-intro__layout">
-          <h1 class="studio-intro__title" id="studio-intro-title">It Begins With People.</h1>
-          <div class="studio-intro__copy-wrap">
-            <span class="studio-intro__rule" aria-hidden="true"></span>
-            <p class="studio-intro__copy">Baeroh was created from a simple belief: every meaningful environment begins with understanding people. We translate their stories into spaces that quietly feel like them.</p>
+    <!-- Studio Hero -->
+    <section class="studio-hero" aria-labelledby="studio-hero-title">
+      <picture class="studio-hero__media">
+        <source media="(max-width: 640px)" srcset="assets/studio/studio-hero-temporary-768.webp" type="image/webp">
+        <source media="(max-width: 1440px)" srcset="assets/studio/studio-hero-temporary-1280.webp" type="image/webp">
+        <source srcset="assets/studio/studio-hero-temporary-2560.webp" type="image/webp">
+        <img src="assets/studio/studio-hero-temporary.jpg" width="2560" height="1440" alt="" fetchpriority="high">
+      </picture>
+      <div class="studio-hero__overlay" aria-hidden="true"></div>
+      <div class="container studio-hero__content">
+        <p class="studio-kicker">About the Studio</p>
+        <h1 class="studio-hero__title" id="studio-hero-title">
+          <span>It Begins</span>
+          <span>With</span>
+          <span>People.</span>
+        </h1>
+      </div>
+      <a class="studio-hero__scroll" href="#studio-manifesto">
+        <span>Scroll to Discover</span>
+        <span aria-hidden="true">&darr;</span>
+      </a>
+    </section>
+
+    <!-- Studio Manifesto -->
+    <section class="studio-manifesto" id="studio-manifesto" aria-labelledby="studio-manifesto-title">
+      <div class="container studio-manifesto__inner">
+        <h2 id="studio-manifesto-title">We design by understanding the people, stories and everyday rituals that give a space meaning.</h2>
+        <p>Baeroh / Jaipur, Rajasthan</p>
+        <span class="studio-manifesto__rule" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <!-- Studio Principles -->
+    <section class="studio-accordion" aria-label="About the Baeroh studio">
+      <div class="studio-accordion__items" data-studio-accordion>
+        <article class="studio-accordion__item">
+          <h2>
+            <button class="studio-accordion__trigger" type="button" aria-expanded="false" aria-controls="studio-panel-philosophy" id="studio-trigger-philosophy">
+              <span class="studio-accordion__number">01</span>
+              <span class="studio-accordion__label">Philosophy</span>
+              <span class="studio-accordion__icon" aria-hidden="true"></span>
+            </button>
+          </h2>
+          <div class="studio-accordion__panel" id="studio-panel-philosophy" role="region" aria-labelledby="studio-trigger-philosophy" aria-hidden="true">
+            <div class="studio-accordion__panel-inner">
+              <div class="studio-accordion__copy">
+                <h3>Design Begins With Understanding.</h3>
+                <p>We look closely at how people live, move, gather and feel before a line is drawn.</p>
+                <p class="studio-accordion__values">People <span>&mdash;</span> Place <span>&mdash;</span> Purpose</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </article>
 
-    <!-- Philosophy -->
-    <section class="studio-philosophy fade-in-up" aria-labelledby="studio-philosophy-title">
-      <div class="container studio-philosophy__inner">
-        <span class="font-label studio-philosophy__label">Our Philosophy</span>
-        <h2 class="studio-philosophy__statement" id="studio-philosophy-title">Designing from the inside out&mdash;around human experience, physical touch and the way people live.</h2>
-      </div>
-    </section>
+        <article class="studio-accordion__item">
+          <h2>
+            <button class="studio-accordion__trigger" type="button" aria-expanded="true" aria-controls="studio-panel-practice" id="studio-trigger-practice">
+              <span class="studio-accordion__number">02</span>
+              <span class="studio-accordion__label">Our Practice</span>
+              <span class="studio-accordion__icon" aria-hidden="true"></span>
+            </button>
+          </h2>
+          <div class="studio-accordion__panel" id="studio-panel-practice" role="region" aria-labelledby="studio-trigger-practice" aria-hidden="false">
+            <div class="studio-accordion__panel-inner">
+              <div class="studio-accordion__copy">
+                <h3>Listen. Question. Guide. Deliver.</h3>
+                <p>Every project begins with a conversation and moves forward with clarity, intention and care.</p>
+                <p class="studio-accordion__values">Clarity <span>&mdash;</span> Intention <span>&mdash;</span> Craft</p>
+              </div>
+            </div>
+          </div>
+        </article>
 
-    <!-- Our Practice -->
-    <section class="studio-practice fade-in-up" aria-labelledby="studio-practice-title">
-      <img class="studio-practice__image" src="assets/beliefs-bg.jpeg" alt="" aria-hidden="true">
-      <div class="container studio-practice__inner">
-        <div class="studio-practice__header">
-          <span class="font-label studio-practice__label">The Process</span>
-          <h2 class="studio-practice__title" id="studio-practice-title">Our Practice</h2>
-        </div>
-
-        <ol class="studio-practice__stages" aria-label="Our practice stages">
-          <li class="studio-practice__stage" tabindex="0">
-            <span class="studio-practice__number">01</span>
-            <h3 class="studio-practice__stage-title">Listen</h3>
-            <p>We begin with a conversation.</p>
-          </li>
-          <li class="studio-practice__stage" tabindex="0">
-            <span class="studio-practice__number">02</span>
-            <h3 class="studio-practice__stage-title">Question</h3>
-            <p>We explore before deciding.</p>
-          </li>
-          <li class="studio-practice__stage" tabindex="0">
-            <span class="studio-practice__number">03</span>
-            <h3 class="studio-practice__stage-title">Guide</h3>
-            <p>We help clients make informed choices.</p>
-          </li>
-          <li class="studio-practice__stage" tabindex="0">
-            <span class="studio-practice__number">04</span>
-            <h3 class="studio-practice__stage-title">Deliver</h3>
-            <p>From initial planning to complete turnkey execution.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- What We Believe -->
-    <section class="studio-beliefs fade-in-up" aria-labelledby="studio-beliefs-title">
-      <div class="container">
-        <h2 class="studio-beliefs__title" id="studio-beliefs-title">What We Believe</h2>
-        <ol class="studio-beliefs__grid">
-          <li class="studio-belief">
-            <span class="studio-belief__number">01</span>
-            <h3>People First</h3>
-            <p>Every meaningful environment begins with understanding people.</p>
-          </li>
-          <li class="studio-belief">
-            <span class="studio-belief__number">02</span>
-            <h3>Process Over Style</h3>
-            <p>Our signature is not a fixed style&mdash;it is how we think and work.</p>
-          </li>
-          <li class="studio-belief">
-            <span class="studio-belief__number">03</span>
-            <h3>Trust Always</h3>
-            <p>Trust is our only non-negotiable.</p>
-          </li>
-        </ol>
+        <article class="studio-accordion__item">
+          <h2>
+            <button class="studio-accordion__trigger" type="button" aria-expanded="false" aria-controls="studio-panel-beliefs" id="studio-trigger-beliefs">
+              <span class="studio-accordion__number">03</span>
+              <span class="studio-accordion__label">What We Believe</span>
+              <span class="studio-accordion__icon" aria-hidden="true"></span>
+            </button>
+          </h2>
+          <div class="studio-accordion__panel" id="studio-panel-beliefs" role="region" aria-labelledby="studio-trigger-beliefs" aria-hidden="true">
+            <div class="studio-accordion__panel-inner">
+              <div class="studio-accordion__copy">
+                <h3>People First. Trust Always.</h3>
+                <p>Our signature is not a fixed style. It is a thoughtful process shaped by the people who will inhabit each space.</p>
+                <p class="studio-accordion__values">People <span>&mdash;</span> Process <span>&mdash;</span> Trust</p>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
     <!-- Founder Quote -->
-    <section class="studio-founder fade-in-up" aria-label="Founder statement">
-      <div class="container studio-founder__inner">
+    <section class="studio-founder-manifesto" aria-label="Founder statement">
+      <div class="container studio-founder-manifesto__inner">
         <blockquote>&ldquo;Design, for me, is love&mdash;a relationship you build with your surroundings.&rdquo;</blockquote>
         <p>Founder &amp; Principal Designer</p>
+        <a href="contact.html" class="studio-founder-manifesto__cta">Start a Conversation <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
   </main>
@@ -171,5 +186,6 @@
 
   <!-- Scripts -->
   <script src="script.js?v=6.2"></script>
+  <script src="studio.js?v=1.0"></script>
 </body>
 </html>
