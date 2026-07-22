@@ -2632,6 +2632,10 @@ footer {
     align-items: center;
     gap: 12px;
     margin: 0;
+    padding: 9px 12px 8px;
+    border: 0;
+    border-bottom: 1px solid rgba(243, 240, 234, 0.72);
+    background: rgba(30, 23, 20, 0.14);
     color: var(--color-ivory);
     font-family: var(--font-body);
     font-size: 10px;
@@ -2640,16 +2644,21 @@ footer {
     letter-spacing: 0.24em;
     text-transform: uppercase;
     text-shadow: 0 1px 8px rgba(30, 23, 20, 0.68);
-    pointer-events: none;
+    cursor: pointer;
     opacity: 0.92;
     transform: translateX(-50%);
-    transition: opacity 240ms ease, transform 240ms ease;
+    transition: color 240ms ease, border-color 240ms ease, background-color 240ms ease;
   }
 
-  .story-split[data-active] .story-split__hint,
-  .story-split:focus-within .story-split__hint {
-    opacity: 0;
-    transform: translate(-50%, 5px);
+  .story-split__hint:hover {
+    border-color: var(--color-cinnamon-tint);
+    background: rgba(30, 23, 20, 0.28);
+    color: var(--color-cinnamon-tint);
+  }
+
+  .story-split__hint:focus-visible {
+    outline: 2px solid var(--color-ivory);
+    outline-offset: 4px;
   }
 
   .story-split__hint-arrow {

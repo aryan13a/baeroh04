@@ -161,6 +161,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const storySplitRoot = document.querySelector('[data-story-split]');
   if (storySplitRoot) {
     const storyPanels = Array.from(storySplitRoot.querySelectorAll('[data-story-panel]'));
+    const storySwitch = storySplitRoot.querySelector('[data-story-switch]');
+    const storySwitchLabel = storySwitch?.querySelector('[data-story-switch-label]');
+    const storySwitchArrow = storySwitch?.querySelector('[data-story-switch-arrow]');
+
+    const updateStorySwitch = panelName => {
+      if (!storySwitch || !storySwitchLabel || !storySwitchArrow) return;
+
+      if (panelName === 'origin') {
+        storySwitchLabel.textContent = 'EXPLORE WHY BAEROH';
+        storySwitchArrow.textContent = '→';
+        storySwitch.dataset.target = 'name';
+        storySwitch.setAttribute('aria-label', 'Explore Why Baeroh');
+        storySwitch.setAttribute('aria-controls', 'story-panel-name');
+      } else if (panelName === 'name') {
+        storySwitchLabel.textContent = 'EXPLORE THE STORY';
+        storySwitchArrow.textContent = '←';
+        storySwitch.dataset.target = 'origin';
+        storySwitch.setAttribute('aria-label', 'Explore the story behind Baeroh');
+        storySwitch.setAttribute('aria-controls', 'story-panel-origin');
+      } else {
+        storySwitchLabel.textContent = 'MOVE TO EXPLORE';
+        storySwitchArrow.textContent = '↔';
+        storySwitch.dataset.target = 'origin';
+        storySwitch.setAttribute('aria-label', 'Explore the story panels');
+        storySwitch.setAttribute('aria-controls', 'story-panel-origin story-panel-name');
+      }
+    };
 
     const setActiveStoryPanel = panelName => {
       if (panelName) {
@@ -168,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         delete storySplitRoot.dataset.active;
       }
+      updateStorySwitch(panelName);
     };
 
     storyPanels.forEach(panel => {
@@ -188,6 +216,16 @@ document.addEventListener('DOMContentLoaded', () => {
           : null);
       });
     });
+
+    storySwitch?.addEventListener('click', () => {
+      const targetPanel = storyPanels.find(panel => panel.dataset.storyPanel === storySwitch.dataset.target);
+      if (!targetPanel) return;
+
+      setActiveStoryPanel(targetPanel.dataset.storyPanel);
+      targetPanel.focus({ preventScroll: true });
+    });
+
+    updateStorySwitch(null);
 
   }
 
