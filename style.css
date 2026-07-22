@@ -3091,8 +3091,8 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin: 0 auto;
-  padding: 0 16px;
-  max-width: 1200px;
+  padding: 0 24px;
+  max-width: 1400px;
   width: 100%;
 }
 
@@ -3106,7 +3106,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 .home-gallery-img-wrap {
   width: 100%;
-  aspect-ratio: 3 / 3.6;
+  aspect-ratio: 3 / 4.2;
   overflow: hidden;
   position: relative;
   background-color: rgba(0, 0, 0, 0.15);
