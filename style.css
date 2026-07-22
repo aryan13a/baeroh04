@@ -3079,9 +3079,9 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 }
 
-/* Home Page Gallery Section (Rust Orange Theme & 3 Portrait Overlay Cards) */
+/* Home Page Gallery Section (Charcoal Theme matching Footer & 3 Portrait Overlay Cards) */
 .home-gallery-section {
-  background-color: #9E4626 !important;
+  background-color: var(--color-charcoal) !important;
   color: var(--color-ivory) !important;
   padding: 40px 0 !important;
 }
@@ -3158,7 +3158,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 .btn-outline-light:hover {
   background-color: var(--color-ivory);
-  color: #9E4626;
+  color: var(--color-charcoal);
   border-color: var(--color-ivory);
 }
 
