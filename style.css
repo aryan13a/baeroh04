@@ -3159,8 +3159,8 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 .home-accordion-title {
   font-family: var(--font-body) !important;
-  font-weight: 700 !important;
-  font-size: clamp(14px, 1.2vw, 18px) !important;
+  font-weight: 400 !important;
+  font-size: clamp(12px, 0.95vw, 14px) !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase;
   color: #F3F0EA !important;
