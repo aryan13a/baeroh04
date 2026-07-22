@@ -157,11 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
     animationObserver.observe(el);
   });
 
-  // Homepage story split: one active panel at a time, with accessible detail toggles.
+  // Homepage story split: activate imagery and supporting copy on hover or focus.
   const storySplitRoot = document.querySelector('[data-story-split]');
   if (storySplitRoot) {
     const storyPanels = Array.from(storySplitRoot.querySelectorAll('[data-story-panel]'));
-    const storyDetailButtons = Array.from(storySplitRoot.querySelectorAll('[aria-controls^="story-"]'));
 
     const setActiveStoryPanel = panelName => {
       if (panelName) {
@@ -190,22 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    storyDetailButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const detailId = button.getAttribute('aria-controls');
-        const detailRegion = document.getElementById(detailId);
-        const shouldOpen = button.getAttribute('aria-expanded') !== 'true';
-
-        storyDetailButtons.forEach(otherButton => {
-          const otherRegion = document.getElementById(otherButton.getAttribute('aria-controls'));
-          otherButton.setAttribute('aria-expanded', 'false');
-          if (otherRegion) otherRegion.hidden = true;
-        });
-
-        button.setAttribute('aria-expanded', String(shouldOpen));
-        if (detailRegion) detailRegion.hidden = !shouldOpen;
-      });
-    });
   }
 
 
