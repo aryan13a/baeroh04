@@ -4732,30 +4732,29 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 .page-studio .studio-inside-intro {
   display: grid;
   grid-template-columns: minmax(0, 44fr) minmax(0, 56fr);
-  min-height: clamp(440px, 34vw, 540px);
-  max-height: 580px;
+  min-height: clamp(620px, 48vw, 740px);
   padding: 0;
 }
 
 .page-studio .studio-inside-intro__copy {
   display: flex;
   align-items: center;
-  padding: clamp(32px, 3.5vw, 56px) clamp(32px, 4.5vw, 76px);
+  padding: clamp(58px, 6vw, 92px) clamp(42px, 7vw, 116px);
 }
 
 .page-studio .studio-inside-intro__copy-inner {
   border-left: 1px solid var(--color-cinnamon-tint);
   max-width: 520px;
-  padding: 2px 0 2px clamp(20px, 2.5vw, 38px);
+  padding: 2px 0 2px clamp(24px, 3.2vw, 52px);
 }
 
 .page-studio .studio-inside-intro h1 {
   color: var(--color-charcoal);
-  font-size: clamp(40px, 4.2vw, 66px);
+  font-size: clamp(50px, 5.1vw, 82px);
   font-weight: 300;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.12em;
   line-height: 0.98;
-  margin-top: clamp(16px, 2vw, 28px);
+  margin-top: clamp(24px, 3vw, 44px);
 }
 
 .page-studio .studio-inside-intro h1 span {
@@ -4763,15 +4762,15 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 }
 
 .page-studio .studio-inside-intro h1 span + span {
-  margin-top: 0.1em;
+  margin-top: 0.14em;
 }
 
 .page-studio .studio-inside-intro__body {
   color: var(--color-charcoal);
   font-family: var(--font-display);
-  font-size: clamp(15px, 1.25vw, 19px);
-  line-height: 1.5;
-  margin-top: clamp(18px, 2.2vw, 32px);
+  font-size: clamp(17px, 1.45vw, 22px);
+  line-height: 1.55;
+  margin-top: clamp(28px, 3.5vw, 48px);
   max-width: 390px;
 }
 
@@ -4780,7 +4779,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.25em;
-  margin-top: clamp(20px, 2.5vw, 36px);
+  margin-top: clamp(30px, 4vw, 58px);
   text-transform: uppercase;
 }
 
@@ -4790,47 +4789,46 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 .page-studio .studio-inside-intro__media {
   min-height: 100%;
-  max-height: 580px;
   overflow: hidden;
 }
 
 .page-studio .studio-inside-intro__media img {
   display: block;
-  filter: saturate(0.78) sepia(0.1) contrast(0.96);
+  filter: saturate(0.72) sepia(0.12) contrast(0.96);
   height: 100%;
   object-fit: cover;
-  object-position: center 45%;
+  object-position: 50% 61%;
   width: 100%;
 }
 
 .page-studio .studio-inside-philosophy {
   background: rgba(210, 196, 178, 0.42);
-  padding: clamp(44px, 4.5vw, 68px) 0;
+  padding: clamp(72px, 8vw, 112px) 0;
   text-align: center;
 }
 
 .page-studio .studio-inside-philosophy p {
   color: var(--color-charcoal);
   font-family: var(--font-display);
-  font-size: clamp(24px, 2.8vw, 38px);
+  font-size: clamp(28px, 3.2vw, 46px);
   font-weight: 400;
   letter-spacing: 0.005em;
   line-height: 1.28;
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 1000px;
 }
 
 .page-studio .studio-inside-philosophy span {
   background: var(--color-cinnamon-tint);
   display: block;
   height: 1px;
-  margin: clamp(20px, 2.5vw, 30px) auto 0;
-  width: min(300px, 40vw);
+  margin: clamp(28px, 3.2vw, 42px) auto 0;
+  width: min(360px, 46vw);
 }
 
 .page-studio .studio-table {
   background: var(--color-ivory);
-  padding: clamp(48px, 5vw, 72px) 0 clamp(44px, 4.5vw, 64px);
+  padding: clamp(72px, 8vw, 112px) 0 clamp(68px, 7vw, 100px);
 }
 
 .page-studio .studio-table__header {
@@ -5142,17 +5140,16 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 @media (max-width: 1024px) {
   .page-studio .studio-inside-intro {
     grid-template-columns: minmax(0, 46fr) minmax(0, 54fr);
-    min-height: 440px;
-    max-height: 500px;
+    min-height: 620px;
   }
 
   .page-studio .studio-inside-intro__copy {
-    padding-left: 28px;
-    padding-right: 28px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
   .page-studio .studio-inside-intro h1 {
-    font-size: clamp(38px, 5.5vw, 54px);
+    font-size: clamp(46px, 6.6vw, 66px);
   }
 
   .page-studio .studio-table-marker i {
@@ -5173,33 +5170,31 @@ header.header-transparent ~ .project-modal .modal-close span::after {
     display: flex;
     flex-direction: column;
     min-height: 0;
-    max-height: none;
   }
 
   .page-studio .studio-inside-intro__copy {
-    min-height: 0;
-    padding: 40px 20px 32px;
+    min-height: 520px;
+    padding: 64px 24px 58px;
   }
 
   .page-studio .studio-inside-intro__copy-inner {
     max-width: 560px;
-    padding-left: 18px;
+    padding-left: 24px;
   }
 
   .page-studio .studio-inside-intro h1 {
-    font-size: clamp(36px, 10vw, 52px);
-    letter-spacing: 0.08em;
+    font-size: clamp(48px, 13vw, 70px);
+    letter-spacing: 0.09em;
   }
 
   .page-studio .studio-inside-intro__body {
-    font-size: 16px;
-    margin-top: 18px;
+    font-size: 18px;
+    margin-top: 30px;
   }
 
   .page-studio .studio-inside-intro__media {
-    aspect-ratio: 16 / 10;
-    min-height: 240px;
-    max-height: 360px;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
   }
 
   .page-studio .studio-inside-intro__media img {
