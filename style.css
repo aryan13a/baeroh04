@@ -3124,10 +3124,10 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 }
 
 .home-gallery-title {
-  font-family: var(--font-display) !important;
-  font-weight: 600 !important;
-  font-size: clamp(17px, 1.4vw, 21px) !important;
-  letter-spacing: 0.06em !important;
+  font-family: var(--font-body) !important;
+  font-weight: 700 !important;
+  font-size: clamp(12px, 1.1vw, 15px) !important;
+  letter-spacing: 0.18em !important;
   text-transform: uppercase;
   color: var(--color-ivory) !important;
   margin-top: 16px;
