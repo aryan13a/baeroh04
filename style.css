@@ -3083,7 +3083,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 .home-gallery-section {
   background-color: #9E4626 !important;
   color: var(--color-ivory) !important;
-  padding: 90px 0 !important;
+  padding: 55px 0 !important;
 }
 
 .home-gallery-grid {
@@ -3106,7 +3106,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 .home-gallery-img-wrap {
   width: 100%;
-  aspect-ratio: 3 / 4.2;
+  aspect-ratio: 3 / 3.3;
   overflow: hidden;
   position: relative;
   background-color: rgba(0, 0, 0, 0.15);
