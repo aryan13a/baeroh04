@@ -754,7 +754,7 @@ header.header-transparent .menu-toggle span {
   margin-top: 20px;
   font-family: var(--font-body) !important;
   font-weight: 700 !important;
-  font-size: clamp(40px, 4.5vw, 60px) !important;
+  font-size: clamp(28px, 3.2vw, 44px) !important;
   line-height: 1.05;
   color: var(--color-cinnamon);
 }
@@ -2613,7 +2613,7 @@ footer {
   font-family: var(--font-body) !important;
   font-weight: 700 !important;
   font-style: normal !important;
-  font-size: clamp(28px, 2.5vw, 38px) !important;
+  font-size: clamp(20px, 1.8vw, 26px) !important;
   line-height: 1.2;
 }
 
