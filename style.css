@@ -3091,8 +3091,8 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin: 0 auto;
-  padding: 0 40px;
-  max-width: 1400px;
+  padding: 0;
+  max-width: 100%;
   width: 100%;
 }
 
