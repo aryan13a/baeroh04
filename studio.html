@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studio | Baeroh Interior Architecture & Design</title>
   <meta name="description" content="Discover Baeroh, an interior design studio built on the simple belief that every meaningful environment begins with understanding people.">
-  <link rel="stylesheet" href="style.css?v=6.9">
+  <link rel="stylesheet" href="style.css?v=7.0">
   <link rel="icon" type="image/png" href="assets/favicon.png?v=6.0">
 </head>
-<body>
+<body class="page-studio">
 
   <!-- Header -->
   <header id="main-header">
@@ -43,80 +43,95 @@
     <a href="contact.html">Contact</a>
   </div>
 
-  <!-- Studio Page Header -->
-  <section class="fade-in-up" style="padding-top: 180px; padding-bottom: 60px;">
-    <div class="container text-lead-container" style="max-width: 900px; text-align: left; margin: 0;">
-      <span class="font-label">About the Studio</span>
-      <h1 class="font-display-hero" style="margin-top: 20px; margin-bottom: 30px; font-size: clamp(30px, 3.6vw, 54px); letter-spacing: 0.12em;">It begins with people.</h1>
-      <p class="font-display-lead" style="color: var(--color-olive); margin-bottom: 24px; text-align: justify; line-height: 1.6;">
-        Baeroh was created from a simple belief: every meaningful environment begins with understanding people. We believe the environments we inhabit quietly shape the way we live, work, gather and grow. Our role is to understand the people behind them, then thoughtfully translate their stories into environments where they quietly say, <span class="em-serif">&ldquo;This feels like us.&rdquo;</span>
-      </p>
-    </div>
-  </section>
-
-  <!-- Main Concept Philosophy -->
-  <section class="bg-sand fade-in-up" style="padding: 100px 0;">
-    <div class="container" style="margin: 0;">
-      <div style="max-width: 800px; margin: 0; text-align: left;">
-        <span class="font-label">Our Philosophy</span>
-        <h2 class="font-display-section" style="margin-top: 20px; margin-bottom: 24px; text-align: left;">A lifelong study of how people live.</h2>
-        <p class="font-body-copy" style="color: var(--color-olive); font-size: 16px; line-height: 1.8; text-align: left;">
-          Baeroh is a lifelong study of how people live, and how thoughtful design can quietly make life better. We design from the inside out, placing the human experience, physical touch, and visual harmony at the center of every architectural layout.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- The Process / Our Practice Section -->
-  <section class="approach-editorial fade-in-up" aria-labelledby="studio-practice-title" style="padding: 60px 0 45px;">
-    <div class="approach-editorial-bg" style="background-image: url('assets/beliefs-bg.jpeg');"></div>
-    <div class="approach-editorial-mask"></div>
-    <div class="approach-editorial-shell">
-      <div class="approach-editorial-inner" style="align-items: start;">
-        <div class="approach-editorial-heading">
-          <span class="font-label">The Process</span>
-          <h2 id="studio-practice-title">Our Practice</h2>
-          <p style="margin-top: 24px; font-size: clamp(15px, 1.2vw, 17px); line-height: 1.65; opacity: 0.9; color: var(--color-ivory); font-weight: 300;">
-            Every project begins with a conversation. We listen before we draw. We question before we decide. We guide before we recommend.
-          </p>
-        </div>
-        <div class="approach-editorial-copy">
-          <div class="approach-editorial-divider" aria-hidden="true"></div>
-          <p class="approach-editorial-statement" style="font-size: clamp(15px, 1.2vw, 17px) !important; line-height: 1.65 !important; font-weight: 300 !important; opacity: 0.9; color: var(--color-ivory); margin-top: 24px;">
-            Whether we&rsquo;re designing a new home, transforming an existing one, planning a workplace or delivering a complete turnkey project, our role remains the same, to help people make thoughtful decisions about the environments they inhabit.
-          </p>
+  <main class="studio-main">
+    <!-- About the Studio -->
+    <section class="studio-intro fade-in-up" aria-labelledby="studio-intro-title">
+      <div class="container">
+        <span class="font-label studio-intro__label">About the Studio</span>
+        <div class="studio-intro__layout">
+          <h1 class="studio-intro__title" id="studio-intro-title">It Begins With People.</h1>
+          <div class="studio-intro__copy-wrap">
+            <span class="studio-intro__rule" aria-hidden="true"></span>
+            <p class="studio-intro__copy">Baeroh was created from a simple belief: every meaningful environment begins with understanding people. We translate their stories into spaces that quietly feel like them.</p>
+          </div>
         </div>
       </div>
-      <p class="approach-editorial-detail" style="margin-top: 40px;">Clarity <span>&middot;</span> Intention <span>&middot;</span> Craft</p>
-    </div>
-  </section>
+    </section>
 
-  <!-- What We Believe (Off-White Background) -->
-  <section class="fade-in-up" style="padding: 120px 0; background-color: var(--color-ivory);">
-    <div class="container grid-2col" style="align-items: start; gap: 100px;">
-      <div>
-        <span class="font-label">Beliefs</span>
-        <h2 class="font-display-section" style="margin-top: 20px; margin-bottom: 30px; color: var(--color-charcoal);">What We Believe</h2>
-        <ul class="bullet-list" style="display: flex; flex-direction: column; gap: 24px;">
-          <li style="font-size: 20px; padding-left: 20px; border-left: 2px solid var(--color-cinnamon); color: var(--color-charcoal);">
-            Every meaningful environment begins with understanding people.
-          </li>
-          <li style="font-size: 20px; padding-left: 20px; border-left: 2px solid var(--color-cinnamon); color: var(--color-charcoal);">
-            Our signature is not a style. Our signature is our process.
-          </li>
-          <li style="font-size: 20px; padding-left: 20px; border-left: 2px solid var(--color-cinnamon); color: var(--color-charcoal);">
-            Trust is our only non-negotiable.
-          </li>
-        </ul>
+    <!-- Philosophy -->
+    <section class="studio-philosophy fade-in-up" aria-labelledby="studio-philosophy-title">
+      <div class="container studio-philosophy__inner">
+        <span class="font-label studio-philosophy__label">Our Philosophy</span>
+        <h2 class="studio-philosophy__statement" id="studio-philosophy-title">Designing from the inside out&mdash;around human experience, physical touch and the way people live.</h2>
       </div>
-      <div style="padding-top: 50px;">
-        <p class="font-quote cinnamon-text" style="font-size: 26px; line-height: 1.5; margin-bottom: 24px;">
-          &ldquo;Design, for me, is love. A beautiful relationship you build with your surroundings.&rdquo;
-        </p>
-        <span class="font-label">Founder &amp; Principal Designer</span>
+    </section>
+
+    <!-- Our Practice -->
+    <section class="studio-practice fade-in-up" aria-labelledby="studio-practice-title">
+      <img class="studio-practice__image" src="assets/beliefs-bg.jpeg" alt="" aria-hidden="true">
+      <div class="container studio-practice__inner">
+        <div class="studio-practice__header">
+          <span class="font-label studio-practice__label">The Process</span>
+          <h2 class="studio-practice__title" id="studio-practice-title">Our Practice</h2>
+        </div>
+
+        <ol class="studio-practice__stages" aria-label="Our practice stages">
+          <li class="studio-practice__stage" tabindex="0">
+            <span class="studio-practice__number">01</span>
+            <h3 class="studio-practice__stage-title">Listen</h3>
+            <p>We begin with a conversation.</p>
+          </li>
+          <li class="studio-practice__stage" tabindex="0">
+            <span class="studio-practice__number">02</span>
+            <h3 class="studio-practice__stage-title">Question</h3>
+            <p>We explore before deciding.</p>
+          </li>
+          <li class="studio-practice__stage" tabindex="0">
+            <span class="studio-practice__number">03</span>
+            <h3 class="studio-practice__stage-title">Guide</h3>
+            <p>We help clients make informed choices.</p>
+          </li>
+          <li class="studio-practice__stage" tabindex="0">
+            <span class="studio-practice__number">04</span>
+            <h3 class="studio-practice__stage-title">Deliver</h3>
+            <p>From initial planning to complete turnkey execution.</p>
+          </li>
+        </ol>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- What We Believe -->
+    <section class="studio-beliefs fade-in-up" aria-labelledby="studio-beliefs-title">
+      <div class="container">
+        <h2 class="studio-beliefs__title" id="studio-beliefs-title">What We Believe</h2>
+        <ol class="studio-beliefs__grid">
+          <li class="studio-belief">
+            <span class="studio-belief__number">01</span>
+            <h3>People First</h3>
+            <p>Every meaningful environment begins with understanding people.</p>
+          </li>
+          <li class="studio-belief">
+            <span class="studio-belief__number">02</span>
+            <h3>Process Over Style</h3>
+            <p>Our signature is not a fixed style&mdash;it is how we think and work.</p>
+          </li>
+          <li class="studio-belief">
+            <span class="studio-belief__number">03</span>
+            <h3>Trust Always</h3>
+            <p>Trust is our only non-negotiable.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Founder Quote -->
+    <section class="studio-founder fade-in-up" aria-label="Founder statement">
+      <div class="container studio-founder__inner">
+        <blockquote>&ldquo;Design, for me, is love&mdash;a relationship you build with your surroundings.&rdquo;</blockquote>
+        <p>Founder &amp; Principal Designer</p>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
