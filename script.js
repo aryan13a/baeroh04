@@ -157,6 +157,57 @@ document.addEventListener('DOMContentLoaded', () => {
     animationObserver.observe(el);
   });
 
+  // Homepage story split: one active panel at a time, with accessible detail toggles.
+  const storySplitRoot = document.querySelector('[data-story-split]');
+  if (storySplitRoot) {
+    const storyPanels = Array.from(storySplitRoot.querySelectorAll('[data-story-panel]'));
+    const storyDetailButtons = Array.from(storySplitRoot.querySelectorAll('[aria-controls^="story-"]'));
+
+    const setActiveStoryPanel = panelName => {
+      if (panelName) {
+        storySplitRoot.dataset.active = panelName;
+      } else {
+        delete storySplitRoot.dataset.active;
+      }
+    };
+
+    storyPanels.forEach(panel => {
+      const panelName = panel.dataset.storyPanel;
+
+      panel.addEventListener('pointerenter', () => setActiveStoryPanel(panelName));
+
+      panel.addEventListener('focusin', () => setActiveStoryPanel(panelName));
+    });
+
+    storySplitRoot.addEventListener('pointerleave', () => setActiveStoryPanel(null));
+
+    storySplitRoot.addEventListener('focusout', () => {
+      window.requestAnimationFrame(() => {
+        const focusedPanel = document.activeElement.closest?.('[data-story-panel]');
+        setActiveStoryPanel(storySplitRoot.contains(document.activeElement) && focusedPanel
+          ? focusedPanel.dataset.storyPanel
+          : null);
+      });
+    });
+
+    storyDetailButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const detailId = button.getAttribute('aria-controls');
+        const detailRegion = document.getElementById(detailId);
+        const shouldOpen = button.getAttribute('aria-expanded') !== 'true';
+
+        storyDetailButtons.forEach(otherButton => {
+          const otherRegion = document.getElementById(otherButton.getAttribute('aria-controls'));
+          otherButton.setAttribute('aria-expanded', 'false');
+          if (otherRegion) otherRegion.hidden = true;
+        });
+
+        button.setAttribute('aria-expanded', String(shouldOpen));
+        if (detailRegion) detailRegion.hidden = !shouldOpen;
+      });
+    });
+  }
+
 
   // Accessible horizontal process tabs with persistent selection.
   const processTabsRoot = document.querySelector('[data-process-tabs]');

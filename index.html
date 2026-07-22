@@ -16,7 +16,7 @@
   <meta property="og:image" content="https://aryan13a.github.io/baeroh03/assets/logo.png">
   
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="style.css?v=6.5">
+  <link rel="stylesheet" href="style.css?v=6.9">
   <link rel="icon" type="image/png" href="assets/favicon.png?v=6.0">
 </head>
 <body>
@@ -99,33 +99,67 @@
     <div class="slider-dots"></div>
   </div>
 
-  <!-- Narrative Section -->
-  <section class="narrative-editorial" aria-labelledby="narrative-title">
-    <div class="narrative-editorial-inner">
-      <div class="narrative-copy">
-        <div class="narrative-rule" aria-hidden="true"></div>
-        <div>
-          <span class="font-label narrative-label">Narrative</span>
-          <h2 id="narrative-title" class="narrative-editorial-title">The Story Behind Baeroh</h2>
-          <p class="narrative-kicker">They often ask, What does Baeroh mean?</p>
-          <p class="narrative-body">
-            In the Rajasthani dialect I grew up hearing, &lsquo;Baero&rsquo; means to know. But not just knowing in the usual way. It&rsquo;s the kind of knowing that says:
-          </p>
-          <p class="narrative-italic">
-            I know the way.<br>
-            Don&rsquo;t worry, we&rsquo;re here now.
-          </p>
-          <p class="narrative-statement">Baero Hai.</p>
+  <!-- The Story Behind Baeroh -->
+  <section class="story-split" id="story-behind-baeroh" data-story-split aria-label="The Story Behind Baeroh">
+    <article class="story-panel story-panel--origin" data-story-panel="origin" aria-labelledby="story-origin-title">
+      <img class="story-split__image story-split__image--origin" src="assets/services-process-editorial.jpg" alt="" aria-hidden="true">
+      <div class="story-split__inner story-split__inner--origin">
+        <div class="story-split__origin-line">
+          <span class="story-split__label">01 / THE ORIGIN</span>
+          <h2 class="story-split__title story-split__title--origin" id="story-origin-title">
+            <span>THE STORY</span>
+            <span>BEHIND</span>
+            <span>BAEROH</span>
+          </h2>
+
+          <div class="story-split__footer">
+            <p class="story-split__support">ROOTED IN RAJASTHAN. DESIGNED FOR TODAY.</p>
+            <button class="story-split__cta" type="button" id="story-origin-trigger" aria-expanded="false" aria-controls="story-origin-details">
+              <span>DISCOVER THE STORY</span>
+              <span class="story-split__arrow" aria-hidden="true">&rarr;</span>
+            </button>
+
+            <div class="story-split__details story-split__details--origin" id="story-origin-details" role="region" aria-labelledby="story-origin-trigger" hidden>
+              <p class="story-split__detail-lead">They often ask, What does Baeroh mean?</p>
+              <p>In the Rajasthani dialect I grew up hearing, &ldquo;Baero&rdquo; means <em>to know</em>. But not just knowing in the usual way. It&rsquo;s the kind of knowing that says:</p>
+              <p class="story-split__detail-quote">I know the way.<br>Don&rsquo;t worry, we&rsquo;re here now.</p>
+              <p class="story-split__detail-signoff">Baero Hai.</p>
+            </div>
+          </div>
         </div>
       </div>
+    </article>
 
-      <figure class="narrative-visual">
-        <div class="narrative-image-wrap">
-          <img src="assets/services-process-editorial.jpg" alt="Minimal interior architectural detail">
+    <article class="story-panel story-panel--name" data-story-panel="name" aria-labelledby="story-name-title">
+      <img class="story-split__image story-split__image--name" src="assets/beliefs-bg.jpeg" alt="" aria-hidden="true">
+      <div class="story-split__inner story-split__inner--name">
+        <span class="story-split__label">02 / THE NAME</span>
+        <h2 class="story-split__title story-split__title--name" id="story-name-title">
+          <span>WHY</span>
+          <span>BAEROH?</span>
+        </h2>
+        <p class="story-split__lead">Baeroh means &ldquo;to know.&rdquo;</p>
+
+        <ul class="story-split__statements">
+          <li>TO KNOW PEOPLE BEFORE PLANS.</li>
+          <li>TO KNOW WHAT TRULY MATTERS BEFORE MAKING DECISIONS.</li>
+          <li>TO KNOW THAT EVERY ENVIRONMENT IS SHAPED AS MUCH BY THE LIVES WITHIN IT AS THE WALLS AROUND IT.</li>
+        </ul>
+
+        <div class="story-split__footer story-split__footer--name">
+          <button class="story-split__cta" type="button" id="story-name-trigger" aria-expanded="false" aria-controls="story-name-details">
+            <span>UNDERSTAND OUR APPROACH</span>
+            <span class="story-split__arrow" aria-hidden="true">&rarr;</span>
+          </button>
+
+          <div class="story-split__details story-split__details--name" id="story-name-details" role="region" aria-labelledby="story-name-trigger" hidden>
+            <p>Every project begins with a conversation. We listen before we draw. We question before we decide. We guide before we recommend.</p>
+            <p>Whether we&rsquo;re designing a new home, transforming an existing one, planning a workplace or delivering a complete turnkey project, our role remains the same, to help people make thoughtful decisions about the environments they inhabit.</p>
+            <p class="story-split__detail-signoff">Because at the end of the day, we simply wanted to build, a brand that really cared.</p>
+          </div>
         </div>
-        <figcaption>Rooted in Rajasthan. Designed for today.</figcaption>
-      </figure>
-    </div>
+      </div>
+    </article>
   </section>
 
   <section class="philosophy-strip" aria-label="Baeroh philosophy">
@@ -330,6 +364,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="script.js?v=6.0"></script>
+  <script src="script.js?v=6.2"></script>
 </body>
 </html>
