@@ -5270,7 +5270,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 .page-studio .studio-conversation {
   background: var(--color-ivory);
-  padding: clamp(68px, 7.5vw, 108px) 0;
+  padding: clamp(80px, 8.5vw, 128px) 0 clamp(44px, 4.5vw, 64px);
   text-align: center;
 }
 
@@ -5301,7 +5301,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   font-weight: 600;
   gap: 16px;
   letter-spacing: 0.24em;
-  margin-top: 32px;
+  margin-top: clamp(64px, 7vw, 108px);
   padding: 0 0 8px;
   text-transform: uppercase;
 }
