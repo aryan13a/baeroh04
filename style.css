@@ -4817,6 +4817,18 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 }
 
+@media (max-width: 768px) {
+  .home-accordion-overlay {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+  }
+
+  .home-accordion-desc {
+    display: none !important;
+  }
+}
+
 @media (max-width: 650px) {
   .home-accordion-container {
     flex-direction: column;
@@ -4830,9 +4842,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 
   .home-accordion-desc {
-    max-height: 120px;
-    opacity: 1;
-    transform: translateY(0);
+    display: none !important;
   }
 }
 
