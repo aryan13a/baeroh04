@@ -2194,8 +2194,9 @@ header.header-transparent .menu-toggle span {
     display: block;
   }
 
-  .process-active-content {
-    display: none;
+  .process-active-content,
+  .js .process-active-content {
+    display: none !important;
   }
 }
 
