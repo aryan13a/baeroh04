@@ -4824,8 +4824,13 @@ header.header-transparent ~ .project-modal .modal-close span::after {
     right: 20px;
   }
 
-  .home-accordion-desc {
+  .home-accordion-desc,
+  .home-accordion-card:hover .home-accordion-desc {
     display: none !important;
+    opacity: 0 !important;
+    max-height: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
   }
 }
 
@@ -4841,8 +4846,13 @@ header.header-transparent ~ .project-modal .modal-close span::after {
     flex: 1 !important;
   }
 
-  .home-accordion-desc {
+  .home-accordion-desc,
+  .home-accordion-card:hover .home-accordion-desc {
     display: none !important;
+    opacity: 0 !important;
+    max-height: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
   }
 }
 
