@@ -2798,7 +2798,7 @@ footer {
 
   .story-panel {
     width: 100%;
-    min-height: max(70svh, 650px);
+    min-height: auto;
   }
 
   .story-panel--name {
@@ -2817,21 +2817,23 @@ footer {
   }
 
   .story-split__inner {
-    min-height: max(70svh, 650px);
-    padding: 54px 28px 50px;
+    min-height: auto;
+    padding: 48px 24px 44px;
   }
 
   .story-split__title {
-    margin-top: 46px;
-    font-size: clamp(48px, 14.5vw, 74px);
+    margin-top: 24px;
+    font-size: clamp(34px, 9.5vw, 48px);
+    line-height: 1.05;
   }
 
   .story-split__title--name {
-    font-size: clamp(54px, 16vw, 82px);
+    font-size: clamp(38px, 10.5vw, 54px);
+    line-height: 1.05;
   }
 
   .story-split__lead {
-    font-size: clamp(27px, 8vw, 34px);
+    font-size: clamp(20px, 5.5vw, 26px);
   }
 
   .story-split__statements {
@@ -2852,20 +2854,25 @@ footer {
     visibility: visible;
     transform: none;
   }
+
+  .story-split__hint {
+    display: none;
+  }
 }
 
 @media (max-width: 360px) {
   .story-split__inner {
-    padding-inline: 20px;
+    padding-inline: 18px;
+    padding-block: 36px 32px;
   }
 
   .story-split__title {
-    font-size: clamp(43px, 14vw, 52px);
+    font-size: clamp(28px, 8.5vw, 36px);
     letter-spacing: 0.055em;
   }
 
   .story-split__title--name {
-    font-size: clamp(50px, 15vw, 58px);
+    font-size: clamp(32px, 9.5vw, 40px);
   }
 }
 
@@ -4612,6 +4619,39 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 }
 
+/* Global Mobile Compatibility Enhancements */
+@media (max-width: 768px) {
+  /* Work Page Container & Spacing Fixes */
+  .fade-in-up .container[style*="padding: 0 50px"],
+  body > section .container[style*="padding: 0 50px"] {
+    padding: 0 20px !important;
+  }
+  .work-section-title {
+    font-size: clamp(24px, 6.5vw, 36px);
+    margin-bottom: 32px;
+  }
+  .work-section-title[style*="margin-top: 120px"] {
+    margin-top: 50px !important;
+  }
+
+  /* Contact Page & Hero Section Spacing */
+  section[style*="padding-top: 180px"] {
+    padding-top: 100px !important;
+    padding-bottom: 30px !important;
+  }
+  section.contact-form-section {
+    padding: 50px 0 !important;
+  }
+  .contact-form-section .grid-2col[style*="gap: 100px"] {
+    gap: 36px !important;
+  }
+
+  /* Approach & Where We Help Section */
+  .bg-sand .grid-2col[style*="gap: 80px"] {
+    gap: 36px !important;
+  }
+}
+
 /* Studio Belief Showcase Gallery (Between Beliefs and The Name) */
 .studio-belief-gallery {
   display: grid;
@@ -5279,23 +5319,23 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 
   .page-studio .studio-inside-intro__copy {
-    min-height: 520px;
-    padding: 64px 24px 58px;
+    min-height: 0;
+    padding: 48px 24px 36px;
   }
 
   .page-studio .studio-inside-intro__copy-inner {
     max-width: 560px;
-    padding-left: 24px;
+    padding-left: 20px;
   }
 
   .page-studio .studio-inside-intro h1 {
-    font-size: clamp(48px, 13vw, 70px);
-    letter-spacing: 0.09em;
+    font-size: clamp(34px, 9vw, 48px);
+    letter-spacing: 0.08em;
   }
 
   .page-studio .studio-inside-intro__body {
-    font-size: 18px;
-    margin-top: 30px;
+    font-size: 16px;
+    margin-top: 20px;
   }
 
   .page-studio .studio-inside-intro__media {
@@ -5308,7 +5348,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 
   .page-studio .studio-inside-philosophy p {
-    font-size: clamp(26px, 7.4vw, 36px);
+    font-size: clamp(22px, 6vw, 32px);
   }
 
   .page-studio .studio-table__image-wrap {
@@ -5326,7 +5366,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
   .page-studio .studio-table-tab {
     border-bottom: 1px solid rgba(141, 128, 111, 0.38);
-    padding: 18px 10px;
+    padding: 16px 10px;
   }
 
   .page-studio .studio-table-tab:nth-child(2) {
@@ -5338,19 +5378,27 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 
   .page-studio .studio-table__description {
-    border-top: 1px solid rgba(141, 128, 111, 0.28);
-    margin-top: 8px;
-    padding: 20px 10px 0;
+    border-top: 0;
+    margin-top: 28px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 16px;
+    text-align: center;
+    max-width: 100%;
+    font-size: clamp(16px, 4.2vw, 20px);
+    line-height: 1.5;
   }
 
   .page-studio .studio-thought__grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .page-studio .studio-thought__arrow {
     justify-self: center;
     line-height: 1;
     transform: rotate(90deg);
+    margin: 4px 0;
   }
 
   .page-studio .studio-principles {
@@ -5374,11 +5422,12 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 @media (max-width: 420px) {
   .page-studio .studio-inside-intro__copy {
-    min-height: 490px;
+    min-height: 0;
+    padding: 36px 16px 28px;
   }
 
   .page-studio .studio-inside-intro h1 {
-    font-size: clamp(43px, 13.5vw, 58px);
+    font-size: clamp(30px, 8.5vw, 40px);
   }
 
   .page-studio .studio-table__header h2 {
@@ -5386,7 +5435,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 
   .page-studio .studio-table-tab strong {
-    font-size: 16px;
+    font-size: 15px;
     letter-spacing: 0.04em;
   }
 
