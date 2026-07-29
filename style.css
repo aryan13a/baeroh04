@@ -5484,12 +5484,12 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 }
 
-/* Where We Help Mockup Banner (Exact Match to Gemini Reference Image) */
+/* Where We Help Mockup Banner & Overlapping Statue Layout (Bigger Statue Overflowing Top & Bottom) */
 .where-we-help-banner {
   position: relative;
   background-color: #D6C7B7;
-  padding: 55px 0 50px;
-  margin: 90px 0 80px;
+  padding: 50px 0 45px;
+  margin: 95px 0 85px;
   overflow: visible !important;
 }
 
@@ -5497,6 +5497,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .where-we-help-statue-wrap {
@@ -5509,16 +5510,19 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 }
 
 .where-we-help-statue-img {
-  height: clamp(360px, 36vw, 460px);
+  height: clamp(380px, 38vw, 520px);
   width: auto;
   object-fit: contain;
+  object-position: left center;
   display: block;
-  filter: drop-shadow(0 15px 35px rgba(40, 30, 25, 0.16));
+  filter: drop-shadow(0 18px 40px rgba(40, 30, 25, 0.22));
 }
 
 .where-we-help-content {
   width: 100%;
-  padding-left: clamp(250px, 28vw, 370px);
+  max-width: 620px;
+  margin: 0 auto;
+  padding-left: 0;
   position: relative;
   z-index: 5;
 }
