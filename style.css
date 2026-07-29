@@ -4974,7 +4974,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 .page-studio .studio-inside-philosophy {
   background: rgba(210, 196, 178, 0.42);
-  padding: clamp(72px, 8vw, 112px) 0;
+  padding: clamp(38px, 4.2vw, 58px) 0;
   text-align: center;
 }
 
@@ -4990,11 +4990,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 }
 
 .page-studio .studio-inside-philosophy span {
-  background: var(--color-cinnamon-tint);
-  display: block;
-  height: 1px;
-  margin: clamp(28px, 3.2vw, 42px) auto 0;
-  width: min(360px, 46vw);
+  display: none;
 }
 
 .page-studio .studio-table {
