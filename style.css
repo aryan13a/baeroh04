@@ -5502,22 +5502,24 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 .where-we-help-statue-wrap {
   position: absolute;
   left: 0;
-  bottom: -38px;
+  top: 0;
+  bottom: -35px;
   z-index: 10;
   pointer-events: none;
 }
 
 .where-we-help-statue-img {
-  height: clamp(260px, 26vw, 340px);
+  height: 100%;
   width: auto;
   object-fit: contain;
+  object-position: left top;
   display: block;
   filter: drop-shadow(0 12px 28px rgba(40, 30, 25, 0.16));
 }
 
 .where-we-help-content {
   width: 100%;
-  padding-left: clamp(220px, 24vw, 300px);
+  padding-left: clamp(260px, 28vw, 360px);
   position: relative;
   z-index: 5;
 }
