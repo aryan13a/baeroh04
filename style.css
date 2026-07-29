@@ -5484,85 +5484,96 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 }
 
-/* Where We Help Mockup Banner & Overlapping Statue Layout */
+/* Where We Help Mockup Banner & Full-Bleed Statue Layout */
 .where-we-help-banner {
   position: relative;
   background-color: #D6C7B7;
-  padding: 70px 0 65px;
-  margin: 80px 0 60px;
-  overflow: visible;
+  padding: 45px 0;
+  margin: 60px 0;
+  overflow: hidden; /* Crops statue naturally at section top/bottom edges */
 }
 
 .where-we-help-container {
   position: relative;
   display: flex;
   align-items: center;
+  min-height: 100%;
 }
 
 .where-we-help-statue-wrap {
   position: absolute;
-  left: -35px;
-  bottom: -65px;
-  z-index: 10;
-  pointer-events: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: clamp(240px, 28vw, 360px);
+  height: 100%;
+  z-index: 2;
+  overflow: hidden;
 }
 
 .where-we-help-statue-img {
-  height: clamp(340px, 36vw, 460px);
-  width: auto;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
   display: block;
-  filter: drop-shadow(0 15px 35px rgba(40, 30, 25, 0.18));
 }
 
 .where-we-help-content {
   width: 100%;
-  padding-left: clamp(230px, 28vw, 360px);
+  padding-left: clamp(240px, 28vw, 360px);
   position: relative;
   z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .where-we-help-line {
   width: 100%;
-  max-width: 620px;
+  max-width: 580px;
   height: 1px;
   background-color: rgba(62, 49, 43, 0.22);
-  margin: 0 auto 28px auto;
+  margin: 0 auto 16px auto;
 }
 
 .where-we-help-title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(26px, 3vw, 40px);
+  font-size: clamp(24px, 2.6vw, 36px);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-charcoal);
   text-align: center;
-  margin-bottom: 38px;
+  margin-bottom: 22px;
 }
 
 .where-we-help-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 36px 50px;
+  gap: 20px 40px;
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
 }
 
 .where-we-help-item {
   border-top: 1px solid rgba(62, 49, 43, 0.2);
-  padding-top: 16px;
+  padding-top: 12px;
+  text-align: left;
 }
 
 .where-we-help-item-title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(16px, 1.8vw, 20px);
+  font-size: clamp(15px, 1.6vw, 19px);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-charcoal);
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .where-we-help-item-title svg {
@@ -5579,22 +5590,20 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 @media (max-width: 960px) {
   .where-we-help-banner {
-    padding: 60px 0;
-    overflow: hidden;
+    padding: 40px 0;
   }
   .where-we-help-container {
     flex-direction: column;
   }
   .where-we-help-statue-wrap {
     position: relative;
-    left: 0;
-    bottom: 0;
-    margin: 0 auto 24px auto;
-    text-align: center;
+    width: 100%;
+    max-width: 320px;
+    height: 220px;
+    margin: 0 auto 20px auto;
   }
   .where-we-help-statue-img {
-    height: 280px;
-    margin: 0 auto;
+    object-position: center 20%;
   }
   .where-we-help-content {
     padding-left: 0;
@@ -5607,8 +5616,9 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 @media (max-width: 600px) {
   .where-we-help-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 18px;
   }
 }
+
 
 
