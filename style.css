@@ -5581,18 +5581,19 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 
   .where-we-help-mobile__item {
-    display: grid;
-    grid-template-columns: 38px minmax(0, 1fr);
-    gap: 16px;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
     padding: 17px 6px 16px;
     border-bottom: 1px solid rgba(62, 49, 43, 0.16);
+    text-align: center;
   }
 
   .where-we-help-mobile__item svg {
     width: 25px;
     height: 25px;
-    margin: 2px auto 0;
+    margin: 0 auto;
     color: var(--color-cinnamon-deep);
     transition: transform 260ms ease;
   }
