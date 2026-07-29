@@ -5494,6 +5494,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 /* Where We Help: supplied editorial artwork with linked CTA */
 .where-we-help-banner {
   position: relative;
+  aspect-ratio: 1672 / 880;
   padding: 0;
   margin: 0;
   background-color: var(--color-ivory);
@@ -5503,7 +5504,9 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 .where-we-help-artwork {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .where-we-help-cta {
