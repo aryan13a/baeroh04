@@ -2436,7 +2436,7 @@ footer {
 }
 
 .story-panel--name {
-  background-color: #B29B35;
+  background-color: #CFC2B2;
   color: var(--color-charcoal);
   border-left: 1px solid rgba(243, 240, 234, 0.78);
 }
@@ -2476,7 +2476,8 @@ footer {
 }
 
 .story-split__image--name {
-  object-position: 68% center;
+  object-position: center;
+  opacity: 0.88;
 }
 
 .story-panel::before {
@@ -2496,9 +2497,9 @@ footer {
 .story-panel--name::before {
   background: linear-gradient(
     90deg,
-    rgba(190, 164, 62, 0.96) 0%,
-    rgba(181, 151, 53, 0.78) 55%,
-    rgba(155, 120, 43, 0.34) 100%
+    rgba(207, 194, 178, 0.6) 0%,
+    rgba(207, 194, 178, 0.3) 55%,
+    rgba(207, 194, 178, 0.15) 100%
   );
 }
 
@@ -2559,11 +2560,16 @@ footer {
   min-width: 0;
 }
 
-.story-split__label,
-.story-split__statements {
+.story-split__label {
   font-family: var(--font-body);
   font-weight: 400;
   text-transform: uppercase;
+}
+
+.story-split__statements {
+  font-family: var(--font-body);
+  font-weight: 400;
+  text-transform: none;
 }
 
 .story-split__label {
