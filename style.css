@@ -2431,7 +2431,7 @@ footer {
 }
 
 .story-panel--origin {
-  background: #864D38;
+  background: #2E2623;
   color: var(--color-ivory);
 }
 
@@ -2471,7 +2471,8 @@ footer {
 }
 
 .story-split__image--origin {
-  object-position: 52% center;
+  object-position: center;
+  opacity: 0.85;
 }
 
 .story-split__image--name {
@@ -2489,7 +2490,7 @@ footer {
 }
 
 .story-panel--origin::before {
-  background: linear-gradient(90deg, rgba(82, 37, 25, 0.84) 0%, rgba(112, 54, 34, 0.7) 58%, rgba(112, 54, 34, 0.58) 100%);
+  background: linear-gradient(90deg, rgba(46, 38, 35, 0.65) 0%, rgba(46, 38, 35, 0.35) 58%, rgba(46, 38, 35, 0.2) 100%);
 }
 
 .story-panel--name::before {
