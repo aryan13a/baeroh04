@@ -2569,7 +2569,7 @@ footer {
 .story-split__statements {
   font-family: var(--font-body);
   font-weight: 400;
-  text-transform: none;
+  text-transform: lowercase;
 }
 
 .story-split__label {
