@@ -5501,7 +5501,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 .where-we-help-statue-wrap {
   position: absolute;
-  left: -20px;
+  left: 0;
   bottom: -38px;
   z-index: 10;
   pointer-events: none;
@@ -5517,7 +5517,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 .where-we-help-content {
   width: 100%;
-  padding-left: clamp(180px, 22vw, 270px);
+  padding-left: clamp(220px, 24vw, 300px);
   position: relative;
   z-index: 5;
 }
