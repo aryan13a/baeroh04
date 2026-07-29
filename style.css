@@ -5483,3 +5483,18 @@ header.header-transparent ~ .project-modal .modal-close span::after {
     transition: none;
   }
 }
+
+/* Where We Help 2x2 Grid */
+.where-we-help-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 60px;
+}
+
+@media (max-width: 640px) {
+  .where-we-help-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
