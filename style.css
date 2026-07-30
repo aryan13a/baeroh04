@@ -471,10 +471,9 @@ header.header-transparent .menu-toggle span {
 .slide-title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(32px, 4.2vw, 64px);
-  line-height: 1.15;
+  font-size: 15px;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.35em;
   margin-bottom: 24px;
   color: #ffffff;
 }
