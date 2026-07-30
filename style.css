@@ -471,9 +471,10 @@ header.header-transparent .menu-toggle span {
 .slide-title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 15px;
+  font-size: clamp(32px, 4.2vw, 64px);
+  line-height: 1.15;
   text-transform: uppercase;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.18em;
   margin-bottom: 24px;
   color: #ffffff;
 }
@@ -517,14 +518,22 @@ header.header-transparent .menu-toggle span {
   transform: translateY(-50%);
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 28px;
-  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
   z-index: 10;
-  padding: 20px;
-  transition: color 0.3s ease;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease, transform 0.3s ease;
   outline: none;
+}
+
+.slider-arrow svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .slider-arrow:hover {
@@ -535,8 +544,16 @@ header.header-transparent .menu-toggle span {
   left: 30px;
 }
 
+.prev-arrow:hover svg {
+  transform: translateX(-4px);
+}
+
 .next-arrow {
   right: 30px;
+}
+
+.next-arrow:hover svg {
+  transform: translateX(4px);
 }
 
 .slider-dots {
