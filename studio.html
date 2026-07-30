@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studio | Baeroh Interior Architecture & Design</title>
   <meta name="description" content="Discover Baeroh, an interior design studio built on the simple belief that every meaningful environment begins with understanding people.">
-  <link rel="stylesheet" href="style.css?v=7.1">
+  <link rel="stylesheet" href="style.css?v=7.2">
   <link rel="icon" type="image/png" href="assets/favicon.png?v=6.0">
 </head>
 <body class="page-studio">
@@ -111,47 +111,73 @@
       </div>
     </section>
 
-    <!-- Studio Team Section -->
-    <section class="studio-team fade-in-up" aria-labelledby="studio-team-title">
+    <!-- Studio Founders Section -->
+    <section class="studio-team fade-in-up" id="studio-founders" aria-labelledby="studio-team-title" data-founder-carousel>
       <div class="container">
         <div class="studio-team__header">
           <p class="studio-inside-label">The People Behind Baeroh</p>
-          <h2 class="studio-team__title" id="studio-team-title">Team</h2>
+          <h2 class="studio-team__title" id="studio-team-title">Three Perspectives. One Shared Vision.</h2>
+          <p class="studio-team__intro">At Baeroh, every project is shaped through collaboration. Three founders, three unique perspectives, and one shared commitment to creating timeless, meaningful spaces.</p>
         </div>
 
-        <div class="studio-team__grid">
-          <!-- Member 1: Krishan Sharma -->
-          <div class="studio-team__card">
-            <div class="studio-team__img-wrap">
-              <img src="assets/team/krishan-sharma.png" alt="Krishan Sharma - Head Of Operations" loading="lazy">
-            </div>
-            <div class="studio-team__info">
-              <h3 class="studio-team__name">Krishan Sharma</h3>
-              <p class="studio-team__role">Head Of Operations</p>
-            </div>
-          </div>
+        <div class="studio-team__grid" role="list" aria-label="Baeroh founders" data-founder-track>
+          <article class="studio-team__card" role="listitem" data-founder-slide>
+            <figure>
+              <div class="studio-team__img-wrap">
+                <img src="assets/team/krishan-sharma-editorial.png" alt="Krishan Sharma in a warm editorial portrait" loading="lazy">
+                <div class="studio-team__overlay" aria-hidden="true">
+                  <p>Ideas endure through thoughtful execution.</p>
+                </div>
+              </div>
+              <figcaption class="studio-team__info">
+                <h3 class="studio-team__name">Krishan Sharma</h3>
+                <p class="studio-team__role">Head Of Operations</p>
+                <p class="studio-team__philosophy">&ldquo;Ideas endure through thoughtful execution.&rdquo;</p>
+              </figcaption>
+            </figure>
+          </article>
 
-          <!-- Member 2: Anjana Sharma -->
-          <div class="studio-team__card">
-            <div class="studio-team__img-wrap">
-              <img src="assets/team/anjana-sharma.png" alt="Anjana Sharma - Founder & Principal Designer" loading="lazy">
-            </div>
-            <div class="studio-team__info">
-              <h3 class="studio-team__name">Anjana Sharma</h3>
-              <p class="studio-team__role">Founder &amp; Principal Designer</p>
-            </div>
-          </div>
+          <article class="studio-team__card" role="listitem" data-founder-slide>
+            <figure>
+              <div class="studio-team__img-wrap">
+                <img src="assets/team/anjana-sharma-editorial.png" alt="Anjana Sharma in a warm editorial portrait" loading="lazy">
+                <div class="studio-team__overlay" aria-hidden="true">
+                  <p>Every great space begins with listening.</p>
+                </div>
+              </div>
+              <figcaption class="studio-team__info">
+                <h3 class="studio-team__name">Anjana Sharma</h3>
+                <p class="studio-team__role">Founder &amp; Principal Designer</p>
+                <p class="studio-team__philosophy">&ldquo;Every great space begins with listening.&rdquo;</p>
+              </figcaption>
+            </figure>
+          </article>
 
-          <!-- Member 3: Isha Goel -->
-          <div class="studio-team__card">
-            <div class="studio-team__img-wrap">
-              <img src="assets/team/isha-goel.png" alt="Isha Goel - Principal Architect" loading="lazy">
-            </div>
-            <div class="studio-team__info">
-              <h3 class="studio-team__name">Isha Goel</h3>
-              <p class="studio-team__role">Principal Architect</p>
-            </div>
-          </div>
+          <article class="studio-team__card" role="listitem" data-founder-slide>
+            <figure>
+              <div class="studio-team__img-wrap">
+                <img src="assets/team/isha-goel-editorial.png" alt="Isha Goel in a warm editorial portrait" loading="lazy">
+                <div class="studio-team__overlay" aria-hidden="true">
+                  <p>Clarity in structure creates room for life.</p>
+                </div>
+              </div>
+              <figcaption class="studio-team__info">
+                <h3 class="studio-team__name">Isha Goel</h3>
+                <p class="studio-team__role">Principal Architect</p>
+                <p class="studio-team__philosophy">&ldquo;Clarity in structure creates room for life.&rdquo;</p>
+              </figcaption>
+            </figure>
+          </article>
+        </div>
+
+        <p class="studio-team__progress" aria-live="polite" aria-atomic="true">
+          <span data-founder-current>1</span> / 3
+        </p>
+
+        <div class="studio-team__closing">
+          <p class="studio-team__closing-lead">Different perspectives. One shared responsibility.</p>
+          <p>To create spaces that genuinely belong to the people within them.</p>
+          <a class="studio-team__cta" href="contact.html">Start a Conversation <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </section>
@@ -479,6 +505,6 @@
 
   <!-- Scripts -->
   <script src="script.js?v=6.2"></script>
-  <script src="studio.js?v=2.0"></script>
+  <script src="studio.js?v=2.1"></script>
 </body>
 </html>
