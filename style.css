@@ -5549,34 +5549,36 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 .where-we-help-section {
   position: relative;
   background-color: var(--color-ivory);
-  padding: 80px 0 60px;
+  padding: 0;
+  width: 100%;
   overflow: hidden;
 }
 
 .where-we-help-banner-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
 }
 
-/* Central Beige Banner Card */
+/* Central Beige Banner Card (Full Width - Edge-to-Edge) */
 .where-we-help-banner-content {
   background-color: #D5C6B3;
-  padding: 60px 60px 50px 340px;
+  padding: 70px 60px 60px 380px;
   position: relative;
   box-sizing: border-box;
   width: 100%;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
-/* Statue Cutout Container */
+/* Statue Cutout Container (Anchored at Far Left Corner, Centered Vertically) */
 .where-we-help-statue-container {
   position: absolute;
-  left: 20px;
-  bottom: -60px;
-  height: 124%;
-  max-height: 580px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 105%;
+  max-height: 560px;
   z-index: 10;
   pointer-events: none;
 }
@@ -5585,6 +5587,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   height: 100%;
   width: auto;
   object-fit: contain;
+  object-position: left center;
   filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.18));
 }
 
