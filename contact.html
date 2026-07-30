@@ -49,7 +49,7 @@
   <section class="fade-in-up" style="padding-top: 180px; padding-bottom: 60px;">
     <div class="container text-lead-container" style="max-width: 900px; text-align: left; margin: 0;">
       <span class="font-label">Begin</span>
-      <h1 class="font-display-hero" style="margin-top: 20px; margin-bottom: 30px; font-size: clamp(30px, 3.6vw, 54px); letter-spacing: 0.12em;">Every meaningful project begins with a <span style="white-space: nowrap;">conversation<span class="animated-ellipsis">…</span></span></h1>
+      <h1 class="font-display-hero" style="margin-top: 20px; margin-bottom: 30px; font-size: clamp(30px, 3.6vw, 54px); letter-spacing: 0.12em;">Every meaningful project begins with a conversation…</h1>
       <p class="font-display-lead" style="color: var(--color-olive); margin-bottom: 24px; text-align: justify;">
         We'll begin by understanding your project, your aspirations and what matters most to you. If we're the right fit, we'll guide you through every step with clarity, collaboration and care.
       </p>
@@ -75,15 +75,15 @@
         <div style="margin-bottom: 40px;">
           <h4 class="font-label" style="color: var(--color-charcoal); margin-bottom: 12px;">Enquiries</h4>
           <p class="font-body-copy" style="color: var(--color-olive); line-height: 1.8;">
-            Email: <a href="mailto:connect@baeroh.com" style="color: var(--color-cinnamon);">connect@baeroh.com</a><br>
-            Phone: <a href="tel:+919509628808" style="color: var(--color-cinnamon);">+91 95096 28808</a>
+            <a href="mailto:connect@baeroh.com" style="color: var(--color-cinnamon);">connect@baeroh.com</a><br>
+            <a href="tel:+919509628808" style="color: var(--color-cinnamon);">+91 95096 28808</a>
           </p>
         </div>
         
         <div>
-          <h4 class="font-label" style="color: var(--color-charcoal); margin-bottom: 12px;">Connect</h4>
+          <h4 class="font-label" style="color: var(--color-charcoal); margin-bottom: 12px;">Follow along</h4>
           <div class="social-links" style="margin-top: 12px;">
-            <a href="https://www.instagram.com/baerohdesigns/" target="_blank">Instagram</a>
+            <a href="https://www.instagram.com/baerohdesigns/" target="_blank" rel="noopener">Instagram</a>
           </div>
         </div>
       </div>
@@ -92,30 +92,37 @@
         <span class="font-label">Form</span>
         <h2 class="font-display-section" style="margin-top: 20px; color: var(--color-charcoal);">Start a Conversation</h2>
         
-        <form class="contact-form">
+        <form class="contact-form" id="contact-form" novalidate>
           <div class="form-row-2">
             <div class="form-group">
               <label for="name" class="font-label" style="color: var(--color-charcoal);">Your Name</label>
-              <input type="text" id="name" required placeholder="e.g. John Doe">
+              <input type="text" id="name" name="name" required>
+              <span class="field-error-msg" style="display: none; color: #b91c1c; font-size: 11px; margin-top: 4px; font-family: var(--font-body);">Please enter your name.</span>
             </div>
             <div class="form-group">
               <label for="email" class="font-label" style="color: var(--color-charcoal);">Email Address</label>
-              <input type="email" id="email" required placeholder="e.g. john@example.com">
+              <input type="email" id="email" name="email" required>
+              <span class="field-error-msg" style="display: none; color: #b91c1c; font-size: 11px; margin-top: 4px; font-family: var(--font-body);">Please enter a valid email address.</span>
             </div>
           </div>
           
           <div class="form-group">
-            <label for="subject" class="font-label" style="color: var(--color-charcoal);">Subject</label>
-            <input type="text" id="subject" placeholder="Project Type (Residential, Workplace, etc.)">
+            <label for="project-type" class="font-label" style="color: var(--color-charcoal);">Project Type</label>
+            <input type="text" id="project-type" name="project_type" required>
+            <span class="field-error-msg" style="display: none; color: #b91c1c; font-size: 11px; margin-top: 4px; font-family: var(--font-body);">Please enter the project type.</span>
           </div>
           
           <div class="form-group">
             <label for="message" class="font-label" style="color: var(--color-charcoal);">Your Message</label>
-            <textarea id="message" rows="5" required placeholder="Tell us about your project..."></textarea>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <span class="field-error-msg" style="display: none; color: #b91c1c; font-size: 11px; margin-top: 4px; font-family: var(--font-body);">Please enter your message.</span>
           </div>
           
           <div>
             <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          </div>
+          <div id="form-confirmation" class="form-confirmation" style="display: none; margin-top: 20px; padding: 18px 24px; background-color: var(--color-sandstone); border-left: 3px solid var(--color-cinnamon); color: var(--color-charcoal); font-family: var(--font-body); font-size: 13px; letter-spacing: 0.05em; line-height: 1.6; border-radius: 2px;">
+            Thank you. Your message has been received — we will respond shortly.
           </div>
         </form>
       </div>

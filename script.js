@@ -796,64 +796,57 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Contact Form Submission (WhatsApp Redirect)
-  const contactForm = document.querySelector('.contact-form');
+  // Contact Form Handling with Field Validation & Inline Confirmation Message
+  const contactForm = document.getElementById('contact-form') || document.querySelector('.contact-form');
+  const formConfirmation = document.getElementById('form-confirmation');
+
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject') ? document.getElementById('subject').value : '';
-      const messageText = document.getElementById('message').value;
+      let isValid = true;
 
-      // Construct WhatsApp message
-      let waMessage = `Hello Baeroh,\n\n*Name:* ${name}\n*Email:* ${email}`;
-      if (subject) {
-        waMessage += `\n*Subject:* ${subject}`;
-      }
-      waMessage += `\n\n*Message:* ${messageText}`;
+      const nameInput = contactForm.querySelector('#name');
+      const emailInput = contactForm.querySelector('#email');
+      const projectTypeInput = contactForm.querySelector('#project-type') || contactForm.querySelector('#subject');
+      const messageInput = contactForm.querySelector('#message');
 
-      // WhatsApp URL (using phone number +91 95096 28808 -> 919509628808)
-      const waUrl = `https://wa.me/919509628808?text=${encodeURIComponent(waMessage)}`;
+      const fields = [
+        { field: nameInput, validate: (v) => v.trim().length > 0 },
+        { field: emailInput, validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) },
+        { field: projectTypeInput, validate: (v) => v.trim().length > 0 },
+        { field: messageInput, validate: (v) => v.trim().length > 0 }
+      ];
 
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerText;
-      submitBtn.innerText = 'Redirecting to WhatsApp...';
-      submitBtn.disabled = true;
-
-      // Redirect in a new tab
-      setTimeout(() => {
-        window.open(waUrl, '_blank');
-        submitBtn.innerText = 'Sent';
-        contactForm.reset();
-        
-        setTimeout(() => {
-          submitBtn.innerText = originalText;
-          submitBtn.disabled = false;
-        }, 3000);
-      }, 1000);
-    });
-  }
-
-  // Signature typing-in animation for Contact page ellipsis
-  const animatedEllipsis = document.querySelector('.animated-ellipsis');
-  const contactFormSection = document.querySelector('.contact-form-section');
-  if (animatedEllipsis) {
-    animatedEllipsis.textContent = '';
-    let dotStep = 0;
-    const dotInterval = setInterval(() => {
-      dotStep++;
-      if (dotStep === 1) animatedEllipsis.textContent = '.';
-      else if (dotStep === 2) animatedEllipsis.textContent = '..';
-      else if (dotStep === 3) {
-        animatedEllipsis.textContent = '…';
-        clearInterval(dotInterval);
-        if (contactFormSection) {
-          contactFormSection.classList.add('form-fade-in');
+      fields.forEach(item => {
+        if (!item.field) return;
+        const parent = item.field.parentElement;
+        const errorMsg = parent ? parent.querySelector('.field-error-msg') : null;
+        if (!item.validate(item.field.value)) {
+          isValid = false;
+          item.field.style.borderColor = '#b91c1c';
+          if (errorMsg) errorMsg.style.display = 'block';
+        } else {
+          item.field.style.borderColor = 'var(--color-sandstone)';
+          if (errorMsg) errorMsg.style.display = 'none';
         }
+      });
+
+      if (isValid) {
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerText = 'Sending...';
+        }
+
+        setTimeout(() => {
+          if (submitBtn) submitBtn.style.display = 'none';
+          if (formConfirmation) {
+            formConfirmation.style.display = 'block';
+          }
+          contactForm.reset();
+        }, 500);
       }
-    }, 350);
+    });
   }
 
   // FAQ Modal Popup Navigation Handler
