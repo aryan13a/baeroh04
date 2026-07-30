@@ -1442,6 +1442,10 @@ header.header-transparent .menu-toggle span {
   margin-top: 60px;
 }
 
+.approach-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 @media (max-width: 900px) {
   .approach-grid {
     grid-template-columns: 1fr 1fr;
