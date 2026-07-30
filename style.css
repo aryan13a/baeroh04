@@ -5549,7 +5549,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 .where-we-help-section {
   position: relative;
   background-color: var(--color-ivory);
-  padding: 0;
+  padding: 80px 0 60px;
   width: 100%;
   overflow: hidden;
 }
@@ -5561,10 +5561,10 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   margin: 0;
 }
 
-/* Central Beige Banner Card (Full Width - Edge-to-Edge) */
+/* Central Beige Banner Card (Full Width Horizontally, Edge-to-Edge) */
 .where-we-help-banner-content {
   background-color: #D5C6B3;
-  padding: 70px 60px 60px 380px;
+  padding: 60px 60px 50px 380px;
   position: relative;
   box-sizing: border-box;
   width: 100%;
@@ -5577,8 +5577,8 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  height: 105%;
-  max-height: 560px;
+  height: 125%;
+  max-height: 580px;
   z-index: 10;
   pointer-events: none;
 }
