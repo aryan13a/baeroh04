@@ -5967,54 +5967,36 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 .home-philosophy-quote {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(300px, 28%) minmax(0, 1fr);
+  display: block;
   padding: 0;
   border-bottom: 1px solid rgba(141, 128, 111, 0.2);
   background: var(--color-ivory);
 }
 
 .home-philosophy-quote__inner {
-  grid-column: 2;
   width: 100%;
-  max-width: 1180px;
-  padding:
-    clamp(26px, 2.2vw, 32px)
-    clamp(42px, 5vw, 90px)
-    clamp(28px, 2.4vw, 34px)
-    clamp(36px, 4vw, 70px);
-  text-align: left;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: clamp(24px, 2.2vw, 28px) 24px clamp(18px, 1.8vw, 22px);
+  text-align: center;
 }
 
-.home-philosophy-quote__label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 13px;
-  color: var(--color-cinnamon-deep);
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.home-philosophy-quote__label::before {
-  width: 42px;
+.home-philosophy-quote__rule {
+  display: block;
+  width: 58px;
   height: 1px;
+  margin: 0 auto;
   background: var(--color-cinnamon);
-  content: '';
 }
 
 .home-philosophy-quote p {
-  margin: 0;
-  max-width: 900px;
+  max-width: 720px;
+  margin: clamp(15px, 1.3vw, 18px) auto;
   color: var(--color-charcoal);
   font-family: var(--font-display);
-  font-size: clamp(28px, 2.4vw, 34px);
+  font-size: clamp(27px, 2.15vw, 34px);
   font-weight: 400;
-  line-height: 1.16;
+  line-height: 1.18;
   letter-spacing: 0;
 }
 
@@ -6110,25 +6092,24 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 
   .home-philosophy-quote__inner {
-    max-width: 520px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 28px 22px 32px;
+    padding: 24px 18px 20px;
     text-align: center;
   }
 
-  .home-philosophy-quote__label {
-    justify-content: center;
-    margin-bottom: 14px;
-    font-size: 9px;
+  .home-philosophy-quote__rule {
+    width: 48px;
   }
 
   .home-philosophy-quote p {
-    font-size: clamp(22px, 6vw, 28px);
-    line-height: 1.2;
+    margin: 14px auto;
+    font-size: clamp(19px, 5.4vw, 24px);
+    line-height: 1.22;
   }
 
   .home-philosophy-quote p span {
-    white-space: normal;
+    white-space: nowrap;
   }
 }
 
