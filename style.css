@@ -5237,7 +5237,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 .page-studio .studio-table-marker:focus-visible,
 .page-studio .studio-table-tab:focus-visible,
-.page-studio .studio-conversation a:focus-visible {
+.page-studio .studio-team__cta:focus-visible {
   outline: 2px solid var(--color-cinnamon);
   outline-offset: 4px;
 }
@@ -5624,7 +5624,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   text-transform: uppercase;
 }
 
-.page-studio .studio-conversation a {
+.page-studio .studio-team__cta {
   border-bottom: 1px solid var(--color-cinnamon);
   color: var(--color-cinnamon-deep);
   display: inline-flex;
@@ -5637,11 +5637,11 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   text-transform: uppercase;
 }
 
-.page-studio .studio-conversation a span {
+.page-studio .studio-team__cta span {
   transition: transform 300ms ease;
 }
 
-.page-studio .studio-conversation a:is(:hover, :focus-visible) span {
+.page-studio .studio-team__cta:is(:hover, :focus-visible) span {
   transform: translateX(5px);
 }
 
@@ -5811,7 +5811,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   .page-studio .studio-table-marker i,
   .page-studio .studio-table-tab,
   .page-studio .studio-team__img-wrap img,
-  .page-studio .studio-conversation a span {
+  .page-studio .studio-team__cta span {
     transition: none;
   }
 }
