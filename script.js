@@ -850,19 +850,21 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (isValid) {
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.innerText = 'Sending...';
-        }
+        const whatsappNumber = '919509628808';
+        const whatsappMessage = [
+          'Hello Baeroh, I’d like to start a conversation.',
+          '',
+          `Name: ${nameInput.value.trim()}`,
+          `Email: ${emailInput.value.trim()}`,
+          `Project type: ${projectTypeInput.value.trim()}`,
+          `Message: ${messageInput.value.trim()}`
+        ].join('\n');
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
-        setTimeout(() => {
-          if (submitBtn) submitBtn.style.display = 'none';
-          if (formConfirmation) {
-            formConfirmation.style.display = 'block';
-          }
-          contactForm.reset();
-        }, 500);
+        if (formConfirmation) {
+          formConfirmation.style.display = 'block';
+        }
+        window.location.assign(whatsappUrl);
       }
     });
   }
