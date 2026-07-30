@@ -2440,17 +2440,11 @@ footer {
 
 .story-panel--origin {
   background-color: #2E2623;
-  background-image: url('assets/charcoal-watermark.png');
-  background-position: center;
-  background-size: cover;
   color: var(--color-ivory);
 }
 
 .story-panel--name {
   background-color: #CFC2B2;
-  background-image: url('assets/mushroom-taupe-watermark.png');
-  background-position: center;
-  background-size: cover;
   color: var(--color-charcoal);
   border-left: 1px solid rgba(243, 240, 234, 0.78);
 }
@@ -2485,11 +2479,11 @@ footer {
 }
 
 .story-split__image--origin {
-  object-position: 52% center;
+  object-position: center;
 }
 
 .story-split__image--name {
-  object-position: 68% center;
+  object-position: center;
 }
 
 .story-panel::before {
