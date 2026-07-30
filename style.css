@@ -5676,160 +5676,227 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 }
 
-/* Where We Help Section (Matching Reference Design screenshot) */
+/* Where We Help Section */
 .where-we-help-section {
   position: relative;
-  background-color: var(--color-ivory);
-  padding: 40px 0 20px;
   width: 100%;
+  padding: 0;
   overflow: hidden;
+  background: var(--color-ivory);
 }
 
 .where-we-help-banner-wrapper {
-  position: relative;
+  display: grid;
+  grid-template-columns: minmax(300px, 28%) minmax(0, 1fr);
   width: 100%;
-  max-width: 100%;
-  margin: 0;
+  min-height: clamp(620px, 49.1vw, 760px);
+  overflow: hidden;
+  background: #D5C6B3;
 }
 
-/* Central Beige Banner Card (Full Width Horizontally, Edge-to-Edge) */
-.where-we-help-banner-content {
-  background-color: #D5C6B3;
-  padding: 55px 60px 50px 380px;
-  position: relative;
-  box-sizing: border-box;
-  width: 100%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-}
-
-/* Statue Cutout Container (Anchored at Far Left Corner, Centered Vertically) */
 .where-we-help-statue-container {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 116%;
-  max-height: 520px;
-  z-index: 10;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
   pointer-events: none;
 }
 
 .where-we-help-statue-img {
-  height: 100%;
+  display: block;
   width: auto;
+  max-width: 100%;
+  height: 100%;
   object-fit: contain;
-  object-position: left center;
-  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.18));
+  object-position: left top;
+  filter: drop-shadow(0 12px 24px rgba(46, 38, 35, 0.12));
 }
 
-/* Header */
+.where-we-help-banner-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding:
+    clamp(56px, 5vw, 80px)
+    clamp(54px, 6vw, 108px)
+    clamp(52px, 4.5vw, 72px)
+    clamp(44px, 5vw, 82px);
+}
+
 .where-we-help-header {
+  max-width: 980px;
+  margin: 0 auto clamp(46px, 4.5vw, 66px);
   text-align: center;
-  margin-bottom: 45px;
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .where-we-help-title {
-  font-family: var(--font-display);
-  font-size: clamp(28px, 2.8vw, 42px);
-  font-weight: 400;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--color-charcoal);
   margin: 0;
+  color: var(--color-charcoal);
+  font-family: var(--font-display);
+  font-size: clamp(40px, 3.8vw, 58px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-/* 2-Column Services Grid */
 .where-we-help-services-grid {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px 70px;
-  max-width: 850px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(120px, 1fr));
+  width: 100%;
+  max-width: 1020px;
   margin: 0 auto;
 }
 
-.where-we-help-column {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+.where-we-help-services-grid::before,
+.where-we-help-services-grid::after {
+  position: absolute;
+  z-index: 0;
+  content: '';
+  background: rgba(62, 49, 43, 0.24);
+  pointer-events: none;
+}
+
+.where-we-help-services-grid::before {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+}
+
+.where-we-help-services-grid::after {
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 1px;
 }
 
 .where-we-help-service-item {
   position: relative;
-}
-
-.where-we-help-service-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  column-gap: 16px;
+  align-content: center;
+  min-width: 0;
+  min-height: 120px;
+  padding: clamp(24px, 2.3vw, 34px) clamp(16px, 1.5vw, 24px);
 }
 
 .where-we-help-service-icon {
-  color: var(--color-charcoal);
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  color: var(--color-cinnamon-deep);
   flex-shrink: 0;
 }
 
+.where-we-help-service-copy {
+  min-width: 0;
+}
+
 .where-we-help-service-title {
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--color-charcoal);
   margin: 0;
+  color: var(--color-charcoal);
+  font-family: var(--font-display);
+  font-size: clamp(15px, 1.35vw, 18px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
 .where-we-help-service-desc {
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 400;
+  margin: 9px 0 0;
   color: #4A3E38;
-  margin: 0 0 14px 32px;
-  line-height: 1.5;
+  font-family: var(--font-body);
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 400;
+  line-height: 1.55;
 }
 
-.where-we-help-service-line {
-  width: 100%;
-  height: 1px;
-  background-color: rgba(62, 49, 43, 0.25);
-}
-
-/* Responsive Styles */
 @media (max-width: 1100px) {
-  .where-we-help-banner-content {
-    padding: 50px 40px 50px 280px;
+  .where-we-help-banner-wrapper {
+    grid-template-columns: minmax(240px, 30%) minmax(0, 1fr);
+    min-height: 580px;
   }
-  .where-we-help-statue-container {
-    left: 10px;
-    max-height: 480px;
-    bottom: -50px;
+
+  .where-we-help-banner-content {
+    padding: 48px 34px;
+  }
+
+  .where-we-help-header {
+    margin-bottom: 38px;
+  }
+
+  .where-we-help-title {
+    font-size: clamp(34px, 4vw, 44px);
+  }
+
+  .where-we-help-service-item {
+    padding: 22px 18px;
   }
 }
 
 @media (max-width: 850px) {
-  .where-we-help-section {
-    padding: 40px 0;
+  .where-we-help-banner-wrapper {
+    display: block;
+    min-height: 0;
   }
-  .where-we-help-banner-content {
-    padding: 40px 24px;
-  }
+
   .where-we-help-statue-container {
-    position: relative;
-    left: 0;
-    bottom: 0;
-    height: 320px;
-    max-height: 320px;
-    margin: 0 auto 30px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
+    display: none;
   }
+
+  .where-we-help-banner-content {
+    padding: 48px 24px 54px;
+  }
+
+  .where-we-help-header {
+    margin-bottom: 30px;
+  }
+
+  .where-we-help-title {
+    font-size: clamp(26px, 7.4vw, 32px);
+    letter-spacing: 0.16em;
+    white-space: nowrap;
+  }
+
   .where-we-help-services-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    grid-template-rows: none;
+    max-width: 440px;
+  }
+
+  .where-we-help-services-grid::before,
+  .where-we-help-services-grid::after {
+    display: none;
+  }
+
+  .where-we-help-service-item {
+    grid-template-columns: 28px minmax(0, 340px);
+    justify-content: center;
+    min-height: 0;
+    padding: 23px 6px;
+    border-bottom: 1px solid rgba(62, 49, 43, 0.22);
+  }
+
+  .where-we-help-service-item:last-child {
+    border-bottom: 0;
+  }
+
+  .where-we-help-service-title {
+    font-size: 15px;
+  }
+
+  .where-we-help-service-desc {
+    font-size: 13px;
   }
 }
 
