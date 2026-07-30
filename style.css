@@ -245,27 +245,26 @@ header .header-inner {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-}
-
-.logo-img {
-  height: 45px;
-  width: auto;
-  object-fit: contain;
-}
-
-.logo-text {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 13px;
+  font-size: 15px;
   text-transform: uppercase;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.38em;
   color: var(--color-charcoal);
-  transition: color 0.4s ease;
+  transition: color 0.4s ease, opacity 0.3s ease;
+  text-decoration: none;
 }
 
-header.header-transparent .logo-text {
+.logo:hover {
+  opacity: 0.85;
+}
+
+header.header-transparent .logo {
   color: #ffffff;
+}
+
+header.scrolled .logo {
+  color: var(--color-charcoal);
 }
 
 header nav {
