@@ -570,6 +570,24 @@ document.addEventListener('DOMContentLoaded', () => {
         'assets/bedroom-one-1.jpeg',
         'assets/unnamed (5).webp'
       ]
+    },
+    'quiet-rituals': {
+      title: 'A Corner for Quiet Rituals',
+      subtitle: 'Vanity & Bedroom Design',
+      location: 'Jaipur, Rajasthan',
+      year: '2025',
+      category: 'INTERIOR · RESIDENTIAL · 2025',
+      image: 'assets/bedroom-2.png',
+      description: 'Every morning begins here, where soft light meets warm timber and the simplest moments become the most cherished.',
+      details: 'Every morning begins here, where soft light meets warm timber and the simplest moments become the most cherished.',
+      detailsSecondary: 'A curved pill vanity cabinet, circular accent mirror, and rich terracotta accent wall create a serene personal corner.',
+      photography: 'Common Studio',
+      styling: 'Stacy Tsai / Wool Studio',
+      caption: 'View of the custom built-in vanity corner featuring a curved pill cabinet, warm timber dressing table, and vertical fluted headboard.',
+      gallery: [
+        'assets/bedroom-2.png',
+        'assets/unnamed (3).webp'
+      ]
     }
   };
 
