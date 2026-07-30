@@ -2431,11 +2431,10 @@ footer {
 .story-panel {
   position: relative;
   isolation: isolate;
-  flex: 0 1 50%;
+  flex: 0 0 50%;
   min-width: 0;
   min-height: inherit;
   overflow: hidden;
-  transition: flex-basis 820ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .story-panel--origin {
@@ -2452,16 +2451,6 @@ footer {
 .story-panel:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: -10px;
-}
-
-.story-split[data-active="origin"] .story-panel--origin,
-.story-split[data-active="name"] .story-panel--name {
-  flex-basis: 56%;
-}
-
-.story-split[data-active="origin"] .story-panel--name,
-.story-split[data-active="name"] .story-panel--origin {
-  flex-basis: 44%;
 }
 
 .story-split__image {
@@ -2532,16 +2521,6 @@ footer {
 }
 
 @media (hover: hover) and (pointer: fine) and (min-width: 769px) {
-  .story-split:has(.story-panel--origin:hover) .story-panel--origin,
-  .story-split:has(.story-panel--name:hover) .story-panel--name {
-    flex-basis: 56%;
-  }
-
-  .story-split:has(.story-panel--origin:hover) .story-panel--name,
-  .story-split:has(.story-panel--name:hover) .story-panel--origin {
-    flex-basis: 44%;
-  }
-
   .story-panel--origin:hover::before,
   .story-panel--origin:hover .story-split__image--origin,
   .story-panel--name:hover::before,
@@ -2575,12 +2554,6 @@ footer {
   font-family: var(--font-body);
   font-weight: 400;
   text-transform: uppercase;
-}
-
-.story-split__statements {
-  font-family: var(--font-body);
-  font-weight: 400;
-  text-transform: lowercase;
 }
 
 .story-split__label {
@@ -2632,9 +2605,11 @@ footer {
   visibility: hidden;
   transform: translateY(14px);
   list-style: none;
-  font-size: clamp(11px, 0.82vw, 13px);
-  line-height: 1.6;
-  letter-spacing: 0.105em;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(13px, 1vw, 15px);
+  line-height: 1.55;
+  letter-spacing: 0.035em;
   transition:
     max-height 420ms cubic-bezier(0.22, 1, 0.36, 1),
     margin-top 420ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -2645,20 +2620,19 @@ footer {
 
 .story-split__statements li {
   display: grid;
-  grid-template-columns: 18px minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 12px;
   align-items: start;
   padding: 10px 0;
 }
 
 .story-split__statements li::before {
   content: '';
-  width: 6px;
-  height: 6px;
-  margin-top: 7px;
-  border-radius: 50%;
+  width: 16px;
+  height: 1px;
+  margin-top: 0.75em;
   background: var(--color-cinnamon);
-  box-shadow: 0 0 0 5px rgba(155, 106, 78, 0.16);
+  opacity: 0.9;
 }
 
 .story-panel--name:is(:hover, :focus-within) .story-split__statements,
@@ -2862,7 +2836,7 @@ footer {
     opacity: 1;
     visibility: visible;
     transform: none;
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .story-split__details {
