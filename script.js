@@ -873,4 +873,61 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 350);
   }
+
+  // FAQ Modal Popup Navigation Handler
+  const faqTriggers = document.querySelectorAll('[data-faq-trigger]');
+  const faqModal = document.getElementById('faq-modal');
+  const faqCloseElements = document.querySelectorAll('[data-faq-close]');
+
+  if (faqModal) {
+    const openFaqModal = (e) => {
+      if (e) e.preventDefault();
+      faqModal.classList.add('is-active');
+      faqModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      // Close mobile menu if open
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      if (menuToggle && mobileNav) {
+        menuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+      }
+    };
+
+    const closeFaqModal = () => {
+      faqModal.classList.remove('is-active');
+      faqModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    faqTriggers.forEach(trigger => {
+      trigger.addEventListener('click', openFaqModal);
+    });
+
+    faqCloseElements.forEach(element => {
+      element.addEventListener('click', closeFaqModal);
+    });
+
+    // Close modal if links inside modal (e.g. Start a conversation) are clicked
+    faqModal.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        if (href === currentPage) {
+          e.preventDefault();
+          closeFaqModal();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          closeFaqModal();
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && faqModal.classList.contains('is-active')) {
+        closeFaqModal();
+      }
+    });
+  }
 });
