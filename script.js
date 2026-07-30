@@ -2,6 +2,93 @@
 document.documentElement.classList.add('js');
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Branded loader: full cinematic entrance once per browser session.
+  const siteLoader = document.getElementById('site-loader');
+  if (siteLoader) {
+    const loaderEnabled = document.documentElement.classList.contains('site-loader-enabled');
+    const loaderProgress = siteLoader.querySelector('.site-loader__progress');
+
+    if (!loaderEnabled) {
+      siteLoader.remove();
+    } else {
+      let loaderComplete = false;
+      let currentProgress = 0;
+      let progressTimer = null;
+      const loaderStartTime = performance.now();
+      const trackedImages = Array.from(document.images).filter(image => !image.closest('.site-loader'));
+
+      try {
+        sessionStorage.setItem('baeroh-loader-seen', 'true');
+      } catch (error) {
+        // The loader still works when storage is unavailable.
+      }
+
+      const setLoaderProgress = value => {
+        currentProgress = Math.max(currentProgress, Math.min(1, value));
+        if (loaderProgress) {
+          loaderProgress.style.transform = `scaleX(${currentProgress})`;
+        }
+      };
+
+      const updateProgressFromAssets = () => {
+        if (loaderComplete || trackedImages.length === 0) return;
+        const completedImages = trackedImages.filter(image => image.complete).length;
+        const assetRatio = completedImages / trackedImages.length;
+        setLoaderProgress(0.12 + (assetRatio * 0.73));
+      };
+
+      const finishSiteLoader = () => {
+        if (loaderComplete) return;
+        loaderComplete = true;
+        window.clearInterval(progressTimer);
+        setLoaderProgress(1);
+
+        window.setTimeout(() => {
+          siteLoader.classList.add('is-content-leaving');
+
+          window.setTimeout(() => {
+            siteLoader.classList.add('is-leaving');
+            document.documentElement.classList.remove('site-loader-enabled');
+
+            window.setTimeout(() => siteLoader.remove(), 520);
+          }, 250);
+        }, 150);
+      };
+
+      trackedImages.forEach(image => {
+        if (!image.complete) {
+          image.addEventListener('load', updateProgressFromAssets, { once: true });
+          image.addEventListener('error', updateProgressFromAssets, { once: true });
+        }
+      });
+
+      window.requestAnimationFrame(() => {
+        siteLoader.classList.add('is-active');
+        setLoaderProgress(0.06);
+        updateProgressFromAssets();
+      });
+
+      progressTimer = window.setInterval(() => {
+        const elapsedRatio = Math.min(1, (performance.now() - loaderStartTime) / 3200);
+        const easedProgress = 0.12 + (0.73 * (1 - Math.pow(1 - elapsedRatio, 2)));
+        setLoaderProgress(Math.min(0.85, easedProgress));
+        updateProgressFromAssets();
+      }, 120);
+
+      if (document.readyState === 'complete') {
+        window.setTimeout(finishSiteLoader, 450);
+      } else {
+        window.addEventListener('load', () => {
+          const minimumDisplay = 900;
+          const remainingTime = Math.max(0, minimumDisplay - (performance.now() - loaderStartTime));
+          window.setTimeout(finishSiteLoader, remainingTime);
+        }, { once: true });
+      }
+
+      window.setTimeout(finishSiteLoader, 5000);
+    }
+  }
+
   // Navigation & Modal Setup
   const header = document.querySelector('header');
   const modal = document.querySelector('.project-modal');

@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    try {
+      if (!sessionStorage.getItem('baeroh-loader-seen')) {
+        document.documentElement.classList.add('site-loader-enabled');
+      }
+    } catch (error) {
+      document.documentElement.classList.add('site-loader-enabled');
+    }
+  </script>
+  <style>html.site-loader-enabled { background: #3E312B; }</style>
   
   <!-- SEO Meta Tags -->
   <title>Baeroh | Interior Architecture & Design</title>
@@ -16,10 +26,18 @@
   <meta property="og:image" content="https://aryan13a.github.io/baeroh03/assets/logo.png">
   
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="style.css?v=8.0">
+  <link rel="stylesheet" href="style.css?v=8.1">
   <link rel="icon" type="image/png" href="assets/favicon.png?v=6.0">
 </head>
 <body>
+  <div class="site-loader" id="site-loader" role="status" aria-label="Loading Baeroh">
+    <div class="site-loader__content">
+      <img class="site-loader__logo" src="assets/logo.png" alt="Baeroh">
+      <span class="site-loader__bar" aria-hidden="true">
+        <span class="site-loader__progress"></span>
+      </span>
+    </div>
+  </div>
 
   <!-- Header -->
   <header id="main-header" class="header-transparent">
@@ -600,6 +618,6 @@
   </script>
 
   <!-- Scripts -->
-  <script src="script.js?v=7.0"></script>
+  <script src="script.js?v=7.2"></script>
 </body>
 </html>
