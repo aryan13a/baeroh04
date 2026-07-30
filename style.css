@@ -5689,7 +5689,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   display: grid;
   grid-template-columns: minmax(300px, 28%) minmax(0, 1fr);
   width: 100%;
-  min-height: clamp(620px, 49.1vw, 760px);
+  height: clamp(480px, 38vw, 560px);
   overflow: hidden;
   background: #D5C6B3;
 }
@@ -5720,15 +5720,15 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   justify-content: center;
   min-width: 0;
   padding:
-    clamp(56px, 5vw, 80px)
-    clamp(54px, 6vw, 108px)
-    clamp(52px, 4.5vw, 72px)
-    clamp(44px, 5vw, 82px);
+    clamp(36px, 3.25vw, 48px)
+    clamp(42px, 5vw, 90px)
+    clamp(34px, 3vw, 46px)
+    clamp(36px, 4vw, 70px);
 }
 
 .where-we-help-header {
   max-width: 980px;
-  margin: 0 auto clamp(46px, 4.5vw, 66px);
+  margin: 0 auto clamp(28px, 2.6vw, 38px);
   text-align: center;
 }
 
@@ -5748,7 +5748,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(120px, 1fr));
+  grid-template-rows: repeat(2, minmax(102px, 1fr));
   width: 100%;
   max-width: 1020px;
   margin: 0 auto;
@@ -5785,8 +5785,8 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   column-gap: 16px;
   align-content: center;
   min-width: 0;
-  min-height: 120px;
-  padding: clamp(24px, 2.3vw, 34px) clamp(16px, 1.5vw, 24px);
+  min-height: 102px;
+  padding: clamp(18px, 1.5vw, 24px) clamp(16px, 1.5vw, 24px);
 }
 
 .where-we-help-service-icon {
@@ -5824,15 +5824,15 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 @media (max-width: 1100px) {
   .where-we-help-banner-wrapper {
     grid-template-columns: minmax(240px, 30%) minmax(0, 1fr);
-    min-height: 580px;
+    height: 480px;
   }
 
   .where-we-help-banner-content {
-    padding: 48px 34px;
+    padding: 36px 30px;
   }
 
   .where-we-help-header {
-    margin-bottom: 38px;
+    margin-bottom: 28px;
   }
 
   .where-we-help-title {
@@ -5840,14 +5840,14 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 
   .where-we-help-service-item {
-    padding: 22px 18px;
+    padding: 18px;
   }
 }
 
 @media (max-width: 850px) {
   .where-we-help-banner-wrapper {
     display: block;
-    min-height: 0;
+    height: auto;
   }
 
   .where-we-help-statue-container {
@@ -5855,11 +5855,11 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 
   .where-we-help-banner-content {
-    padding: 48px 24px 54px;
+    padding: 38px 22px 42px;
   }
 
   .where-we-help-header {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
   }
 
   .where-we-help-title {
@@ -5883,7 +5883,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
     grid-template-columns: 28px minmax(0, 340px);
     justify-content: center;
     min-height: 0;
-    padding: 23px 6px;
+    padding: 19px 6px;
     border-bottom: 1px solid rgba(62, 49, 43, 0.22);
   }
 
