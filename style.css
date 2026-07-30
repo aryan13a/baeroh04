@@ -2439,12 +2439,18 @@ footer {
 }
 
 .story-panel--origin {
-  background: #2E2623;
+  background-color: #2E2623;
+  background-image: url('assets/charcoal-watermark.png');
+  background-position: center;
+  background-size: cover;
   color: var(--color-ivory);
 }
 
 .story-panel--name {
   background-color: #CFC2B2;
+  background-image: url('assets/mushroom-taupe-watermark.png');
+  background-position: center;
+  background-size: cover;
   color: var(--color-charcoal);
   border-left: 1px solid rgba(243, 240, 234, 0.78);
 }
@@ -2479,13 +2485,11 @@ footer {
 }
 
 .story-split__image--origin {
-  object-position: center;
-  opacity: 0.85;
+  object-position: 52% center;
 }
 
 .story-split__image--name {
-  object-position: center;
-  opacity: 0.88;
+  object-position: 68% center;
 }
 
 .story-panel::before {
@@ -2499,15 +2503,20 @@ footer {
 }
 
 .story-panel--origin::before {
-  background: linear-gradient(90deg, rgba(46, 38, 35, 0.65) 0%, rgba(46, 38, 35, 0.35) 58%, rgba(46, 38, 35, 0.2) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(46, 38, 35, 0.88) 0%,
+    rgba(46, 38, 35, 0.72) 58%,
+    rgba(46, 38, 35, 0.62) 100%
+  );
 }
 
 .story-panel--name::before {
   background: linear-gradient(
     90deg,
-    rgba(207, 194, 178, 0.6) 0%,
-    rgba(207, 194, 178, 0.3) 55%,
-    rgba(207, 194, 178, 0.15) 100%
+    rgba(207, 194, 178, 0.9) 0%,
+    rgba(207, 194, 178, 0.76) 55%,
+    rgba(207, 194, 178, 0.62) 100%
   );
 }
 
@@ -2828,7 +2837,7 @@ footer {
 
   .story-split__image,
   .story-panel::before {
-    opacity: 1;
+    opacity: 0;
     transform: scale(1);
   }
 
