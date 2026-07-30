@@ -21,6 +21,7 @@
         <a href="work.html">Work</a>
         <a href="studio.html">Studio</a>
         <a href="services.html">Services</a>
+        <a href="#" data-faq-trigger>FAQ</a>
         <a href="contact.html" class="active">Contact</a>
       </nav>
       
@@ -40,6 +41,7 @@
     <a href="work.html">Work</a>
     <a href="studio.html">Studio</a>
     <a href="services.html">Services</a>
+    <a href="#" data-faq-trigger>FAQ</a>
     <a href="contact.html">Contact</a>
   </div>
 
@@ -47,7 +49,7 @@
   <section class="fade-in-up" style="padding-top: 180px; padding-bottom: 60px;">
     <div class="container text-lead-container" style="max-width: 900px; text-align: left; margin: 0;">
       <span class="font-label">Begin</span>
-      <h1 class="font-display-hero" style="margin-top: 20px; margin-bottom: 30px; font-size: clamp(30px, 3.6vw, 54px); letter-spacing: 0.12em;">Every meaningful project begins with a <span style="white-space: nowrap;">conversation<span class="animated-ellipsis">…</span></span></h1>
+      <h1 class="font-display-hero" style="margin-top: 20px; margin-bottom: 30px; font-size: clamp(30px, 3.6vw, 54px); letter-spacing: 0.12em;">Every meaningful project begins with a conversation…</h1>
       <p class="font-display-lead" style="color: var(--color-olive); margin-bottom: 24px; text-align: justify;">
         We'll begin by understanding your project, your aspirations and what matters most to you. If we're the right fit, we'll guide you through every step with clarity, collaboration and care.
       </p>
@@ -71,17 +73,17 @@
         </div>
         
         <div style="margin-bottom: 40px;">
-          <h4 class="font-label" style="color: var(--color-charcoal); margin-bottom: 12px;">Inquiries</h4>
+          <h4 class="font-label" style="color: var(--color-charcoal); margin-bottom: 12px;">Enquiries</h4>
           <p class="font-body-copy" style="color: var(--color-olive); line-height: 1.8;">
-            Email: <a href="mailto:Connect@Baeroh.com" style="color: var(--color-cinnamon);">Connect@Baeroh.com</a><br>
-            Phone: <a href="tel:+919509628808" style="color: var(--color-cinnamon);">+91 95096 28808</a>
+            <a href="mailto:connect@baeroh.com" style="color: var(--color-cinnamon);">connect@baeroh.com</a><br>
+            <a href="tel:+919509628808" style="color: var(--color-cinnamon);">+91 95096 28808</a>
           </p>
         </div>
         
         <div>
-          <h4 class="font-label" style="color: var(--color-charcoal); margin-bottom: 12px;">Connect</h4>
+          <h4 class="font-label" style="color: var(--color-charcoal); margin-bottom: 12px;">Follow along</h4>
           <div class="social-links" style="margin-top: 12px;">
-            <a href="https://www.instagram.com/baerohdesigns/" target="_blank">Instagram</a>
+            <a href="https://www.instagram.com/baerohdesigns/" target="_blank" rel="noopener">Instagram</a>
           </div>
         </div>
       </div>
@@ -90,30 +92,37 @@
         <span class="font-label">Form</span>
         <h2 class="font-display-section" style="margin-top: 20px; color: var(--color-charcoal);">Start a Conversation</h2>
         
-        <form class="contact-form">
+        <form class="contact-form" id="contact-form" novalidate>
           <div class="form-row-2">
             <div class="form-group">
               <label for="name" class="font-label" style="color: var(--color-charcoal);">Your Name</label>
-              <input type="text" id="name" required placeholder="e.g. John Doe">
+              <input type="text" id="name" name="name" required>
+              <span class="field-error-msg" style="display: none; color: #b91c1c; font-size: 11px; margin-top: 4px; font-family: var(--font-body);">Please enter your name.</span>
             </div>
             <div class="form-group">
               <label for="email" class="font-label" style="color: var(--color-charcoal);">Email Address</label>
-              <input type="email" id="email" required placeholder="e.g. john@example.com">
+              <input type="email" id="email" name="email" required>
+              <span class="field-error-msg" style="display: none; color: #b91c1c; font-size: 11px; margin-top: 4px; font-family: var(--font-body);">Please enter a valid email address.</span>
             </div>
           </div>
           
           <div class="form-group">
-            <label for="subject" class="font-label" style="color: var(--color-charcoal);">Subject</label>
-            <input type="text" id="subject" placeholder="Project Type (Residential, Workplace, etc.)">
+            <label for="project-type" class="font-label" style="color: var(--color-charcoal);">Project Type</label>
+            <input type="text" id="project-type" name="project_type" required>
+            <span class="field-error-msg" style="display: none; color: #b91c1c; font-size: 11px; margin-top: 4px; font-family: var(--font-body);">Please enter the project type.</span>
           </div>
           
           <div class="form-group">
             <label for="message" class="font-label" style="color: var(--color-charcoal);">Your Message</label>
-            <textarea id="message" rows="5" required placeholder="Tell us about your project..."></textarea>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <span class="field-error-msg" style="display: none; color: #b91c1c; font-size: 11px; margin-top: 4px; font-family: var(--font-body);">Please enter your message.</span>
           </div>
           
           <div>
             <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          </div>
+          <div id="form-confirmation" class="form-confirmation" style="display: none; margin-top: 20px; padding: 18px 24px; background-color: var(--color-sandstone); border-left: 3px solid var(--color-cinnamon); color: var(--color-charcoal); font-family: var(--font-body); font-size: 13px; letter-spacing: 0.05em; line-height: 1.6; border-radius: 2px;">
+            Thank you. Your message has been received — we will respond shortly.
           </div>
         </form>
       </div>
@@ -125,7 +134,7 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="assets/logo.png" alt="Baeroh Logo" class="footer-logo">
-        <p class="font-body-copy" style="font-size: 14px;">We design environments for the people who inhabit them. High, fidelity architectural spaces built around the stories of families, founders, and teams.</p>
+        <p class="font-body-copy" style="font-size: 14px;">We design environments for the people who inhabit them. High fidelity architectural spaces built around the stories of families, founders and teams.</p>
       </div>
       <div class="footer-links">
         <span class="font-label" style="color: var(--color-ivory);">Navigation</span>
@@ -134,6 +143,7 @@
           <li><a href="work.html">Work</a></li>
           <li><a href="studio.html">Studio</a></li>
           <li><a href="services.html">Services</a></li>
+          <li><a href="#" data-faq-trigger>FAQ</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -143,18 +153,283 @@
           Jaipur, Rajasthan<br>
           India<br>
           <br>
-          <a href="mailto:Connect@Baeroh.com">Connect@Baeroh.com</a><br>
+          <a href="mailto:connect@baeroh.com">connect@baeroh.com</a><br>
           +91 95096 28808
         </p>
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>&copy; 2026 Baeroh. All rights reserved.</p>
+      <p>&copy; 2026 Baeroh Design Studio</p>
       <div class="social-links">
         <a href="https://www.instagram.com/baerohdesigns/" target="_blank">Instagram</a>
       </div>
     </div>
   </footer>
+
+  <!-- FAQ Popup Modal -->
+  <div class="faq-modal" id="faq-modal" aria-hidden="true" role="dialog" aria-labelledby="faq-modal-title">
+    <div class="faq-modal-overlay" data-faq-close></div>
+    <div class="faq-modal-container">
+      <button class="faq-modal-close" data-faq-close aria-label="Close FAQ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="faq-modal-header">
+        <span class="faq-modal-label">BAEROH DESIGN STUDIO</span>
+        <h2 class="faq-modal-title" id="faq-modal-title">Questions, Answered</h2>
+        <div class="faq-modal-divider"></div>
+      </div>
+      <div class="faq-modal-body">
+        
+        <!-- Category: BEGINNING -->
+        <div class="faq-category">
+          <h3 class="faq-category-title">Beginning</h3>
+          <div class="faq-accordion">
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>How do we start working together?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>It begins with a conversation. We meet, in person or on a call, to understand the space, how you live or work, and what you are hoping for. If we feel like the right fit for each other, we follow that with a proposal setting out the scope, the process and the next steps. Nothing is committed until that feels right to you.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Where do you take on projects?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>Our studio is in Jaipur, and right now we are focused on projects across Rajasthan and Punjab. It lets us stay close to our sites and the craftspeople we work with. If you are a little beyond that, it is still worth asking. We will always be honest about whether we are the right studio for where you are.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>What kinds of spaces do you design?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>Homes, workplaces and hospitality and retail spaces. Whether the space is brand new or already lived in, our approach is the same: we understand the people first, then design around them.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- Category: THE WORK ITSELF -->
+        <div class="faq-category">
+          <h3 class="faq-category-title">The Work Itself</h3>
+          <div class="faq-accordion">
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>What does a project with Baeroh actually involve?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>We stay closely involved from the first conversation to the final walkthrough. That usually means understanding your brief, planning the layout and budget, resolving the design room by room, refining the details, and then coordinating the people who bring it to life on site.</p>
+                <p>You keep one point of contact throughout, so you always know who to ask and what is happening next.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Do you handle the building work, or only the design?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>Both, if you would like us to. We offer turnkey execution, which means we coordinate the consultants, contractors and craftspeople and see the project through on site, so you are not left managing trades yourself. If you prefer to handle execution separately, we can design to hand over cleanly to your own team.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>How involved will I need to be?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>As much as you would like, and never more than you are comfortable with. Some clients want to weigh in on every material, others prefer to trust us with the detail once the direction is set. We will find the rhythm that suits you early, and keep you informed at the points that matter.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Do you have a signature style?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>No, and that is deliberate. We do not arrive with a look to impose. Our consistency is in the way we think, not in a single aesthetic, so each project ends up reflecting the people it is for rather than reflecting us.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- Category: TIME AND COST -->
+        <div class="faq-category">
+          <h3 class="faq-category-title">Time and Cost</h3>
+          <div class="faq-accordion">
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>How long does a project take?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>It depends entirely on the size and nature of the space, and we will give you a realistic timeline in your proposal rather than a hopeful one. Interiors and renovations often run over many months, and part of our job is to foresee the delays that others do not, so the timeline you are given is one you can plan around.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>How do you charge?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>Our fee depends on the scope and scale of the work, so we prefer to quote against your specific project rather than publish a single number that would not fit anyone.</p>
+                <p>What we can promise is transparency. You will know what things cost, and why, before decisions are made, so there are no uncomfortable surprises later.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Is there a minimum project size?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>We take on a considered number of projects at a time so that each receives real attention. That means we are not always the right choice for very small, single-room jobs, but the honest answer is that it depends on the project. Tell us what you have in mind and we will say plainly whether we are the right studio for it.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- Category: TRUST -->
+        <div class="faq-category">
+          <h3 class="faq-category-title">Trust</h3>
+          <div class="faq-accordion">
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>We have never worked with a designer before. Is that a problem?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>Not at all. Most of the people we work with are doing this for the first time, and a good part of our role is simply to reduce the uncertainty of it. We will explain each stage as it comes, so you are never guessing what happens next.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>What does the name Baeroh mean?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>In the Rajasthani dialect, &ldquo;baero&rdquo; means to know. Not knowing in the ordinary sense, but the quiet certainty in a voice that says: I know the way, don&rsquo;t worry, we&rsquo;re here now. We added the H so the word could travel, and stay ours.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+      </div>
+      <div class="faq-modal-footer">
+        <p>If your question isn&rsquo;t here, we&rsquo;d rather answer it in person. <a href="contact.html">Start a conversation &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Structured Data: FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do we start working together?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It begins with a conversation. We meet, in person or on a call, to understand the space, how you live or work, and what you are hoping for. If we feel like the right fit for each other, we follow that with a proposal setting out the scope, the process and the next steps. Nothing is committed until that feels right to you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where do you take on projects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our studio is in Jaipur, and right now we are focused on projects across Rajasthan and Punjab. It lets us stay close to our sites and the craftspeople we work with. If you are a little beyond that, it is still worth asking. We will always be honest about whether we are the right studio for where you are."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What kinds of spaces do you design?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Homes, workplaces and hospitality and retail spaces. Whether the space is brand new or already lived in, our approach is the same: we understand the people first, then design around them."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does a project with Baeroh actually involve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We stay closely involved from the first conversation to the final walkthrough. That usually means understanding your brief, planning the layout and budget, resolving the design room by room, refining the details, and then coordinating the people who bring it to life on site. You keep one point of contact throughout, so you always know who to ask and what is happening next."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you handle the building work, or only the design?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both, if you would like us to. We offer turnkey execution, which means we coordinate the consultants, contractors and craftspeople and see the project through on site, so you are not left managing trades yourself. If you prefer to handle execution separately, we can design to hand over cleanly to your own team."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How involved will I need to be?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "As much as you would like, and never more than you are comfortable with. Some clients want to weigh in on every material, others prefer to trust us with the detail once the direction is set. We will find the rhythm that suits you early, and keep you informed at the points that matter."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you have a signature style?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, and that is deliberate. We do not arrive with a look to impose. Our consistency is in the way we think, not in a single aesthetic, so each project ends up reflecting the people it is for rather than reflecting us."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a project take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends entirely on the size and nature of the space, and we will give you a realistic timeline in your proposal rather than a hopeful one. Interiors and renovations often run over many months, and part of our job is to foresee the delays that others do not, so the timeline you are given is one you can plan around."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you charge?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our fee depends on the scope and scale of the work, so we prefer to quote against your specific project rather than publish a single number that would not fit anyone. What we can promise is transparency. You will know what things cost, and why, before decisions are made, so there are no uncomfortable surprises later."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a minimum project size?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We take on a considered number of projects at a time so that each receives real attention. That means we are not always the right choice for very small, single-room jobs, but the honest answer is that it depends on the project. Tell us what you have in mind and we will say plainly whether we are the right studio for it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "We have never worked with a designer before. Is that a problem?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not at all. Most of the people we work with are doing this for the first time, and a good part of our role is simply to reduce the uncertainty of it. We will explain each stage as it comes, so you are never guessing what happens next."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does the name Baeroh mean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In the Rajasthani dialect, 'baero' means to know. Not knowing in the ordinary sense, but the quiet certainty in a voice that says: I know the way, don't worry, we're here now. We added the H so the word could travel, and stay ours."
+        }
+      }
+    ]
+  }
+  </script>
 
   <!-- Scripts -->
   <script src="script.js?v=6.0"></script>

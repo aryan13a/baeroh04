@@ -324,14 +324,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const projects = {
     'view-from-the-top': {
       title: 'The View from the Top',
-      subtitle: 'Executive Workspace Design',
+      subtitle: 'Executive Workplace Design',
       location: 'Jaipur, Rajasthan',
       year: '2026',
-      category: 'Interior / Workspace',
+      category: 'INTERIOR · WORKPLACE · 2026',
       image: 'assets/view-from-the-top.jpeg',
-      description: 'True leadership requires clarity, and clarity thrives in a space free from chaos. Looking out across this expansive, warm wood desk, every tool is positioned with deliberate intent, from the seamless tech setup to the rich leather mat holding the essentials of the day\'s work. Through the glass partition, the presence of empty chairs stands as an open invitation for collaboration, strategy, and shared vision. From this vantage point, the noise of the outside world is filtered out, leaving only a quiet, powerful focus where big ideas are refined, decisions are structured, and the future is mapped out piece by piece.',
-      details: 'True leadership requires clarity, and clarity thrives in a space free from chaos. Looking out across this expansive, warm wood desk, every tool is positioned with deliberate intent, from the seamless tech setup to the rich leather mat holding the essentials of the day\'s work.',
-      detailsSecondary: 'Through the glass partition, the presence of empty chairs stands as an open invitation for collaboration, strategy, and shared vision. From this vantage point, the noise of the outside world is filtered out, leaving only a quiet, powerful focus where big ideas are refined, decisions are structured, and the future is mapped out piece by piece.',
+      description: 'Leadership needs somewhere to think clearly. This room gives it, holding privacy and openness in the same frame without ever choosing between them.',
+      details: 'Leadership needs somewhere to think clearly. This room gives it, holding privacy and openness in the same frame without ever choosing between them.',
+      detailsSecondary: 'Every element is positioned with deliberate intent, creating an atmosphere of quiet, powerful focus where key decisions are refined.',
       photography: 'Common Studio',
       styling: 'Stacy Tsai / Wool Studio',
       caption: 'Perspective of the executive desk space, showing the integration of leather detailing and functional technology setup.',
@@ -344,11 +344,11 @@ document.addEventListener('DOMContentLoaded', () => {
       subtitle: 'Bedroom Interior Design',
       location: 'Jaipur, Rajasthan',
       year: '2025',
-      category: 'Interior / Residential',
+      category: 'INTERIOR · RESIDENTIAL · 2025',
       image: 'assets/gentle-awakening.png',
-      description: 'True luxury lies in the details that greet you before the world demands your attention. Anchored by the grounded depth of a sleek, dark wainscot, this bedside corner brings the romance of the outdoors inside. A beautifully curated bouquet of soft creams and textured pampas grass catches the light, while above, a solitary bird glides effortlessly across a backdrop of etched rolling hills and delicate branches. It is a vignette designed to inspire pause, a thoughtful composition where nature’s stillness and modern elegance meet to ground your mornings and bring peace to your nights.',
-      details: 'True luxury lies in the details that greet you before the world demands your attention. Anchored by the grounded depth of a sleek, dark wainscot, this bedside corner brings the romance of the outdoors inside. A beautifully curated bouquet of soft creams and textured pampas grass catches the light, while above, a solitary bird glides effortlessly across a backdrop of etched rolling hills and delicate branches.',
-      detailsSecondary: 'It is a vignette designed to inspire pause, a thoughtful composition where nature’s stillness and modern elegance meet to ground your mornings and bring peace to your nights.',
+      description: 'A hand-chosen mural lifts the eye to a bird mid-flight, so the first thing the morning offers is a little height.',
+      details: 'A hand-chosen mural lifts the eye to a bird mid-flight, so the first thing the morning offers is a little height.',
+      detailsSecondary: 'Anchored by dark wainscoting and delicate natural textures, this corner brings peace to your mornings and quiet calm to your nights.',
       photography: 'Common Studio',
       styling: 'Stacy Tsai / Wool Studio',
       caption: 'Bedside detail featuring a soft cream floral bouquet, textured wallpaper design, and elegant wainscoting.',
@@ -358,17 +358,17 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     'canvas-ambition': {
       title: 'A Canvas for Ambition',
-      subtitle: 'Executive Workspace Design',
+      subtitle: 'Executive Workplace Design',
       location: 'Jaipur, Rajasthan',
       year: '2026',
-      category: 'Interior / Workspace',
+      category: 'INTERIOR · WORKPLACE · 2026',
       image: 'assets/canvas-ambition.jpeg',
-      description: 'Great milestones are rarely achieved by chance; they are sculpted in the quiet hours of focused dedication. In this workspace, the clean lines of modern technology meet the grounding warmth of tailored, sophisticated tones. The commanding high-back chair stands ready for the visionary, while a golden bull sits quietly on the desk, a silent testament to strength, market conviction, and resilience. Wrapped in soft, ambient light that removes the harshness of the corporate world, this desk is more than a place to work, it is the launchpad where raw ambition is refined into legacy.',
-      details: 'Great milestones are rarely achieved by chance; they are sculpted in the quiet hours of focused dedication. In this workspace, the clean lines of modern technology meet the grounding warmth of tailored, sophisticated tones. The commanding high-back chair stands ready for the visionary, while a golden bull sits quietly on the desk, a silent testament to strength, market conviction, and resilience.',
-      detailsSecondary: 'Wrapped in soft, ambient light that removes the harshness of the corporate world, this desk is more than a place to work, it is the launchpad where raw ambition is refined into legacy.',
+      description: 'Built as much for the conversation that changes a decision as for the hours of focus that follow it.',
+      details: 'Built as much for the conversation that changes a decision as for the hours of focus that follow it.',
+      detailsSecondary: 'Clean lines of modern technology meet the grounding warmth of tailored, sophisticated tones, wrapped in soft ambient light.',
       photography: 'Common Studio',
       styling: 'Stacy Tsai / Wool Studio',
-      caption: 'The commanding high-back chair and workspace detail featuring modern technology and warm, sophisticated tones.',
+      caption: 'The commanding high-back chair and workplace detail featuring modern technology and warm, sophisticated tones.',
       gallery: [
         'assets/canvas-ambition.jpeg'
       ]
@@ -378,11 +378,11 @@ document.addEventListener('DOMContentLoaded', () => {
       subtitle: 'Executive Studio Design',
       location: 'Jaipur, Rajasthan',
       year: '2026',
-      category: 'Interior / Workspace',
+      category: 'INTERIOR · WORKPLACE · 2026',
       image: 'assets/unnamed (2).webp',
-      description: 'An upscale corporate setting that masterfully balances privacy and collaborative space. Featuring a striking, floor to ceiling glass enclosed office complete with a plush swivel armchair, dark herringbone flooring, and an elegant curved partition wall. Outside, the open plan workspace flows naturally with warm toned desks, ergonomic chairs, and fluid, recessed ceiling lighting that guides the eye through a cohesive, high end professional environment.',
-      details: 'Tailored for modern executive leaders, the Contemporary Executive Studio bridges privacy with openness. The central glass-enclosed space defines a premium office corner, complete with dark herringbone flooring and a luxurious neutral-toned lounge swivel chair.',
-      detailsSecondary: 'Outside the private enclosure, the open-plan office layout is finished with custom warm timber desks and ergonomic seating. The dynamic ceiling layout features fluid, recessed LED strip profiles that lead the eye through the interior, blending a sense of direction with quiet architectural sophistication.',
+      description: 'Curved walls and a continuous line of light give a private office its authority, without a single hard edge.',
+      details: 'Curved walls and a continuous line of light give a private office its authority, without a single hard edge.',
+      detailsSecondary: 'Floor-to-ceiling glass enclosed office with dark herringbone flooring, leading into a cohesive open-concept workplace.',
       photography: 'Common Studio',
       styling: 'Stacy Tsai / Wool Studio',
       caption: 'The floor-to-ceiling glass office, featuring dark herringbone floors, and the outer open-concept workplace.',
@@ -396,11 +396,11 @@ document.addEventListener('DOMContentLoaded', () => {
       subtitle: 'Vanity Nook Design',
       location: 'Jaipur, Rajasthan',
       year: '2025',
-      category: 'Residential / Interior Styling',
+      category: 'INTERIOR · RESIDENTIAL · 2025',
       image: 'assets/unnamed (3).webp',
-      description: 'A chic dressing corner defined by geometric harmony and warm, earthy tones. The floating wooden vanity table features clean lines, complemented by a perfect circular mirror and an ultra modern, pill shaped vertical cabinet that cuts through the desk space. Set against a rich terracotta brown backdrop, the soft textures of the vanity chair, delicate green potted plant, and curated accessories create an intimate, stylish, and comfortable personal sanctuary.',
-      details: 'Focusing on the beauty of daily personal rituals, the Minimalist Vanity Nook balances geometric forms with warm, organic materials. A sleek, floating timber dressing table anchors the corner, designed to offer simple utility while maintaining an uncluttered visual footprint.',
-      detailsSecondary: 'The composition is completed by a large circular mirror and a vertical pill-shaped cabinet that extends through the desk, creating a dynamic play on proportions. Set against a rich, earthy terracotta accent wall, this vanity corner features soft fabric textures and minimal curation, forming an intimate personal sanctuary.',
+      description: 'A dressing corner in warm timber, proportioned so the smallest daily routine feels unhurried.',
+      details: 'A dressing corner in warm timber, proportioned so the smallest daily routine feels unhurried.',
+      detailsSecondary: 'Set against a rich terracotta backdrop, floating timber surfaces and circular geometries create an intimate personal sanctuary.',
       photography: 'Common Studio',
       styling: 'Stacy Tsai / Wool Studio',
       caption: 'The vanity nook detail, showing the circular mirror, terracotta backdrop, and the floating wood table.',
@@ -414,11 +414,11 @@ document.addEventListener('DOMContentLoaded', () => {
       subtitle: 'Open Office Design',
       location: 'Jaipur, Rajasthan',
       year: '2026',
-      category: 'Interior / Workspace',
+      category: 'INTERIOR · WORKPLACE · 2026',
       image: 'assets/unnamed.webp',
-      description: 'A modern workspace that seamlessly blends sleek minimalism with warm, organic elements. The crisp light wood workstations, ergonomic mesh chairs with subtle warm accents, and clean neutral tones create an inviting yet highly professional environment. Thoughtful architectural detailing including a curved accent wall, fluid LED ceiling lights, and delicate hanging greenery adds a touch of timeless sophistication to this focused, comfortable work layout.',
-      details: 'Designed for creative synergy and focused productivity, this Sleek and Sophisticated Open Office merges clean minimalism with warm organic accents. Large modular workstations made from light timber provide spacious areas for individuals and teams, while ergonomic mesh seating ensures maximum comfort.',
-      detailsSecondary: 'Fluid LED strip lighting runs gracefully across the ceiling, accentuating the curves of the architectural walls. Hanging planters soften the structural boundaries, introducing nature to the workspace and fostering a fresh, productive atmosphere.',
+      description: 'An open floor planned so people can gather or concentrate by choice, and the room reads the same at nine in the morning as it does at six.',
+      details: 'An open floor planned so people can gather or concentrate by choice, and the room reads the same at nine in the morning as it does at six.',
+      detailsSecondary: 'Fluid LED ceiling profiles and delicate hanging planters introduce nature and spatial clarity across workstations.',
       photography: 'Common Studio',
       styling: 'Stacy Tsai / Wool Studio',
       caption: 'The open office workstations, demonstrating the fusion of clean minimal desk surfaces, ergonomic chairs, and delicate ceiling greenery.',
@@ -427,37 +427,19 @@ document.addEventListener('DOMContentLoaded', () => {
         'assets/unnamed (1).webp'
       ]
     },
-    'elegant-workspace': {
-      title: 'Elegant Workspace Design',
-      subtitle: 'Workspace Design',
-      location: 'Jaipur, Rajasthan',
-      year: '2026',
-      category: 'Interior / Workspace',
-      image: 'assets/unnamed (1).webp',
-      description: 'Every morning begins with quiet ambition. As sunlight slips through the curtains, the room awakens with warmth and purpose. The wooden desk patiently waits for the next idea, while the comfortable chairs invite conversations that could spark something extraordinary. Here, every detail plays its part in creating a workspace where productivity feels effortless and success finds its home.',
-      details: 'Designed for productivity and quiet contemplation, the Elegant Workspace balances architectural structure with tactile comfort. A custom-crafted natural solid wood desk acts as the anchor of the room, surrounded by ergonomic, softly upholstered lounge chairs that invite relaxed but focused conversations.',
-      detailsSecondary: 'Concealed ambient lighting highlights the warm neutral plaster walls, while built-in oak storage keeps the environment minimal and free of clutter. The project reflects a thoughtful approach to corporate and home workspaces, proving that professional settings can feel warm, inviting, and deeply personal.',
-      photography: 'Common Studio',
-      styling: 'Stacy Tsai / Wool Studio',
-      caption: 'The central desk area, showing the soft contrast between the textured wood grain and the architectural metallic finishes.',
-      gallery: [
-        'assets/unnamed (1).webp',
-        'assets/unnamed.webp'
-      ]
-    },
     'timeless-design-details': {
       title: 'Timeless Design Details',
-      subtitle: 'Interior Detail & Curation',
+      subtitle: 'Workplace Detail & Utility',
       location: 'Jaipur, Rajasthan',
-      year: '2025',
-      category: 'Residential / Interior Styling',
+      year: '2026',
+      category: 'INTERIOR · WORKPLACE · 2026',
       image: 'assets/unnamed (5).webp',
-      description: 'Long before a handshake or a greeting, this space begins telling your story. The warm glow of ambient lighting, elegant finishes, and thoughtfully placed décor quietly assure every visitor they\'ve arrived somewhere special. It\'s a reception that doesn\'t just welcome guests, it introduces the character, care, and craftsmanship behind everything that follows.',
-      details: 'Dedicated to the subtle art of space curation, Timeless Design Details represents a synthesis of architectural symmetry, texture, and materiality. Every piece of custom-built shelving and freestanding furniture is arranged to invite interactions, balancing spatial utility with cozy, quiet corners.',
-      detailsSecondary: 'Delicate linen drapes diffuse natural sunlight during the day, while strategically placed warm lights illuminate natural stone and oak accents at dusk. This project showcases how minimal styling and high-quality craftsmanship create a home environment that is both modern and welcoming.',
+      description: 'A forgotten corner turned into a working utility space. Proof that nothing in a plan is too small to deserve intention.',
+      details: 'A forgotten corner turned into a working utility space. Proof that nothing in a plan is too small to deserve intention.',
+      detailsSecondary: 'Delicate linen drapes, ambient illumination, and oak accents demonstrate how minimal styling brings purpose to utility corners.',
       photography: 'Common Studio',
       styling: 'Stacy Tsai / Wool Studio',
-      caption: 'Curated corner showing a custom lounge chair positioned by a window where light highlights the organic details.',
+      caption: 'Curated corner showing custom utility shelving and warm ambient light detailing.',
       gallery: [
         'assets/unnamed (5).webp',
         'assets/unnamed (2).webp'
@@ -468,11 +450,11 @@ document.addEventListener('DOMContentLoaded', () => {
       subtitle: 'Meeting Space Design',
       location: 'Jaipur, Rajasthan',
       year: '2026',
-      category: 'Interior / Meeting Space',
+      category: 'INTERIOR · WORKPLACE · 2026',
       image: 'assets/unnamed (4).webp',
-      description: 'Behind these walls, every conversation has the power to shape what comes next. The warm lighting, refined textures, and elegant finishes create an atmosphere where ideas flow naturally and collaboration feels effortless. It\'s a space where first impressions become lasting partnerships, everyday meetings turn into meaningful milestones, and every detail is designed to inspire confidence.',
-      details: 'Centered around collaboration and corporate excellence, the Sophisticated Meeting Space marries a bold architectural presence with state-of-the-art utility. A premium acoustic timber slatted wall anchors the room, filtering peripheral noise while offering a rich organic backdrop to the custom conference table and ergonomic leather chairs.',
-      detailsSecondary: 'Intelligent warm lighting transitions dynamically across the ceiling to align with presentation modes, enhancing focus and eye comfort. Rich textures and clean structural lines reflect a modern corporate identity that values design, craftsmanship, and professional comfort.',
+      description: 'The room a visitor meets first. It sets the tone before anyone has said a word.',
+      details: 'The room a visitor meets first. It sets the tone before anyone has said a word.',
+      detailsSecondary: 'Acoustic slatted timber walls and adaptive warm lighting combine to create an atmosphere of quiet confidence and effortless collaboration.',
       photography: 'Common Studio',
       styling: 'Stacy Tsai / Wool Studio',
       caption: 'Close-up of the meeting table and wood slatted feature wall, illustrating the harmony of corporate structure and natural materials.',
@@ -486,7 +468,7 @@ document.addEventListener('DOMContentLoaded', () => {
       subtitle: 'Luxury Retail Landmark',
       location: 'Paris, France',
       year: '2025',
-      category: 'Commercial / Retail',
+      category: 'Commercial · Retail',
       image: 'assets/unnamed.webp',
       description: 'Rather than a conventional retail interior, the Polène Flagship Store is conceived as an environment to be felt as much as seen, a place where material, light, and proportion come together to create a calm, tactile landscape that invites visitors to slow down, engage the senses, and experience the enduring relationship between form, hand, and material.',
       details: 'The store layout utilizes organic curves that guide visitors through a series of sculpted spaces. Local sand-colored limestone forms the monumental display tables, while high ceilings and concealed lighting mimic the softness of natural daylight. There is a deliberate emphasis on negative space, allowing the leather handbags to stand out as pieces of sculpture in a landscape of quiet luxury.',
@@ -522,7 +504,7 @@ document.addEventListener('DOMContentLoaded', () => {
       subtitle: 'Urban Residence',
       location: 'Reykjavik, Iceland',
       year: '2024',
-      category: 'Residential / Interior Styling',
+      category: 'Interior · Residential',
       image: 'assets/unnamed (3).webp',
       description: 'A minimal, calm apartment in the center of Reykjavik. The renovation focused on clarifying the layout, bringing in light, and curating tactile materials that respond to the volcanic light of Iceland.',
       details: 'The design strategy stripped back modern additions to reveal the structural concrete columns, which are balanced with warm dark-stained oak cabinetry and soft linen textiles. Bathrooms are finished in a dark lava stone tiles, while the living areas remain bright and open. A curated selection of custom and vintage furniture gives the space a lived-in, warm, and highly personal character.',
@@ -540,11 +522,11 @@ document.addEventListener('DOMContentLoaded', () => {
       subtitle: 'Bedroom Design',
       location: 'Jaipur, Rajasthan',
       year: '2025',
-      category: 'Interior / Residential',
+      category: 'INTERIOR · RESIDENTIAL · 2025',
       image: 'assets/bedroom-two.jpeg',
-      description: 'As daylight gently filters through the room, every detail comes to life with quiet elegance. The artistic mural tells a story of nature, while the soft textures, layered cushions, and warm neutral tones create a space that invites you to slow down and unwind. More than just a bedroom, it\'s a peaceful retreat where every morning begins with serenity and every evening ends in comfort.',
-      details: 'Designed as a sanctuary from the outside world, this bedroom balances elegant form with soothing comfort. A large artistic nature-inspired mural commands the feature wall, setting a peaceful, organic tone for the entire space.',
-      detailsSecondary: 'Layered fabrics, rich textured cushions, and warm neutral tones harmonize to create a deeply relaxing environment. Every corner is carefully composed to encourage rest, reflection, and a slower pace of daily life.',
+      description: 'A room that lowers your shoulders as you enter it, and asks nothing of you once you are inside.',
+      details: 'A room that lowers your shoulders as you enter it, and asks nothing of you once you are inside.',
+      detailsSecondary: 'Layered fabrics, rich textured cushions, and warm neutral tones harmonize to create a deeply relaxing environment.',
       photography: 'Common Studio',
       styling: 'Stacy Tsai / Wool Studio',
       caption: 'The serene bedroom space, highlighting the artistic mural, layered textiles, and soft ambient lighting.',
@@ -558,11 +540,11 @@ document.addEventListener('DOMContentLoaded', () => {
       subtitle: 'Bedroom Design',
       location: 'Jaipur, Rajasthan',
       year: '2025',
-      category: 'Interior / Residential',
+      category: 'INTERIOR · RESIDENTIAL · 2025',
       image: 'assets/bedroom-one-2.jpeg',
-      description: 'The day demands our energy, but the evening asks for our stories. In this quiet corner, the textured canopy of the wallpaper mimics a moonlit forest, while the soft, warm glow from the built-in shelving casts a gentle light on the objects we gather through life. Here, surrounded by favorite books, mindful details, and the plush comfort of the bed, the rush of the world fades into the background. It is a space designed not just for sleeping, but for resetting where the final chapter of today softly transitions into the quiet promise of tomorrow.',
-      details: 'Designed as a sanctuary from the outside world, this bedroom balances structural precision with tactile warmth. The custom built-in shelving unit with integrated LED profile lighting serves as both a soft ambient light source and a curated display for books and personal treasures.',
-      detailsSecondary: 'The textured forest-patterned wallpaper provides a rich, natural canopy backdrop, complementing the dark-toned linen bedding. Every element, from the warm wood veneers to the subtle ambient lighting, is thoughtfully composed to create a quiet, restful retreat.',
+      description: 'A reading corner for the slower end of the day, lit for lingering rather than for getting things done.',
+      details: 'A reading corner for the slower end of the day, lit for lingering rather than for getting things done.',
+      detailsSecondary: 'Textured forest-patterned wallpaper and integrated ambient shelf lighting create an intimate evening retreat.',
       photography: 'Common Studio',
       styling: 'Stacy Tsai / Wool Studio',
       caption: 'Close-up of the bed and custom built-in shelving, showcasing the warm ambient lighting profile and forest-patterned wallpaper.',
@@ -576,11 +558,11 @@ document.addEventListener('DOMContentLoaded', () => {
       subtitle: 'Bedroom Design',
       location: 'Jaipur, Rajasthan',
       year: '2025',
-      category: 'Interior / Residential',
+      category: 'INTERIOR · RESIDENTIAL · 2025',
       image: 'assets/bedroom-one-1.jpeg',
-      description: 'True comfort isn\'t just about a soft place to rest; it’s about where your mind goes when you finally close your eyes. In this space, the delicate sketch of birds soaring past ancient trees transforms a simple wall into a canvas of endless horizons. The thoughtful contrast of neutral textures and deep, grounding tones creates a safe harbor from the daily rush. Here, as the evening settles, the boundaries of the room seem to expand, inviting you to leave the weight of the day behind and drift into a landscape of quiet wonder.',
-      details: 'Designed as a sanctuary from the outside world, this bedroom balances structural precision with tactile warmth. The custom wallpaper mural with birds in flight introduces a sense of organic movement and open sky, while the neutral textiles keep the atmosphere grounded.',
-      detailsSecondary: 'Concealed warm lighting highlights the natural textures of the plaster walls and wood surfaces, while built-in oak storage keeps the space minimal and free of clutter. The project reflects a thoughtful approach to bedroom sanctuaries, proving that rest spaces can feel open, cozy, and deeply personal.',
+      description: 'A child’s room where the walls carry a little wonder, made for rest and for the imagining that comes before sleep.',
+      details: 'A child’s room where the walls carry a little wonder, made for rest and for the imagining that comes before sleep.',
+      detailsSecondary: 'Delicate wallpaper artwork with birds in flight introduces organic movement and open sky.',
       photography: 'Common Studio',
       styling: 'Stacy Tsai / Wool Studio',
       caption: 'Close-up of the bed area, showing the birds-in-flight wallpaper backdrop, layered pillows, and textured sheets.',
@@ -814,63 +796,113 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Contact Form Submission (WhatsApp Redirect)
-  const contactForm = document.querySelector('.contact-form');
+  // Contact Form Handling with Field Validation & Inline Confirmation Message
+  const contactForm = document.getElementById('contact-form') || document.querySelector('.contact-form');
+  const formConfirmation = document.getElementById('form-confirmation');
+
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject') ? document.getElementById('subject').value : '';
-      const messageText = document.getElementById('message').value;
+      let isValid = true;
 
-      // Construct WhatsApp message
-      let waMessage = `Hello Baeroh,\n\n*Name:* ${name}\n*Email:* ${email}`;
-      if (subject) {
-        waMessage += `\n*Subject:* ${subject}`;
-      }
-      waMessage += `\n\n*Message:* ${messageText}`;
+      const nameInput = contactForm.querySelector('#name');
+      const emailInput = contactForm.querySelector('#email');
+      const projectTypeInput = contactForm.querySelector('#project-type') || contactForm.querySelector('#subject');
+      const messageInput = contactForm.querySelector('#message');
 
-      // WhatsApp URL (using phone number +91 95096 28808 -> 919509628808)
-      const waUrl = `https://wa.me/919509628808?text=${encodeURIComponent(waMessage)}`;
+      const fields = [
+        { field: nameInput, validate: (v) => v.trim().length > 0 },
+        { field: emailInput, validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) },
+        { field: projectTypeInput, validate: (v) => v.trim().length > 0 },
+        { field: messageInput, validate: (v) => v.trim().length > 0 }
+      ];
 
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerText;
-      submitBtn.innerText = 'Redirecting to WhatsApp...';
-      submitBtn.disabled = true;
+      fields.forEach(item => {
+        if (!item.field) return;
+        const parent = item.field.parentElement;
+        const errorMsg = parent ? parent.querySelector('.field-error-msg') : null;
+        if (!item.validate(item.field.value)) {
+          isValid = false;
+          item.field.style.borderColor = '#b91c1c';
+          if (errorMsg) errorMsg.style.display = 'block';
+        } else {
+          item.field.style.borderColor = 'var(--color-sandstone)';
+          if (errorMsg) errorMsg.style.display = 'none';
+        }
+      });
 
-      // Redirect in a new tab
-      setTimeout(() => {
-        window.open(waUrl, '_blank');
-        submitBtn.innerText = 'Sent';
-        contactForm.reset();
-        
+      if (isValid) {
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerText = 'Sending...';
+        }
+
         setTimeout(() => {
-          submitBtn.innerText = originalText;
-          submitBtn.disabled = false;
-        }, 3000);
-      }, 1000);
+          if (submitBtn) submitBtn.style.display = 'none';
+          if (formConfirmation) {
+            formConfirmation.style.display = 'block';
+          }
+          contactForm.reset();
+        }, 500);
+      }
     });
   }
 
-  // Signature typing-in animation for Contact page ellipsis
-  const animatedEllipsis = document.querySelector('.animated-ellipsis');
-  const contactFormSection = document.querySelector('.contact-form-section');
-  if (animatedEllipsis) {
-    animatedEllipsis.textContent = '';
-    let dotStep = 0;
-    const dotInterval = setInterval(() => {
-      dotStep++;
-      if (dotStep === 1) animatedEllipsis.textContent = '.';
-      else if (dotStep === 2) animatedEllipsis.textContent = '..';
-      else if (dotStep === 3) {
-        animatedEllipsis.textContent = '…';
-        clearInterval(dotInterval);
-        if (contactFormSection) {
-          contactFormSection.classList.add('form-fade-in');
-        }
+  // FAQ Modal Popup Navigation Handler
+  const faqTriggers = document.querySelectorAll('[data-faq-trigger]');
+  const faqModal = document.getElementById('faq-modal');
+  const faqCloseElements = document.querySelectorAll('[data-faq-close]');
+
+  if (faqModal) {
+    const openFaqModal = (e) => {
+      if (e) e.preventDefault();
+      faqModal.classList.add('is-active');
+      faqModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      // Close mobile menu if open
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      if (menuToggle && mobileNav) {
+        menuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
       }
-    }, 350);
+    };
+
+    const closeFaqModal = () => {
+      faqModal.classList.remove('is-active');
+      faqModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    faqTriggers.forEach(trigger => {
+      trigger.addEventListener('click', openFaqModal);
+    });
+
+    faqCloseElements.forEach(element => {
+      element.addEventListener('click', closeFaqModal);
+    });
+
+    // Close modal if links inside modal (e.g. Start a conversation) are clicked
+    faqModal.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        if (href === currentPage) {
+          e.preventDefault();
+          closeFaqModal();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          closeFaqModal();
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && faqModal.classList.contains('is-active')) {
+        closeFaqModal();
+      }
+    });
   }
 });
