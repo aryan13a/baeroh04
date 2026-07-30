@@ -7228,7 +7228,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 }
 
 .page-contact .contact-closing {
-  padding: 64px 0 72px;
+  padding: 64px 0 24px;
   background: var(--color-ivory);
   text-align: center;
 }
@@ -7398,7 +7398,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 
   .page-contact .contact-closing {
-    padding: 48px 0 54px;
+    padding: 48px 0 18px;
   }
 
   .page-contact .contact-closing h2 {
