@@ -906,46 +906,91 @@ document.addEventListener('DOMContentLoaded', () => {
   const formConfirmation = document.getElementById('form-confirmation');
 
   if (contactForm) {
+    const clearFieldError = field => {
+      if (!field) return;
+      const parent = field.closest('.form-group');
+      const errorMsg = parent ? parent.querySelector('.field-error-msg') : null;
+      field.classList.remove('is-invalid');
+      field.style.borderColor = '';
+      if (errorMsg) errorMsg.style.display = 'none';
+    };
+
+    contactForm.addEventListener('input', event => {
+      const field = event.target;
+      if (!(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement)) return;
+
+      if (field.name === 'project_type') {
+        const projectTypeField = field.closest('.contact-project-type');
+        const errorMsg = projectTypeField ? projectTypeField.querySelector('.field-error-msg') : null;
+        projectTypeField?.classList.remove('is-invalid');
+        if (errorMsg) errorMsg.style.display = 'none';
+        return;
+      }
+
+      clearFieldError(field);
+    });
+
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       let isValid = true;
 
       const nameInput = contactForm.querySelector('#name');
       const emailInput = contactForm.querySelector('#email');
-      const projectTypeInput = contactForm.querySelector('#project-type') || contactForm.querySelector('#subject');
+      const projectTypeInput = contactForm.querySelector('input[name="project_type"]:checked');
+      const projectTypeField = contactForm.querySelector('.contact-project-type');
+      const projectLocationInput = contactForm.querySelector('#project-location');
       const messageInput = contactForm.querySelector('#message');
+      const projectSizeInput = contactForm.querySelector('#project-size');
+      const projectTimelineInput = contactForm.querySelector('#project-timeline');
 
       const fields = [
         { field: nameInput, validate: (v) => v.trim().length > 0 },
         { field: emailInput, validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) },
-        { field: projectTypeInput, validate: (v) => v.trim().length > 0 },
+        { field: projectLocationInput, validate: (v) => v.trim().length > 0 },
         { field: messageInput, validate: (v) => v.trim().length > 0 }
       ];
 
       fields.forEach(item => {
         if (!item.field) return;
-        const parent = item.field.parentElement;
+        const parent = item.field.closest('.form-group');
         const errorMsg = parent ? parent.querySelector('.field-error-msg') : null;
         if (!item.validate(item.field.value)) {
           isValid = false;
-          item.field.style.borderColor = '#b91c1c';
+          item.field.classList.add('is-invalid');
+          item.field.style.borderColor = 'var(--color-cinnamon-deep)';
           if (errorMsg) errorMsg.style.display = 'block';
         } else {
-          item.field.style.borderColor = 'var(--color-sandstone)';
+          item.field.classList.remove('is-invalid');
+          item.field.style.borderColor = '';
           if (errorMsg) errorMsg.style.display = 'none';
         }
       });
 
+      const projectTypeError = projectTypeField ? projectTypeField.querySelector('.field-error-msg') : null;
+      projectTypeField?.classList.toggle('is-invalid', !projectTypeInput);
+      if (projectTypeError) projectTypeError.style.display = projectTypeInput ? 'none' : 'block';
+      if (!projectTypeInput) isValid = false;
+
       if (isValid) {
         const whatsappNumber = '919509628808';
-        const whatsappMessage = [
+        const whatsappLines = [
           'Hello Baeroh, I’d like to start a conversation.',
           '',
           `Name: ${nameInput.value.trim()}`,
           `Email: ${emailInput.value.trim()}`,
           `Project type: ${projectTypeInput.value.trim()}`,
-          `Message: ${messageInput.value.trim()}`
-        ].join('\n');
+          `Project location: ${projectLocationInput.value.trim()}`,
+          `What I’m imagining: ${messageInput.value.trim()}`
+        ];
+
+        if (projectSizeInput?.value.trim()) {
+          whatsappLines.push(`Approximate project size: ${projectSizeInput.value.trim()}`);
+        }
+        if (projectTimelineInput?.value.trim()) {
+          whatsappLines.push(`Preferred starting timeline: ${projectTimelineInput.value.trim()}`);
+        }
+
+        const whatsappMessage = whatsappLines.join('\n');
         const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
         if (formConfirmation) {
