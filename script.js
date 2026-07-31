@@ -134,7 +134,11 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.addEventListener('click', () => {
       menuToggle.classList.toggle('active');
       mobileNav.classList.toggle('active');
-      document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+      const isMenuOpen = mobileNav.classList.contains('active');
+      menuToggle.setAttribute('aria-expanded', String(isMenuOpen));
+      mobileNav.setAttribute('aria-hidden', String(!isMenuOpen));
+      header?.classList.toggle('menu-open', isMenuOpen);
+      document.body.style.overflow = isMenuOpen ? 'hidden' : '';
     });
 
     // Close mobile menu when clicking links
@@ -142,6 +146,9 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         menuToggle.classList.remove('active');
         mobileNav.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        header?.classList.remove('menu-open');
         document.body.style.overflow = '';
       });
     });
@@ -1006,6 +1013,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const faqModal = document.getElementById('faq-modal');
 
   if (faqModal) {
+    const faqIsPage = faqModal.hasAttribute('data-faq-page');
     const faqItems = [
       {
         category: 'getting-started',
@@ -1367,11 +1375,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const initializeFaq = () => {
       modalContainer.setAttribute('tabindex', '-1');
       modalContainer.setAttribute('role', 'document');
-      faqModal.setAttribute('aria-modal', 'true');
+      if (faqIsPage) {
+        faqModal.setAttribute('role', 'region');
+        faqModal.removeAttribute('aria-modal');
+      } else {
+        faqModal.setAttribute('aria-modal', 'true');
+      }
       modalContainer.innerHTML = `
         <div class="faq-editorial-left">
           <div class="faq-left-intro">
-            <span class="faq-wordmark">BAEROH</span>
+            <img class="faq-brand-logo" src="assets/logo.png" alt="Baeroh">
             <h2 class="faq-editorial-title" id="faq-modal-title" tabindex="-1">
               <span>Questions,</span>
               <span>Answered</span>
@@ -1440,6 +1453,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const closeFaqModal = (afterClose = null) => {
+      if (faqIsPage) return;
       if (!faqModal.classList.contains('is-active')) return;
       window.clearTimeout(closeTimer);
       faqModal.classList.remove('is-active');
@@ -1456,6 +1470,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const goToContact = () => {
+      if (faqIsPage) {
+        window.location.href = 'contact.html#contact-form';
+        return;
+      }
+
       const currentPage = window.location.pathname.split('/').pop() || 'index.html';
       const isContactPage = currentPage === 'contact.html';
 
@@ -1484,6 +1503,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const openFaqModal = (event) => {
+      if (faqIsPage) return;
+      if (window.matchMedia('(max-width: 768px)').matches) return;
       event?.preventDefault();
       if (!isInitialized) initializeFaq();
       window.clearTimeout(closeTimer);
@@ -1497,6 +1518,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const mobileNav = document.querySelector('.mobile-nav');
       menuToggle?.classList.remove('active');
       mobileNav?.classList.remove('active');
+      menuToggle?.setAttribute('aria-expanded', 'false');
+      mobileNav?.setAttribute('aria-hidden', 'true');
+      document.querySelector('header')?.classList.remove('menu-open');
 
       window.requestAnimationFrame(() => {
         faqModal.classList.add('is-active');
@@ -1513,11 +1537,13 @@ document.addEventListener('DOMContentLoaded', () => {
       )
     ).filter(element => !element.hasAttribute('hidden') && element.offsetParent !== null);
 
-    faqTriggers.forEach(trigger => {
-      trigger.addEventListener('click', openFaqModal);
-    });
+    if (!faqIsPage) {
+      faqTriggers.forEach(trigger => {
+        trigger.addEventListener('click', openFaqModal);
+      });
+    }
 
-    modalOverlay.addEventListener('click', () => closeFaqModal());
+    modalOverlay?.addEventListener('click', () => closeFaqModal());
 
     modalContainer.addEventListener('input', (event) => {
       if (event.target !== searchInput) return;
@@ -1565,6 +1591,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('keydown', (event) => {
+      if (faqIsPage) return;
       if (!faqModal.classList.contains('is-active')) return;
 
       if (event.key === 'Escape') {
@@ -1591,6 +1618,22 @@ document.addEventListener('DOMContentLoaded', () => {
         firstElement.focus();
       }
     });
+
+    if (faqIsPage) {
+      initializeFaq();
+      faqModal.setAttribute('aria-hidden', 'false');
+      faqModal.classList.add('is-active');
+    } else if (
+      window.location.hash === '#faq'
+      && !window.matchMedia('(max-width: 768px)').matches
+    ) {
+      openFaqModal();
+      window.history.replaceState(
+        null,
+        '',
+        `${window.location.pathname}${window.location.search}`
+      );
+    }
   }
 
 });
