@@ -1001,13 +1001,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // FAQ Editorial Booklet
+  // FAQ Premium Split Modal
   const faqTriggers = document.querySelectorAll('[data-faq-trigger]');
   const faqModal = document.getElementById('faq-modal');
 
   if (faqModal) {
     const faqItems = [
       {
+        category: 'getting-started',
         question: 'How do we start working together?',
         answer: [
           'It begins with a conversation. We meet, in person or on a call, to understand the space, how you live or work, and what you are hoping for.',
@@ -1015,6 +1016,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
       },
       {
+        category: 'getting-started',
         question: 'Where do you take on projects?',
         answer: [
           'Our studio is in Jaipur, and right now we are focused on projects across Rajasthan and Punjab. It lets us stay close to our sites and the craftspeople we work with.',
@@ -1022,12 +1024,14 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
       },
       {
+        category: 'getting-started',
         question: 'What kinds of spaces do you design?',
         answer: [
           'Homes, workplaces, hospitality and retail spaces. Whether the space is brand new or already lived in, our approach is the same: we understand the people first, then design around them.'
         ]
       },
       {
+        category: 'working-together',
         question: 'What does a project with Baeroh actually involve?',
         answer: [
           'We stay closely involved from the first conversation to the final walkthrough. That usually means understanding your brief, planning the layout and budget, resolving the design room by room, refining the details, and coordinating the people who bring it to life on site.',
@@ -1035,6 +1039,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
       },
       {
+        category: 'execution',
         question: 'Do you handle the building work, or only the design?',
         answer: [
           'Both, if you would like us to. We offer turnkey execution, which means we coordinate the consultants, contractors and craftspeople and see the project through on site, so you are not left managing trades yourself.',
@@ -1042,6 +1047,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
       },
       {
+        category: 'time-cost',
         question: 'How long does a project take?',
         answer: [
           'It depends entirely on the size and nature of the space, and we will give you a realistic timeline in your proposal rather than a hopeful one.',
@@ -1049,6 +1055,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
       },
       {
+        category: 'time-cost',
         question: 'How do you charge?',
         answer: [
           'Our fee depends on the scope and scale of the work, so we prefer to quote against your specific project rather than publish a single number that would not fit anyone.',
@@ -1056,6 +1063,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
       },
       {
+        category: 'time-cost',
         question: 'Is there a minimum project size?',
         answer: [
           'We take on a considered number of projects at a time so that each receives real attention. That means we are not always the right choice for very small, single-room jobs, but the honest answer is that it depends on the project.',
@@ -1063,6 +1071,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
       },
       {
+        category: 'trust',
         question: 'We have never worked with a designer before. Is that a problem?',
         answer: [
           'Not at all. Most of the people we work with are doing this for the first time, and a good part of our role is simply to reduce the uncertainty of it.',
@@ -1070,6 +1079,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
       },
       {
+        category: 'trust',
         question: 'What does the name Baeroh mean?',
         answer: [
           'In the Rajasthani dialect, “baero” means to know. Not knowing in the ordinary sense, but the quiet certainty in a voice that says: I know the way, don’t worry, we’re here now.',
@@ -1077,6 +1087,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
       },
       {
+        category: 'working-together',
         question: 'How involved will I need to be?',
         answer: [
           'As much as you would like, and never more than you are comfortable with. Some clients want to weigh in on every material; others prefer to trust us with the detail once the direction is set.',
@@ -1084,6 +1095,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
       },
       {
+        category: 'working-together',
         question: 'Can you help if we are outside your location?',
         answer: [
           'Yes, depending on the project. We begin with a conversation to understand the scope, location and level of site involvement the work will need.',
@@ -1092,212 +1104,315 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     ];
 
+    const faqCategories = [
+      { id: 'getting-started', label: 'Getting Started' },
+      { id: 'working-together', label: 'Working Together' },
+      { id: 'execution', label: 'Execution' },
+      { id: 'time-cost', label: 'Time and Cost' },
+      { id: 'trust', label: 'Trust' }
+    ];
+
     const modalContainer = faqModal.querySelector('.faq-modal-container');
     const modalOverlay = faqModal.querySelector('.faq-modal-overlay');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const transitionDelay = reducedMotion ? 0 : 180;
+    const answerTransitionDelay = reducedMotion ? 0 : 150;
     const closeDelay = reducedMotion ? 0 : 450;
-    const arrowLeft = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="m11 18-6-6 6-6"></path></svg>';
-    const arrowRight = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>';
+    const searchIcon = `
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="11" cy="11" r="6.5"></circle>
+        <path d="m16 16 4 4"></path>
+      </svg>
+    `;
+    const closeIcon = `
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+        <path d="M5 5l14 14"></path>
+        <path d="M19 5 5 19"></path>
+      </svg>
+    `;
 
-    let faqStage;
-    let closeButton;
     let activeTrigger = null;
-    let currentIndex = 0;
-    let currentView = 'list';
+    let activeIndex = 0;
+    let expandedAccordionIndex = null;
+    let searchTerm = '';
     let savedScrollY = 0;
-    let transitionTimer = null;
-    let closeTimer = null;
-    let touchStartX = 0;
-    let touchStartY = 0;
     let bodyStyleState = null;
+    let closeTimer = null;
+    let answerTimer = null;
     let isInitialized = false;
+    const openCategories = new Set(['getting-started']);
+
+    let searchInput;
+    let categoryHost;
+    let noResults;
+    let rightScroll;
+    let rightContent;
 
     const padNumber = (number) => String(number).padStart(2, '0');
-    const currentCounter = (index) => `${padNumber(index + 1)} / ${padNumber(faqItems.length)}`;
+    const normalizedText = (value) => value.toLocaleLowerCase().trim();
+    const itemSearchText = (item) => normalizedText(`${item.question} ${item.answer.join(' ')}`);
+    const categoryForItem = (index) => faqItems[index].category;
+    const categoryIndices = (categoryId) => faqItems
+      .map((item, index) => ({ item, index }))
+      .filter(entry => entry.item.category === categoryId)
+      .map(entry => entry.index);
 
-    const dotsMarkup = (activeIndex) => `
-      <div class="faq-dots" aria-label="FAQ question navigation">
-        ${faqItems.map((item, index) => `
-          <button
-            class="faq-dot${index === activeIndex ? ' is-active' : ''}"
-            type="button"
-            data-faq-dot="${index}"
-            aria-label="Open question ${index + 1}: ${item.question}"
-            ${index === activeIndex ? 'aria-current="true"' : ''}
-          ></button>
-        `).join('')}
-      </div>
-    `;
+    const getFilteredIndices = () => {
+      const query = normalizedText(searchTerm);
+      if (!query) return faqItems.map((_, index) => index);
+      return faqItems
+        .map((item, index) => ({ item, index }))
+        .filter(entry => itemSearchText(entry.item).includes(query))
+        .map(entry => entry.index);
+    };
 
-    const listMarkup = () => `
-      <section class="faq-view faq-view--list" aria-labelledby="faq-modal-title">
-        <header class="faq-list-header">
-          <span class="faq-counter">01 / ${padNumber(faqItems.length)}</span>
-          <h2 class="faq-list-title" id="faq-modal-title" tabindex="-1">
-            <span>Questions,</span>
-            <span>Answered</span>
-          </h2>
-          <p class="faq-list-intro">Everything people quietly wonder<br>before they begin.</p>
-        </header>
+    const getRelatedIndices = (index) => {
+      const sameCategory = categoryIndices(categoryForItem(index)).filter(itemIndex => itemIndex !== index);
+      const nearby = faqItems
+        .map((_, itemIndex) => itemIndex)
+        .filter(itemIndex => itemIndex !== index && !sameCategory.includes(itemIndex))
+        .sort((a, b) => Math.abs(a - index) - Math.abs(b - index));
+      return [...sameCategory, ...nearby].slice(0, 3);
+    };
 
-        <div class="faq-list-scroll">
-          <div class="faq-list" role="list">
-            ${faqItems.map((item, index) => `
-              <div class="faq-list-entry" role="listitem">
-                <button
-                  class="faq-list-question"
-                  type="button"
-                  data-faq-index="${index}"
-                  aria-label="Read answer ${index + 1} of ${faqItems.length}: ${item.question}"
-                >
-                  <span class="faq-list-question-text">${item.question}</span>
-                  <span class="faq-list-plus" aria-hidden="true">+</span>
-                </button>
+    const readingTime = (item) => {
+      const wordCount = item.answer.join(' ').split(/\s+/).filter(Boolean).length;
+      return Math.max(1, Math.ceil(wordCount / 180));
+    };
+
+    const categoryMarkup = () => {
+      const filteredIndices = getFilteredIndices();
+      const hasQuery = Boolean(searchTerm.trim());
+
+      noResults.hidden = filteredIndices.length > 0;
+
+      return faqCategories.map(category => {
+        const indices = categoryIndices(category.id).filter(index => filteredIndices.includes(index));
+        if (hasQuery && !indices.length) return '';
+
+        const isActiveCategory = category.id === categoryForItem(activeIndex);
+        const isOpen = hasQuery || openCategories.has(category.id);
+
+        return `
+          <section class="faq-nav-group${isActiveCategory ? ' is-active' : ''}" data-faq-category-group="${category.id}">
+            <button
+              class="faq-nav-category"
+              type="button"
+              data-faq-category="${category.id}"
+              aria-expanded="${isOpen}"
+              aria-controls="faq-category-panel-${category.id}"
+            >
+              <span>${category.label}</span>
+              <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3">
+                <path d="m3 6 5 5 5-5"></path>
+              </svg>
+            </button>
+            <div
+              class="faq-nav-questions${isOpen ? ' is-open' : ''}"
+              id="faq-category-panel-${category.id}"
+              aria-hidden="${!isOpen}"
+            >
+              <div>
+                ${indices.map(index => `
+                  <button
+                    class="faq-nav-question${index === activeIndex ? ' is-active' : ''}"
+                    type="button"
+                    data-faq-select="${index}"
+                    ${index === activeIndex ? 'aria-current="true"' : ''}
+                  >
+                    <span class="faq-nav-question-dot" aria-hidden="true"></span>
+                    <span>${faqItems[index].question}</span>
+                  </button>
+                `).join('')}
               </div>
-            `).join('')}
+            </div>
+          </section>
+        `;
+      }).join('');
+    };
+
+    const accordionMarkup = () => faqItems
+      .map((item, index) => ({ item, index }))
+      .filter(entry => entry.index !== activeIndex)
+      .map(({ item, index }) => {
+        const isExpanded = expandedAccordionIndex === index;
+        return `
+          <section class="faq-right-row${isExpanded ? ' is-open' : ''}">
+            <button
+              class="faq-right-question"
+              type="button"
+              data-faq-accordion="${index}"
+              aria-expanded="${isExpanded}"
+              aria-controls="faq-right-answer-${index}"
+            >
+              <span class="faq-right-number">${padNumber(index + 1)}</span>
+              <span class="faq-right-question-text">${item.question}</span>
+              <span class="faq-right-toggle" aria-hidden="true">${isExpanded ? '−' : '+'}</span>
+            </button>
+            <div
+              class="faq-right-answer-wrap"
+              id="faq-right-answer-${index}"
+              aria-hidden="${!isExpanded}"
+            >
+              <div>
+                <div class="faq-right-inline-answer">
+                  ${item.answer.map(paragraph => `<p>${paragraph}</p>`).join('')}
+                </div>
+              </div>
+            </div>
+          </section>
+        `;
+      }).join('');
+
+    const rightMarkup = () => {
+      const item = faqItems[activeIndex];
+      const relatedIndices = getRelatedIndices(activeIndex);
+
+      return `
+        <article class="faq-featured-answer" aria-labelledby="faq-active-question">
+          <div class="faq-featured-heading">
+            <span class="faq-featured-number">${padNumber(activeIndex + 1)}</span>
+            <h3 id="faq-active-question" tabindex="-1">${item.question}</h3>
+            <span class="faq-read-time">
+              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2">
+                <circle cx="10" cy="10" r="7"></circle>
+                <path d="M10 6v4l2.5 1.5"></path>
+              </svg>
+              ${readingTime(item)} min read
+            </span>
           </div>
+
+          <div class="faq-featured-divider" aria-hidden="true"></div>
+
+          <div class="faq-featured-copy">
+            ${item.answer.map(paragraph => `<p>${paragraph}</p>`).join('')}
+          </div>
+
+          <div class="faq-related">
+            <span class="faq-related-label">Related Questions</span>
+            <div class="faq-related-links">
+              ${relatedIndices.map(index => `
+                <button type="button" data-faq-select="${index}">
+                  <span>${faqItems[index].question}</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        </article>
+
+        <div class="faq-right-list" aria-label="More frequently asked questions">
+          ${accordionMarkup()}
         </div>
 
-        <footer class="faq-list-footer">
-          <strong>Still wondering something?</strong>
-          <p>We&rsquo;d rather answer it in person.</p>
-          <button class="faq-text-link" type="button" data-faq-contact>
-            Start a conversation <span aria-hidden="true">&rarr;</span>
+        <footer class="faq-closing">
+          <div>
+            <h3>Still wondering something?<br>Let&rsquo;s talk.</h3>
+          </div>
+          <button class="faq-closing-link" type="button" data-faq-contact>
+            Start a Conversation <span aria-hidden="true">&rarr;</span>
           </button>
         </footer>
-      </section>
-    `;
-
-    const answerMarkup = (index) => {
-      const item = faqItems[index];
-      return `
-        <section class="faq-view faq-view--answer" aria-labelledby="faq-modal-title">
-          <header class="faq-answer-topbar">
-            <button class="faq-back-button" type="button" data-faq-back aria-label="Back to all questions">
-              ${arrowLeft}<span>All questions</span>
-            </button>
-            <span class="faq-counter">${currentCounter(index)}</span>
-            <span aria-hidden="true"></span>
-          </header>
-
-          <div class="faq-answer-content">
-            <h2 class="faq-answer-question" id="faq-modal-title" tabindex="-1">${item.question}</h2>
-            <div class="faq-answer-divider" aria-hidden="true"></div>
-            <div class="faq-answer-copy">
-              ${item.answer.map(paragraph => `<p>${paragraph}</p>`).join('')}
-            </div>
-          </div>
-
-          <footer class="faq-answer-footer">
-            <div class="faq-answer-nav-row">
-              <button
-                class="faq-answer-nav-button faq-answer-nav-button--prev"
-                type="button"
-                data-faq-prev
-                ${index === 0 ? 'disabled' : ''}
-              >
-                ${arrowLeft}<span>Previous Question</span>
-              </button>
-              <button
-                class="faq-answer-nav-button faq-answer-nav-button--next"
-                type="button"
-                data-faq-next
-              >
-                <span>Next Question</span>${arrowRight}
-              </button>
-            </div>
-            ${dotsMarkup(index)}
-          </footer>
-        </section>
       `;
     };
 
-    const finalMarkup = () => `
-      <section class="faq-view faq-view--final" aria-labelledby="faq-modal-title">
-        <header class="faq-answer-topbar">
-          <button class="faq-back-button" type="button" data-faq-final-back aria-label="Back to the last question">
-            ${arrowLeft}<span>Last question</span>
-          </button>
-          <span class="faq-counter">${padNumber(faqItems.length)} / ${padNumber(faqItems.length)}</span>
-          <span aria-hidden="true"></span>
-        </header>
+    const renderCategories = () => {
+      categoryHost.innerHTML = categoryMarkup();
+    };
 
-        <div class="faq-answer-content">
-          <svg class="faq-final-ornament" aria-hidden="true" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 64c17-12 29-30 39-51"></path>
-            <path d="M29 51c-9-1-14-6-15-14 9 1 14 5 15 14Z"></path>
-            <path d="M40 37c-8-3-11-9-10-17 8 3 12 9 10 17Z"></path>
-            <path d="M47 29c8 0 13-4 16-11-8-1-14 3-16 11Z"></path>
-            <path d="M35 45c8 1 14-2 18-9-8-2-14 1-18 9Z"></path>
-          </svg>
-          <h2 class="faq-final-title" id="faq-modal-title" tabindex="-1">Still wondering something?</h2>
-          <p class="faq-final-copy">We&rsquo;d rather answer it in person.</p>
-          <a class="btn btn-primary faq-final-cta" href="contact.html#contact-form" data-faq-contact>
-            Start a Conversation <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
+    const renderRight = ({ focusHeading = false, preserveScroll = false } = {}) => {
+      const scrollTop = preserveScroll ? rightScroll.scrollTop : 0;
+      rightContent.innerHTML = rightMarkup();
+      rightScroll.scrollTop = scrollTop;
 
-        <footer class="faq-answer-footer">
-          ${dotsMarkup(faqItems.length - 1)}
-        </footer>
-      </section>
-    `;
+      if (focusHeading) {
+        window.requestAnimationFrame(() => {
+          rightContent.querySelector('#faq-active-question')?.focus({ preventScroll: true });
+        });
+      }
+    };
 
-    const focusAfterRender = (selector) => {
+    const selectQuestion = (index, { focusHeading = true } = {}) => {
+      const nextIndex = Math.max(0, Math.min(index, faqItems.length - 1));
+      window.clearTimeout(answerTimer);
+      activeIndex = nextIndex;
+      expandedAccordionIndex = null;
+      openCategories.add(categoryForItem(activeIndex));
+      renderCategories();
+      rightContent.classList.add('is-changing');
+
+      answerTimer = window.setTimeout(() => {
+        renderRight({ focusHeading });
+        window.requestAnimationFrame(() => {
+          rightContent.classList.remove('is-changing');
+        });
+      }, answerTransitionDelay);
+    };
+
+    const toggleAccordion = (index) => {
+      expandedAccordionIndex = expandedAccordionIndex === index ? null : index;
+      renderRight({ preserveScroll: true });
+
       window.requestAnimationFrame(() => {
-        const target = modalContainer.querySelector(selector);
-        if (target) target.focus({ preventScroll: true });
+        const button = rightContent.querySelector(`[data-faq-accordion="${index}"]`);
+        button?.focus({ preventScroll: true });
+        if (expandedAccordionIndex === index) {
+          button?.scrollIntoView({
+            behavior: reducedMotion ? 'auto' : 'smooth',
+            block: 'nearest'
+          });
+        }
       });
     };
 
-    const renderList = (focusIndex = null) => {
-      currentView = 'list';
-      faqStage.innerHTML = listMarkup();
-      if (Number.isInteger(focusIndex)) {
-        focusAfterRender(`[data-faq-index="${focusIndex}"]`);
-      }
-    };
+    const initializeFaq = () => {
+      modalContainer.setAttribute('tabindex', '-1');
+      modalContainer.setAttribute('role', 'document');
+      faqModal.setAttribute('aria-modal', 'true');
+      modalContainer.innerHTML = `
+        <div class="faq-editorial-left">
+          <div class="faq-left-intro">
+            <span class="faq-wordmark">BAEROH</span>
+            <h2 class="faq-editorial-title" id="faq-modal-title" tabindex="-1">
+              <span>Questions,</span>
+              <span>Answered</span>
+            </h2>
+            <p>Everything people quietly wonder<br>before they begin.</p>
+          </div>
 
-    const renderAnswer = (index) => {
-      currentIndex = Math.max(0, Math.min(index, faqItems.length - 1));
-      currentView = 'answer';
-      faqStage.innerHTML = answerMarkup(currentIndex);
-      focusAfterRender('.faq-answer-question');
-    };
+          <div class="faq-search">
+            <label for="faq-search-input">Search frequently asked questions</label>
+            ${searchIcon}
+            <input
+              id="faq-search-input"
+              type="search"
+              autocomplete="off"
+              placeholder="What would you like to know?"
+            >
+          </div>
 
-    const renderFinal = () => {
-      currentView = 'final';
-      faqStage.innerHTML = finalMarkup();
-      focusAfterRender('.faq-final-title');
-    };
+          <p class="faq-no-results" role="status" aria-live="polite" hidden>No matching questions</p>
+          <nav class="faq-category-nav" aria-label="FAQ categories"></nav>
+        </div>
 
-    const transitionTo = (renderView) => {
-      window.clearTimeout(transitionTimer);
-      faqStage.classList.add('is-transitioning');
-      transitionTimer = window.setTimeout(() => {
-        renderView();
-        window.requestAnimationFrame(() => {
-          faqStage.classList.remove('is-transitioning');
-        });
-      }, transitionDelay);
-    };
+        <section class="faq-editorial-right" aria-label="FAQ answers">
+          <button class="faq-modal-close" type="button" data-faq-close aria-label="Close FAQ">
+            ${closeIcon}
+          </button>
+          <div class="faq-right-scroll">
+            <div class="faq-right-content" aria-live="polite"></div>
+          </div>
+        </section>
+      `;
 
-    const showPrevious = () => {
-      if (currentView === 'final') {
-        transitionTo(() => renderAnswer(faqItems.length - 1));
-      } else if (currentView === 'answer' && currentIndex > 0) {
-        transitionTo(() => renderAnswer(currentIndex - 1));
-      }
-    };
+      searchInput = modalContainer.querySelector('#faq-search-input');
+      categoryHost = modalContainer.querySelector('.faq-category-nav');
+      noResults = modalContainer.querySelector('.faq-no-results');
+      rightScroll = modalContainer.querySelector('.faq-right-scroll');
+      rightContent = modalContainer.querySelector('.faq-right-content');
 
-    const showNext = () => {
-      if (currentView !== 'answer') return;
-      if (currentIndex < faqItems.length - 1) {
-        transitionTo(() => renderAnswer(currentIndex + 1));
-      } else {
-        transitionTo(renderFinal);
-      }
+      renderCategories();
+      renderRight();
+      isInitialized = true;
     };
 
     const lockPageScroll = () => {
@@ -1324,25 +1439,6 @@ document.addEventListener('DOMContentLoaded', () => {
       bodyStyleState = null;
     };
 
-    const initializeFaq = () => {
-      modalContainer.setAttribute('tabindex', '-1');
-      modalContainer.setAttribute('role', 'document');
-      faqModal.setAttribute('aria-modal', 'true');
-      modalContainer.innerHTML = `
-        <button class="faq-modal-close" type="button" data-faq-close aria-label="Close Questions, Answered">
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <path d="M6 6l12 12"></path>
-            <path d="M18 6 6 18"></path>
-          </svg>
-        </button>
-        <div class="faq-modal-stage" data-faq-stage aria-live="polite"></div>
-      `;
-      closeButton = modalContainer.querySelector('[data-faq-close]');
-      faqStage = modalContainer.querySelector('[data-faq-stage]');
-      renderList();
-      isInitialized = true;
-    };
-
     const closeFaqModal = (afterClose = null) => {
       if (!faqModal.classList.contains('is-active')) return;
       window.clearTimeout(closeTimer);
@@ -1365,48 +1461,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
       closeFaqModal(() => {
         if (isContactPage) {
-          const contactTarget = document.getElementById('contact-form') || document.querySelector('.contact-section-inner');
-          if (contactTarget) {
-            contactTarget.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
-          }
+          document.getElementById('contact-form')?.scrollIntoView({
+            behavior: reducedMotion ? 'auto' : 'smooth',
+            block: 'start'
+          });
         } else {
           window.location.href = 'contact.html#contact-form';
         }
       });
     };
 
+    const resetFaqState = () => {
+      activeIndex = 0;
+      expandedAccordionIndex = null;
+      searchTerm = '';
+      openCategories.clear();
+      openCategories.add('getting-started');
+      if (searchInput) searchInput.value = '';
+      renderCategories();
+      renderRight();
+      rightScroll.scrollTop = 0;
+    };
+
     const openFaqModal = (event) => {
-      if (event) event.preventDefault();
+      event?.preventDefault();
       if (!isInitialized) initializeFaq();
       window.clearTimeout(closeTimer);
 
-      activeTrigger = event ? event.currentTarget : document.activeElement;
-      renderList();
+      activeTrigger = event?.currentTarget || document.activeElement;
+      resetFaqState();
       faqModal.setAttribute('aria-hidden', 'false');
       lockPageScroll();
 
       const menuToggle = document.querySelector('.menu-toggle');
       const mobileNav = document.querySelector('.mobile-nav');
-      if (menuToggle && mobileNav) {
-        menuToggle.classList.remove('active');
-        mobileNav.classList.remove('active');
-      }
+      menuToggle?.classList.remove('active');
+      mobileNav?.classList.remove('active');
 
       window.requestAnimationFrame(() => {
         faqModal.classList.add('is-active');
       });
 
       window.setTimeout(() => {
-        const modalTitle = modalContainer.querySelector('#faq-modal-title');
-        if (modalTitle) modalTitle.focus({ preventScroll: true });
+        modalContainer.querySelector('#faq-modal-title')?.focus({ preventScroll: true });
       }, reducedMotion ? 0 : 460);
     };
 
     const getFocusableElements = () => Array.from(
       modalContainer.querySelectorAll(
-        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        'a[href], input:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])'
       )
-    ).filter(element => !element.hasAttribute('hidden'));
+    ).filter(element => !element.hasAttribute('hidden') && element.offsetParent !== null);
 
     faqTriggers.forEach(trigger => {
       trigger.addEventListener('click', openFaqModal);
@@ -1414,42 +1519,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     modalOverlay.addEventListener('click', () => closeFaqModal());
 
+    modalContainer.addEventListener('input', (event) => {
+      if (event.target !== searchInput) return;
+      searchTerm = searchInput.value;
+      renderCategories();
+    });
+
     modalContainer.addEventListener('click', (event) => {
       if (event.target.closest('[data-faq-close]')) {
         closeFaqModal();
         return;
       }
 
-      const questionButton = event.target.closest('[data-faq-index]');
-      if (questionButton) {
-        const index = Number(questionButton.dataset.faqIndex);
-        transitionTo(() => renderAnswer(index));
+      const categoryButton = event.target.closest('[data-faq-category]');
+      if (categoryButton) {
+        const categoryId = categoryButton.dataset.faqCategory;
+        if (openCategories.has(categoryId)) {
+          openCategories.delete(categoryId);
+        } else {
+          openCategories.add(categoryId);
+        }
+        renderCategories();
+        modalContainer
+          .querySelector(`[data-faq-category="${categoryId}"]`)
+          ?.focus({ preventScroll: true });
         return;
       }
 
-      if (event.target.closest('[data-faq-back]')) {
-        transitionTo(() => renderList(currentIndex));
+      const selectButton = event.target.closest('[data-faq-select]');
+      if (selectButton) {
+        selectQuestion(Number(selectButton.dataset.faqSelect));
         return;
       }
 
-      if (event.target.closest('[data-faq-prev]')) {
-        showPrevious();
-        return;
-      }
-
-      if (event.target.closest('[data-faq-next]')) {
-        showNext();
-        return;
-      }
-
-      if (event.target.closest('[data-faq-final-back]')) {
-        transitionTo(() => renderAnswer(faqItems.length - 1));
-        return;
-      }
-
-      const dot = event.target.closest('[data-faq-dot]');
-      if (dot) {
-        transitionTo(() => renderAnswer(Number(dot.dataset.faqDot)));
+      const accordionButton = event.target.closest('[data-faq-accordion]');
+      if (accordionButton) {
+        toggleAccordion(Number(accordionButton.dataset.faqAccordion));
         return;
       }
 
@@ -1459,42 +1564,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    modalContainer.addEventListener('touchstart', (event) => {
-      if (event.touches.length !== 1) return;
-      touchStartX = event.touches[0].clientX;
-      touchStartY = event.touches[0].clientY;
-    }, { passive: true });
-
-    modalContainer.addEventListener('touchend', (event) => {
-      if (!event.changedTouches.length || (currentView !== 'answer' && currentView !== 'final')) return;
-      const deltaX = event.changedTouches[0].clientX - touchStartX;
-      const deltaY = event.changedTouches[0].clientY - touchStartY;
-      if (Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY) * 1.2) return;
-      if (deltaX < 0) {
-        showNext();
-      } else {
-        showPrevious();
-      }
-    }, { passive: true });
-
     document.addEventListener('keydown', (event) => {
       if (!faqModal.classList.contains('is-active')) return;
 
       if (event.key === 'Escape') {
         event.preventDefault();
         closeFaqModal();
-        return;
-      }
-
-      if (event.key === 'ArrowLeft' && (currentView === 'answer' || currentView === 'final')) {
-        event.preventDefault();
-        showPrevious();
-        return;
-      }
-
-      if (event.key === 'ArrowRight' && currentView === 'answer') {
-        event.preventDefault();
-        showNext();
         return;
       }
 
@@ -1516,6 +1591,6 @@ document.addEventListener('DOMContentLoaded', () => {
         firstElement.focus();
       }
     });
-
   }
+
 });
