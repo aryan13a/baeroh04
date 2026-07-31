@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const resetInterval = () => {
       clearInterval(slideInterval);
-      slideInterval = setInterval(nextSlide, 7000); // 7 seconds per slide
+      slideInterval = setInterval(nextSlide, 10000); // 10 seconds per slide
     };
 
     resetInterval();
