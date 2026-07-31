@@ -15,7 +15,7 @@
   <style>html.site-loader-enabled { background: #3E312B; }</style>
   <title>Contact | Baeroh Interior Architecture & Design</title>
   <meta name="description" content="Get in touch with Baeroh. Start a conversation about your interior architecture or design project in Jaipur, Rajasthan or globally.">
-  <link rel="stylesheet" href="style.css?v=8.4">
+  <link rel="stylesheet" href="style.css?v=8.6">
   <link rel="icon" type="image/png" href="assets/favicon.png?v=6.0">
 </head>
 <body class="page-contact">
@@ -37,12 +37,12 @@
         <a href="work.html">Work</a>
         <a href="studio.html">Studio</a>
         <a href="services.html">Services</a>
-        <a href="#" data-faq-trigger>FAQ</a>
+        <a href="faq.html" data-faq-trigger>FAQ</a>
         <a href="contact.html" class="active">Contact</a>
       </nav>
       
       <div style="display: flex; align-items: center; gap: 30px;">
-        <button class="menu-toggle" aria-label="Toggle Menu">
+        <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-menu">
           <span></span>
           <span></span>
           <span></span>
@@ -52,12 +52,12 @@
   </header>
 
   <!-- Mobile Menu -->
-  <div class="mobile-nav">
+  <div class="mobile-nav" id="mobile-menu" aria-hidden="true">
     <a href="index.html">Home</a>
     <a href="work.html">Work</a>
     <a href="studio.html">Studio</a>
     <a href="services.html">Services</a>
-    <a href="#" data-faq-trigger>FAQ</a>
+    <a href="faq.html" data-faq-trigger>FAQ</a>
     <a href="contact.html">Contact</a>
   </div>
 
@@ -228,7 +228,7 @@
           <li><a href="work.html">Work</a></li>
           <li><a href="studio.html">Studio</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="#" data-faq-trigger>FAQ</a></li>
+          <li><a href="faq.html" data-faq-trigger>FAQ</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -364,6 +364,6 @@
   </script>
 
   <!-- Scripts -->
-  <script src="script.js?v=7.5"></script>
+  <script src="script.js?v=7.7"></script>
 </body>
 </html>
