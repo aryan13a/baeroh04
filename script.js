@@ -163,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const dotsContainer = document.querySelector('.slider-dots');
   let currentSlide = 0;
   let slideInterval;
+  let progressVisibilityTimer;
 
   if (slides.length > 0 && dotsContainer) {
     // Generate dots
@@ -177,6 +178,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const dots = document.querySelectorAll('.slider-dot');
+    const touchOnlyQuery = window.matchMedia('(hover: none)');
+
+    const brieflyRevealProgress = () => {
+      if (!touchOnlyQuery.matches) return;
+      window.clearTimeout(progressVisibilityTimer);
+      dotsContainer.classList.add('is-visible');
+      progressVisibilityTimer = window.setTimeout(() => {
+        dotsContainer.classList.remove('is-visible');
+      }, 1800);
+    };
 
     const goToSlide = (idx) => {
       slides[currentSlide].classList.remove('active');
@@ -187,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dots.forEach((dot, dotIndex) => {
         dot.setAttribute('aria-current', dotIndex === currentSlide ? 'true' : 'false');
       });
+      brieflyRevealProgress();
       resetInterval();
     };
 
@@ -200,6 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     resetInterval();
+    brieflyRevealProgress();
 
     // Arrows navigation support
     const prevBtn = document.querySelector('.prev-arrow');
