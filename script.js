@@ -131,12 +131,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.querySelector('.menu-toggle');
   const mobileNav = document.querySelector('.mobile-nav');
   if (menuToggle && mobileNav) {
+    mobileNav.inert = !mobileNav.classList.contains('active');
+
     menuToggle.addEventListener('click', () => {
       menuToggle.classList.toggle('active');
       mobileNav.classList.toggle('active');
       const isMenuOpen = mobileNav.classList.contains('active');
       menuToggle.setAttribute('aria-expanded', String(isMenuOpen));
       mobileNav.setAttribute('aria-hidden', String(!isMenuOpen));
+      mobileNav.inert = !isMenuOpen;
       header?.classList.toggle('menu-open', isMenuOpen);
       document.body.style.overflow = isMenuOpen ? 'hidden' : '';
     });
@@ -148,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileNav.classList.remove('active');
         menuToggle.setAttribute('aria-expanded', 'false');
         mobileNav.setAttribute('aria-hidden', 'true');
+        mobileNav.inert = true;
         header?.classList.remove('menu-open');
         document.body.style.overflow = '';
       });
@@ -163,8 +167,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (slides.length > 0 && dotsContainer) {
     // Generate dots
     slides.forEach((_, idx) => {
-      const dot = document.createElement('div');
+      const dot = document.createElement('button');
+      dot.type = 'button';
       dot.className = `slider-dot ${idx === 0 ? 'active' : ''}`;
+      dot.setAttribute('aria-label', `Show slide ${idx + 1} of ${slides.length}`);
+      dot.setAttribute('aria-current', idx === 0 ? 'true' : 'false');
       dot.addEventListener('click', () => goToSlide(idx));
       dotsContainer.appendChild(dot);
     });
@@ -177,6 +184,9 @@ document.addEventListener('DOMContentLoaded', () => {
       currentSlide = idx;
       slides[currentSlide].classList.add('active');
       dots[currentSlide].classList.add('active');
+      dots.forEach((dot, dotIndex) => {
+        dot.setAttribute('aria-current', dotIndex === currentSlide ? 'true' : 'false');
+      });
       resetInterval();
     };
 
@@ -695,6 +705,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   let activeProjectId = null;
+  let activeProjectTrigger = null;
 
   const openProject = (id) => {
     const data = projects[id];
@@ -830,9 +841,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     modal.classList.add('active');
+    modal.inert = false;
+    modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-active');
     document.body.style.overflow = 'hidden';
     modal.scrollTop = 0; // reset modal scroll position
+    window.requestAnimationFrame(() => closeBtn?.focus({ preventScroll: true }));
     handleScroll();
   };
 
@@ -840,24 +854,40 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!modal) return;
     activeProjectId = null;
     modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-active');
     document.body.style.overflow = '';
     if (modalClose) modalClose.style.display = '';
     modal.style.backgroundColor = '';
     modal.style.overflow = '';
+    activeProjectTrigger?.focus({ preventScroll: true });
+    modal.inert = true;
+    activeProjectTrigger = null;
     handleScroll();
   };
 
   // Bind project clicks
   document.querySelectorAll('[data-project]').forEach(card => {
+    const projectName = card.querySelector('h2, h3')?.textContent.trim() || 'project';
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', `View ${projectName}`);
+
     card.addEventListener('click', () => {
       const currentPage = window.location.pathname.split('/').pop() || 'index.html';
       if (currentPage !== 'work.html') {
         window.location.href = 'work.html';
       } else {
         const id = card.getAttribute('data-project');
+        activeProjectTrigger = card;
         openProject(id);
       }
+    });
+
+    card.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      card.click();
     });
   });
 
@@ -918,8 +948,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const parent = field.closest('.form-group');
       const errorMsg = parent ? parent.querySelector('.field-error-msg') : null;
       field.classList.remove('is-invalid');
+      field.setAttribute('aria-invalid', 'false');
       field.style.borderColor = '';
-      if (errorMsg) errorMsg.style.display = 'none';
+      if (errorMsg) errorMsg.hidden = true;
     };
 
     contactForm.addEventListener('input', event => {
@@ -930,7 +961,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const projectTypeField = field.closest('.contact-project-type');
         const errorMsg = projectTypeField ? projectTypeField.querySelector('.field-error-msg') : null;
         projectTypeField?.classList.remove('is-invalid');
-        if (errorMsg) errorMsg.style.display = 'none';
+        projectTypeField?.setAttribute('aria-invalid', 'false');
+        contactForm.querySelectorAll('input[name="project_type"]').forEach(input => {
+          input.setAttribute('aria-invalid', 'false');
+        });
+        if (errorMsg) errorMsg.hidden = true;
         return;
       }
 
@@ -956,6 +991,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { field: projectLocationInput, validate: (v) => v.trim().length > 0 },
         { field: messageInput, validate: (v) => v.trim().length > 0 }
       ];
+      let firstInvalidField = null;
 
       fields.forEach(item => {
         if (!item.field) return;
@@ -963,20 +999,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const errorMsg = parent ? parent.querySelector('.field-error-msg') : null;
         if (!item.validate(item.field.value)) {
           isValid = false;
+          firstInvalidField ||= item.field;
           item.field.classList.add('is-invalid');
+          item.field.setAttribute('aria-invalid', 'true');
           item.field.style.borderColor = 'var(--color-cinnamon-deep)';
-          if (errorMsg) errorMsg.style.display = 'block';
+          if (errorMsg) errorMsg.hidden = false;
         } else {
           item.field.classList.remove('is-invalid');
+          item.field.setAttribute('aria-invalid', 'false');
           item.field.style.borderColor = '';
-          if (errorMsg) errorMsg.style.display = 'none';
+          if (errorMsg) errorMsg.hidden = true;
         }
       });
 
       const projectTypeError = projectTypeField ? projectTypeField.querySelector('.field-error-msg') : null;
       projectTypeField?.classList.toggle('is-invalid', !projectTypeInput);
-      if (projectTypeError) projectTypeError.style.display = projectTypeInput ? 'none' : 'block';
-      if (!projectTypeInput) isValid = false;
+      projectTypeField?.setAttribute('aria-invalid', String(!projectTypeInput));
+      contactForm.querySelectorAll('input[name="project_type"]').forEach(input => {
+        input.setAttribute('aria-invalid', String(!projectTypeInput));
+      });
+      if (projectTypeError) projectTypeError.hidden = Boolean(projectTypeInput);
+      if (!projectTypeInput) {
+        isValid = false;
+        firstInvalidField ||= contactForm.querySelector('input[name="project_type"]');
+      }
 
       if (isValid) {
         const whatsappNumber = '919509628808';
@@ -1001,16 +1047,37 @@ document.addEventListener('DOMContentLoaded', () => {
         const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
         if (formConfirmation) {
-          formConfirmation.style.display = 'block';
+          formConfirmation.hidden = false;
         }
         window.location.assign(whatsappUrl);
+      } else {
+        firstInvalidField?.focus({ preventScroll: true });
+        firstInvalidField?.scrollIntoView({
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          block: 'center'
+        });
       }
     });
   }
 
   // FAQ Premium Split Modal
   const faqTriggers = document.querySelectorAll('[data-faq-trigger]');
-  const faqModal = document.getElementById('faq-modal');
+  let faqModal = document.getElementById('faq-modal');
+
+  if (!faqModal && faqTriggers.length) {
+    faqModal = document.createElement('div');
+    faqModal.className = 'faq-modal';
+    faqModal.id = 'faq-modal';
+    faqModal.setAttribute('aria-hidden', 'true');
+    faqModal.setAttribute('role', 'dialog');
+    faqModal.setAttribute('aria-labelledby', 'faq-modal-title');
+    faqModal.inert = true;
+    faqModal.innerHTML = `
+      <div class="faq-modal-overlay" data-faq-close></div>
+      <div class="faq-modal-container"></div>
+    `;
+    document.body.appendChild(faqModal);
+  }
 
   if (faqModal) {
     const faqIsPage = faqModal.hasAttribute('data-faq-page');
@@ -1035,7 +1102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         category: 'getting-started',
         question: 'What kinds of spaces do you design?',
         answer: [
-          'Homes, workplaces, hospitality and retail spaces. Whether the space is brand new or already lived in, our approach is the same: we understand the people first, then design around them.'
+          'Homes, workplaces, hospitality, and retail spaces. Whether the space is brand new or already lived in, our approach is the same: we understand the people first, then design around them.'
         ]
       },
       {
@@ -1119,6 +1186,25 @@ document.addEventListener('DOMContentLoaded', () => {
       { id: 'time-cost', label: 'Time and Cost' },
       { id: 'trust', label: 'Trust' }
     ];
+
+    if (faqIsPage && !document.getElementById('faq-structured-data')) {
+      const faqStructuredData = document.createElement('script');
+      faqStructuredData.id = 'faq-structured-data';
+      faqStructuredData.type = 'application/ld+json';
+      faqStructuredData.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map(item => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer.join(' ')
+          }
+        }))
+      });
+      document.head.appendChild(faqStructuredData);
+    }
 
     const modalContainer = faqModal.querySelector('.faq-modal-container');
     const modalOverlay = faqModal.querySelector('.faq-modal-overlay');
@@ -1218,6 +1304,7 @@ document.addEventListener('DOMContentLoaded', () => {
               class="faq-nav-questions${isOpen ? ' is-open' : ''}"
               id="faq-category-panel-${category.id}"
               aria-hidden="${!isOpen}"
+              ${isOpen ? '' : 'inert'}
             >
               <div>
                 ${indices.map(index => `
@@ -1260,6 +1347,7 @@ document.addEventListener('DOMContentLoaded', () => {
               class="faq-right-answer-wrap"
               id="faq-right-answer-${index}"
               aria-hidden="${!isExpanded}"
+              ${isExpanded ? '' : 'inert'}
             >
               <div>
                 <div class="faq-right-inline-answer">
@@ -1384,11 +1472,11 @@ document.addEventListener('DOMContentLoaded', () => {
       modalContainer.innerHTML = `
         <div class="faq-editorial-left">
           <div class="faq-left-intro">
-            <img class="faq-brand-logo" src="assets/logo.png" alt="Baeroh">
-            <h2 class="faq-editorial-title" id="faq-modal-title" tabindex="-1">
+            <img class="faq-brand-logo" src="assets/logo.png" width="614" height="602" alt="Baeroh">
+            <${faqIsPage ? 'h1' : 'h2'} class="faq-editorial-title" id="faq-modal-title" tabindex="-1">
               <span>Questions,</span>
               <span>Answered</span>
-            </h2>
+            </${faqIsPage ? 'h1' : 'h2'}>
             <p>Everything people quietly wonder<br>before they begin.</p>
           </div>
 
@@ -1457,9 +1545,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!faqModal.classList.contains('is-active')) return;
       window.clearTimeout(closeTimer);
       faqModal.classList.remove('is-active');
-      faqModal.setAttribute('aria-hidden', 'true');
 
       closeTimer = window.setTimeout(() => {
+        faqModal.setAttribute('aria-hidden', 'true');
+        faqModal.inert = true;
         unlockPageScroll();
         if (typeof afterClose === 'function') {
           afterClose();
@@ -1511,6 +1600,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       activeTrigger = event?.currentTarget || document.activeElement;
       resetFaqState();
+      faqModal.inert = false;
       faqModal.setAttribute('aria-hidden', 'false');
       lockPageScroll();
 
@@ -1520,6 +1610,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileNav?.classList.remove('active');
       menuToggle?.setAttribute('aria-expanded', 'false');
       mobileNav?.setAttribute('aria-hidden', 'true');
+      if (mobileNav) mobileNav.inert = true;
       document.querySelector('header')?.classList.remove('menu-open');
 
       window.requestAnimationFrame(() => {

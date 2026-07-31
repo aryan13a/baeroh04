@@ -16,15 +16,15 @@
     }
   </script>
   <style>html.site-loader-enabled { background: #3E312B; }</style>
-  <title>FAQ | Baeroh Interior Architecture & Design</title>
+  <title>FAQ | Baeroh Interior Architecture &amp; Design</title>
   <meta name="description" content="Answers to frequently asked questions about working with Baeroh, our process, project locations, timelines and fees.">
-  <link rel="stylesheet" href="style.css?v=8.6">
+  <link rel="stylesheet" href="style.css?v=8.7">
   <link rel="icon" type="image/png" href="assets/favicon.png?v=6.0">
 </head>
 <body class="page-faq">
   <div class="site-loader" id="site-loader" role="status" aria-label="Loading Baeroh">
     <div class="site-loader__content">
-      <img class="site-loader__logo" src="assets/logo.png" alt="Baeroh">
+      <img class="site-loader__logo" src="assets/logo.png" width="614" height="602" alt="Baeroh">
       <span class="site-loader__bar" aria-hidden="true">
         <span class="site-loader__progress"></span>
       </span>
@@ -44,7 +44,7 @@
       </nav>
 
       <div style="display: flex; align-items: center; gap: 30px;">
-        <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-menu">
+        <button type="button" class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-menu">
           <span></span>
           <span></span>
           <span></span>
@@ -53,7 +53,7 @@
     </div>
   </header>
 
-  <div class="mobile-nav" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-nav" id="mobile-menu" aria-hidden="true" inert>
     <a href="index.html">Home</a>
     <a href="work.html">Work</a>
     <a href="studio.html">Studio</a>
@@ -62,7 +62,7 @@
     <a href="contact.html">Contact</a>
   </div>
 
-  <main class="faq-page-main">
+  <main class="faq-page-main" id="faq">
     <div
       class="faq-modal"
       id="faq-modal"
@@ -79,8 +79,8 @@
   <footer>
     <div class="container footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo.png" alt="Baeroh Logo" class="footer-logo">
-        <p class="font-body-copy" style="font-size: 14px;">We design environments for the people who inhabit them, built around the stories of families, founders and teams.</p>
+        <img src="assets/logo.png" width="614" height="602" alt="Baeroh Logo" class="footer-logo" loading="lazy">
+        <p class="font-body-copy" style="font-size: 14px;">Thoughtful architectural spaces built around the stories of families, founders, and teams.</p>
       </div>
       <div class="footer-links">
         <span class="font-label" style="color: var(--color-ivory);">Navigation</span>
@@ -112,6 +112,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=7.7"></script>
+  <script src="script.js?v=7.8"></script>
 </body>
 </html>
