@@ -45,6 +45,8 @@ html {
   -webkit-font-smoothing: antialiased;
   max-width: 100%;
   overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 body {
@@ -52,6 +54,8 @@ body {
   overflow-x: hidden;
   line-height: 1.7;
   font-size: 15px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 /* Branded page loader */
@@ -207,19 +211,12 @@ a {
   outline-offset: 4px;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-ivory);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-sand);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-taupe);
+/* Hide the document scrollbar without disabling scrolling. */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 /* Typography Classes */
