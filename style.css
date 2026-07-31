@@ -6243,7 +6243,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   max-height: 940px;
   min-height: 620px;
   overflow: hidden;
-  border: 1px solid rgba(62, 49, 43, 0.1);
+  border: 0;
   border-radius: 4px;
   background: var(--color-ivory);
   box-shadow: 0 10px 34px rgba(30, 24, 21, 0.1);
