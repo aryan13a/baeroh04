@@ -165,40 +165,33 @@ document.addEventListener('DOMContentLoaded', () => {
   let slideInterval;
   let progressVisibilityTimer;
 
-  if (slides.length > 0 && dotsContainer) {
-    // Generate dots
-    slides.forEach((_, idx) => {
-      const dot = document.createElement('button');
-      dot.type = 'button';
-      dot.className = `slider-dot ${idx === 0 ? 'active' : ''}`;
-      dot.setAttribute('aria-label', `Show slide ${idx + 1} of ${slides.length}`);
-      dot.setAttribute('aria-current', idx === 0 ? 'true' : 'false');
-      dot.addEventListener('click', () => goToSlide(idx));
-      dotsContainer.appendChild(dot);
-    });
+  if (slides.length > 0) {
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `slider-dot ${idx === 0 ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `Show slide ${idx + 1} of ${slides.length}`);
+        dot.setAttribute('aria-current', idx === 0 ? 'true' : 'false');
+        dot.addEventListener('click', () => goToSlide(idx));
+        dotsContainer.appendChild(dot);
+      });
+    }
 
     const dots = document.querySelectorAll('.slider-dot');
-    const touchOnlyQuery = window.matchMedia('(hover: none)');
-
-    const brieflyRevealProgress = () => {
-      if (!touchOnlyQuery.matches) return;
-      window.clearTimeout(progressVisibilityTimer);
-      dotsContainer.classList.add('is-visible');
-      progressVisibilityTimer = window.setTimeout(() => {
-        dotsContainer.classList.remove('is-visible');
-      }, 1800);
-    };
 
     const goToSlide = (idx) => {
       slides[currentSlide].classList.remove('active');
-      dots[currentSlide].classList.remove('active');
+      if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
       currentSlide = idx;
       slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
-      dots.forEach((dot, dotIndex) => {
-        dot.setAttribute('aria-current', dotIndex === currentSlide ? 'true' : 'false');
-      });
-      brieflyRevealProgress();
+      if (dots[currentSlide]) {
+        dots[currentSlide].classList.add('active');
+        dots.forEach((dot, dotIndex) => {
+          dot.setAttribute('aria-current', dotIndex === currentSlide ? 'true' : 'false');
+        });
+      }
       resetInterval();
     };
 
@@ -585,7 +578,7 @@ document.addEventListener('DOMContentLoaded', () => {
       subtitle: 'Luxury Retail Landmark',
       location: 'Paris, France',
       year: '2025',
-      category: 'Commercial · Retail',
+      category: 'INTERIOR · COMMERCIAL · 2025',
       image: 'assets/unnamed.webp',
       description: 'Rather than a conventional retail interior, the Polène Flagship Store is conceived as an environment to be felt as much as seen, a place where material, light, and proportion come together to create a calm, tactile landscape that invites visitors to slow down, engage the senses, and experience the enduring relationship between form, hand, and material.',
       details: 'The store layout utilizes organic curves that guide visitors through a series of sculpted spaces. Local sand-colored limestone forms the monumental display tables, while high ceilings and concealed lighting mimic the softness of natural daylight. There is a deliberate emphasis on negative space, allowing the leather handbags to stand out as pieces of sculpture in a landscape of quiet luxury.',
@@ -603,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
       subtitle: 'Private Sanctuary',
       location: 'Zealand, Denmark',
       year: '2023',
-      category: 'Residential / Architecture',
+      category: 'INTERIOR · RESIDENTIAL · 2023',
       image: 'assets/unnamed (2).webp',
       description: 'Set in the rolling hills of Heatherhill, this private residence is designed to frame the wild seascape. Simple geometries, natural materials, and a muted color palette create a sense of quiet and security in a rugged environment.',
       details: 'The house follows the contours of the landscape, minimizing its footprint. Internally, a central fireplace divider anchors the living space. Large sliding glass doors slide completely into the walls, creating an uninterrupted transition to the outdoor terrace. The styling features warm tones, custom hemp rugs, and raw solid timber furniture, responding directly to the natural site conditions.',
@@ -621,7 +614,7 @@ document.addEventListener('DOMContentLoaded', () => {
       subtitle: 'Urban Residence',
       location: 'Reykjavik, Iceland',
       year: '2024',
-      category: 'Interior · Residential',
+      category: 'INTERIOR · RESIDENTIAL · 2024',
       image: 'assets/unnamed (3).webp',
       description: 'A minimal, calm apartment in the center of Reykjavik. The renovation focused on clarifying the layout, bringing in light, and curating tactile materials that respond to the volcanic light of Iceland.',
       details: 'The design strategy stripped back modern additions to reveal the structural concrete columns, which are balanced with warm dark-stained oak cabinetry and soft linen textiles. Bathrooms are finished in dark lava-stone tiles, while the living areas remain bright and open. A curated selection of custom and vintage furniture gives the space a lived-in, warm, and highly personal character.',
