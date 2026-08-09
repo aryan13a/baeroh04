@@ -7843,22 +7843,21 @@ img, video, svg, iframe, canvas {
 
 /* Standalone Statement Banner Below Both */
 .story-banner-standalone {
-  background-color: var(--color-charcoal);
-  color: var(--color-ivory);
-  padding: clamp(70px, 8vw, 120px) 24px;
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  padding: clamp(40px, 4.5vw, 60px) 24px;
   text-align: center;
-  border-bottom: 1px solid rgba(243, 240, 234, 0.15);
+  border-bottom: 1px solid rgba(62, 49, 43, 0.12);
 }
 
 .story-banner__kicker {
-  font-family: var(--font-display);
-  font-style: italic;
+  font-family: var(--font-body);
   font-weight: 300;
-  font-size: clamp(18px, 2.2vw, 30px);
-  line-height: 1.4;
-  color: var(--color-sand);
-  margin-bottom: 36px;
-  max-width: 900px;
+  font-size: clamp(14px, 1.2vw, 17px);
+  line-height: 1.5;
+  color: var(--color-olive);
+  margin-bottom: 16px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -7867,19 +7866,19 @@ img, video, svg, iframe, canvas {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(42px, 7vw, 96px);
-  line-height: 1.02;
+  font-size: clamp(28px, 3.8vw, 48px);
+  line-height: 1.1;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .story-banner__q {
-  color: var(--color-ivory);
+  color: var(--color-charcoal);
 }
 
 .story-banner__a {
-  color: var(--color-cinnamon-tint);
+  color: var(--color-cinnamon);
 }
