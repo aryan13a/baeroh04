@@ -205,7 +205,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     resetInterval();
-    brieflyRevealProgress();
 
     // Arrows navigation support
     const prevBtn = document.querySelector('.prev-arrow');
