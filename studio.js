@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const stageTabs = Array.from(table.querySelectorAll('.studio-table-tab'));
     const description = table.querySelector('#studio-stage-description');
     const stageDescriptions = [
-      'Conversation and context.',
-      'Habits, movement and need.',
-      'Space, material and atmosphere.',
-      'Detail, coordination and execution.'
+      'Your routines, your rhythms, what the space has to carry.',
+      'The decisions that matter, made before anything is drawn.',
+      'Materials, makers and the detail nobody is meant to notice.',
+      'The day it stops feeling new and starts feeling yours.'
     ];
     let committedStage = 0;
 
