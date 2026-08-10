@@ -15,7 +15,7 @@
   <style>html.site-loader-enabled { background: #3E312B; }</style>
   <title>Studio | Baeroh Interior Architecture &amp; Design</title>
   <meta name="description" content="Discover Baeroh, an interior design studio built on the simple belief that every meaningful environment begins with understanding people.">
-  <link rel="stylesheet" href="style.css?v=9.0">
+  <link rel="stylesheet" href="style.css?v=9.2">
   <link rel="icon" type="image/png" href="assets/favicon.png?v=6.0">
 </head>
 <body class="page-studio">
@@ -38,7 +38,7 @@
         <a href="studio.html" class="active">Studio</a>
         <a href="services.html">Services</a>
         <a href="faq.html" data-faq-trigger>FAQ</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html">Let&rsquo;s Talk</a>
       </nav>
       
       <div style="display: flex; align-items: center; gap: 30px;">
@@ -58,7 +58,7 @@
     <a href="studio.html">Studio</a>
     <a href="services.html">Services</a>
     <a href="faq.html" data-faq-trigger>FAQ</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html">Let&rsquo;s Talk</a>
   </div>
 
   <main class="studio-main">
@@ -96,34 +96,27 @@
           <img src="assets/studio/studio-material-board.png" width="1672" height="941" alt="Curated interior material and finishes board" loading="lazy">
 
           <button class="studio-table-marker is-active" type="button" data-studio-stage="0" style="--marker-x: 13%; --marker-y: 29%;" aria-pressed="true" aria-controls="studio-stage-description">
-            <span>01 / Listen</span><i aria-hidden="true"></i>
+            <span>01 / Understanding</span><i aria-hidden="true"></i>
           </button>
           <button class="studio-table-marker" type="button" data-studio-stage="1" style="--marker-x: 42%; --marker-y: 18%;" aria-pressed="false" aria-controls="studio-stage-description">
-            <span>02 / Understand</span><i aria-hidden="true"></i>
+            <span>02 / Insight</span><i aria-hidden="true"></i>
           </button>
           <button class="studio-table-marker studio-table-marker--right" type="button" data-studio-stage="2" style="--marker-x: 78%; --marker-y: 25%;" aria-pressed="false" aria-controls="studio-stage-description">
-            <span>03 / Shape</span><i aria-hidden="true"></i>
+            <span>03 / Craft</span><i aria-hidden="true"></i>
           </button>
           <button class="studio-table-marker studio-table-marker--right" type="button" data-studio-stage="3" style="--marker-x: 83%; --marker-y: 75%;" aria-pressed="false" aria-controls="studio-stage-description">
-            <span>04 / Deliver</span><i aria-hidden="true"></i>
+            <span>04 / Belonging</span><i aria-hidden="true"></i>
           </button>
         </div>
 
-        <div class="studio-table__tabs" role="tablist" aria-label="Studio process stages">
-          <button class="studio-table-tab is-active" id="studio-stage-tab-1" type="button" role="tab" data-studio-stage="0" aria-selected="true" aria-controls="studio-stage-description">
-            <span>01</span><strong>Listen</strong>
-          </button>
-          <button class="studio-table-tab" id="studio-stage-tab-2" type="button" role="tab" data-studio-stage="1" aria-selected="false" aria-controls="studio-stage-description">
-            <span>02</span><strong>Understand</strong>
-          </button>
-          <button class="studio-table-tab" id="studio-stage-tab-3" type="button" role="tab" data-studio-stage="2" aria-selected="false" aria-controls="studio-stage-description">
-            <span>03</span><strong>Shape</strong>
-          </button>
-          <button class="studio-table-tab" id="studio-stage-tab-4" type="button" role="tab" data-studio-stage="3" aria-selected="false" aria-controls="studio-stage-description">
-            <span>04</span><strong>Deliver</strong>
-          </button>
+        <div class="studio-table__mobile-stages" aria-label="Studio process stages">
+          <button class="is-active" type="button" data-studio-stage="0" aria-pressed="true"><span>01</span>Understanding</button>
+          <button type="button" data-studio-stage="1" aria-pressed="false"><span>02</span>Insight</button>
+          <button type="button" data-studio-stage="2" aria-pressed="false"><span>03</span>Craft</button>
+          <button type="button" data-studio-stage="3" aria-pressed="false"><span>04</span>Belonging</button>
         </div>
-        <p class="studio-table__description" id="studio-stage-description" role="tabpanel" aria-labelledby="studio-stage-tab-1" aria-live="polite">Conversation and context.</p>
+
+        <p class="studio-table__description" id="studio-stage-description" aria-live="polite">Your routines, your rhythms, what the space has to carry.</p>
       </div>
     </section>
 
@@ -133,7 +126,6 @@
         <div class="studio-team__header">
           <p class="studio-inside-label">The People Behind Baeroh</p>
           <h2 class="studio-team__title" id="studio-team-title">Three Perspectives. One Shared Vision.</h2>
-          <p class="studio-team__intro">At Baeroh, every project is shaped through collaboration. Three founders, three unique perspectives, and one shared commitment to creating timeless, meaningful spaces.</p>
         </div>
 
         <div class="studio-team__grid" role="list" aria-label="Baeroh founders" data-founder-track>
@@ -145,7 +137,7 @@
               <figcaption class="studio-team__info">
                 <h3 class="studio-team__name">Krishan Sharma</h3>
                 <p class="studio-team__role">Head of Operations</p>
-                <p class="studio-team__philosophy">&ldquo;Ideas endure through thoughtful execution.&rdquo;</p>
+                <p class="studio-team__philosophy">Making things happen.</p>
               </figcaption>
             </figure>
           </article>
@@ -158,7 +150,7 @@
               <figcaption class="studio-team__info">
                 <h3 class="studio-team__name">Anjana Sharma</h3>
                 <p class="studio-team__role">Founder &amp; Principal Designer</p>
-                <p class="studio-team__philosophy">&ldquo;Every great space begins with listening.&rdquo;</p>
+                <p class="studio-team__philosophy">Seeing the whole picture.</p>
               </figcaption>
             </figure>
           </article>
@@ -171,7 +163,7 @@
               <figcaption class="studio-team__info">
                 <h3 class="studio-team__name">Isha Goel</h3>
                 <p class="studio-team__role">Principal Architect</p>
-                <p class="studio-team__philosophy">&ldquo;Clarity in structure creates room for life.&rdquo;</p>
+                <p class="studio-team__philosophy">Giving the idea its structure.</p>
               </figcaption>
             </figure>
           </article>
@@ -212,7 +204,7 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="assets/logo.png" width="614" height="602" alt="Baeroh Logo" class="footer-logo" loading="lazy">
-        <p class="font-body-copy" style="font-size: 14px;">Thoughtful architectural spaces built around the stories of families, founders, and teams.</p>
+        <p class="font-body-copy" style="font-size: 14px;">Thoughtful interiors built around the stories of families, founders and teams.</p>
       </div>
       <div class="footer-links">
         <span class="font-label" style="color: var(--color-ivory);">Navigation</span>
@@ -222,7 +214,7 @@
           <li><a href="studio.html">Studio</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="faq.html" data-faq-trigger>FAQ</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Let&rsquo;s Talk</a></li>
         </ul>
       </div>
       <div class="footer-links">
@@ -246,7 +238,7 @@
 
 
   <!-- Scripts -->
-  <script src="script.js?v=7.9"></script>
-  <script src="studio.js?v=2.1"></script>
+  <script src="script.js?v=8.0"></script>
+  <script src="studio.js?v=2.3"></script>
 </body>
 </html>

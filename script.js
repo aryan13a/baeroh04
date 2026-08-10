@@ -160,45 +160,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Hero Slider
   const slides = document.querySelectorAll('.hero-slider .slide');
-  const dotsContainer = document.querySelector('.slider-dots');
   let currentSlide = 0;
   let slideInterval;
-  let progressVisibilityTimer;
 
-  if (slides.length > 0 && dotsContainer) {
-    // Generate dots
-    slides.forEach((_, idx) => {
-      const dot = document.createElement('button');
-      dot.type = 'button';
-      dot.className = `slider-dot ${idx === 0 ? 'active' : ''}`;
-      dot.setAttribute('aria-label', `Show slide ${idx + 1} of ${slides.length}`);
-      dot.setAttribute('aria-current', idx === 0 ? 'true' : 'false');
-      dot.addEventListener('click', () => goToSlide(idx));
-      dotsContainer.appendChild(dot);
-    });
-
-    const dots = document.querySelectorAll('.slider-dot');
-    const touchOnlyQuery = window.matchMedia('(hover: none)');
-
-    const brieflyRevealProgress = () => {
-      if (!touchOnlyQuery.matches) return;
-      window.clearTimeout(progressVisibilityTimer);
-      dotsContainer.classList.add('is-visible');
-      progressVisibilityTimer = window.setTimeout(() => {
-        dotsContainer.classList.remove('is-visible');
-      }, 1800);
-    };
-
+  if (slides.length > 0) {
     const goToSlide = (idx) => {
       slides[currentSlide].classList.remove('active');
-      dots[currentSlide].classList.remove('active');
       currentSlide = idx;
       slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
-      dots.forEach((dot, dotIndex) => {
-        dot.setAttribute('aria-current', dotIndex === currentSlide ? 'true' : 'false');
-      });
-      brieflyRevealProgress();
       resetInterval();
     };
 
@@ -212,7 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     resetInterval();
-    brieflyRevealProgress();
 
     // Arrows navigation support
     const prevBtn = document.querySelector('.prev-arrow');
