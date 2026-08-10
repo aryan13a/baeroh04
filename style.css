@@ -6206,18 +6206,10 @@ header.header-transparent ~ .project-modal .modal-close span::after {
 
 .home-philosophy-quote__inner {
   width: 100%;
-  max-width: 720px;
+  max-width: 660px;
   margin: 0 auto;
-  padding: clamp(26px, 2.6vw, 36px) 24px clamp(28px, 3vw, 40px);
+  padding: clamp(18px, 1.8vw, 24px) 24px;
   text-align: center;
-}
-
-.home-philosophy-quote__ornament {
-  display: block;
-  width: clamp(21px, 1.7vw, 26px);
-  height: auto;
-  margin: 0 auto clamp(12px, 1.3vw, 18px);
-  color: var(--color-cinnamon-deep);
 }
 
 .home-philosophy-quote p {
@@ -6330,13 +6322,8 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   .home-philosophy-quote__inner {
     max-width: 100%;
     margin: 0 auto;
-    padding: 26px 18px 30px;
+    padding: 18px;
     text-align: center;
-  }
-
-  .home-philosophy-quote__ornament {
-    width: 21px;
-    margin: 0 auto 13px;
   }
 
   .home-philosophy-quote p {
