@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const table = document.querySelector('[data-studio-table]');
   if (table) {
     const stageControls = Array.from(table.querySelectorAll('[data-studio-stage]'));
+    const stageTabs = Array.from(table.querySelectorAll('.studio-table-tab'));
     const description = table.querySelector('#studio-stage-description');
     const stageDescriptions = [
       'Your routines, your rhythms, what the space has to carry.',
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (description) {
         description.textContent = stageDescriptions[index];
+        description.setAttribute('aria-labelledby', `studio-stage-tab-${index + 1}`);
       }
     };
 
@@ -49,6 +51,22 @@ document.addEventListener('DOMContentLoaded', () => {
     table.addEventListener('pointerleave', () => renderStudioStage(committedStage));
     table.addEventListener('focusout', (event) => {
       if (!table.contains(event.relatedTarget)) renderStudioStage(committedStage);
+    });
+
+    stageTabs.forEach((tab, index) => {
+      tab.addEventListener('keydown', (event) => {
+        if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+        event.preventDefault();
+
+        let nextIndex = index;
+        if (event.key === 'ArrowRight') nextIndex = (index + 1) % stageTabs.length;
+        if (event.key === 'ArrowLeft') nextIndex = (index - 1 + stageTabs.length) % stageTabs.length;
+        if (event.key === 'Home') nextIndex = 0;
+        if (event.key === 'End') nextIndex = stageTabs.length - 1;
+
+        stageTabs[nextIndex].focus();
+        window.setActiveStudioStage(nextIndex);
+      });
     });
 
     window.setActiveStudioStage(0);

@@ -15,7 +15,7 @@
   <style>html.site-loader-enabled { background: #3E312B; }</style>
   <title>Studio | Baeroh Interior Architecture &amp; Design</title>
   <meta name="description" content="Discover Baeroh, an interior design studio built on the simple belief that every meaningful environment begins with understanding people.">
-  <link rel="stylesheet" href="style.css?v=9.2">
+  <link rel="stylesheet" href="style.css?v=9.3">
   <link rel="icon" type="image/png" href="assets/favicon.png?v=6.0">
 </head>
 <body class="page-studio">
@@ -109,14 +109,22 @@
           </button>
         </div>
 
-        <div class="studio-table__mobile-stages" aria-label="Studio process stages">
-          <button class="is-active" type="button" data-studio-stage="0" aria-pressed="true"><span>01</span>Understanding</button>
-          <button type="button" data-studio-stage="1" aria-pressed="false"><span>02</span>Insight</button>
-          <button type="button" data-studio-stage="2" aria-pressed="false"><span>03</span>Craft</button>
-          <button type="button" data-studio-stage="3" aria-pressed="false"><span>04</span>Belonging</button>
+        <div class="studio-table__tabs" role="tablist" aria-label="Studio process stages">
+          <button class="studio-table-tab is-active" id="studio-stage-tab-1" type="button" role="tab" data-studio-stage="0" aria-selected="true" aria-controls="studio-stage-description">
+            <span>01</span><strong>Understanding</strong>
+          </button>
+          <button class="studio-table-tab" id="studio-stage-tab-2" type="button" role="tab" data-studio-stage="1" aria-selected="false" aria-controls="studio-stage-description">
+            <span>02</span><strong>Insight</strong>
+          </button>
+          <button class="studio-table-tab" id="studio-stage-tab-3" type="button" role="tab" data-studio-stage="2" aria-selected="false" aria-controls="studio-stage-description">
+            <span>03</span><strong>Craft</strong>
+          </button>
+          <button class="studio-table-tab" id="studio-stage-tab-4" type="button" role="tab" data-studio-stage="3" aria-selected="false" aria-controls="studio-stage-description">
+            <span>04</span><strong>Belonging</strong>
+          </button>
         </div>
 
-        <p class="studio-table__description" id="studio-stage-description" aria-live="polite">Your routines, your rhythms, what the space has to carry.</p>
+        <p class="studio-table__description" id="studio-stage-description" role="tabpanel" aria-labelledby="studio-stage-tab-1" aria-live="polite">Your routines, your rhythms, what the space has to carry.</p>
       </div>
     </section>
 
@@ -125,7 +133,7 @@
       <div class="container">
         <div class="studio-team__header">
           <p class="studio-inside-label">The People Behind Baeroh</p>
-          <h2 class="studio-team__title" id="studio-team-title">Three Perspectives. One Shared Vision.</h2>
+          <h2 class="studio-team__title" id="studio-team-title">Baeroh was started by one person and is carried by three.</h2>
         </div>
 
         <div class="studio-team__grid" role="list" aria-label="Baeroh founders" data-founder-track>
@@ -214,7 +222,7 @@
           <li><a href="studio.html">Studio</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="faq.html" data-faq-trigger>FAQ</a></li>
-          <li><a href="contact.html">Let&rsquo;s Talk</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div class="footer-links">
@@ -239,6 +247,6 @@
 
   <!-- Scripts -->
   <script src="script.js?v=8.0"></script>
-  <script src="studio.js?v=2.3"></script>
+  <script src="studio.js?v=2.4"></script>
 </body>
 </html>
