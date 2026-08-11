@@ -1824,10 +1824,11 @@ header.header-transparent .menu-toggle span {
 .design-services-closing p {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(30px, 3.2vw, 48px);
+  font-size: clamp(19px, 2vw, 28px);
   font-weight: 400;
-  line-height: 1.12;
-  letter-spacing: 0.035em;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--color-ivory);
 }
 
@@ -1988,9 +1989,6 @@ header.header-transparent .menu-toggle span {
     margin: 11px 0 10px;
   }
 
-  .design-services-closing p {
-    font-size: 29px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
