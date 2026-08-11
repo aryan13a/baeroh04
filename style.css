@@ -2647,10 +2647,11 @@ footer {
 
 .story-split__image {
   position: absolute;
-  inset: 0;
+  inset: auto 0;
+  top: -14px;
   z-index: -2;
   width: 100%;
-  height: 100%;
+  height: calc(100% + 28px);
   object-fit: cover;
   opacity: 0;
   transform: scale(1.04);
@@ -2664,6 +2665,7 @@ footer {
 }
 
 .story-split__image--name {
+  top: 0;
   object-position: center;
 }
 
@@ -3004,6 +3006,15 @@ footer {
   .story-panel::before {
     opacity: 0;
     transform: scale(1);
+  }
+
+  .story-split__image {
+    top: -10px;
+    height: calc(100% + 20px);
+  }
+
+  .story-split__image--name {
+    top: 0;
   }
 
   .story-split__inner {
