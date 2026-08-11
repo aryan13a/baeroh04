@@ -241,7 +241,7 @@ body::-webkit-scrollbar {
 .font-display-section {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(28px, 4vw, 46px);
+  font-size: clamp(34px, 4.8vw, 56px);
   line-height: 1.25;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -3089,24 +3089,24 @@ footer {
 
 /* Story panels: useful at rest, with quieter detail revealed on interaction. */
 .story-split__image {
-  opacity: 0.12;
+  opacity: 0.82;
   transform: scale(1.015);
 }
 
 .story-panel::before {
-  opacity: 0.18;
+  opacity: 0.38;
 }
 
 .story-split[data-active="origin"] .story-split__image--origin,
 .story-split[data-active="name"] .story-split__image--name,
 .story-panel:focus-within .story-split__image {
-  opacity: 0.34;
+  opacity: 1;
 }
 
 .story-split[data-active="origin"] .story-panel--origin::before,
 .story-split[data-active="name"] .story-panel--name::before,
 .story-panel:focus-within::before {
-  opacity: 0.66;
+  opacity: 0.12;
 }
 
 .story-split__details {
@@ -3216,9 +3216,12 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .story-split__image,
+  .story-split__image {
+    opacity: 0.82;
+  }
+
   .story-panel::before {
-    opacity: 0.12;
+    opacity: 0.32;
   }
 
   .story-split__details-more {
@@ -6126,7 +6129,7 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   margin: 0;
   color: var(--color-charcoal);
   font-family: var(--font-display);
-  font-size: clamp(40px, 3.8vw, 58px);
+  font-size: clamp(34px, 4.8vw, 56px);
   font-weight: 400;
   line-height: 1.08;
   letter-spacing: 0.22em;
@@ -6312,10 +6315,6 @@ header.header-transparent ~ .project-modal .modal-close span::after {
     margin-bottom: 28px;
   }
 
-  .where-we-help-title {
-    font-size: clamp(34px, 4vw, 44px);
-  }
-
   .where-we-help-services-grid {
     max-width: 900px;
   }
@@ -6344,7 +6343,6 @@ header.header-transparent ~ .project-modal .modal-close span::after {
   }
 
   .where-we-help-title {
-    font-size: clamp(26px, 7.4vw, 32px);
     letter-spacing: 0.16em;
     white-space: nowrap;
   }
